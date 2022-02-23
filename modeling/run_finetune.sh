@@ -9,8 +9,8 @@ python3 finetune.py \
 	--train_batch_size=16 \
 	--eval_batch_size=16 \
 	--num_train_epochs=1 \
-	--device='gpu'\
-	--n_gpu=1\
-	--gpu_nums='0'\
+	--device='gpu' \
+	--n_gpu=1 \
+	--gpu_nums='0' \
 	--seed=42
 
