@@ -1,14 +1,16 @@
-python run_translation.py \
-    --model_name_or_path t5-base \
-    --do_train \
-    --do_eval \
-    --source_lang en \
-    --target_lang ro \
-    --source_prefix "translate English to Romanian: " \
-    --dataset_name wmt16 \
-    --dataset_config_name ro-en \
-    --output_dir /tmp/tst-translation \
-    --per_device_train_batch_size=4 \
-    --per_device_eval_batch_size=4 \
-    --overwrite_output_dir \
-    --predict_with_generate
+python3 finetune.py \
+	--data_dir='../raw_data/rainbow/anli' \
+	--output_dir='checkpoints/rainbow-t5' \
+	--checkpoint_dir='checkpoints/rainbow-t5' \
+	--cache_dir='hf_cache/' \
+	--model_name_or_path='t5-base' \
+	--tokenizer_name_or_path='t5-base' \
+	--max_seq_length=128 \
+	--train_batch_size=16 \
+	--eval_batch_size=16 \
+	--num_train_epochs=1 \
+	--device='gpu'\
+	--n_gpu=1\
+	--gpu_nums='0'\
+	--seed=42
+
