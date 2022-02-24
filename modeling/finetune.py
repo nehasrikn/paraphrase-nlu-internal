@@ -6,7 +6,7 @@ import torch
 
 from trainer import T5Finetuner
 
-from utils import set_seed
+from utils import set_seed, get_best_checkpoint
 
 
 
@@ -92,24 +92,27 @@ def main() -> None:
         print("Creating output directory")
         os.makedirs(args.output_dir)
 
-    # checkpoint_callback = pl.callbacks.ModelCheckpoint(
-    #     filepath=args.output_dir + "/{epoch}-{val_loss:.6f}",
-    #     prefix="checkpoint_",
-    #     monitor="val_loss",
-    #     mode="min",
-    #     save_top_k=1,
-    # )
+    checkpoint_callback = pl.callbacks.ModelCheckpoint(
+        dirpath=args.output_dir,
+        filename='checkpoint-{epoch}-{val_loss:.6f}',
+        monitor="val_loss",
+        verbose=True,
+        save_last=True,
+        mode="min",
+        save_on_train_epoch_end=False,
+        save_top_k=1,
+    )
 
-    # if args.checkpoint_dir:
-    #     best_checkpoint_path = get_best_checkpoint(args.checkpoint_dir)
-    #     print(f"Using checkpoint = {best_checkpoint_path}")
-    #     checkpoint_state = torch.load(best_checkpoint_path, map_location="cpu")
-    #     model = T5Finetuner(args)
-    #     model.load_state_dict(checkpoint_state["state_dict"])
-    # else:
-    #     model = T5Finetuner(args)
+    if args.checkpoint_dir:
+        best_checkpoint_path = get_best_checkpoint(args.checkpoint_dir)
+        print(f"Using checkpoint = {best_checkpoint_path}")
+        checkpoint_state = torch.load(best_checkpoint_path, map_location="cpu")
+        model = T5Finetuner(args)
+        model.load_state_dict(checkpoint_state["state_dict"])
+    else:
+        model = T5Finetuner(args)
 
-    model = T5Finetuner(args)
+    # model = T5Finetuner(args)
     trainer = pl.Trainer(
     	accelerator=args.device,
     	devices=args.n_gpu,
@@ -120,7 +123,8 @@ def main() -> None:
         gradient_clip_val=args.max_grad_norm,
         enable_model_summary=True,
         enable_progress_bar=True,
-        #checkpoint_callback=checkpoint_callback,
+        enable_checkpointing=True,
+        callbacks=[checkpoint_callback],
     )
     trainer.fit(model)
 

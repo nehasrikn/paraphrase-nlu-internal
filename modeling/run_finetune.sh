@@ -1,7 +1,6 @@
 python3 finetune.py \
 	--data_dir='../raw_data/rainbow/anli' \
 	--output_dir='checkpoints/rainbow-t5' \
-	--checkpoint_dir='checkpoints/rainbow-t5' \
 	--cache_dir='hf_cache/' \
 	--model_name_or_path='t5-base' \
 	--tokenizer_name_or_path='t5-base' \
@@ -14,3 +13,4 @@ python3 finetune.py \
 	--gpu_nums='0' \
 	--seed=42
 
+#--checkpoint_dir='checkpoints/rainbow-t5' \
