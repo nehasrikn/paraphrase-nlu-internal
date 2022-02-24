@@ -87,19 +87,20 @@ class T5Finetuner(pl.LightningModule):
         self.log("train_loss", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)
         return loss
 
-    def training_epoch_end(self, outputs: Sequence[Mapping[str, Any]]) -> Mapping[str, Any]:
+    def training_epoch_end(self, outputs: Sequence[Mapping[str, Any]]) -> None:
         avg_train_loss = torch.stack([x["loss"] for x in outputs]).mean()
-        return {
-            "avg_train_loss": avg_train_loss
-        }
+        self.log("avg_train_loss", avg_train_loss, prog_bar=True, logger=True)
 
     def validation_step(self, batch: Mapping[str, Any], batch_idx: int) -> Mapping[str, Any]:
         loss = self._step(batch)
-        return {"val_loss": loss}
+        self.log("val_loss", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)
+        return {
+            "val_loss": loss
+        }
 
     def validation_epoch_end(self, outputs: Sequence[Mapping[str, Any]]) -> Mapping[str, Any]:
-        avg_loss = torch.stack([x["val_loss"] for x in outputs]).mean()
-        return {"avg_val_loss": avg_loss}
+        avg_val_loss = torch.stack([x["val_loss"] for x in outputs]).mean()
+        self.log("avg_val_loss", avg_val_loss, prog_bar=True, logger=True)
 
     def configure_optimizers(self) -> Optimizer:
         "Prepare optimizer and schedule (linear warmup and decay)"

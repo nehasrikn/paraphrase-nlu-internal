@@ -118,6 +118,7 @@ def main() -> None:
         accumulate_grad_batches=args.gradient_accumulation_steps,
         max_epochs=args.num_train_epochs,
         check_val_every_n_epoch=1,
+        val_check_interval=0.25,
         precision=16 if args.fp_16 else 32,
         gradient_clip_val=args.max_grad_norm,
         enable_model_summary=True,
