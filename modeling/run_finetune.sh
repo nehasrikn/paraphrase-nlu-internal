@@ -1,11 +1,16 @@
 #!/bin/bash
-#SBATCH --time=06:00:00
+#SBATCH --time=6:00:00
 #SBATCH --partition=gpu
 #SBATCH --qos=gpu-medium
-# Run on non-materialgpu** nodes
+#SBATCH --gres=gpu:1
+#SBATCH --exclude=materialgpu00,materialgpu01,materialgpu02
+
+module load cuda
+source ~/.bashrc
+conda activate paraphrase-nlu
 
 python3 finetune.py \
-	--data_dir='../raw_data/rainbow/anli' \
+	--data_dir='../raw_data/anli' \
 	--output_dir='checkpoints/rainbow-t5-anli-t5-small' \
 	--cache_dir='hf_cache/' \
 	--model_name_or_path='t5-small' \
@@ -20,7 +25,7 @@ python3 finetune.py \
 	--n_gpu=1 \
 	--gpu_nums='0' \
 	--seed=42 \
-	--learning_rate=1e-4 \
+	--learning_rate=5e-4 \
 	
 #--fp_16
 #--checkpoint_dir='checkpoints/rainbow-t5' \

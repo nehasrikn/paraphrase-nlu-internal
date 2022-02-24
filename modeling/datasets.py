@@ -1,6 +1,7 @@
 import os
 import re, string
 import json
+from tqdm import tqdm
 import pandas as pd
 from typing import Mapping, Sequence
 
@@ -11,6 +12,16 @@ from transformers import T5Tokenizer
 
 Batch = Mapping[str, Sequence[BatchEncoding]]
 
+class InputExample(object):
+    """A single multiple choice question. Here "article" is optional"""
+
+    def __init__(self, qid, question, answers, label, article=None):
+        """Construct an instance."""
+        self.qid = qid
+        self.question = question
+        self.answers = answers
+        self.label = label
+
 class aNLIDataset(Dataset):
     """
     Abductive Commonsense Reasoning (aNLI): Bhagavatula et. al. 2020
@@ -18,18 +29,45 @@ class aNLIDataset(Dataset):
     """
 
     def __init__(self, tokenizer, data_dir, data_split, max_len=512):
+
         self.tokenizer = tokenizer
-        self.examples = pd.read_csv(os.path.join(data_dir, '%s.anli.csv' % data_split))
-        print(len(self.examples))
+        raw_exs = pd.read_json(os.path.join(data_dir, '%s.jsonl' % data_split), lines=True)
+        raw_exs['label'] = pd.read_csv(os.path.join(data_dir, '%s-labels.lst' % data_split), dtype=int, header=None)
+
+        self.examples = self._create_examples(raw_exs)
+        
         self.max_len = max_len
         self.inputs = []
         self.targets = []
 
         self._build()
 
+
+    def _create_examples(self, raw_exs):
+        examples = []
+        for _, e in raw_exs.iterrows():
+            context = ''
+            qid = e['story_id']
+            question = e['obs1'] + ' ' + e['obs2']
+            choices = [e['hyp1'], e['hyp2']]
+            choices = [c + '.' if not c.endswith('.') else c for c in choices]
+            examples.append(InputExample(
+                qid=qid,
+                question=question,
+                answers=choices,
+                label=e.label- 1)
+            )
+        return examples
+
+
     def _create_features(self, example):
-        inp = str(example.inputs)
-        target = str(example.targets)
+        inp = example.question
+        
+        options = ['%s: %s' % (i, option) for i, option in zip('12', example.answers)]
+        options = ' '.join(options)
+
+        inp = "context: %s  options: %s </s>" % (inp, options)
+        target = "%s </s>" % str(int(example.label) + 1)
         
         # tokenize inputs
         tokenized_inputs = self.tokenizer.batch_encode_plus(
@@ -43,7 +81,7 @@ class aNLIDataset(Dataset):
         self.targets.append(tokenized_targets)
 
     def _build(self):
-        for _, example in self.examples.iterrows():
+        for example in tqdm(self.examples):
             self._create_features(example)
 
     def __len__(self):
@@ -65,10 +103,10 @@ if __name__ == '__main__':
 
     anli = aNLIDataset(
         tokenizer=tokenizer, 
-        data_dir='../raw_data/rainbow/anli',
-        data_split='validation',
+        data_dir='../raw_data/alphanli-train-dev',
+        data_split='dev',
         max_len=128
     )
 
-    print(anli[0])
+    print(len(anli))
 

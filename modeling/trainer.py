@@ -7,7 +7,6 @@ import torch
 from torch.optim import Optimizer
 from torch.utils.data import DataLoader
 from transformers import (
-    AdamW,
     Adafactor,
     BatchEncoding,
     T5ForConditionalGeneration,
@@ -19,8 +18,8 @@ from datasets import aNLIDataset, Batch
 
 def get_dataset(tokenizer, data_split, args):
     print(args.data_dir)
-
     data_dir_leaf = args.data_dir.split("/")[-1]
+    print('🗂 ', data_dir_leaf)
 
     if data_dir_leaf == 'anli':
         return aNLIDataset(
@@ -158,6 +157,6 @@ class T5Finetuner(pl.LightningModule):
         return dataloader
 
     def val_dataloader(self) -> DataLoader[Batch]:
-        val_dataset = get_dataset(tokenizer=self.tokenizer, data_split='validation', args=self.hyperparameters)
+        val_dataset = get_dataset(tokenizer=self.tokenizer, data_split='dev', args=self.hyperparameters)
         return DataLoader(val_dataset, batch_size=self.hyperparameters.eval_batch_size, num_workers=8)
 
