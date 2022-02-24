@@ -112,7 +112,6 @@ def main() -> None:
     else:
         model = T5Finetuner(args)
 
-    # model = T5Finetuner(args)
     trainer = pl.Trainer(
     	accelerator=args.device,
     	devices=args.n_gpu,

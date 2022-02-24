@@ -8,6 +8,7 @@ from torch.optim import Optimizer
 from torch.utils.data import DataLoader
 from transformers import (
     AdamW,
+    Adafactor,
     BatchEncoding,
     T5ForConditionalGeneration,
     T5Tokenizer,
@@ -119,8 +120,10 @@ class T5Finetuner(pl.LightningModule):
                 "weight_decay": 0.0,
             },
         ]
-        optimizer = AdamW(
+        optimizer = Adafactor(
             optimizer_grouped_parameters,
+            scale_parameter=False,
+            relative_step=False,
             lr=self.hyperparameters.learning_rate
         )
         self.optimizer = optimizer
