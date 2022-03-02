@@ -162,12 +162,3 @@ if __name__ == '__main__':
            't5-base', cache_dir='hf_cache/'
     )
 
-    anli = aNLIDataset(
-        tokenizer=tokenizer, 
-        data_dir='../raw_data/alphanli-train-dev',
-        data_split='dev',
-        max_len=128
-    )
-
-    print(len(anli))
-
