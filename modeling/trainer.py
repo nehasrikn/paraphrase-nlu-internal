@@ -2,19 +2,21 @@ import argparse
 from pathlib import Path
 from typing import Any, Callable, Dict, Mapping, Optional, Sequence, Union
 
+import time
+import logging
+
 import pytorch_lightning as pl
 import torch
 from torch.optim import Optimizer
 from torch.utils.data import DataLoader
 from transformers import (
-    Adafactor,
-    BatchEncoding,
+    AdamW,
     T5ForConditionalGeneration,
     T5Tokenizer,
-    get_linear_schedule_with_warmup,
+    get_linear_schedule_with_warmup
 )
 
-from datasets import aNLIDataset, Batch
+from datasets import SwagDataset, Batch
 
 def get_dataset(tokenizer, data_split, args):
     print(args.data_dir)
@@ -28,135 +30,126 @@ def get_dataset(tokenizer, data_split, args):
             data_split=data_split,
             max_len=args.max_seq_length
         )
-
-
-class T5Finetuner(pl.LightningModule):
-    def __init__(self, hyperparameters: Union[Dict[str, Any], argparse.Namespace]) -> None:
-        super(T5Finetuner, self).__init__()
-        
-        if isinstance(hyperparameters, dict):
-            hyperparameters = argparse.Namespace(**hyperparameters)
-        self.hyperparameters = hyperparameters
-
-        print("Model Hyperparameters: ", self.hyperparameters)
-
-        self.model = T5ForConditionalGeneration.from_pretrained(
-            hyperparameters.model_name_or_path, cache_dir=hyperparameters.cache_dir
-        )
-        self.tokenizer = T5Tokenizer.from_pretrained(
-            hyperparameters.tokenizer_name_or_path, cache_dir=hyperparameters.cache_dir
+    elif data_dir_leaf == 'swag':
+        return SwagDataset(
+            tokenizer=tokenizer,
+            data_dir=args.data_dir,
+            data_split=data_split,
+            max_len=args.max_seq_length
         )
 
+class T5FineTuner(pl.LightningModule):
+    def __init__(self, hparams):
+        super(T5FineTuner, self).__init__()
+
+        self.hparams.update(vars(hparams))
+
+        self.model = T5ForConditionalGeneration.from_pretrained(hparams.model_name_or_path, cache_dir=hparams.cache_dir)
+        self.tokenizer = T5Tokenizer.from_pretrained(hparams.tokenizer_name_or_path, cache_dir=hparams.cache_dir)
+  
+    def is_logger(self):
+        return self.trainer.proc_rank <= 0
+  
     def forward(
-        self,
-        input_ids: BatchEncoding,
-        attention_mask: BatchEncoding = None,
-        decoder_input_ids: BatchEncoding = None,
-        decoder_attention_mask: BatchEncoding = None,
-        labels: BatchEncoding = None,
-    ) -> Any:
-        
+      self, input_ids, attention_mask=None, decoder_input_ids=None, decoder_attention_mask=None, labels=None
+    ):
         return self.model(
-            input_ids.to(self.model.device),
-            attention_mask=attention_mask.to(self.model.device),
+            input_ids,
+            attention_mask=attention_mask,
             decoder_input_ids=decoder_input_ids,
-            decoder_attention_mask=decoder_attention_mask.to(self.model.device),
-            labels=labels.to(self.model.device),
+            decoder_attention_mask=decoder_attention_mask,
+            labels=labels,
         )
 
-    def _step(self, batch: Mapping[str, Any]) -> Any:
+    def _step(self, batch):
         labels = batch["target_ids"]
-
-        # If we are padding here, replace all tokenizer.pad_token_id in the labels by -100 when we want to ignore
-        # padding in the loss.
         labels[labels[:, :] == self.tokenizer.pad_token_id] = -100
 
         outputs = self(
             input_ids=batch["source_ids"],
             attention_mask=batch["source_mask"],
             labels=labels,
-            decoder_attention_mask=batch["target_mask"],
+            decoder_attention_mask=batch['target_mask']
         )
 
         loss = outputs[0]
+
         return loss
 
-    def training_step(self, batch: Mapping[str, Any], batch_idx: int) -> Mapping[str, Any]:
+    def training_step(self, batch, batch_idx):
         loss = self._step(batch)
-        self.log("train_loss", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)
-        return loss
 
-    def training_epoch_end(self, outputs: Sequence[Mapping[str, Any]]) -> None:
+        tensorboard_logs = {"train_loss": loss}
+        return {"loss": loss, "log": tensorboard_logs}
+  
+    def training_epoch_end(self, outputs):
         avg_train_loss = torch.stack([x["loss"] for x in outputs]).mean()
-        self.log("avg_train_loss", avg_train_loss, prog_bar=True, logger=True)
+        tensorboard_logs = {"avg_train_loss": avg_train_loss}
+        return {"avg_train_loss": avg_train_loss, "log": tensorboard_logs, 'progress_bar': tensorboard_logs}
 
-    def validation_step(self, batch: Mapping[str, Any], batch_idx: int) -> Mapping[str, Any]:
+    def validation_step(self, batch, batch_idx):
         loss = self._step(batch)
-        self.log("val_loss", loss, on_step=True, on_epoch=True, prog_bar=True, logger=True)
-        return {
-            "val_loss": loss
-        }
+        return {"val_loss": loss}
+  
+    def validation_epoch_end(self, outputs):
+        avg_loss = torch.stack([x["val_loss"] for x in outputs]).mean()
+        tensorboard_logs = {"val_loss": avg_loss}
+        return {"avg_val_loss": avg_loss, "log": tensorboard_logs, 'progress_bar': tensorboard_logs}
 
-    def validation_epoch_end(self, outputs: Sequence[Mapping[str, Any]]) -> Mapping[str, Any]:
-        avg_val_loss = torch.stack([x["val_loss"] for x in outputs]).mean()
-        self.log("avg_val_loss", avg_val_loss, prog_bar=True, logger=True)
-
-    def configure_optimizers(self) -> Optimizer:
+    def configure_optimizers(self):
         "Prepare optimizer and schedule (linear warmup and decay)"
 
         model = self.model
         no_decay = ["bias", "LayerNorm.weight"]
         optimizer_grouped_parameters = [
             {
-                "params": [
-                    p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)
-                ],
-                "weight_decay": self.hyperparameters.weight_decay,
+                "params": [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)],
+                "weight_decay": self.hparams.weight_decay,
             },
             {
-                "params": [
-                    p for n, p in model.named_parameters() if any(nd in n for nd in no_decay)
-                ],
+                "params": [p for n, p in model.named_parameters() if any(nd in n for nd in no_decay)],
                 "weight_decay": 0.0,
             },
         ]
-        optimizer = Adafactor(
-            optimizer_grouped_parameters,
-            scale_parameter=False,
-            relative_step=False,
-            lr=self.hyperparameters.learning_rate
-        )
-        self.optimizer = optimizer
-        return optimizer
+        optimizer = AdamW(optimizer_grouped_parameters, lr=self.hparams.learning_rate, eps=self.hparams.adam_epsilon)
+        self.opt = optimizer
+        return [optimizer]
+  
+    def optimizer_step(
+            self,
+            epoch: int,
+            batch_idx: int,
+            optimizer: Optimizer,
+            optimizer_idx: int,
+            second_order_closure: Optional[Callable] = None,  # type: ignore[type-arg]
+            on_tpu: bool = False,
+            using_native_amp: bool = False,
+            using_lbfgs: bool = False,
+    ) -> None:
+        optimizer.step(second_order_closure)
+        optimizer.zero_grad()
+        self.lr_scheduler.step()
+  
+    def get_tqdm_dict(self):
+        tqdm_dict = {"loss": "{:.3f}".format(self.trainer.avg_loss), "lr": self.lr_scheduler.get_last_lr()[-1]}
 
-    def train_dataloader(self) -> DataLoader[Batch]:
-        train_dataset = get_dataset(tokenizer=self.tokenizer, data_split='train', args=self.hyperparameters)
-        dataloader = DataLoader(
-            train_dataset,
-            batch_size=self.hyperparameters.train_batch_size,
-            drop_last=True,
-            shuffle=True,
-            num_workers=8,
-        )
+        return tqdm_dict
 
+    def train_dataloader(self):
+        train_dataset = get_dataset(tokenizer=self.tokenizer, data_split="train", args=self.hparams)
+        dataloader = DataLoader(train_dataset, batch_size=self.hparams.train_batch_size, drop_last=True, shuffle=True, num_workers=4)
         t_total = (
-            (
-                len(dataloader.dataset) // 
-                (self.hyperparameters.train_batch_size * max(1, self.hyperparameters.n_gpu))
-            )
-            // self.hyperparameters.gradient_accumulation_steps * float(self.hyperparameters.num_train_epochs)
+            (len(dataloader.dataset) // (self.hparams.train_batch_size * max(1, self.hparams.n_gpu)))
+            // self.hparams.gradient_accumulation_steps
+            * float(self.hparams.num_train_epochs)
         )
-        
         scheduler = get_linear_schedule_with_warmup(
-            self.optimizer, 
-            num_warmup_steps=self.hyperparameters.warmup_steps, 
-            num_training_steps=t_total
+            self.opt, num_warmup_steps=self.hparams.warmup_steps, num_training_steps=t_total
         )
-
         self.lr_scheduler = scheduler
         return dataloader
 
-    def val_dataloader(self) -> DataLoader[Batch]:
-        val_dataset = get_dataset(tokenizer=self.tokenizer, data_split='dev', args=self.hyperparameters)
-        return DataLoader(val_dataset, batch_size=self.hyperparameters.eval_batch_size, num_workers=8)
+    def val_dataloader(self):
+        val_dataset = get_dataset(tokenizer=self.tokenizer, data_split="val", args=self.hparams)
+        return DataLoader(val_dataset, batch_size=self.hparams.eval_batch_size, num_workers=4)
 

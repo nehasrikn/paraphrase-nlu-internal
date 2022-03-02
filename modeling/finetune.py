@@ -4,10 +4,10 @@ import os
 import pytorch_lightning as pl
 import torch
 
-from trainer import T5Finetuner
+from trainer import T5FineTuner
+from logger import LoggingCallback
 
 from utils import set_seed, get_best_checkpoint
-
 
 
 def main() -> None:
@@ -62,7 +62,7 @@ def main() -> None:
         "--max_grad_norm", type=float, default=1.0, help="Maximum gradient norm value for clipping."
     )
 
-    parser.add_argument("--max_seq_length", type=int, default=128, help="Maximum sequence length.")
+    parser.add_argument("--max_seq_length", type=int, default=256, help="Maximum sequence length.")
     parser.add_argument("--warmup_steps", type=int, default=400, help="Number of warmup steps.")
     parser.add_argument("--train_batch_size", type=int, default=16, help="Batch size for training.")
     parser.add_argument(
@@ -107,18 +107,19 @@ def main() -> None:
         best_checkpoint_path = get_best_checkpoint(args.checkpoint_dir)
         print(f"Using checkpoint = {best_checkpoint_path}")
         checkpoint_state = torch.load(best_checkpoint_path, map_location="cpu")
-        model = T5Finetuner(args)
+        model = T5FineTuner(args)
         model.load_state_dict(checkpoint_state["state_dict"])
     else:
-        model = T5Finetuner(args)
+        model = T5FineTuner(args)
 
     trainer = pl.Trainer(
-    	accelerator=args.device,
-    	devices=args.n_gpu,
         accumulate_grad_batches=args.gradient_accumulation_steps,
         max_epochs=args.num_train_epochs,
-        check_val_every_n_epoch=1,
         precision=16 if args.fp_16 else 32,
+        checkpoint_callback=checkpoint_callback,
+    	accelerator=args.device,
+    	devices=args.n_gpu,
+        check_val_every_n_epoch=1,
         gradient_clip_val=args.max_grad_norm,
         enable_model_summary=True,
         enable_progress_bar=True,
