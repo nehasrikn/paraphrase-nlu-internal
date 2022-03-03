@@ -43,6 +43,7 @@ class T5FineTuner(pl.LightningModule):
         super(T5FineTuner, self).__init__()
 
         self.hparams.update(vars(hparams))
+        self.save_hyperparameters()
 
         self.model = T5ForConditionalGeneration.from_pretrained(hparams.model_name_or_path, cache_dir=hparams.cache_dir)
         self.tokenizer = T5Tokenizer.from_pretrained(hparams.tokenizer_name_or_path, cache_dir=hparams.cache_dir)

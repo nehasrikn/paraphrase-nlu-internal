@@ -5,9 +5,9 @@
 #SBATCH --gres=gpu:1
 #SBATCH --exclude=materialgpu00,materialgpu01,materialgpu02
 
-# module load cuda
-# source ~/.bashrc
-# conda activate paraphrase-nlu
+module load cuda
+source ~/.bashrc
+conda activate paraphrase-nlu
 
 python3 finetune.py \
 	--data_dir='../raw_data/swag' \
@@ -21,7 +21,7 @@ python3 finetune.py \
 	--train_batch_size=16 \
 	--warmup_steps=0 \
 	--eval_batch_size=16 \
-	--num_train_epochs=3 \
+	--num_train_epochs=1 \
 	--gradient_accumulation_steps=8 \
 	--max_grad_norm=1.0 \
 	--device='gpu' \
