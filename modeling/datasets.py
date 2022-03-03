@@ -57,6 +57,105 @@ class DataProcessor:
         """Gets the list of labels for this data set."""
         raise NotImplementedError()
 
+
+class aNLIProcessor(DataProcessor):
+    """Processor for the ANLI data set."""
+
+    LABELS = ['hyp1', 'hyp2']
+
+    TRAIN_FILE_NAME = 'train.jsonl'
+    TRAIN_LABEL_NAME = 'train-labels.lst'
+    DEV_FILE_NAME = 'dev.jsonl'
+    DEV_LABEL_NAME = 'dev-labels.lst'
+
+    def _get_raw_examples(self, data_dir, file_name, label_name):
+        raw_exs = pd.read_json(os.path.join(data_dir, file_name), lines=True)
+        if label_name:
+            raw_exs['label'] = pd.read_csv(os.path.join(data_dir, label_name), dtype=int, header=None)
+        return raw_exs
+
+    def get_train_examples(self, data_dir):
+        return self._create_examples(self._get_raw_examples(data_dir, self.TRAIN_FILE_NAME, self.TRAIN_LABEL_NAME))
+
+    def get_dev_examples(self, data_dir):
+        return self._create_examples(self._get_raw_examples(data_dir, self.DEV_FILE_NAME, self.DEV_LABEL_NAME))
+
+    def get_labels(self):
+        return [0, 1]
+
+    def _create_examples(self, raw_exs):
+        examples = []
+        
+        for _, line in raw_exs.iterrows():
+            context = ''
+            example_id = line['story_id']
+            context = line['obs1'] + " " + line['obs2']
+            choices = [line['hyp1'], line['hyp2']]
+            choices = [c + "." if not c.endswith(".") else c for c in choices]
+            examples.append(InputExample(
+                example_id=example_id,
+                context=context,
+                answers=choices,
+                label=label - 1))
+
+        return examples
+
+
+class aNLIDataset(Dataset):
+    def __init__(self, tokenizer, data_dir, data_split, max_len=512):
+        self.data_dir = data_dir
+        self.data_split = data_split
+        self.max_len = max_len
+        self.tokenizer = tokenizer
+        self.inputs = []
+        self.targets = []
+
+        self.proc = aNLIProcessor()
+
+        self._build()
+
+    def __getitem__(self, index):
+        source_ids = self.inputs[index]["input_ids"].squeeze()
+        target_ids = self.targets[index]["input_ids"].squeeze()
+        src_mask = self.inputs[index]["attention_mask"].squeeze()  # might need to squeeze
+        target_mask = self.targets[index]["attention_mask"].squeeze()  # might need to squeeze
+
+        return {"source_ids": source_ids, "source_mask": src_mask, "target_ids": target_ids, "target_mask": target_mask}
+
+    def __len__(self):
+        return len(self.inputs)
+
+    def _build(self):
+        if self.data_split == 'train':
+            examples = self.proc.get_train_examples(self.data_dir)
+        else:
+            examples = self.proc.get_dev_examples(self.data_dir)
+
+        for example in examples:
+            self._create_features(example)
+
+    def _create_features(self, example):
+        input_ = example.context
+        options = ['%s: %s' % (i, option) for i, option in zip('12', example.answers)]
+        options = " ".join(options)
+        input_ = "context: %s  options: %s </s>" % (input_, options)
+        target = "%s </s>" % str(int(example.label) + 1)
+
+        # tokenize inputs
+        tokenized_inputs = self.tokenizer.batch_encode_plus(
+            [input_], max_length=self.max_len, pad_to_max_length=True, return_tensors="pt", truncation=True
+        )
+
+        # tokenize targets
+        tokenized_targets = self.tokenizer.batch_encode_plus(
+            [target], max_length=2, pad_to_max_length=True, return_tensors="pt", truncation=True
+        )
+
+        self.inputs.append(tokenized_inputs)
+        self.targets.append(tokenized_targets)
+
+
+
 class SwagProcessor(DataProcessor):
     """Processor for the SWAG data set."""
 

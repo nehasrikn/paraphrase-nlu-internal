@@ -21,7 +21,7 @@ python3 finetune.py \
 	--train_batch_size=16 \
 	--warmup_steps=0 \
 	--eval_batch_size=16 \
-	--num_train_epochs=1 \
+	--num_train_epochs=3 \
 	--gradient_accumulation_steps=8 \
 	--max_grad_norm=1.0 \
 	--device='gpu' \
