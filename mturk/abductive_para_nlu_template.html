@@ -1,0 +1,279 @@
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+<link href = "https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+
+<style>
+	body {
+		padding-left: 20px;
+		margin-bottom: 10px;
+		font: Roboto;
+	}
+	#outer-container {
+	    display: flex;
+	    justify-content: space-around;
+	    max-width: 950px;
+	    padding-left: 20px;
+	}
+	.left-container {
+    	margin-right: auto;
+    	padding-right: 40px;
+    	width: 50%;
+	}
+	.right-container {
+    	margin-left: auto;
+    	padding-left: 40px;
+    	width: 50%;
+	}
+	#vertical-separator {
+	    border: solid 1px #d5dbdb;
+	}
+	table.minimalistBlack {
+	  border: 3px solid #000000;
+	  width: 100%;
+	  text-align: left;
+	  border-collapse: collapse;
+	  margin-top: 10px;
+	}
+	table.minimalistBlack td, table.minimalistBlack th {
+	  border: 1px solid #000000;
+	  padding: 5px 4px;
+	}
+	table.minimalistBlack tbody td {
+	  font-size: 13px;
+	}
+	table.minimalistBlack thead {
+	  background: #CFCFCF;
+	  background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+	  background: -webkit-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+	  background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+	  border-bottom: 3px solid #000000;
+	}
+	table.minimalistBlack thead th {
+	  font-size: 15px;
+	  font-weight: bold;
+	  color: #000000;
+	  text-align: left;
+	}
+	table.minimalistBlack tfoot td {
+	  font-size: 14px;
+	}
+
+	.tooltip {
+	  position: relative;
+	  display: inline-block;
+	  /*border-bottom: 1px dotted black; */
+	}
+	.tooltip .tooltiptext {
+	  visibility: hidden;
+	  width: 300px;
+	  background-color: #076357;
+	  color: #fff;
+	  text-align: center;
+	  padding: 10px 0;
+	  border-radius: 10px;
+	  position: absolute;
+	  z-index: 1;
+	  opacity: 0;
+	  transition: opacity 0.2s;
+	  top: 150%;
+	  left: 50%;
+	  margin-left: -60px;
+	}
+	.tooltip:hover .tooltiptext {
+		opacity: 1;
+		visibility: visible;
+	}
+	.tooltip .tooltiptext::after {
+	  content: " ";
+	  position: absolute;
+	  bottom: 100%;  /* At the top of the tooltip */
+	  left: 20%;
+	  margin-left: -5px;
+	  border-width: 5px;
+	  border-style: solid;
+	  border-color: transparent transparent black transparent;
+	}
+	.collapsible {
+	  background-color:  #ccc;
+	  color: #444;
+	  cursor: pointer;
+	  padding: 5px;
+	  width: 50%;
+	  border: none;
+	  text-align: left;
+	  outline: none;
+	  font-size: 20px;
+	  height:30px;
+	  border-radius: 12px;
+	}
+
+	/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+	.active, .collapsible:hover {
+	  background-color: #ccc;
+	}
+
+	/* Style the collapsible content. Note: hidden by default */
+	.content {
+	  padding: 0 18px;
+	  background-color: #f1f1f1;
+	  max-height: 0px;
+	  overflow: hidden;
+	  transition: max-height 0.2s ease-out;
+	  width: 75%;
+	}
+	.collapsible:after {
+	  content: '\02795'; /* Unicode character for "plus" sign (+) */
+	  font-size: 13px;
+	  color: white;
+	  float: right;
+	  margin-left: 5px;
+	}
+
+	.active:after {
+	  content: "\2796"; /* Unicode character for "minus" sign (-) */
+	}
+
+	input {
+		border-top-style: hidden;
+		border-right-style: hidden;
+		border-left-style: hidden;
+		border-bottom-style: groove;
+    }
+
+    .no-outline:focus {
+      outline: none;
+    }
+
+    .ui-autocomplete .ui-menu-item { 
+    	font-family: roboto;
+    	font-size: 0.85em;
+    }
+
+    .ui-state-active a,
+	.ui-state-active a:link,
+	.ui-state-active a:visited {
+	    color: #e36b10;
+
+	}
+	.ui-widget-content .ui-state-active {
+	    color: #e36b10;
+	    border: 0.5px solid #363634;
+	    font-weight: normal;
+	}
+
+	.ui-menu .ui-menu-item a{
+    	color: #e36b10;
+    	border-radius: 0px;
+	}
+
+	li p { font-weight: normal; }
+
+</style>
+
+<crowd-form onsubmit="verifyHIT();">
+	<div>
+		<button id="coll_button" type="button" class="collapsible active" onload="clickCollapsible()"><b><u>Task Instructions</u></b></button>
+		<div class="content" style="max-height: 1200px !important; height: auto;">
+			<br>
+			<b><u>Instructions:</b></u><br>
+			Are machines sensitive to paraphrasing? Ideally, when machines are presented with two snippets of text that convey the same meaning yet utilize different words, they should behave in a similar way. In this HIT, we’ll present a simple reasoning problem, and your task will be to paraphrase the highlighted portion of it (i.e use different words to convey the same meaning).
+			<br><br>
+		</div>
+	<!-- ALL DATA -->
+	<crowd-tab header="Pair %num">
+	<!-- <hr style='border: solid 1px #d5dbdb;'> -->
+		<div id="outer-container">
+			<span class="left-container">
+				<h3><font color="#ddb72b"><u><b>Observations</b></u></font></h3>
+			  	<p>
+					<font color="#ddb72b"><b>Observation 1:</b></font> George decided to buy a TV. <br>
+					<font color="#ddb72b"><b>Observation 2:</b></font> Things had turned out just as he’d hoped.
+			    </p>
+			</span>
+			<span id="vertical-separator"></span>
+			<span class="right-container">
+				<h3><font color="#218ffb"><u><b>Hypotheses</b></u></font></h3>
+			    <p>
+			    	<font color="#218ffb"><b>Hypothesis 1:</b></font> The TV had a cracked screen.
+			    	<br>
+			    	<mark><font color="#218ffb"><b>Hypothesis 2:</b></font> He took it home, unpacked it, and placed it where he wanted it. </mark>
+			    </p>
+			</span>
+		</div>
+	</crowd-tab>
+	<div style='max-width: 900px; padding-left: 20px;'>
+		<b> Paraphrase the highlighted hypothesis</b> such that its meaning is retained, but the words themselves substantially differ from those in the original sentence.
+		<crowd-input id='paraphrase_entry' name='paraphrase' label="Paraphrased Hypothesis" required onchange 
+           onpropertychange 
+           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
+    <div id='bleu'>Similarity: </div>
+	</div>
+
+  	<br>
+  	<div style="padding-left: 20px; position: relative;">
+  		<crowd-button id="submit_button" form-action="submit">
+  			Submit
+  		</crowd-button>
+  		<div id="errorBox"></div>
+  		<br>
+  	</div>
+	
+	<script>
+
+		//AUTOCOMPLETE_FUNCTIONS
+
+		var coll = document.getElementsByClassName("collapsible");
+		var i;
+
+		for (i = 0; i < coll.length; i++) {
+		  coll[i].addEventListener("click", function() {
+		    this.classList.toggle("active");
+		    var content = this.nextElementSibling;
+		    if (content.style.maxHeight){
+		      content.style.maxHeight = null;
+		    } else {
+		      content.style.maxHeight = content.scrollHeight + "px";
+		    }
+		  });
+		}
+
+		function verifyTaskCompleted(){
+			var freeText = document.getElementById('paraphrase_entry');
+			if(freeText.value.trim() === ""){
+					errorBox.innerHTML = '<crowd-alert type="error" dismissible>You must enter a paraphrase!</crowd-alert>';
+					return false
+			}
+  		return true;
+		}
+
+		function verifyHIT(){
+	      if (!verifyTaskCompleted()) {
+	          alert("Oh no! You didn't fill out a field. Check the error below the submit button.");
+	          event.preventDefault(); 
+	      }
+    }
+
+    function calculate_BLEU() {
+    	var freeText = document.getElementById('paraphrase_entry');
+    	document.getElementById("bleu").innerText = freeText.value;
+
+    	const para_tokens = freeText.value.split(' ')
+    	const hyp_tokens = 'He took it home, unpacked it, and placed it where he wanted it.'.split(' ')
+
+    	var para_tokens_set = new Set(para_tokens)
+    	var hyp_tokens_set = new Set(hyp_tokens)
+
+    	intersection = new Set(para_tokens.filter(x=>hyp_tokens_set.has(x)) ),
+		  union = new Set(para_tokens.concat(hyp_tokens));  // This step is unnecessary but is for semantic illustration
+		  const jaccard_sim = intersection.size / union.size
+		  
+		  document.getElementById("bleu").innerText = 'Similarity: ' + jaccard_sim.toPrecision(2);
+
+    }
+
+	</script>
+</crowd-form>
