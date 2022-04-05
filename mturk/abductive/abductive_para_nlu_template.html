@@ -119,51 +119,29 @@
 
 			<div class="middle-container">
 				<h3>Middle</h3>
-
 				<crowd-tabs>
 					<crowd-tab header="Sentence 1 (Plausible Middle)">
-
 						<crowd-card>
-				      <div class="card">
-				        HYPOTHESIS_CORRECT
-				      </div>
-				    </crowd-card>
-
+					      <div class="card">
+					        HYPOTHESIS_CORRECT
+					      </div>
+					    </crowd-card>
 						<div style='text-align: left; width: 600px; padding-left: 5px; padding-top: 30px'>
-							<b> Paraphrase the sentence above in two different ways</b> such that its meaning is retained, but the words themselves substantially differ from those in the original sentence.
-
-							<crowd-input id='paraphrase_correct_1' name='paraphrase_correct_1' label="Paraphrase #1" required onchange 
-							           onpropertychange 
-							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
-							<div id='similarity_correct_1'>Similarity: </div>
-
-							<crowd-input id='paraphrase_correct_2' name='paraphrase_correct_2' label="Paraphrase #2" required onchange 
-							           onpropertychange 
-							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
-							<div id='similarity_correct_2'>Similarity: </div>
+							TAB_INSTRUCTIONS
+							TABS_CORRECT
+							
 						</div>
-
 					</crowd-tab>
 
 					<crowd-tab header='Sentence 2 (Implausible Middle)'>
-												<crowd-card>
-				      <div class="card">
-				        HYPOTHESIS_INCORRECT
-				      </div>
-				    </crowd-card>
-
+						<crowd-card>
+					      <div class="card">
+					        HYPOTHESIS_INCORRECT
+					      </div>
+				   		</crowd-card>
 						<div style='text-align: left; width: 600px; padding-left: 5px; padding-top: 30px'>
-							<b> Paraphrase the sentence above in two different ways</b> such that its meaning is retained, but the words themselves substantially differ from those in the original sentence.
-
-							<crowd-input id='paraphrase_incorrect_1' name='paraphrase_incorrect_1' label="Paraphrase #1" required onchange 
-							           onpropertychange 
-							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
-							<div id='similarity_incorrect_1'>Similarity: </div>
-
-							<crowd-input id='paraphrase_incorrect_2' name='paraphrase_incorrect_2' label="Paraphrase #2" required onchange 
-							           onpropertychange 
-							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
-							<div id='similarity_incorrect_2'>Similarity: </div>
+							TAB_INSTRUCTIONS
+							TABS_INCORRECT
 						</div>
 
 					</crowd-tab>
@@ -195,9 +173,6 @@
 	</div>
 
 	<script>
-
-		//AUTOCOMPLETE_FUNCTIONS
-
 		var coll = document.getElementsByClassName("collapsible");
 		var i;
 
