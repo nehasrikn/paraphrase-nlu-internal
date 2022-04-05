@@ -17,8 +17,8 @@
 	    justify-content: space-around;
 	   	width: 1300px;
 	   	padding: 10px;
-	   	border: 1px solid black;
 	   	background-color: #e1f0f0;
+	   	border-radius: 25px;
 	}
 	.left-container {
 			float: left;
@@ -80,6 +80,7 @@
 	  overflow: hidden;
 	  transition: max-height 0.2s ease-out;
 	  width: 75%;
+	  border-radius: 25px;
 	}
 	.collapsible:after {
 	  content: '\02795'; /* Unicode character for "plus" sign (+) */
@@ -111,7 +112,7 @@
 				<h3>Beginning</h3>
 			    <crowd-card>
 			      <div class="card">
-			        George decided to buy a TV.
+			        OBSERVATION_1
 			      </div>
 			    </crowd-card>
 			</div>
@@ -124,22 +125,22 @@
 
 						<crowd-card>
 				      <div class="card">
-				        He took it home, unpacked it, and placed it where he wanted it.
+				        HYPOTHESIS_CORRECT
 				      </div>
 				    </crowd-card>
 
 						<div style='text-align: left; width: 600px; padding-left: 5px; padding-top: 30px'>
 							<b> Paraphrase the sentence above in two different ways</b> such that its meaning is retained, but the words themselves substantially differ from those in the original sentence.
 
-							<crowd-input id='paraphrase_entry_1' name='paraphrase' label="Paraphrased Hypothesis #1" required onchange 
+							<crowd-input id='paraphrase_correct_1' name='paraphrase_correct_1' label="Paraphrase #1" required onchange 
 							           onpropertychange 
 							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
-							<div id='bleu'>Similarity: </div>
+							<div id='similarity_correct_1'>Similarity: </div>
 
-							<crowd-input id='paraphrase_entry_2' name='paraphrase' label="Paraphrased Hypothesis #2" required onchange 
+							<crowd-input id='paraphrase_correct_2' name='paraphrase_correct_2' label="Paraphrase #2" required onchange 
 							           onpropertychange 
 							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
-							<div id='bleu_1'>Similarity: </div>
+							<div id='similarity_correct_2'>Similarity: </div>
 						</div>
 
 					</crowd-tab>
@@ -147,22 +148,22 @@
 					<crowd-tab header='Sentence 2 (Implausible Middle)'>
 												<crowd-card>
 				      <div class="card">
-				        The TV had a cracked screen.
+				        HYPOTHESIS_INCORRECT
 				      </div>
 				    </crowd-card>
 
 						<div style='text-align: left; width: 600px; padding-left: 5px; padding-top: 30px'>
 							<b> Paraphrase the sentence above in two different ways</b> such that its meaning is retained, but the words themselves substantially differ from those in the original sentence.
 
-							<crowd-input id='paraphrase_entry_3' name='paraphrase' label="Paraphrased Hypothesis #1" required onchange 
+							<crowd-input id='paraphrase_incorrect_1' name='paraphrase_incorrect_1' label="Paraphrase #1" required onchange 
 							           onpropertychange 
 							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
-							<div id='bleu'>Similarity: </div>
+							<div id='similarity_incorrect_1'>Similarity: </div>
 
-							<crowd-input id='paraphrase_entry_4' name='paraphrase' label="Paraphrased Hypothesis #2" required onchange 
+							<crowd-input id='paraphrase_incorrect_2' name='paraphrase_incorrect_2' label="Paraphrase #2" required onchange 
 							           onpropertychange 
 							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
-							<div id='bleu_1'>Similarity: </div>
+							<div id='similarity_incorrect_2'>Similarity: </div>
 						</div>
 
 					</crowd-tab>
@@ -179,21 +180,20 @@
 				<h3>Ending</h3>
 				<crowd-card>
 			      <div class="card">
-			        Things had turned out just as he’d hoped.
+			        OBSERVATION_2
 			      </div>
 			    </crowd-card>
 			</div>
 	</div>
+	<br>
+	<div style="position: relative;">
+		<crowd-button id="submit_button" form-action="submit">
+			Submit
+		</crowd-button>
+		<div id="errorBox"></div>
+		<br>
+	</div>
 
-  	<br>
-  	<div style="padding-left: 20px; position: relative;">
-  		<crowd-button id="submit_button" form-action="submit">
-  			Submit
-  		</crowd-button>
-  		<div id="errorBox"></div>
-  		<br>
-  	</div>
-	
 	<script>
 
 		//AUTOCOMPLETE_FUNCTIONS
@@ -229,12 +229,12 @@
 	      }
     }
 
-    function calculate_BLEU() {
-    	var freeText = document.getElementById('paraphrase_entry');
-    	document.getElementById("bleu").innerText = freeText.value;
+    function calculate_BLEU(free_text_id, similarity_id, correct_sentence) {
+    	var freeText = document.getElementById('zz');
+    	document.getElementById(similarity_id).innerText = freeText.value;
 
     	const para_tokens = freeText.value.split(' ')
-    	const hyp_tokens = 'He took it home, unpacked it, and placed it where he wanted it.'.split(' ')
+    	const hyp_tokens = correct_sentence.split(' ')
 
     	var para_tokens_set = new Set(para_tokens)
     	var hyp_tokens_set = new Set(hyp_tokens)
@@ -243,7 +243,7 @@
 		  union = new Set(para_tokens.concat(hyp_tokens));  // This step is unnecessary but is for semantic illustration
 		  const jaccard_sim = intersection.size / union.size
 		  
-		  document.getElementById("bleu").innerText = 'Similarity: ' + jaccard_sim.toPrecision(2);
+		  document.getElementById(similarity_id).innerText = 'Similarity: ' + jaccard_sim.toPrecision(2);
 
     }
 
