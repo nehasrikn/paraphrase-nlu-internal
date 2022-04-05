@@ -8,7 +8,7 @@
 
 <style>
 	body {
-		padding-left: 10px;
+		padding: 10px;
 		margin-bottom: 10px;
 		font: Roboto;
 	}
@@ -23,7 +23,6 @@
 	.left-container {
 			float: left;
 			width: 25%;
-			border: 1px solid red;
 			text-align: center;
 			overflow: scroll;
 			padding: 5px;
@@ -31,16 +30,15 @@
 	.middle-container {
 			float: left;
 			width: 50%;
-			border: 1px solid red;
 			overflow: scroll;
 			text-align: center;
-			padding: 5px;
+			padding-left: 10px;
+			padding-right: 20px;
 	}
 	.right-container {
 			float: left;
 			width: 25%;
 			padding-left: 10px;
-			border: 1px solid red;
 			text-align: center;
 			overflow: scroll;
 			padding: 5px;
@@ -55,45 +53,6 @@
     width: 100%;
   }
 
-	#vertical-separator {
-	    border: solid 1px #d5dbdb;
-	}
-
-	.tooltip {
-	  position: relative;
-	  display: inline-block;
-	  /*border-bottom: 1px dotted black; */
-	}
-	.tooltip .tooltiptext {
-	  visibility: hidden;
-	  width: 300px;
-	  background-color: #076357;
-	  color: #fff;
-	  text-align: center;
-	  padding: 10px 0;
-	  border-radius: 10px;
-	  position: absolute;
-	  z-index: 1;
-	  opacity: 0;
-	  transition: opacity 0.2s;
-	  top: 150%;
-	  left: 50%;
-	  margin-left: -60px;
-	}
-	.tooltip:hover .tooltiptext {
-		opacity: 1;
-		visibility: visible;
-	}
-	.tooltip .tooltiptext::after {
-	  content: " ";
-	  position: absolute;
-	  bottom: 100%;  /* At the top of the tooltip */
-	  left: 20%;
-	  margin-left: -5px;
-	  border-width: 5px;
-	  border-style: solid;
-	  border-color: transparent transparent black transparent;
-	}
 	.collapsible {
 	  background-color:  #ccc;
 	  color: #444;
@@ -134,41 +93,6 @@
 	  content: "\2796"; /* Unicode character for "minus" sign (-) */
 	}
 
-	input {
-		border-top-style: hidden;
-		border-right-style: hidden;
-		border-left-style: hidden;
-		border-bottom-style: groove;
-    }
-
-    .no-outline:focus {
-      outline: none;
-    }
-
-    .ui-autocomplete .ui-menu-item { 
-    	font-family: roboto;
-    	font-size: 0.85em;
-    }
-
-    .ui-state-active a,
-	.ui-state-active a:link,
-	.ui-state-active a:visited {
-	    color: #e36b10;
-
-	}
-	.ui-widget-content .ui-state-active {
-	    color: #e36b10;
-	    border: 0.5px solid #363634;
-	    font-weight: normal;
-	}
-
-	.ui-menu .ui-menu-item a{
-    	color: #e36b10;
-    	border-radius: 0px;
-	}
-
-	li p { font-weight: normal; }
-
 </style>
 
 <crowd-form onsubmit="verifyHIT();">
@@ -187,38 +111,67 @@
 				<h3>Beginning</h3>
 			    <crowd-card>
 			      <div class="card">
-			        George decided to buy a TV. asdkfjasl;kdjfa;lskdjfa;lskdjf;asj;flskjf
+			        George decided to buy a TV.
 			      </div>
 			    </crowd-card>
 			</div>
 
 			<div class="middle-container">
 				<h3>Middle</h3>
-			    <crowd-card>
-			      <div class="card">
-			        The TV had a cracked screen.
-			      </div>
-			    </crowd-card>
 
-				<div style='text-align: left; width: 600px; padding-left: 5px; padding-top: 30px'>
-					<b> Paraphrase the sentence above in three different ways</b> such that its meaning is retained, but the words themselves substantially differ from those in the original sentence.
+				<crowd-tabs>
+					<crowd-tab header="Sentence 1 (Plausible Middle)">
 
-					<ol>
-						<li >
-							<div>
-							  <crowd-input id='paraphrase_entry' name='paraphrase' label="Paraphrased Hypothesis" required onchange 
-					           onpropertychange 
-					           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
-					    	<div id='bleu'>Similarity: </div>
-					    </div>
-					  </li>
-					  <li>
-					  	
-					  </li>
-					</ol>
+						<crowd-card>
+				      <div class="card">
+				        He took it home, unpacked it, and placed it where he wanted it.
+				      </div>
+				    </crowd-card>
 
-					
-				</div>
+						<div style='text-align: left; width: 600px; padding-left: 5px; padding-top: 30px'>
+							<b> Paraphrase the sentence above in two different ways</b> such that its meaning is retained, but the words themselves substantially differ from those in the original sentence.
+
+							<crowd-input id='paraphrase_entry_1' name='paraphrase' label="Paraphrased Hypothesis #1" required onchange 
+							           onpropertychange 
+							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
+							<div id='bleu'>Similarity: </div>
+
+							<crowd-input id='paraphrase_entry_2' name='paraphrase' label="Paraphrased Hypothesis #2" required onchange 
+							           onpropertychange 
+							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
+							<div id='bleu_1'>Similarity: </div>
+						</div>
+
+					</crowd-tab>
+
+					<crowd-tab header='Sentence 2 (Implausible Middle)'>
+												<crowd-card>
+				      <div class="card">
+				        The TV had a cracked screen.
+				      </div>
+				    </crowd-card>
+
+						<div style='text-align: left; width: 600px; padding-left: 5px; padding-top: 30px'>
+							<b> Paraphrase the sentence above in two different ways</b> such that its meaning is retained, but the words themselves substantially differ from those in the original sentence.
+
+							<crowd-input id='paraphrase_entry_3' name='paraphrase' label="Paraphrased Hypothesis #1" required onchange 
+							           onpropertychange 
+							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
+							<div id='bleu'>Similarity: </div>
+
+							<crowd-input id='paraphrase_entry_4' name='paraphrase' label="Paraphrased Hypothesis #2" required onchange 
+							           onpropertychange 
+							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
+							<div id='bleu_1'>Similarity: </div>
+						</div>
+
+					</crowd-tab>
+
+
+					</crowd-tab>
+				</crowd-tabs>
+			    
+
 			</div>
 
 			<!-- <span id="vertical-separator"></span> -->
@@ -226,7 +179,7 @@
 				<h3>Ending</h3>
 				<crowd-card>
 			      <div class="card">
-			        Things had turned out just as he’d hoped. alskdjfal;skdjf;alskdjf;laskdjfa;lskdjfalskdjf;laskjdfal;skjdf
+			        Things had turned out just as he’d hoped.
 			      </div>
 			    </crowd-card>
 			</div>
