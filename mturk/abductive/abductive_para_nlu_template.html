@@ -124,11 +124,14 @@
 		  });
 		}
 
-		function verifyTaskCompleted(){
-			var freeText = document.getElementById('paraphrase_entry');
-			if(freeText.value.trim() === ""){
-					errorBox.innerHTML = '<crowd-alert type="error" dismissible>You must enter a paraphrase!</crowd-alert>';
+		function verifyTaskCompleted(num_paraphrases){
+			var entries = document.querySelectorAll("[id*=paraphrase_]")
+			console.log(entries.length)
+			for (var i = 0; i < entries.length; i++){ 
+				if(entries[i].value.trim() === ""){
+					errorBox.innerHTML = '<crowd-alert type="error" dismissible>Please finish filling out all paraphrases!</crowd-alert>';
 					return false
+				}
 			}
   		return true;
 		}
@@ -152,8 +155,9 @@
     	intersection = new Set(para_tokens.filter(x=>hyp_tokens_set.has(x)) ),
 		union = new Set(para_tokens.concat(hyp_tokens));  // This step is unnecessary but is for semantic illustration
 		const jaccard_sim = intersection.size / union.size
+		const distance = Math.round((1.0 - jaccard_sim) * 100)
 		  
-		document.getElementById(similarity_id).innerText = 'Similarity: ' + jaccard_sim.toPrecision(2);
+		document.getElementById(similarity_id).innerText = 'Distance from Original Sentence: ' + distance + '%';
 
     }
 

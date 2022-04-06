@@ -77,8 +77,8 @@ class AbductiveHITCreator():
 				url = 'file://' + f.name
 				f.write(task_html)
 				webbrowser.open(url)
-	    
-	    return task_html
+		
+		return task_html
 
 
 if __name__ == '__main__':
