@@ -17,8 +17,8 @@
 	    justify-content: space-around;
 	   	width: 1300px;
 	   	padding: 10px;
+	   	border: 1px solid black;
 	   	background-color: #e1f0f0;
-	   	border-radius: 25px;
 	}
 	.left-container {
 			float: left;
@@ -80,7 +80,6 @@
 	  overflow: hidden;
 	  transition: max-height 0.2s ease-out;
 	  width: 75%;
-	  border-radius: 25px;
 	}
 	.collapsible:after {
 	  content: '\02795'; /* Unicode character for "plus" sign (+) */
@@ -107,8 +106,98 @@
 		</div>
 	<br>
 	<!-- ALL DATA -->
+	<div id=task1 class='first-container'>
+			<div class="left-container">
+				<h3>Beginning</h3>
+			    <crowd-card>
+			      <div class="card">
+			        George decided to buy a TV.
+			      </div>
+			    </crowd-card>
+			</div>
+
+			<div class="middle-container">
+				<h3>Middle</h3>
+
+				<crowd-tabs>
+					<crowd-tab header="Sentence 1 (Plausible Middle)">
+
+						<crowd-card>
+				      <div class="card">
+				        He took it home, unpacked it, and placed it where he wanted it.
+				      </div>
+				    </crowd-card>
+
+						<div style='text-align: left; width: 600px; padding-left: 5px; padding-top: 30px'>
+							<b> Paraphrase the sentence above in two different ways</b> such that its meaning is retained, but the words themselves substantially differ from those in the original sentence.
+
+							<crowd-input id='paraphrase_entry_1' name='paraphrase' label="Paraphrased Hypothesis #1" required onchange 
+							           onpropertychange 
+							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
+							<div id='bleu'>Similarity: </div>
+
+							<crowd-input id='paraphrase_entry_2' name='paraphrase' label="Paraphrased Hypothesis #2" required onchange 
+							           onpropertychange 
+							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
+							<div id='bleu_1'>Similarity: </div>
+						</div>
+
+					</crowd-tab>
+
+					<crowd-tab header='Sentence 2 (Implausible Middle)'>
+												<crowd-card>
+				      <div class="card">
+				        The TV had a cracked screen.
+				      </div>
+				    </crowd-card>
+
+						<div style='text-align: left; width: 600px; padding-left: 5px; padding-top: 30px'>
+							<b> Paraphrase the sentence above in two different ways</b> such that its meaning is retained, but the words themselves substantially differ from those in the original sentence.
+
+							<crowd-input id='paraphrase_entry_3' name='paraphrase' label="Paraphrased Hypothesis #1" required onchange 
+							           onpropertychange 
+							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
+							<div id='bleu'>Similarity: </div>
+
+							<crowd-input id='paraphrase_entry_4' name='paraphrase' label="Paraphrased Hypothesis #2" required onchange 
+							           onpropertychange 
+							           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
+							<div id='bleu_1'>Similarity: </div>
+						</div>
+
+					</crowd-tab>
+
+
+					</crowd-tab>
+				</crowd-tabs>
+			    
+
+			</div>
+
+			<!-- <span id="vertical-separator"></span> -->
+			<div class="right-container">
+				<h3>Ending</h3>
+				<crowd-card>
+			      <div class="card">
+			        Things had turned out just as he’d hoped.
+			      </div>
+			    </crowd-card>
+			</div>
+	</div>
+
+  	<br>
+  	<div style="padding-left: 20px; position: relative;">
+  		<crowd-button id="submit_button" form-action="submit">
+  			Submit
+  		</crowd-button>
+  		<div id="errorBox"></div>
+  		<br>
+  	</div>
 	
 	<script>
+
+		//AUTOCOMPLETE_FUNCTIONS
+
 		var coll = document.getElementsByClassName("collapsible");
 		var i;
 
@@ -140,20 +229,21 @@
 	      }
     }
 
-    function calculate_BLEU(free_text_id, similarity_id, original_sentence) {
-    	var freeText = document.getElementById(free_text_id);
+    function calculate_BLEU() {
+    	var freeText = document.getElementById('paraphrase_entry');
+    	document.getElementById("bleu").innerText = freeText.value;
 
     	const para_tokens = freeText.value.split(' ')
-    	const hyp_tokens = original_sentence.split(' ')
+    	const hyp_tokens = 'He took it home, unpacked it, and placed it where he wanted it.'.split(' ')
 
     	var para_tokens_set = new Set(para_tokens)
     	var hyp_tokens_set = new Set(hyp_tokens)
 
     	intersection = new Set(para_tokens.filter(x=>hyp_tokens_set.has(x)) ),
-		union = new Set(para_tokens.concat(hyp_tokens));  // This step is unnecessary but is for semantic illustration
-		const jaccard_sim = intersection.size / union.size
+		  union = new Set(para_tokens.concat(hyp_tokens));  // This step is unnecessary but is for semantic illustration
+		  const jaccard_sim = intersection.size / union.size
 		  
-		document.getElementById(similarity_id).innerText = 'Similarity: ' + jaccard_sim.toPrecision(2);
+		  document.getElementById("bleu").innerText = 'Similarity: ' + jaccard_sim.toPrecision(2);
 
     }
 
