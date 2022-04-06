@@ -4,9 +4,17 @@ import tempfile, webbrowser
 
 
 class AbductiveHITCreator():
+	"""
+	Creates HTML code for each "HIT" or task based on examples in 
+	the Abductive dataset. This object uses an HTML template and
+	fills in example-specific text (i.e the hypotheses or the observations.
+	"""
 
 	PARAPHRASE_CORRECT = 'correct_%d'
 	PARAPHRASE_INCORRECT = 'incorrect_%d'
+
+	FUNCTION_FREE_TEXT_ID = 'paraphrase_%s'
+	FUNCTION_SIMILARITY_ID = 'similarity_%s'
 
 	NUM_PARAPHRASES_PER_HYPOTHESIS = 2
  
@@ -17,22 +25,27 @@ class AbductiveHITCreator():
 
 
 	@staticmethod
-	def create_HTML_from_example(task_template, ex: AbductiveNLIExample) -> str:
+	def create_HTML_from_example(task_template, ex: AbductiveNLIExample, display_html_in_browser: bool = True) -> str:
 		"""
-		Substitutes in the appropriate example strings to form HTML.
+		Substitutes in the appropriate example strings to form HTML code for UI for a single
+		abductive NLI example.
 		"""
 		
 		correct_hyp = ex.hyp1 if ex.label == 1 else ex.hyp2
 		incorrect_hyp = ex.hyp2 if ex.label == 1 else ex.hyp1
 
 		def create_tab_html(tab_prefix, original_sentence):
+			"""
+			Returns HTML code for the paraphrase input and the 
+			similarity score checker.
+			"""
 			paraphrases = []
 			for i in range(1, 1 + AbductiveHITCreator.NUM_PARAPHRASES_PER_HYPOTHESIS):
 				replace_table = {
 					'ID': tab_prefix % i,
 					'NUM': str(i),
-					'free_text_id': 'paraphrase_%s' % (tab_prefix % i),
-					'similarity_id': 'similarity_%s' %  (tab_prefix % i),
+					'free_text_id': AbductiveHITCreator.FUNCTION_FREE_TEXT_ID % (tab_prefix % i),
+					'similarity_id': AbductiveHITCreator.FUNCTION_SIMILARITY_ID%  (tab_prefix % i),
 					'original_sentence': original_sentence
 
 				}
@@ -42,7 +55,8 @@ class AbductiveHITCreator():
 				paraphrases.append(para_input)
 			return "\n".join(paraphrases)
 
-		task_parameters = {
+		# Example-specific parameters
+		example_parameter_values = {
 			'TAB_INSTRUCTIONS': TAB_INSTRUCTIONS,
 			'TABS_CORRECT': create_tab_html(AbductiveHITCreator.PARAPHRASE_CORRECT, correct_hyp),
 			'TABS_INCORRECT': create_tab_html(AbductiveHITCreator.PARAPHRASE_INCORRECT, incorrect_hyp),
@@ -53,16 +67,18 @@ class AbductiveHITCreator():
 		}
 
 		tabs = TABS
-		for key, value in task_parameters.items():
+		for key, value in example_parameter_values.items():
 			tabs = tabs.replace(key, value)
 
 		task_html = task_template.replace('<!-- ALL DATA -->', tabs)
 
-		with tempfile.NamedTemporaryFile('w', delete=False, dir='/Users/nehasrikanth/Desktop/temp_docs/', suffix='.html') as f:
-			url = 'file://' + f.name
-			f.write(task_html)
-			webbrowser.open(url)
-    
+		if display_html_in_browser:
+			with tempfile.NamedTemporaryFile('w', delete=False, dir='/Users/nehasrikanth/Desktop/temp_docs/', suffix='.html') as f:
+				url = 'file://' + f.name
+				f.write(task_html)
+				webbrowser.open(url)
+	    
+	    return task_html
 
 
 if __name__ == '__main__':
