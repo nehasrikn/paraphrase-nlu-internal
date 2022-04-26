@@ -126,10 +126,29 @@
 
 		function verifyTaskCompleted(num_paraphrases){
 			var entries = document.querySelectorAll("[id*=paraphrase_]")
-			console.log(entries.length)
+			var paraphrases = new Set()
+
 			for (var i = 0; i < entries.length; i++){ 
 				if(entries[i].value.trim() === ""){
 					errorBox.innerHTML = '<crowd-alert type="error" dismissible>Please finish filling out all paraphrases!</crowd-alert>';
+					return false
+				}
+				const para = cleanAndStripPunctutation(entries[i].value)
+				paraphrases.add(para)
+				if(para.length <= 10){
+					errorBox.innerHTML = '<crowd-alert type="error" dismissible>At least one of your paraphrases is too short. Please make sure your paraphrases are valid!</crowd-alert>';
+					return false
+				}
+			}
+			if (paraphrases.size != entries.length){
+				errorBox.innerHTML = '<crowd-alert type="error" dismissible>Please make sure that all your paraphrases are unique (no duplicates allowed)!</crowd-alert>';
+				return false
+			}
+
+			var similarities = document.querySelectorAll("[id*=similarity_]")
+			for (var i = 0; i < similarities.length; i++){ 
+				if(parseInt(similarities[i].textContent.slice(0, -1)) == 0){
+					errorBox.innerHTML = '<crowd-alert type="error" dismissible>At least one of your paraphrases is a copy of the sentence you were supposed to paraphrase. Please <b>paraphrase</b> the sentence.</crowd-alert>';
 					return false
 				}
 			}
@@ -138,7 +157,7 @@
 
 		function verifyHIT(){
 	      if (!verifyTaskCompleted()) {
-	          alert("Oh no! You didn't fill out a field. Check the error below the submit button.");
+	          alert("Oh no! Something's wrong. Check the error below the submit button.");
 	          event.preventDefault(); 
 	      }
     }
@@ -165,7 +184,7 @@
 		const jaccard_sim = intersection.size / union.size
 		const distance = Math.round((1.0 - jaccard_sim) * 100)
 		  
-		document.getElementById(similarity_id).innerText = 'Distance from Original Sentence: ' + distance + '%';
+		document.getElementById(similarity_id).innerText = distance + '%';
 		if (distance <= 20) {
 			document.getElementById(similarity_id).style.color = "#C84327";
 		} else if (distance > 20 && distance <= 40) {

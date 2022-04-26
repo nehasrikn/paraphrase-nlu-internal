@@ -3,8 +3,8 @@ TAB_INSTRUCTIONS="""
 """
 
 INPUT_TEMPLATE="""
-<crowd-input id='paraphrase_ID' name='paraphrase_ID' label='Paraphrase #NUM' required onchange onpropertychange onkeyuponpaste oninput="calculate_BLEU('free_text_id', 'similarity_id', 'original_sentence')"></crowd-input>
-<div id='similarity_ID'>Distance from Original Sentence: </div>
+<crowd-input id='paraphrase_ID' name='paraphrase_ID' spellcheck="true" label='Paraphrase #NUM' required onchange onpropertychange onkeyuponpaste oninput="calculate_BLEU('free_text_id', 'similarity_id', 'original_sentence')"></crowd-input>
+<div>Distance from Original Sentence: <span id='similarity_ID'></span></div>
 """
 
 
