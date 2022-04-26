@@ -18,12 +18,11 @@ class AbductiveHITCreator():
 
 	NUM_PARAPHRASES_PER_HYPOTHESIS = 3
 
-	#39222:39223 --> for the apostrophe
  
 	def __init__(self, HIT_template_path: str, abductive_dataset: AbductiveNLIDataset):
 		self.task_template = open(HIT_template_path, "r").read()
 		self.dataset = abductive_dataset
-		self.examples_html = [AbductiveHITCreator.create_HTML_from_example(self.task_template, e) for e in self.dataset.train_examples[:1]]
+		self.examples_html = [AbductiveHITCreator.create_HTML_from_example(self.task_template, e) for e in self.dataset.train_examples[39222:39223]]
 
 
 	@staticmethod
@@ -48,7 +47,7 @@ class AbductiveHITCreator():
 					'NUM': str(i),
 					'free_text_id': AbductiveHITCreator.FUNCTION_FREE_TEXT_ID % (tab_prefix % i),
 					'similarity_id': AbductiveHITCreator.FUNCTION_SIMILARITY_ID%  (tab_prefix % i),
-					'original_sentence': "%s" % original_sentence
+					'original_sentence': "%s" % original_sentence.replace("'", "\\'")
 
 				}
 				para_input = INPUT_TEMPLATE
