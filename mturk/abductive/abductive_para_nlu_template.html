@@ -143,11 +143,19 @@
 	      }
     }
 
+    function cleanAndStripPunctutation(str) {
+    	var cleanStr = str.toLowerCase().trim()
+    	const regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+    	return cleanStr.replace(regex, '')
+    }
+
     function calculate_BLEU(free_text_id, similarity_id, original_sentence) {
+    	//0 - 20 RED, 20 - 40 YELLOW, 40 - 100 GREEN
+
     	var freeText = document.getElementById(free_text_id);
 
-    	const para_tokens = freeText.value.split(' ')
-    	const hyp_tokens = original_sentence.split(' ')
+    	const para_tokens = cleanAndStripPunctutation(freeText.value).split(' ')
+    	const hyp_tokens = cleanAndStripPunctutation(original_sentence).split(' ')
 
     	var para_tokens_set = new Set(para_tokens)
     	var hyp_tokens_set = new Set(hyp_tokens)

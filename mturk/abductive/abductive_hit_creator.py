@@ -16,7 +16,9 @@ class AbductiveHITCreator():
 	FUNCTION_FREE_TEXT_ID = 'paraphrase_%s'
 	FUNCTION_SIMILARITY_ID = 'similarity_%s'
 
-	NUM_PARAPHRASES_PER_HYPOTHESIS = 2
+	NUM_PARAPHRASES_PER_HYPOTHESIS = 3
+
+	#39222:39223 --> for the apostrophe
  
 	def __init__(self, HIT_template_path: str, abductive_dataset: AbductiveNLIDataset):
 		self.task_template = open(HIT_template_path, "r").read()
@@ -46,7 +48,7 @@ class AbductiveHITCreator():
 					'NUM': str(i),
 					'free_text_id': AbductiveHITCreator.FUNCTION_FREE_TEXT_ID % (tab_prefix % i),
 					'similarity_id': AbductiveHITCreator.FUNCTION_SIMILARITY_ID%  (tab_prefix % i),
-					'original_sentence': original_sentence
+					'original_sentence': "%s" % original_sentence
 
 				}
 				para_input = INPUT_TEMPLATE
@@ -73,7 +75,7 @@ class AbductiveHITCreator():
 		task_html = task_template.replace('<!-- ALL DATA -->', tabs)
 
 		if display_html_in_browser:
-			with tempfile.NamedTemporaryFile('w', delete=False, dir='/Users/nehasrikanth/Desktop/temp_docs/', suffix='.html') as f:
+			with tempfile.NamedTemporaryFile('w', delete=False, dir='temp_docs/', suffix='.html') as f:
 				url = 'file://' + f.name
 				f.write(task_html)
 				webbrowser.open(url)
