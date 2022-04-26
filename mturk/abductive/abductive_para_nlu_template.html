@@ -166,6 +166,13 @@
 		const distance = Math.round((1.0 - jaccard_sim) * 100)
 		  
 		document.getElementById(similarity_id).innerText = 'Distance from Original Sentence: ' + distance + '%';
+		if (distance <= 20) {
+			document.getElementById(similarity_id).style.color = "#C84327";
+		} else if (distance > 20 && distance <= 40) {
+			document.getElementById(similarity_id).style.color = "#ccb00a";
+		} else {
+			document.getElementById(similarity_id).style.color = "green";
+		}
 
     }
 
