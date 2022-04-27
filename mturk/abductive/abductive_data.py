@@ -34,6 +34,13 @@ class AbductiveNLIDataset:
 
 		return examples
 
+	def get_split(self, split_name: str) -> List[AbductiveNLIExample]:
+		if split_name == 'train':
+			return self.train_examples
+		elif split_name == 'dev':
+			return self.dev_examples
+		else:
+			return self.test_examples
 
 if __name__ == '__main__':
 	adp = AbductiveDataProcessor(data_dir='../../raw_data/anli')

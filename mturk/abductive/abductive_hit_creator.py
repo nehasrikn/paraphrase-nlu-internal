@@ -2,6 +2,7 @@ from task_constants import TAB_INSTRUCTIONS, INPUT_TEMPLATE, TABS
 from abductive_data import AbductiveNLIExample, AbductiveNLIDataset
 import tempfile, webbrowser
 
+from typing import List
 
 class AbductiveHITCreator():
 	"""
@@ -22,11 +23,24 @@ class AbductiveHITCreator():
 	def __init__(self, HIT_template_path: str, abductive_dataset: AbductiveNLIDataset):
 		self.task_template = open(HIT_template_path, "r").read()
 		self.dataset = abductive_dataset
-		self.examples_html = [AbductiveHITCreator.create_HTML_from_example(self.task_template, e) for e in self.dataset.train_examples[39222:39223]]
+		#self.examples_html = [AbductiveHITCreator.create_HTML_from_example(self.task_template, e) for e in self.dataset.train_examples[39222:39223]]
 
+	def get_html_from_examples(self, split: str, examples_ids: List[int]) -> List[str]:
+		examples_to_build = filter(
+			lambda anli_example: anli_example.example_id in examples_ids,
+			self.dataset.get_split(split)
+		)
+		return [AbductiveHITCreator.create_HTML_from_example(self.task_template, e) for e in examples_to_build]
+
+	def get_proof_of_concept_HIT(self) -> None:
+		AbductiveHITCreator.create_HTML_from_example(self.task_template, self.dataset.get_split('train')[0], True)
 
 	@staticmethod
-	def create_HTML_from_example(task_template, ex: AbductiveNLIExample, display_html_in_browser: bool = True) -> str:
+	def create_HTML_from_example(
+		task_template: str, 
+		ex: AbductiveNLIExample, 
+		display_html_in_browser: bool = False
+	) -> str:
 		"""
 		Substitutes in the appropriate example strings to form HTML code for UI for a single
 		abductive NLI example.
@@ -87,4 +101,6 @@ if __name__ == '__main__':
 		HIT_template_path='abductive_para_nlu_template.html',
 		abductive_dataset=AbductiveNLIDataset(data_dir='../../raw_data/anli')
 	)
+
+	hc.get_proof_of_concept_HIT()
 
