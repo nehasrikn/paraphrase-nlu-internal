@@ -1,8 +1,19 @@
-from task_constants import TAB_INSTRUCTIONS, INPUT_TEMPLATE, TABS
-from abductive_data import AbductiveNLIExample, AbductiveNLIDataset
+import random
 import tempfile, webbrowser
+from dataclasses import asdict, dataclass
+from typing import List, Dict, Tuple
+from datetime import datetime
 
-from typing import List
+from abductive.task_constants import TAB_INSTRUCTIONS, INPUT_TEMPLATE, TABS
+from abductive.abductive_data import AbductiveNLIExample, AbductiveNLIDataset
+from abductive.task_parameters import TASK_PARAMETERS
+
+from mturk_hit_creator import (
+	MTurkHITTypeParameters, 
+	MTurkBatch, 
+	MTurkHITCreator,
+	MTurkHITData
+)
 
 class AbductiveHITCreator():
 	"""
@@ -23,14 +34,27 @@ class AbductiveHITCreator():
 	def __init__(self, HIT_template_path: str, abductive_dataset: AbductiveNLIDataset):
 		self.task_template = open(HIT_template_path, "r").read()
 		self.dataset = abductive_dataset
-		#self.examples_html = [AbductiveHITCreator.create_HTML_from_example(self.task_template, e) for e in self.dataset.train_examples[39222:39223]]
 
-	def get_html_from_examples(self, split: str, examples_ids: List[int]) -> List[str]:
-		examples_to_build = filter(
-			lambda anli_example: anli_example.example_id in examples_ids,
-			self.dataset.get_split(split)
-		)
-		return [AbductiveHITCreator.create_HTML_from_example(self.task_template, e) for e in examples_to_build]
+	def get_hit_data_from_examples(self, examples: List[AbductiveNLIExample]) -> List[MTurkHITData]:
+		hit_data_examples = []
+		for e in examples:
+			hit_data_examples.append(MTurkHITData(
+				task_html=AbductiveHITCreator.create_HTML_from_example(self.task_template, e),
+				internal_ID=e.example_id,
+				split=e.split,
+				example_data = asdict(e)
+			))
+		return hit_data_examples
+
+	def get_random_subset(self, split: str, num_examples: int) -> Tuple[List[int], List[str]]:
+		"""
+		Gets random subset of specified split.
+		Return:
+			- example ids for split
+			- examples
+		"""
+		sample = random.sample(self.dataset.get_split(split), num_examples)
+		return (list(map(lambda x: x.example_id, sample)), sample)
 
 	def get_proof_of_concept_HIT(self) -> None:
 		AbductiveHITCreator.create_HTML_from_example(self.task_template, self.dataset.get_split('train')[0], True)
@@ -95,12 +119,45 @@ class AbductiveHITCreator():
 		
 		return task_html
 
+def connect_and_post_abductive_hits(
+	split: str='test', 
+	num_examples: int=1, 
+	max_assignments: int=3,
+	hit_type_id=None,
+):
+	random.seed(42)
+	turk_creator = MTurkHITCreator()
 
-if __name__ == '__main__':
-	hc = AbductiveHITCreator(
-		HIT_template_path='abductive_para_nlu_template.html',
-		abductive_dataset=AbductiveNLIDataset(data_dir='../../raw_data/anli')
+	abductive_hit_creator = AbductiveHITCreator(
+		HIT_template_path='abductive/abductive_para_nlu_template.html',
+		abductive_dataset=AbductiveNLIDataset(data_dir='../raw_data/anli')
 	)
 
-	hc.get_proof_of_concept_HIT()
+	ids, examples = abductive_hit_creator.get_random_subset(split, 1)
+	if not hit_type_id:
+		hit_type = turk_creator.create_HIT_type(MTurkHITTypeParameters(**TASK_PARAMETERS))
+		hit_type_id = hit_type['HITTypeId']
+
+	assert hit_type_id
+
+	hit_data_examples = abductive_hit_creator.get_hit_data_from_examples(examples)
+
+	batch = MTurkBatch(
+		tasks=hit_data_examples,
+		origin_split=split,
+		dataset_name='abductive_nli',
+		example_ids=ids,
+		max_assignments=max_assignments,
+		post_date=datetime.now(),
+		requestor_note='initial pilot',
+		hit_type_id=hit_type_id
+	)
+	print(batch)
+
+	#turk_creator.create_HITs_from_mturk_batch(batch)
+
+
+if __name__ == '__main__':
+
+	connect_and_post_abductive_hits(hit_type_id=123)
 

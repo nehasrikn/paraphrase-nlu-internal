@@ -1,3 +1,5 @@
+from mturk_qualification_parameters import QUALIFICATIONS_LAX
+
 TASK_PARAMETERS = {
     'AutoApprovalDelayInSeconds': 16200,
     'AssignmentDurationInSeconds': 60*20,
