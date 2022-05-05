@@ -102,25 +102,37 @@
 		<div class="content" style="max-height: 1800px !important; height: auto;">
 			<br>
 			<b><u>Instructions:</b></u><br>
-			Are machines sensitive to paraphrasing? Ideally, when machines are presented with two snippets of text that convey the same meaning yet utilize different words, they should behave in a similar way. In this HIT, we'll present a simple story, and your task will be to write paraphrases for a portion of it (i.e use different words to convey the same meaning).
+			<br>
+			<i>"Josh bought a parrot as a pet. The parrot repeated Josh's morning greeting. Josh was so excited that he taught his parrot how to say its name!"</i>
 			<br><br>
-			Each story consists of a beginning sentence, two different middle sentences (a plausible middle, and an implausible middle), and an ending sentence. Plausible middle sentences make sense within the flow of the story, and implausible middle sentences do not necessarily fit within the flow of the story. Your task is to provide two paraphrases for both middle sentences (one on each tab) such that their meaning is retained, but the words themselves substantially differ from those in the original sentence. 
+			Are AI systems that are built to understand stories (like the one above) sensitive to word choice or sentence structure?
+			<br><br>
+
+			Ideally, when AI systems are presented with two snippets of text that convey the same meaning yet utilize different words or have different sentence structure, they should behave in a similar way. In this HIT, we’ll present a simple story consisting of 3 sentences, and your task will be to write paraphrases for a portion of it (i.e use different words or sentence structure to convey the same meaning).
+
+			<br><br>
+
+			Each story consists of a <u>beginning sentence</u>, <u>an ending sentence</u>, and a <u>middle sentence</u> that is either plausible or implausible (one each tab in the middle of the HIT). Plausible middle sentences make sense within the flow and context of the story, and implausible middle sentences do not necessarily fit within the flow of the story. The middle sentence in the story presented at the beginning is an example of a plausible middle sentence. However, an implausible middle sentence would be <i>"The parrot could not repeat Josh's greetings"</i>, since it does not align with the beginning and end sentences. 
+
+			<br><br>
+
+			Your task is to provide <u>three</u> paraphrases for both middle sentences (one on each tab) such that the words or sentence structure substantially differ from the original sentence, but the meaning is retained.
+
 			<br><br>
 			Your paraphrases should: <br>
 			<ul>
 				<li><b>Be full, grammatical, coherent sentences.</b></li>
-				<li><b>Maintain the same scenario.</b></li>
+				<li><b>Preserve the meaning of the sentence.</b></li>
 				<ul>
-					<li>Refrain from introducing entities or new information that violates the situation evoked by the story. </li>
+					<li><i><u>Make sure that sentence <b>meaning</b> does not differ</u></i> from the original sentence.</li>
+					<li><i><u>Refrain from introducing new information</u></i> that violates the situation evoked by the story.
+					<li><i><u>Preserve plausibility.</u></i> If the sentence is labeled as "plausible", your paraphrase should still be plausible within the context of the story. If the sentence is labeled as "implausible" (i.e, it doesn’t make sense within the context of the story), make sure that your paraphrase retains this property.
 				</ul>
+				<li><b>Be as different as possible from the other paraphrases you enter.</b></li>
 				<li><b>Differ as much as possible from the original sentence.</b>
 				<ul>
 					<li>Reduce word overlap between the original sentence and your paraphrased version.</li>
-					<li> The HIT UI includes a calculator to measure the distance between your paraphrase and the original sentence via word overlap (# of words in common with the original sentence). The higher this value is, the better! <b>You don't need to achieve a distance measure of 100% in your paraphrases</b> (since you might use words like be, or use common proper nouns), but aim to keep this metric above 30%!) We indicate this ideal range with green, yellow, and red coloring. </li>
-				</ul>
-				<li><b>Preserve plausibility.</b>
-				<ul>
-					<li>If the sentence is labeled as "plausible", your paraphrase should still be plausible within the context of the story. If the sentence is labeled as "implausible" (i.e, it doesn’t make sense within the context of the story), make sure that your paraphrase retains this property.</li>
+					<li> The HIT UI includes a calculator to measure the distance between your paraphrase and the original sentence via word overlap (# of words in common with the original sentence). The higher this value is, the better! <b>You don't need to achieve a distance measure of 100% in your paraphrases</b> (since you might use words like "be", or use common proper nouns), but aim to keep this metric above 40%!) We indicate this ideal range with <span style="color:green">green (40%+)</span>, <span style="color:#ccb00a">yellow (20%-40%)</span>, and <span style="color: #C84327">red (0%-20%)</span> coloring. </li>
 				</ul>
 			</ul>
 			<h4><u>UI Instructions:</u></h4>

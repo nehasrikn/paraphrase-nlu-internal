@@ -191,10 +191,13 @@ if __name__ == '__main__':
     parser.add_argument("--hit_type_id", type=str, default=None, help="HIT Type ID (if exists) for batch.")
     parser.add_argument("--live_marketplace", action='store_true', help="Post to live marketplace if specified, otherwise sandbox.")
 
-    
+
     args = parser.parse_known_args()[0]
 
     print(args)
 
-    connect_and_post_abductive_hits(**vars(args))
+    ah = AbductiveHITCreator()
+    ah.get_proof_of_concept_HIT()
+
+    # connect_and_post_abductive_hits(**vars(args))
 

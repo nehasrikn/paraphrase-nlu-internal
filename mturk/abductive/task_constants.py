@@ -1,5 +1,5 @@
 TAB_INSTRUCTIONS="""
-<b> Paraphrase the sentence above in two different ways</b> such that its meaning is retained, but the words themselves substantially differ from those in the original sentence.
+<b> Paraphrase the sentence above in three different ways</b> such that its meaning is retained, but the words or sentence structure substantially differ from the original sentence. Make sure that your three paraphrases are <b>different from each other</b> as well.
 """
 
 INPUT_TEMPLATE="""
