@@ -139,9 +139,6 @@ def connect_and_post_abductive_hits(
         live_marketplace=live_marketplace
     )
 
-    turk_creator.delete_all_active_HITs('32TFGTUJLO3J751NEB1G1MT9DBKIP8')
-    
-
     abductive_hit_creator = AbductiveHITCreator(
         HIT_template_path='abductive/abductive_para_nlu_template.html',
         abductive_dataset=AbductiveNLIDataset(data_dir='../raw_data/anli')
@@ -170,6 +167,22 @@ def connect_and_post_abductive_hits(
     posted_hits = turk_creator.create_HITs_from_mturk_batch(batch)
     batch.store_posted_batch_data(posted_hits)
     batch.write_to_json('abductive/mturk_data/creation/pilot.json')
+    turk_creator.trigger_email_notifications(hit_type_id, "nehasrik@umd.edu")
+
+def view_assignment(
+    assignment_id: str,
+    live_marketplace: bool,
+    aws_access_key: str,
+    aws_secret_access_key: str
+) -> None:
+        
+    turk_creator = MTurkHITCreator(
+        aws_access_key=aws_access_key,
+        aws_secret_access_key=aws_secret_access_key,
+        live_marketplace=live_marketplace
+    )
+
+    turk_creator.get_assignment(assignment_id)
 
 
 if __name__ == '__main__':
@@ -190,14 +203,17 @@ if __name__ == '__main__':
 
     parser.add_argument("--hit_type_id", type=str, default=None, help="HIT Type ID (if exists) for batch.")
     parser.add_argument("--live_marketplace", action='store_true', help="Post to live marketplace if specified, otherwise sandbox.")
+    parser.add_argument("--assignment_id", type=str, default=None, help="Get assignment")
 
 
     args = parser.parse_known_args()[0]
 
     print(args)
 
-    ah = AbductiveHITCreator()
-    ah.get_proof_of_concept_HIT()
+    #ah = AbductiveHITCreator()
+    #ah.get_proof_of_concept_HIT()
 
-    # connect_and_post_abductive_hits(**vars(args))
+    #connect_and_post_abductive_hits(**vars(args))
+
+    view_assignment(args.assignment_id, args.live_marketplace, args.aws_access_key, args.aws_secret_access_key)
 

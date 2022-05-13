@@ -9,6 +9,6 @@ python -m abductive.abductive_hit_creator \
 	--num_examples=115 \
 	--max_assignments=3 \
 	--live_marketplace \
-	#--hit_type_id='32TFGTUJLO3J751NEB1G1MT9DBKIP8' \
+	--assignment_id='3Y9N9SS8LYBEPX5PK977O0U79WH3DM' \
 
 	

@@ -141,4 +141,22 @@ class MTurkHITCreator:
                     print('Could not delete HIT %s' % item['HITId'])
                     continue
 
+    def trigger_email_notifications(self, HITTypeId: str, email: str) -> None:
+        print('Turning email notifications on for HITType: %s' % HITTypeId)
+        notification_response = self.mturk.update_notification_settings(
+            HITTypeId=HITTypeId,
+            Notification={
+                'Destination': email,
+                'Transport': 'Email',
+                'Version': '2006-05-05',
+                'EventTypes': [
+                    'AssignmentSubmitted',
+                ]
+            },
+        )
+        print(notification_response)
+
+    def get_assignment(self, AssignmentId: str):
+        print(self.mturk.get_assignment(AssignmentId=AssignmentId)['Assignment']['Answer'])
+
 
