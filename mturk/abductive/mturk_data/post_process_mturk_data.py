@@ -8,7 +8,7 @@ import string
 
 def process_assignments(row):
         processed_assignments = []
-        for assign in row.mturk_assignments:
+        for i, assign in enumerate(row.mturk_assignments):
             assignment = ast.literal_eval(
                 (re.search('<FreeText>(.*)</FreeText>', assign['Answer']).group(1)))[0]
             if row.example_data['label'] == 1: 
@@ -17,7 +17,14 @@ def process_assignments(row):
             else:
                 hyp1_paraphrases = [v for k, v in assignment.items() if k.startswith('paraphrase_incorrect')]
                 hyp2_paraphrases = [v for k, v in assignment.items() if k.startswith('paraphrase_correct')]
-            processed_assignments.append({'hyp1_paraphrases': hyp1_paraphrases, 'hyp2_paraphrases': hyp2_paraphrases})
+            processed_assignments.append(
+                {
+                    'mturk_worker_id': assign['WorkerId'],
+                    'example_worker_id': i,
+                    'hyp1_paraphrases': hyp1_paraphrases, 
+                    'hyp2_paraphrases': hyp2_paraphrases
+                }
+            )
         return processed_assignments
 
 def parse_tasks(creation_data_path: str, mturk):
@@ -39,9 +46,9 @@ if __name__ == '__main__':
     )
 
     results = parse_tasks('creation/pilot.json', mturk)
-    results.to_csv('results/pilot_results.csv', index=False)
+    results.to_csv('results/pilot_results_revised.csv', index=False)
 
-    mturk_abductive_data = pd.read_csv('results/pilot_results.csv').drop(columns=[
+    mturk_abductive_data = pd.read_csv('results/pilot_results_revised.csv').drop(columns=[
         'dataset_name', 
         'hit_type_id', 
         'max_assignments', 
@@ -60,4 +67,4 @@ if __name__ == '__main__':
     mturk_abductive_data['paraphrases'] = mturk_abductive_data['processed_assignments'].map(eval)
     mturk_abductive_data.drop(columns=['processed_assignments', 'example_data'])
 
-    mturk_abductive_data.to_csv('../../../annotated-data/abductive/paraphrased_pilot.csv', index=False)
+    mturk_abductive_data.to_csv('../../../annotated-data/abductive/paraphrased_pilot_revised.csv', index=False)
