@@ -32,10 +32,10 @@ if __name__ == '__main__':
 
     pilot_paraphrases = pd.read_csv('../annotated-data/abductive/paraphrased_pilot.csv')
 
-    pilot_paraphrases['hyp1_automatic_paraphrase'] = pilot_paraphrases['hyp1'].progress_map(lambda hyp1: model(hyp1, lexical=0.2, syntactic=0.2, semantic=0.9))
-    pilot_paraphrases['hyp2_automatic_paraphrase'] = pilot_paraphrases['hyp2'].progress_map(lambda hyp2: model(hyp2, lexical=0.2, syntactic=0.2, semantic=0.9))
+    pilot_paraphrases['hyp1_automatic_paraphrase'] = pilot_paraphrases['hyp1'].progress_map(lambda hyp1: model(hyp1, lexical=0.3, syntactic=0.5, semantic=0.95))
+    pilot_paraphrases['hyp2_automatic_paraphrase'] = pilot_paraphrases['hyp2'].progress_map(lambda hyp2: model(hyp2, lexical=0.3, syntactic=0.5, semantic=0.95))
 
 
-    pilot_paraphrases.to_csv('pilot_qcpg_paraphrases.csv', index=False)
+    pilot_paraphrases.to_csv('pilot_qcpg_paraphrases_l_03_sy_05_sem_095.csv', index=False)
 
     #print(model('Molly got into an accident.', lexical=0.2, syntactic=0.2, semantic=0.9))
