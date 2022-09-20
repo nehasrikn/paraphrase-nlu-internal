@@ -67,6 +67,25 @@ class AnnotatedAbductiveSet:
                             parent_annotation=annotation
                         )
                     )
+    
+    def create_intra_worker_paraphrased_examples(self):
+        self.intra_worker_paraphrases = []
+        for annotation in self.annotations: # 3 workers
+            for worker_paraphrases in annotation.annotated_paraphrases:
+                for h1 in worker_paraphrases['hyp1_paraphrases']:
+                    for h2 in worker_paraphrases['hyp2_paraphrases']:
+                        self.intra_worker_paraphrases.append(
+                            AbductiveNLIExample(
+                                obs1=annotation.original_example.obs1,
+                                obs2=annotation.original_example.obs2,
+                                hyp1=h1,
+                                hyp2=h2, 
+                                label=annotation.original_example.label,
+                                is_paraphrased=True,
+                                parent_annotation=annotation
+                            )
+                        )
 
 pilot_annotated_abductive_set = AnnotatedAbductiveSet(mturk_processed_annotations_csv='abductive/paraphrased_pilot_revised.csv')
-pilot_annotated_abductive_set.create_zipped_intra_worker_paraphrased_examples()
+pilot_annotated_abductive_set.create_intra_worker_paraphrased_examples()
+print(len(pilot_annotated_abductive_set.intra_worker_paraphrases))
