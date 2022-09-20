@@ -1,7 +1,11 @@
 from transformers import pipeline
+from annotated_data.data import pilot_annotated_abductive_set
 import pandas as pd
 from tqdm import tqdm
 import numpy as np
+import os
+
+#python -m experiments.auto_vs_human.qcpg run from top directory
 
 class QualityControlPipeline:
     
@@ -26,16 +30,16 @@ class QualityControlPipeline:
         return self.pipe(text, **kwargs)
 
 if __name__ == '__main__':
+
     model = QualityControlPipeline('sentences')
     tqdm.pandas()
 
+    print(len(pilot_annotated_abductive_set.original_examples))
 
-    pilot_paraphrases = pd.read_csv('../annotated-data/abductive/paraphrased_pilot.csv')
-
-    pilot_paraphrases['hyp1_automatic_paraphrase'] = pilot_paraphrases['hyp1'].progress_map(lambda hyp1: model(hyp1, lexical=0.3, syntactic=0.5, semantic=0.95))
-    pilot_paraphrases['hyp2_automatic_paraphrase'] = pilot_paraphrases['hyp2'].progress_map(lambda hyp2: model(hyp2, lexical=0.3, syntactic=0.5, semantic=0.95))
+    # pilot_paraphrases['hyp1_automatic_paraphrase'] = pilot_paraphrases['hyp1'].progress_map(lambda hyp1: model(hyp1, lexical=0.3, syntactic=0.5, semantic=0.95))
+    # pilot_paraphrases['hyp2_automatic_paraphrase'] = pilot_paraphrases['hyp2'].progress_map(lambda hyp2: model(hyp2, lexical=0.3, syntactic=0.5, semantic=0.95))
 
 
-    pilot_paraphrases.to_csv('pilot_qcpg_paraphrases_l_03_sy_05_sem_095.csv', index=False)
+    # pilot_paraphrases.to_csv('pilot_qcpg_paraphrases_l_03_sy_05_sem_095.csv', index=False)
 
     #print(model('Molly got into an accident.', lexical=0.2, syntactic=0.2, semantic=0.9))
