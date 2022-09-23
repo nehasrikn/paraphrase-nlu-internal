@@ -6,83 +6,80 @@ from dataclasses import dataclass, asdict
 
 @dataclass
 class AbductiveNLIExample:
+    story_id: int
+    example_id: int
+    split: str
     obs1: str 
     obs2: str
     hyp1: str
     hyp2: str 
     label: Optional[str]
-    is_paraphrased: bool
-    parent_annotation: Optional[object] # Optional[AbductiveExampleAnnotation]
+    annotated_paraphrases: List[Dict[str, List[str]]]
 
 @dataclass
-class AbductiveExampleAnnotation:
-    story_id: Optional[str]
-    example_id: Optional[str]
-    split: str
+class ParaphrasedAbductiveNLIExample:
+    paraphrase_id: str # <example_id>.<example_annotator_id>.<h1_id>.<h2_id>
     original_example: AbductiveNLIExample
-    annotated_paraphrases: List[Dict[str, List[str]]]
+    original_example_id: str
+    h1_paraphrase: str
+    h2_paraphrase: str
+    example_worker_id: int
+    mturk_worker_id: str
+    obs1_paraphrase: Optional[str] = None
+    obs2_paraphrase: Optional[str] = None
 
 
 class AnnotatedAbductiveSet:
 
     def __init__(self, mturk_processed_annotations_csv: str) -> None:
-        self.annotations = []
         self.original_examples = []
         annotations = pd.read_csv(mturk_processed_annotations_csv)
         for i, a in annotations.iterrows():
-            original_example = AbductiveNLIExample(
+            self.original_examples.append(AbductiveNLIExample(
                 obs1= a['obs1'],
                 obs2=a['obs2'],
                 hyp1=a['hyp1'],
                 hyp2=a['hyp2'],
                 label=a['label'],
-                is_paraphrased=False,
-                parent_annotation=None
-            )
-            example_annotation = AbductiveExampleAnnotation(
                 story_id=a['story_id'],
                 example_id=a['example_id'],
                 split=a['split'],
-                original_example=original_example,
                 annotated_paraphrases=eval(a['paraphrases'])
-            )
-            original_example.parent_annotation = example_annotation
-            self.original_examples.append(original_example)
-            self.annotations.append(example_annotation)
+            ))
     
     def create_zipped_intra_worker_paraphrased_examples(self):
         self.zipped_intra_worker_paraphrases = []
 
-        for annotation in self.annotations: # 3 workers
-            for worker_paraphrases in annotation.annotated_paraphrases:
-                for h1, h2 in zip(worker_paraphrases['hyp1_paraphrases'], worker_paraphrases['hyp2_paraphrases']):
+        for example in self.original_examples: # 3 workers
+            for worker_paraphrases in example.annotated_paraphrases:
+                for h_id, (h1, h2) in enumerate(list(zip(worker_paraphrases['hyp1_paraphrases'], worker_paraphrases['hyp2_paraphrases']))):
                     self.zipped_intra_worker_paraphrases.append(
-                        AbductiveNLIExample(
-                            obs1=annotation.original_example.obs1,
-                            obs2=annotation.original_example.obs2,
-                            hyp1=h1,
-                            hyp2=h2, 
-                            label=annotation.original_example.label,
-                            is_paraphrased=True,
-                            parent_annotation=annotation
+                        ParaphrasedAbductiveNLIExample(
+                            paraphrase_id='%d.%d.%d.%d' % (example.example_id, worker_paraphrases['example_worker_id'], h_id, h_id),
+                            original_example_id=example.example_id,
+                            original_example=example,
+                            h1_paraphrase=h1, 
+                            h2_paraphrase=h2,
+                            example_worker_id=worker_paraphrases['example_worker_id'],
+                            mturk_worker_id=worker_paraphrases['mturk_worker_id']
                         )
                     )
     
     def create_intra_worker_paraphrased_examples(self):
         self.intra_worker_paraphrases = []
-        for annotation in self.annotations: # 3 workers
-            for worker_paraphrases in annotation.annotated_paraphrases:
-                for h1 in worker_paraphrases['hyp1_paraphrases']:
-                    for h2 in worker_paraphrases['hyp2_paraphrases']:
+        for example in self.original_examples: # 3 workers
+            for worker_paraphrases in example.annotated_paraphrases:
+                for h1_id, h1 in enumerate(worker_paraphrases['hyp1_paraphrases']):
+                    for h2_id, h2 in enumerate(worker_paraphrases['hyp2_paraphrases']):
                         self.intra_worker_paraphrases.append(
-                            AbductiveNLIExample(
-                                obs1=annotation.original_example.obs1,
-                                obs2=annotation.original_example.obs2,
-                                hyp1=h1,
-                                hyp2=h2, 
-                                label=annotation.original_example.label,
-                                is_paraphrased=True,
-                                parent_annotation=annotation
+                            ParaphrasedAbductiveNLIExample(
+                                paraphrase_id='%d.%d.%d.%d' % (example.example_id, worker_paraphrases['example_worker_id'], h1_id, h2_id),
+                                original_example_id=example.example_id,
+                                original_example=example,
+                                h1_paraphrase=h1, 
+                                h2_paraphrase=h2,
+                                example_worker_id=worker_paraphrases['example_worker_id'],
+                                mturk_worker_id=worker_paraphrases['mturk_worker_id']
                             )
                         )
 
