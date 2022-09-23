@@ -1,6 +1,6 @@
 import pandas as pd
 from dataclasses import dataclass
-from typing import List, Optional, Dict
+from typing import List, Optional, Dict, Any
 from dataclasses import dataclass, asdict
 ### Class definitions for objects representing annotated data
 
@@ -18,15 +18,16 @@ class AbductiveNLIExample:
 
 @dataclass
 class ParaphrasedAbductiveNLIExample:
-    paraphrase_id: str # <example_id>.<example_annotator_id>.<h1_id>.<h2_id>
+    paraphrase_id: str # <example_id>.<example_annotator_id>.<h1_id>.<h2_id> for human, <example_id>.<system>.<identifiers> for generated
     original_example: AbductiveNLIExample
     original_example_id: str
-    h1_paraphrase: str
-    h2_paraphrase: str
-    example_worker_id: int
-    mturk_worker_id: str
+    hyp1_paraphrase: str
+    hyp2_paraphrase: str
+    example_worker_id: Optional[int] = None
+    mturk_worker_id: Optional[str] = None
     obs1_paraphrase: Optional[str] = None
     obs2_paraphrase: Optional[str] = None
+    automatic_system_metadata: Optional[Dict[Any, Any]] = None # can contain system-specific metadata
 
 
 class AnnotatedAbductiveSet:
@@ -58,8 +59,8 @@ class AnnotatedAbductiveSet:
                             paraphrase_id='%d.%d.%d.%d' % (example.example_id, worker_paraphrases['example_worker_id'], h_id, h_id),
                             original_example_id=example.example_id,
                             original_example=example,
-                            h1_paraphrase=h1, 
-                            h2_paraphrase=h2,
+                            hyp1_paraphrase=h1, 
+                            hyp2_paraphrase=h2,
                             example_worker_id=worker_paraphrases['example_worker_id'],
                             mturk_worker_id=worker_paraphrases['mturk_worker_id']
                         )
@@ -76,8 +77,8 @@ class AnnotatedAbductiveSet:
                                 paraphrase_id='%d.%d.%d.%d' % (example.example_id, worker_paraphrases['example_worker_id'], h1_id, h2_id),
                                 original_example_id=example.example_id,
                                 original_example=example,
-                                h1_paraphrase=h1, 
-                                h2_paraphrase=h2,
+                                hyp1_paraphrase=h1, 
+                                hyp2_paraphrase=h2,
                                 example_worker_id=worker_paraphrases['example_worker_id'],
                                 mturk_worker_id=worker_paraphrases['mturk_worker_id']
                             )

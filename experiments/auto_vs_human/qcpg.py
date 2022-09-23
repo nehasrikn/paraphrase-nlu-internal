@@ -1,17 +1,20 @@
 from transformers import pipeline
-from annotated_data.data import pilot_annotated_abductive_set
+from annotated_data.data import pilot_annotated_abductive_set, ParaphrasedAbductiveNLIExample
 import pandas as pd
 from tqdm import tqdm
 import numpy as np
 import os
+import numpy as np
+import pickle
 
+#export TRANSFORMERS_CACHE='/fs/clip-scratch/nehasrik/paraphrase-nlu/paraphrase-nlu/experiments/hf-cache'
 #python -m experiments.auto_vs_human.qcpg run from top directory
 
 class QualityControlPipeline:
     
     def __init__(self, type):
         assert type in ['captions', 'questions', 'sentences']
-        self.pipe = pipeline('text2text-generation', model=f'ibm/qcpg-{type}')
+        self.pipe = pipeline('text2text-generation', model=f'ibm/qcpg-{type}', device=0)
         self.ranges = {
             'captions': {'lex': [0, 90], 'syn': [0, 80], 'sem': [0, 95]},
             'sentences': {'lex': [0, 100], 'syn': [0, 80], 'sem': [0, 95]},
@@ -29,17 +32,50 @@ class QualityControlPipeline:
         text = ' '.join(control) + text if isinstance(text, str) else [' '.join(control) for t in text]
         return self.pipe(text, **kwargs)
 
+def generate_paraphrases(model, examples, lexical_range, syntactic_range, semantic_range, step=0.05):
+    paraphrased_examples = []
+    for e in tqdm(examples):
+        for lexical in np.arange(lexical_range[0], lexical_range[1], step):
+            for syntactic in np.arange(syntactic_range[0], syntactic_range[1], step):
+                for semantic in np.arange(semantic_range[0], semantic_range[1], step):
+                    lex = np.round(lexical, 2)
+                    syn = np.round(syntactic, 2)
+                    sem = np.round(semantic, 2)
+
+                    h1 = model(e.hyp1, lexical=lex, syntactic=syn, semantic=sem)
+                    h2 = model(e.hyp2, lexical=lex, syntactic=syn, semantic=sem)
+                    
+                    paraphrased_examples.append(
+                        ParaphrasedAbductiveNLIExample(
+                            paraphrase_id='%d.%s.%.2f.%.2f.%.2f' % (e.example_id, 'qcpg', lex, syn, sem),
+                            original_example_id=e.example_id,
+                            original_example=e,
+                            hyp1_paraphrase=h1[0]['generated_text'], 
+                            hyp2_paraphrase=h2[0]['generated_text'],
+                            automatic_system_metadata={'lexical': lex, 'syntactic': syn, 'semantic': sem}
+                        )
+                    )
+    
+    return paraphrased_examples
+        
+
 if __name__ == '__main__':
 
     model = QualityControlPipeline('sentences')
-    tqdm.pandas()
+
 
     print(len(pilot_annotated_abductive_set.original_examples))
 
-    # pilot_paraphrases['hyp1_automatic_paraphrase'] = pilot_paraphrases['hyp1'].progress_map(lambda hyp1: model(hyp1, lexical=0.3, syntactic=0.5, semantic=0.95))
-    # pilot_paraphrases['hyp2_automatic_paraphrase'] = pilot_paraphrases['hyp2'].progress_map(lambda hyp2: model(hyp2, lexical=0.3, syntactic=0.5, semantic=0.95))
+    qcpg_examples = generate_paraphrases(
+        model,
+        pilot_annotated_abductive_set.original_examples,
+        (0.2, 0.6),
+        (0.2, 0.6),
+        (0.7, 1.0)
+    )
+
+    with open("qcpg_sweep.dat", "wb") as f:
+        pickle.dump(qcpg_examples, f)
 
 
-    # pilot_paraphrases.to_csv('pilot_qcpg_paraphrases_l_03_sy_05_sem_095.csv', index=False)
-
-    #print(model('Molly got into an accident.', lexical=0.2, syntactic=0.2, semantic=0.9))
+    #print(model('Molly got into an accident.', lexical=0.5, syntactic=0.5, semantic=0.9))
