@@ -6,9 +6,9 @@ from dataclasses import dataclass, asdict
 
 @dataclass
 class AbductiveNLIExample:
-    story_id: int
+    story_id: Optional[int]
     example_id: int
-    split: str
+    split: Optional[str]
     obs1: str 
     obs2: str
     hyp1: str
@@ -24,7 +24,7 @@ class ParaphrasedAbductiveNLIExample:
     hyp1_paraphrase: str
     hyp2_paraphrase: str
     example_worker_id: Optional[int] = None
-    mturk_worker_id: Optional[str] = None
+    worker_id: Optional[str] = None #mturk worker id or system
     obs1_paraphrase: Optional[str] = None
     obs2_paraphrase: Optional[str] = None
     automatic_system_metadata: Optional[Dict[Any, Any]] = None # can contain system-specific metadata
@@ -32,7 +32,7 @@ class ParaphrasedAbductiveNLIExample:
 
 class AnnotatedAbductiveSet:
 
-    def __init__(self, mturk_processed_annotations_csv: str) -> None:
+    def __init__(self, mturk_processed_annotations_csv: str=None, examples=None) -> None:
         self.original_examples = []
         annotations = pd.read_csv(mturk_processed_annotations_csv)
         for i, a in annotations.iterrows():
@@ -62,7 +62,7 @@ class AnnotatedAbductiveSet:
                             hyp1_paraphrase=h1, 
                             hyp2_paraphrase=h2,
                             example_worker_id=worker_paraphrases['example_worker_id'],
-                            mturk_worker_id=worker_paraphrases['mturk_worker_id']
+                            worker_id=worker_paraphrases['mturk_worker_id']
                         )
                     )
     
@@ -80,7 +80,7 @@ class AnnotatedAbductiveSet:
                                 hyp1_paraphrase=h1, 
                                 hyp2_paraphrase=h2,
                                 example_worker_id=worker_paraphrases['example_worker_id'],
-                                mturk_worker_id=worker_paraphrases['mturk_worker_id']
+                                worker_id=worker_paraphrases['mturk_worker_id']
                             )
                         )
 
