@@ -11,4 +11,4 @@ conda activate qcpg
 module load cuda
 export TRANSFORMERS_CACHE='/fs/clip-scratch/nehasrik/paraphrase-nlu/paraphrase-nlu/experiments/hf-cache'
 cd /fs/clip-scratch/nehasrik/paraphrase-nlu/paraphrase-nlu
-python -m experiments.auto_vs_human.qcpg
+python -m experiments.auto_vs_human.qcpg.qcpg
