@@ -6,7 +6,7 @@ from typing import List, Dict, Tuple
 from datetime import datetime
 
 from abductive.task_constants import TAB_INSTRUCTIONS, INPUT_TEMPLATE, TABS
-from abductive.abductive_data import AbductiveNLIExample, AbductiveNLIDataset
+from ...abductive_data import AbductiveNLIExample, AbductiveNLIDataset
 from abductive.task_parameters import TASK_PARAMETERS
 
 from mturk_hit_creator import (
