@@ -34,7 +34,7 @@ class TrainedModel:
         model_wrapper = AutoModelForMultipleChoice if multiple_choice else AutoModelForSequenceClassification
         return model_wrapper.from_pretrained(
             model_path,
-            from_tf=bool(".ckpt" in model_path),
+            from_tf=False,
             cache_dir=hf_cache_path
         )
 
@@ -50,7 +50,7 @@ class AbductiveTrainedModel(TrainedModel):
         Input will either be a single string in case of partial input, or 
         tuple of strings in the case of full input.
         """
-        first_sentences = [[obs1] * TrainedModel.NUM_CHOICES for context in [obs1]]
+        first_sentences = [[obs1] * AbductiveTrainedModel.NUM_CHOICES for context in [obs1]]
         second_sentences = [
             [f"{h} {obs2}" for h in [hyp1, hyp2]]
         ]
