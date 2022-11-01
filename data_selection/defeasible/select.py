@@ -19,7 +19,8 @@ def select_subset_by_stratified_confidence(data: DefeasibleNLIDataset) -> List[D
 
     for e in tqdm(test_split):
         prediction = roberta.predict(premise=e.premise, hypothesis=e.hypothesis, update=e.update)
-        buckets[round(prediction[e.label])].append(e)
+        e.original_prediction = prediction
+        buckets[round(prediction[e.label], 1)].append(e)
 
     stratified_examples = []
 
