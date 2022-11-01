@@ -5,11 +5,11 @@ from dataclasses import asdict, dataclass
 from typing import List, Dict, Tuple
 from datetime import datetime
 
-from abductive.task_constants import TAB_INSTRUCTIONS, INPUT_TEMPLATE, TABS
-from ...abductive_data import AbductiveNLIExample, AbductiveNLIDataset
-from abductive.task_parameters import TASK_PARAMETERS
+from mturk.abductive.task_constants import TAB_INSTRUCTIONS, INPUT_TEMPLATE, TABS
+from abductive_data import AbductiveNLIExample, AbductiveNLIDataset
+from mturk.abductive.task_parameters import TASK_PARAMETERS
 
-from mturk_hit_creator import (
+from mturk.mturk_hit_creator import (
     MTurkHITTypeParameters, 
     MTurkBatch, 
     MTurkHITCreator,

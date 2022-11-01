@@ -1,0 +1,58 @@
+/fs/clip-scratch/nehasrik/miniconda3/envs/para-nlu/lib/python3.7/site-packages/transformers/configuration_utils.py:337: UserWarning: Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 Transformers. Using `model.gradient_checkpointing_enable()` instead, or if you are using the `Trainer` API, pass `gradient_checkpointing=True` in your `TrainingArguments`.
+  "Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 "
+Loaded 200694 nonempty train examples...
+Loaded 14968 nonempty dev examples...
+Loaded 15414 nonempty test examples...
+######### SOCIAL-CHEM-101 #########
+9439
+Loading model from modeling/defeasible/chkpts/roberta-large-dnli
+100%|██████████| 9439/9439 [31:47<00:00,  4.95it/s]
+1.0 6530
+0.9 995
+0.6 240
+0.7 255
+0.3 156
+0.5 185
+0.0 170
+0.2 159
+0.4 152
+0.1 179
+0.8 418
+######### SNLI #########
+1837
+Loading model from modeling/defeasible/chkpts/roberta-large-dnli
+100%|██████████| 1837/1837 [05:11<00:00,  5.90it/s]
+1.0 999
+0.6 68
+0.9 270
+0.2 37
+0.5 70
+0.8 119
+0.4 56
+0.7 89
+0.3 50
+0.0 28
+0.1 51
+######### ATOMIC #########
+4138
+Loading model from modeling/defeasible/chkpts/roberta-large-dnli
+100%|██████████| 4138/4138 [12:22<00:00,  5.57it/s]
+Traceback (most recent call last):
+  File "/fs/clip-scratch/nehasrik/miniconda3/envs/para-nlu/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/fs/clip-scratch/nehasrik/miniconda3/envs/para-nlu/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/fs/clip-scratch/nehasrik/paraphrase-nlu/paraphrase-nlu/data_selection/defeasible/select.py", line 55, in <module>
+    
+TypeError: not all arguments converted during string formatting
+1.0 1975
+0.7 215
+0.9 700
+0.3 123
+0.2 109
+0.1 125
+0.8 329
+0.6 180
+0.5 179
+0.0 84
+0.4 119

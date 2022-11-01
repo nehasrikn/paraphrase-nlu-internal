@@ -7,7 +7,7 @@
 
 source /fs/clip-scratch/nehasrik/init_conda.sh
 module load cuda
-cd /fs/clip-scratch/nehasrik/paraphrase-nlu/paraphrase-nlu
+cd /fs/clip-scratch/nehasrik/paraphrase-nlu
 conda activate para-nlu
 
 python -m data_selection.defeasible.select

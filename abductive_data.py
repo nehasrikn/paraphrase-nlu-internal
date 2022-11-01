@@ -2,6 +2,7 @@ import pandas as pd
 from dataclasses import dataclass
 from typing import List, Optional, Dict, Any
 from dataclasses import dataclass, asdict
+import os
 
 ### Class definitions for objects representing annotated data
 
@@ -33,31 +34,32 @@ class ParaphrasedAbductiveNLIExample:
 
 class AbductiveNLIDataset:
 
-	def __init__(self, data_dir) -> None:
-		self.data_dir = data_dir
-		self.train_examples = self.create_examples(data_split='train') 
-		self.dev_examples = self.create_examples(data_split='dev') 
-		self.test_examples = self.create_examples(data_split='test') 
+    def __init__(self, data_dir) -> None:
+        self.data_dir = data_dir
+        self.train_examples = self.create_examples(data_split='train') 
+        self.dev_examples = self.create_examples(data_split='dev') 
+        self.test_examples = self.create_examples(data_split='test') 
 
-	def create_examples(self, data_split: str) -> List[AbductiveNLIExample]:
-		examples = []
-		raw_exs = pd.read_json(os.path.join(self.data_dir, '%s.jsonl' % data_split), lines=True)
-		raw_exs['label'] = pd.read_csv(os.path.join(self.data_dir, '%s-labels.lst' % data_split), dtype=int, header=None)
-		for i, ex in raw_exs.iterrows():
-			e = ex.to_dict()
-			e['example_id'] = i
-			e['split'] = data_split
-			examples.append(AbductiveNLIExample(**e))
+    def create_examples(self, data_split: str) -> List[AbductiveNLIExample]:
+        examples = []
+        raw_exs = pd.read_json(os.path.join(self.data_dir, '%s.jsonl' % data_split), lines=True)
+        raw_exs['label'] = pd.read_csv(os.path.join(self.data_dir, '%s-labels.lst' % data_split), dtype=int, header=None)
+        for i, ex in raw_exs.iterrows():
+            e = ex.to_dict()
+            e['example_id'] = i
+            e['split'] = data_split
+            e['annotated_paraphrases'] = []
+            examples.append(AbductiveNLIExample(**e))
 
-		return examples
+        return examples
 
-	def get_split(self, split_name: str) -> List[AbductiveNLIExample]:
-		if split_name == 'train':
-			return self.train_examples
-		elif split_name == 'dev':
-			return self.dev_examples
-		else:
-			return self.test_examples
+    def get_split(self, split_name: str) -> List[AbductiveNLIExample]:
+        if split_name == 'train':
+            return self.train_examples
+        elif split_name == 'dev':
+            return self.dev_examples
+        else:
+            return self.test_examples
 
 class AnnotatedAbductiveSet:
 
