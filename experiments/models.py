@@ -1,16 +1,18 @@
 from abc import ABC, abstractmethod
 import numpy
-from transformers import AutoTokenizer, AutoModelForMultipleChoice
+from transformers import AutoTokenizer, AutoModelForMultipleChoice, AutoModelForSequenceClassification
 import torch
 from scipy.special import softmax
+from typing import List, Union, Tuple
 from itertools import chain
 
 
 class TrainedModel:
     
-    def __init__(self, trained_model_dir: str, cache_dir: str = 'checkpoints/hf_cache') -> None:
+    def __init__(self, trained_model_dir: str, cache_dir: str = 'checkpoints/hf_cache', multiple_choice=True) -> None:
+        self.is_multiple_choice = multiple_choice
         self.tokenizer = TrainedModel.get_tokenizer(trained_model_dir, cache_dir)
-        self.trained_model = TrainedModel.get_model(trained_model_dir, cache_dir)
+        self.trained_model = TrainedModel.get_model(trained_model_dir, cache_dir, multiple_choice=self.is_multiple_choice)
         
     @abstractmethod
     def predict(self) -> numpy.ndarray:
@@ -27,9 +29,10 @@ class TrainedModel:
         )
 
     @staticmethod
-    def get_model(model_path: str, hf_cache_path: str) -> AutoModelForMultipleChoice:
+    def get_model(model_path: str, hf_cache_path: str, multiple_choice=True) -> Union[AutoModelForMultipleChoice, AutoModelForSequenceClassification]:
         print('Loading model from %s' % model_path)
-        return AutoModelForMultipleChoice.from_pretrained(
+        model_wrapper = AutoModelForMultipleChoice if multiple_choice else AutoModelForSequenceClassification
+        return model_wrapper.from_pretrained(
             model_path,
             from_tf=bool(".ckpt" in model_path),
             cache_dir=hf_cache_path
@@ -74,8 +77,6 @@ class AbductiveTrainedModel(TrainedModel):
 
 
 class DefeasibleTrainedModel(TrainedModel):
-    NUM_CHOICES = 2
-
     def predict(self, premise: str, hypothesis: str, update: str) -> numpy.ndarray:
         return self._get_prediction((premise + hypothesis, update))
 
