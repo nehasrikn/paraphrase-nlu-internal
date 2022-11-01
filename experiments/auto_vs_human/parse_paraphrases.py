@@ -3,7 +3,7 @@ import pandas as pd
 from collections import defaultdict
 from copy import deepcopy
 from typing import List
-from annotated_data.data import AbductiveNLIExample, AnnotatedAbductiveSet
+from abductive_data import AbductiveNLIExample, AnnotatedAbductiveSet
 
 
 def parse_validated_qcpg_paraphrases(

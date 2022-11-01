@@ -9,7 +9,7 @@ import xmltodict
 import argparse
 from typing import List, Optional, Dict, Union
 
-from mturk_qualification_parameters import (
+from mturk.mturk_qualification_parameters import (
     QUALIFICATIONS_STRICT, 
     QUALIFICATIONS_LAX, 
     SANDBOX_QUALIFICATIONS

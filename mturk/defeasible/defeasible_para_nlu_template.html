@@ -8,95 +8,51 @@
 
 <style>
 	body {
-		padding-left: 20px;
+		padding: 10px;
 		margin-bottom: 10px;
 		font: Roboto;
 	}
-	#outer-container {
+	.first-container{
 	    display: flex;
 	    justify-content: space-around;
-	    max-width: 950px;
-	    padding-left: 20px;
+	   	width: 1300px;
+	   	padding: 10px;
+	   	background-color: #e1f0f0;
+	   	border-radius: 25px;
 	}
 	.left-container {
-    	margin-right: auto;
-    	padding-right: 40px;
-    	width: 50%;
+			float: left;
+			width: 25%;
+			text-align: center;
+			overflow: scroll;
+			padding: 5px;
+	}
+	.middle-container {
+			float: left;
+			width: 50%;
+			overflow: scroll;
+			text-align: center;
+			padding-left: 10px;
+			padding-right: 20px;
 	}
 	.right-container {
-    	margin-left: auto;
-    	padding-left: 40px;
-    	width: 50%;
+			float: left;
+			width: 25%;
+			padding-left: 10px;
+			text-align: center;
+			overflow: scroll;
+			padding: 5px;
 	}
-	#vertical-separator {
-	    border: solid 1px #d5dbdb;
-	}
-	table.minimalistBlack {
-	  border: 3px solid #000000;
-	  width: 100%;
-	  text-align: left;
-	  border-collapse: collapse;
-	  margin-top: 10px;
-	}
-	table.minimalistBlack td, table.minimalistBlack th {
-	  border: 1px solid #000000;
-	  padding: 5px 4px;
-	}
-	table.minimalistBlack tbody td {
-	  font-size: 13px;
-	}
-	table.minimalistBlack thead {
-	  background: #CFCFCF;
-	  background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
-	  background: -webkit-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
-	  background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
-	  border-bottom: 3px solid #000000;
-	}
-	table.minimalistBlack thead th {
-	  font-size: 15px;
-	  font-weight: bold;
-	  color: #000000;
-	  text-align: left;
-	}
-	table.minimalistBlack tfoot td {
-	  font-size: 14px;
+	.card {
+		margin: 10px;
+		width: 250px;
+		overflow-wrap: break-word;
 	}
 
-	.tooltip {
-	  position: relative;
-	  display: inline-block;
-	  /*border-bottom: 1px dotted black; */
-	}
-	.tooltip .tooltiptext {
-	  visibility: hidden;
-	  width: 300px;
-	  background-color: #076357;
-	  color: #fff;
-	  text-align: center;
-	  padding: 10px 0;
-	  border-radius: 10px;
-	  position: absolute;
-	  z-index: 1;
-	  opacity: 0;
-	  transition: opacity 0.2s;
-	  top: 150%;
-	  left: 50%;
-	  margin-left: -60px;
-	}
-	.tooltip:hover .tooltiptext {
-		opacity: 1;
-		visibility: visible;
-	}
-	.tooltip .tooltiptext::after {
-	  content: " ";
-	  position: absolute;
-	  bottom: 100%;  /* At the top of the tooltip */
-	  left: 20%;
-	  margin-left: -5px;
-	  border-width: 5px;
-	  border-style: solid;
-	  border-color: transparent transparent black transparent;
-	}
+	.crowd-card {
+    width: 100%;
+  }
+
 	.collapsible {
 	  background-color:  #ccc;
 	  color: #444;
@@ -124,6 +80,7 @@
 	  overflow: hidden;
 	  transition: max-height 0.2s ease-out;
 	  width: 75%;
+	  border-radius: 25px;
 	}
 	.collapsible:after {
 	  content: '\02795'; /* Unicode character for "plus" sign (+) */
@@ -137,93 +94,57 @@
 	  content: "\2796"; /* Unicode character for "minus" sign (-) */
 	}
 
-	input {
-		border-top-style: hidden;
-		border-right-style: hidden;
-		border-left-style: hidden;
-		border-bottom-style: groove;
-    }
-
-    .no-outline:focus {
-      outline: none;
-    }
-
-    .ui-autocomplete .ui-menu-item { 
-    	font-family: roboto;
-    	font-size: 0.85em;
-    }
-
-    .ui-state-active a,
-	.ui-state-active a:link,
-	.ui-state-active a:visited {
-	    color: #e36b10;
-
-	}
-	.ui-widget-content .ui-state-active {
-	    color: #e36b10;
-	    border: 0.5px solid #363634;
-	    font-weight: normal;
-	}
-
-	.ui-menu .ui-menu-item a{
-    	color: #e36b10;
-    	border-radius: 0px;
-	}
-
-	li p { font-weight: normal; }
-
 </style>
 
 <crowd-form onsubmit="verifyHIT();">
 	<div>
-		<button id="coll_button" type="button" class="collapsible active" onload="clickCollapsible()"><b><u>Task Instructions</u></b></button>
-		<div class="content" style="max-height: 1200px !important; height: auto;">
+		<button id="coll_button" type="button" class="collapsible active" onload="clickCollapsible()"><b><u>Collecting Paraphrases of Simple Stories: Task Instructions</u></b></button>
+		<div class="content" style="max-height: 1800px !important; height: auto;">
 			<br>
 			<b><u>Instructions:</b></u><br>
-			Are machines sensitive to paraphrasing? Ideally, when machines are presented with two snippets of text that convey the same meaning yet utilize different words, they should behave in a similar way. In this HIT, we’ll present a simple reasoning problem, and your task will be to paraphrase the highlighted portion of it (i.e use different words to convey the same meaning).
+			<br><br>
+			Are AI systems sensitive to word choice or sentence structure?
+			<br><br>
+
+			Ideally, when AI systems are presented with two snippets of text that convey the same meaning yet utilize different words or have different sentence structure, they should behave in a similar way. In this HIT, we’ll present a scenario consisting of 3 sentences, and your task will be to write paraphrases for one portion of it (i.e use different words or sentence structure to convey the same meaning).
+
+			<br><br>
+
+			Each scenario consists of a <u>premise</u>, <u>a hypothesis</u>, and an <u>evidence sentence</u> that either strengthens or weakens the hypothesis sentence. The premise and hypothesis set the stage for the scenario. Strengthening evidence sentences make your belief in the hypothesis sentence stronger, and weakening evidence sentences make your belief in the hypothesis sentence weaker.
+
+			<br><br>
+
+			Your task is to provide <u>three</u> paraphrases for an evidence sentence such that the words or sentence structure substantially differ from the original sentence, but the meaning is retained.
+
+			<br><br>
+			Your paraphrases should: <br>
+			<ul>
+				<li><b>Be full, grammatical, coherent sentences.</b></li>
+				<li><b>Preserve the meaning of the sentence.</b></li>
+				<ul>
+					<li><i><u>Make sure that sentence <b>meaning</b> does not differ</u></i> from the original sentence.</li>
+					<li><i><u>Refrain from introducing new information</u></i> that violates the situation evoked by the story.
+					<li><i><u>Preserve weakening or strengthening evidence.</u></i> 
+				</ul>
+				<li><b>Be as different as possible from the other paraphrases you enter.</b></li>
+				<li><b>Differ as much as possible from the original sentence.</b>
+				<ul>
+					<li>Reduce word overlap between the original sentence and your paraphrased version.</li>
+					<li> The HIT UI includes a calculator to measure the distance between your paraphrase and the original sentence via word overlap (# of words in common with the original sentence). The higher this value is, the better! <b>You don't need to achieve a distance measure of 100% in your paraphrases</b> (since you might use words like "be", or use common proper nouns), but aim to keep this metric above 40%!) We indicate this ideal range with <span style="color:green">green (40%+)</span>, <span style="color:#ccb00a">yellow (20%-40%)</span>, and <span style="color: #C84327">red (0%-20%)</span> coloring. </li>
+				</ul>
+			</ul>
+			<h4><u>UI Instructions:</u></h4>
+			<br>
+			<img style="margin-top:-1em;" src="https://drive.google.com/uc?export=view&id=1Lc_0jIitGBVJEEjlvAXkyraJxxmSGjbo" width="100%" height="auto">
+			<h4><u>Example:</u></h4>
+			<br>
+			<img style="margin-top:-1em;" src="https://drive.google.com/uc?export=view&id=1qmzhs2UIdYa1U-CA2mzn2zapORXq_nNy" width="100%" height="auto">
 			<br><br>
 		</div>
+	<br>
 	<!-- ALL DATA -->
-	<crowd-tab header="Pair %num">
-	<!-- <hr style='border: solid 1px #d5dbdb;'> -->
-		<div id="outer-container">
-			<span class="left-container">
-				<h3><u><b>Context</b></u></h3>
-			  	<p>
-					<font color="#ddb72b"><b>Premise:</b></font> A child making a sand castle on the beach. <br>
-					<font color="#218ffb"><b>Hypothesis:</b></font> A child uses their imagination.
-			    </p>
-			</span>
-			<span id="vertical-separator"></span>
-			<span class="right-container">
-				<h3><u><b>Target</b></u></h3>
-			    <p>
-			    	<font color="#04a150"><b>Update (Strengthener):</b></font> The child has also made a princess out of shells and seaweed.
-			    </p>
-			</span>
-		</div>
-	</crowd-tab>
-	<div style='max-width: 900px; padding-left: 20px;'>
-		<b> Paraphrase the update sentence</b> such that its meaning is retained, but the words themselves substantially differ from those in the original sentence.
-		<crowd-input id='paraphrase_entry' name='paraphrase' label="Paraphrased Update" required onchange 
-           onpropertychange 
-           onkeyuponpaste oninput="calculate_BLEU()"></crowd-input>
-    <div id='bleu'>Similarity: </div>
-	</div>
-
-  	<br>
-  	<div style="padding-left: 20px; position: relative;">
-  		<crowd-button id="submit_button" form-action="submit">
-  			Submit
-  		</crowd-button>
-  		<div id="errorBox"></div>
-  		<br>
-  	</div>
 	
 	<script>
-
-		//AUTOCOMPLETE_FUNCTIONS
-
 		var coll = document.getElementsByClassName("collapsible");
 		var i;
 
@@ -239,37 +160,74 @@
 		  });
 		}
 
-		function verifyTaskCompleted(){
-			var freeText = document.getElementById('paraphrase_entry');
-			if(freeText.value.trim() === ""){
-					errorBox.innerHTML = '<crowd-alert type="error" dismissible>You must enter a paraphrase!</crowd-alert>';
+		function verifyTaskCompleted(num_paraphrases){
+			var entries = document.querySelectorAll("[id*=paraphrase_]")
+			var paraphrases = new Set()
+
+			for (var i = 0; i < entries.length; i++){ 
+				if(entries[i].value.trim() === ""){
+					errorBox.innerHTML = '<crowd-alert type="error" dismissible>Please finish filling out all paraphrases!</crowd-alert>';
 					return false
+				}
+				const para = cleanAndStripPunctutation(entries[i].value)
+				paraphrases.add(para)
+				if(para.length <= 10){
+					errorBox.innerHTML = '<crowd-alert type="error" dismissible>At least one of your paraphrases is too short. Please make sure your paraphrases are valid!</crowd-alert>';
+					return false
+				}
+			}
+			if (paraphrases.size != entries.length){
+				errorBox.innerHTML = '<crowd-alert type="error" dismissible>Please make sure that all your paraphrases are unique (no duplicates allowed)!</crowd-alert>';
+				return false
+			}
+
+			var similarities = document.querySelectorAll("[id*=similarity_]")
+			for (var i = 0; i < similarities.length; i++){ 
+				if(parseInt(similarities[i].textContent.slice(0, -1)) == 0){
+					errorBox.innerHTML = '<crowd-alert type="error" dismissible>At least one of your paraphrases is a copy of the sentence you were supposed to paraphrase. Please <b>paraphrase</b> the sentence.</crowd-alert>';
+					return false
+				}
 			}
   		return true;
 		}
 
 		function verifyHIT(){
 	      if (!verifyTaskCompleted()) {
-	          alert("Oh no! You didn't fill out a field. Check the error below the submit button.");
+	          alert("Oh no! Something's wrong. Check the error below the submit button.");
 	          event.preventDefault(); 
 	      }
     }
 
-    function calculate_BLEU() {
-    	var freeText = document.getElementById('paraphrase_entry');
-    	document.getElementById("bleu").innerText = freeText.value;
+    function cleanAndStripPunctutation(str) {
+    	var cleanStr = str.toLowerCase().trim()
+    	const regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+    	return cleanStr.replace(regex, '')
+    }
 
-    	const para_tokens = freeText.value.split(' ')
-    	const hyp_tokens = 'He took it home, unpacked it, and placed it where he wanted it.'.split(' ')
+    function calculate_BLEU(free_text_id, similarity_id, original_sentence) {
+    	//0 - 20 RED, 20 - 40 YELLOW, 40 - 100 GREEN
+
+    	var freeText = document.getElementById(free_text_id);
+
+    	const para_tokens = cleanAndStripPunctutation(freeText.value).split(' ')
+    	const hyp_tokens = cleanAndStripPunctutation(original_sentence).split(' ')
 
     	var para_tokens_set = new Set(para_tokens)
     	var hyp_tokens_set = new Set(hyp_tokens)
 
     	intersection = new Set(para_tokens.filter(x=>hyp_tokens_set.has(x)) ),
-		  union = new Set(para_tokens.concat(hyp_tokens));  // This step is unnecessary but is for semantic illustration
-		  const jaccard_sim = intersection.size / union.size
+		union = new Set(para_tokens.concat(hyp_tokens));  // This step is unnecessary but is for semantic illustration
+		const jaccard_sim = intersection.size / union.size
+		const distance = Math.round((1.0 - jaccard_sim) * 100)
 		  
-		  document.getElementById("bleu").innerText = 'Similarity: ' + jaccard_sim.toPrecision(2);
+		document.getElementById(similarity_id).innerText = distance + '%';
+		if (distance <= 20) {
+			document.getElementById(similarity_id).style.color = "#C84327";
+		} else if (distance > 20 && distance <= 40) {
+			document.getElementById(similarity_id).style.color = "#ccb00a";
+		} else {
+			document.getElementById(similarity_id).style.color = "green";
+		}
 
     }
 
