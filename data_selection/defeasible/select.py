@@ -9,9 +9,10 @@ from dataclasses import asdict
 
 # python -m data_selection.defeasible.select
 
-def select_subset_by_stratified_confidence(data_source: str, data: DefeasibleNLIDataset, num_examples_per_confidence_range: 25) -> List[DefeasibleNLIExample]:
+def select_subset_by_stratified_confidence(data_source: str, data: DefeasibleNLIDataset, num_examples_per_confidence_range: int = 25) -> List[DefeasibleNLIExample]:
     test_split = data.get_split('test')
     data_source = [e for e in test_split if e.data_source == data_source]
+    print(len(data_source))
 
     random.shuffle(data_source)
 
@@ -19,7 +20,7 @@ def select_subset_by_stratified_confidence(data_source: str, data: DefeasibleNLI
     
     confidence_ranges = defaultdict(list)
 
-    for e in tqdm(test_split):
+    for e in tqdm(data_source):
         prediction = roberta.predict(premise=e.premise, hypothesis=e.hypothesis, update=e.update)
         e.original_prediction = prediction
         confidence_ranges[round(prediction[e.label], 1)].append(e)
@@ -44,6 +45,7 @@ if __name__ == '__main__':
     all_examples = []
 
     for source in DefeasibleNLIDataset.SOURCE_SPECIFIC_METADATA.keys():
+        print('######### %s #########' % source)
         stratified_examples = select_subset_by_stratified_confidence(source.lower(), dnli)
         all_examples.extend(stratified_examples)
 
