@@ -23,7 +23,6 @@ python run_glue.py \
 	--do_eval \
 	--validation_file data/defeasible_test.csv \
 	--max_seq_length 128 \
-	--per_gpu_train_batch_size 16 \
 	--per_device_train_batch_size=16 \
 	--per_gpu_eval_batch_size=16 \
 	--seed 42 \
