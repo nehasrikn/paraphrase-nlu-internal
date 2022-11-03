@@ -1,4 +1,4 @@
-TAB_INSTRUCTIONS="""
+INSTRUCTIONS="""
 <b> Paraphrase the sentence above in three different ways</b> such that its meaning is retained, but the words or sentence structure substantially differ from the original sentence. Make sure that your three paraphrases are <b>different from each other</b> as well.
 """
 
@@ -7,50 +7,40 @@ INPUT_TEMPLATE="""
 <div>Distance from Original Sentence: <span id='similarity_ID'></span></div>
 """
 
-TABS = """
+TASK_CONTENT = """
 <div id=task1 class='first-container'>
-			<div class="left-container">
-				<h3>Beginning</h3>
-			    <crowd-card>
-			      <div class="card">
-			        PREMISE
-			      </div>
-				  <div class="card">
+	<div class="left-container">
+		<h3>Scenario</h3>
+			<crowd-card>
+			    <div class="card">
+			    	PREMISE
+			    </div>
+				<div class="card">
 			        HYPOTHESIS
-			      </div>
-			    </crowd-card>
-			</div>
-
-			<div class="middle-container">
-				<h3>Middle</h3>
-				<crowd-tabs>
-					<crowd-tab header="Evidence">
-						<crowd-card>
-					      <div class="card">
-					        UPDATE
-					      </div>
-					    </crowd-card>
-						<div style='text-align: left; width: 600px; padding-left: 5px; padding-top: 30px'>
-							TAB_INSTRUCTIONS
-							TABS_CORRECT
-							
-						</div>
-					</crowd-tab>
-
-				</crowd-tabs>
-			    
-
-			</div>
-
-			<!-- <span id="vertical-separator"></span> -->
+			    </div>
+			</crowd-card>
 	</div>
+	<!-- <span id="vertical-separator"></span> -->
+	<div class="right-container">
+		<h3>EVIDENCE_TYPE Evidence</h3>
+			<crowd-card>
+				<div class="card">
+					UPDATE
+				</div>
+			</crowd-card>
+		<div style='text-align: left; padding-left: 5px; padding-top: 30px'>
+			INSTRUCTIONS							
+		</div>
+		PARAPHRASES_INPUT
+	</div>
+</div>
+<br>
+<div style="position: relative;">
+	<crowd-button id="submit_button" form-action="submit">
+		Submit
+	</crowd-button>
+	<div id="errorBox"></div>
 	<br>
-	<div style="position: relative;">
-		<crowd-button id="submit_button" form-action="submit">
-			Submit
-		</crowd-button>
-		<div id="errorBox"></div>
-		<br>
-	</div>
+</div>
 
 """

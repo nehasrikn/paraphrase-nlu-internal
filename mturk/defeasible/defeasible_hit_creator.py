@@ -6,7 +6,7 @@ from dataclasses import asdict, dataclass
 from typing import List, Dict, Tuple
 from datetime import datetime
 
-from mturk.defeasible.task_constants import TAB_INSTRUCTIONS, INPUT_TEMPLATE, TABS
+from mturk.defeasible.task_constants import INSTRUCTIONS, INPUT_TEMPLATE, TASK_CONTENT
 from defeasible_data import DefeasibleNLIExample, DefeasibleNLIDataset
 from mturk.defeasible.task_parameters import TASK_PARAMETERS
 
@@ -58,8 +58,8 @@ class DefeasibleHITCreator():
         Substitutes in the appropriate example strings to form HTML code for UI for a single
         abductive NLI example.
         """
-
-        def create_tab_html(original_sentence):
+    
+        def create_paraphrase_task_html(original_sentence):
             """
             Returns HTML code for the paraphrase input and the 
             similarity score checker.
@@ -80,17 +80,19 @@ class DefeasibleHITCreator():
 
         # Example-specific parameters
         example_parameter_values = {
-            'TAB_INSTRUCTIONS': TAB_INSTRUCTIONS,
-            'UPDATE': create_tab_html(ex.update),
+            'INSTRUCTIONS': INSTRUCTIONS,
+            'PARAPHRASES_INPUT': create_paraphrase_task_html(ex.update),
+            'UPDATE': ex.update,
             'PREMISE': ex.premise,
             'HYPOTHESIS': ex.hypothesis,
+            'EVIDENCE_TYPE': (ex.update_type[:-2] + 'ing').title()
         }
 
-        tabs = TABS
+        task_content = TASK_CONTENT
         for key, value in example_parameter_values.items():
-            tabs = tabs.replace(key, value)
+            task_content = task_content.replace(key, value)
 
-        task_html = task_template.replace('<!-- ALL DATA -->', tabs)
+        task_html = task_template.replace('<!-- ALL DATA -->', task_content)
 
         if display_html_in_browser:
             with tempfile.NamedTemporaryFile('w', delete=False, dir='mturk/defeasible/temp_docs/', suffix='.html') as f:
@@ -128,7 +130,7 @@ if __name__ == '__main__':
     print(args)
 
 
-    dh = DefeasibleHITCreator('mturk/defeasible/defeasible_para_nlu_template.html', [DefeasibleNLIExample(**e) for e in json.load(open('data_selection/defeasible/stratified_selected_defeasible_examples.json', 'r'))])
+    dh = DefeasibleHITCreator('mturk/defeasible/defeasible_para_nlu_template.html', [DefeasibleNLIExample(**e) for e in json.load(open('data_selection/defeasible/dnli_atomic_stratified_selected.json', 'r'))])
     dh.get_proof_of_concept_HIT()
 
     #connect_and_post_abductive_hits(**vars(args))
