@@ -13,10 +13,18 @@ TASK_CONTENT = """
 		<h3>Scenario</h3>
 			<crowd-card>
 			    <div class="card">
-			    	PREMISE
+			    	<b><u>Premise Sentence 1</u></b> 
+					<br>
+					PREMISE
 			    </div>
+			</crowd-card>
+			<br>
+			<br>
+			<crowd-card>
 				<div class="card">
-			        HYPOTHESIS
+			        <b><u>Premise Sentence 2</u></b>
+					<br>
+					HYPOTHESIS
 			    </div>
 			</crowd-card>
 	</div>
