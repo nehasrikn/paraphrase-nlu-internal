@@ -56,7 +56,7 @@ class DefeasibleHITCreator():
     ) -> str:
         """
         Substitutes in the appropriate example strings to form HTML code for UI for a single
-        abductive NLI example.
+        defeasible NLI example.
         """
     
         def create_paraphrase_task_html(original_sentence):
@@ -67,6 +67,7 @@ class DefeasibleHITCreator():
             paraphrases = []
             for i in range(1, 1 + DefeasibleHITCreator.NUM_PARAPHRASES_PER_UPDATE):
                 replace_table = {
+                    'ID': str(i),
                     'NUM': str(i),
                     'free_text_id': DefeasibleHITCreator.FUNCTION_FREE_TEXT_ID % i,
                     'similarity_id': DefeasibleHITCreator.FUNCTION_SIMILARITY_ID % i,
@@ -130,7 +131,7 @@ if __name__ == '__main__':
     print(args)
 
 
-    dh = DefeasibleHITCreator('mturk/defeasible/defeasible_para_nlu_template.html', [DefeasibleNLIExample(**e) for e in json.load(open('data_selection/defeasible/dnli_atomic_stratified_selected.json', 'r'))])
+    dh = DefeasibleHITCreator('mturk/defeasible/defeasible_para_nlu_template.html', [DefeasibleNLIExample(**e) for e in json.load(open('data_selection/defeasible/dnli_snli_stratified_selected.json', 'r'))])
     dh.get_proof_of_concept_HIT()
 
     #connect_and_post_abductive_hits(**vars(args))
