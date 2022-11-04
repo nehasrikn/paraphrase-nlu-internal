@@ -32,9 +32,8 @@ class AbductiveHITCreator():
     NUM_PARAPHRASES_PER_HYPOTHESIS = 3
 
  
-    def __init__(self, HIT_template_path: str, abductive_dataset: AbductiveNLIDataset):
+    def __init__(self, HIT_template_path: str):
         self.task_template = open(HIT_template_path, "r").read()
-        self.dataset = abductive_dataset
 
     def get_hit_data_from_examples(self, examples: List[AbductiveNLIExample]) -> List[MTurkHITData]:
         hit_data_examples = []
@@ -47,18 +46,21 @@ class AbductiveHITCreator():
             ))
         return hit_data_examples
 
-    def get_random_subset(self, split: str, num_examples: int) -> Tuple[List[int], List[str]]:
-        """
-        Gets random subset of specified split.
-        Return:
-            - example ids for split
-            - examples
-        """
-        sample = random.sample(self.dataset.get_split(split), num_examples)
-        return (list(map(lambda x: x.example_id, sample)), sample)
-
     def get_proof_of_concept_HIT(self) -> None:
-        AbductiveHITCreator.create_HTML_from_example(self.task_template, self.dataset.get_split('train')[0], True)
+        AbductiveHITCreator.create_HTML_from_example(
+            self.task_template, 
+            AbductiveNLIExample(
+                example_id=1,
+                story_id="123",
+                split="test",
+                obs1='Jamie was the most popular boy at school.',
+                obs2='Jamie pretended not to care, but deep down it really bothered him.',
+                hyp1="Jamie's girlfriend dumped him.",
+                hyp2="Jamie's girlfriend loved him dearly.",
+                label=1,
+                annotated_paraphrases=None,
+            ), True
+        )
 
     @staticmethod
     def create_HTML_from_example(
@@ -113,7 +115,7 @@ class AbductiveHITCreator():
         task_html = task_template.replace('<!-- ALL DATA -->', tabs)
 
         if display_html_in_browser:
-            with tempfile.NamedTemporaryFile('w', delete=False, dir='abductive/temp_docs/', suffix='.html') as f:
+            with tempfile.NamedTemporaryFile('w', delete=False, dir='mturk/abductive/temp_docs/', suffix='.html') as f:
                 url = 'file://' + f.name
                 f.write(task_html)
                 webbrowser.open(url)
@@ -122,7 +124,7 @@ class AbductiveHITCreator():
 
 def connect_and_post_abductive_hits(
     split: str, 
-    num_examples: int,
+    examples: List[AbductiveNLIExample],
     requestor_note: str,
     max_assignments: int,
     hit_type_id: str,
@@ -139,12 +141,8 @@ def connect_and_post_abductive_hits(
         live_marketplace=live_marketplace
     )
 
-    abductive_hit_creator = AbductiveHITCreator(
-        HIT_template_path='abductive/abductive_para_nlu_template.html',
-        abductive_dataset=AbductiveNLIDataset(data_dir='../raw_data/anli')
-    )
+    abductive_hit_creator = AbductiveHITCreator(HIT_template_path='abductive/abductive_para_nlu_template.html')
 
-    ids, examples = abductive_hit_creator.get_random_subset(split, num_examples)
     if not hit_type_id:
         hit_type = turk_creator.create_HIT_type(MTurkHITTypeParameters(**TASK_PARAMETERS))
         hit_type_id = hit_type['HITTypeId']
@@ -190,8 +188,8 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description="Post Abductive HITs to the live marketplace")
 
-    parser.add_argument("--aws_access_key", type=str, help="AWS Access Key", required=True)
-    parser.add_argument("--aws_secret_access_key", type=str, help="AWS Secret Key", required=True)
+    parser.add_argument("--aws_access_key", type=str, help="AWS Access Key", required=False)
+    parser.add_argument("--aws_secret_access_key", type=str, help="AWS Secret Key", required=False)
 
     parser.add_argument(
         "--split", type=str, default="test", help="Split to draw examples for annotation."
@@ -210,10 +208,10 @@ if __name__ == '__main__':
 
     print(args)
 
-    #ah = AbductiveHITCreator()
-    #ah.get_proof_of_concept_HIT()
+    ah = AbductiveHITCreator(HIT_template_path='mturk/abductive/abductive_para_nlu_template.html')
+    ah.get_proof_of_concept_HIT()
 
     #connect_and_post_abductive_hits(**vars(args))
 
-    view_assignment(args.assignment_id, args.live_marketplace, args.aws_access_key, args.aws_secret_access_key)
+    #view_assignment(args.assignment_id, args.live_marketplace, args.aws_access_key, args.aws_secret_access_key)
 

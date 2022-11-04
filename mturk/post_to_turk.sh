@@ -8,7 +8,7 @@ python -m abductive.abductive_hit_creator \
 	--requestor_note='initial pilot' \
 	--num_examples=115 \
 	--max_assignments=3 \
-	--live_marketplace \
+	# --live_marketplace \
 	#--hit_type_id='32TFGTUJLO3J751NEB1G1MT9DBKIP8' \
 
 	

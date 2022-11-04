@@ -20,7 +20,7 @@ from mturk.mturk_hit_creator import (
 class DefeasibleHITCreator():
     """
     Creates HTML code for each "HIT" or task based on examples in 
-    the Abductive dataset. This object uses an HTML template and
+    the Defeasible Inference dataset. This object uses an HTML template and
     fills in example-specific text (i.e the hypotheses or the observations.
     """
 
@@ -29,9 +29,8 @@ class DefeasibleHITCreator():
     FUNCTION_SIMILARITY_ID = 'similarity_%s'
 
  
-    def __init__(self, HIT_template_path: str, defeasible_examples: List[DefeasibleNLIExample]):
+    def __init__(self, HIT_template_path: str):
         self.task_template = open(HIT_template_path, "r").read()
-        self.examples = defeasible_examples
 
     def get_hit_data_from_examples(self, examples: List[DefeasibleNLIExample]) -> List[MTurkHITData]:
         hit_data_examples = []
@@ -44,9 +43,22 @@ class DefeasibleHITCreator():
             ))
         return hit_data_examples
 
-
     def get_proof_of_concept_HIT(self) -> None:
-        DefeasibleHITCreator.create_HTML_from_example(self.task_template, self.examples[0], True)
+        DefeasibleHITCreator.create_HTML_from_example(
+            self.task_template, 
+            DefeasibleNLIExample(
+                example_id="1",
+                source_example_metadata=None,
+                data_source="snli",
+                premise="A group is walking between two giant rock formations." ,
+                hypothesis="A group is hiking.",
+                update="They are wearing hiking gear.",
+                update_type="strengthener",
+                label=1,
+                annotated_paraphrases=None,
+            ), 
+            True
+        )
 
     @staticmethod
     def create_HTML_from_example(
@@ -103,12 +115,72 @@ class DefeasibleHITCreator():
         
         return task_html
 
+def connect_and_post_defeasible_hits(
+    split: str, 
+    examples: List[DefeasibleNLIExample],
+    requestor_note: str,
+    max_assignments: int,
+    hit_type_id: str,
+    live_marketplace: bool,
+    aws_access_key: str,
+    aws_secret_access_key: str
+) -> None:
+    
+    random.seed(42)
+    
+    turk_creator = MTurkHITCreator(
+        aws_access_key=aws_access_key,
+        aws_secret_access_key=aws_secret_access_key,
+        live_marketplace=live_marketplace
+    )
+
+    defeasible_hit_creator = DefeasibleHITCreator('mturk/defeasible/defeasible_para_nlu_template.html')
+
+    if not hit_type_id:
+        hit_type = turk_creator.create_HIT_type(MTurkHITTypeParameters(**TASK_PARAMETERS))
+        hit_type_id = hit_type['HITTypeId']
+
+    assert hit_type_id
+
+    hit_data_examples = defeasible_hit_creator.get_hit_data_from_examples(examples)
+
+    batch = MTurkBatch(
+        tasks=hit_data_examples,
+        origin_split=split,
+        dataset_name='defeasible_nli',
+        example_ids=ids,
+        max_assignments=max_assignments,
+        post_date=str(datetime.now()),
+        requestor_note=requestor_note,
+        hit_type_id=hit_type_id
+    )
+
+    posted_hits = turk_creator.create_HITs_from_mturk_batch(batch)
+    batch.store_posted_batch_data(posted_hits)
+    batch.write_to_json('defeasible/mturk_data/creation/pilot.json')
+    turk_creator.trigger_email_notifications(hit_type_id, "nehasrik@umd.edu")
+
+def view_assignment(
+    assignment_id: str,
+    live_marketplace: bool,
+    aws_access_key: str,
+    aws_secret_access_key: str
+) -> None:
+        
+    turk_creator = MTurkHITCreator(
+        aws_access_key=aws_access_key,
+        aws_secret_access_key=aws_secret_access_key,
+        live_marketplace=live_marketplace
+    )
+
+    turk_creator.get_assignment(assignment_id)
+
 
 
 if __name__ == '__main__':
 
 
-    parser = argparse.ArgumentParser(description="Post Abductive HITs to the live marketplace")
+    parser = argparse.ArgumentParser(description="Post Defeasible HITs to the live marketplace")
 
     parser.add_argument("--aws_access_key", type=str, help="AWS Access Key", required=False)
     parser.add_argument("--aws_secret_access_key", type=str, help="AWS Secret Key", required=False)
@@ -131,10 +203,10 @@ if __name__ == '__main__':
     print(args)
 
 
-    dh = DefeasibleHITCreator('mturk/defeasible/defeasible_para_nlu_template.html', [DefeasibleNLIExample(**e) for e in json.load(open('data_selection/defeasible/dnli_snli_stratified_selected.json', 'r'))])
+    dh = DefeasibleHITCreator('mturk/defeasible/defeasible_para_nlu_template.html')
     dh.get_proof_of_concept_HIT()
 
-    #connect_and_post_abductive_hits(**vars(args))
+    #connect_and_post_defeasible_hits(**vars(args))
 
     #view_assignment(args.assignment_id, args.live_marketplace, args.aws_access_key, args.aws_secret_access_key)
 
