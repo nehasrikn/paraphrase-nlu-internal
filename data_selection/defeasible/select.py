@@ -1,6 +1,7 @@
 import random
-from typing import List
+from typing import List, Tuple
 from tqdm import tqdm
+import os
 import json
 from defeasible_data import DefeasibleNLIExample, ParaphrasedDefeasibleNLIExample, DefeasibleNLIDataset
 from experiments.models import DefeasibleTrainedModel
@@ -8,6 +9,26 @@ from collections import defaultdict
 from dataclasses import asdict
 
 # python -m data_selection.defeasible.select
+
+def select_train_dev_set_for_aflite_embedding_model(
+    data: DefeasibleNLIDataset,
+    num_train_examples: int = 5000,
+    num_dev_examples: int = 1000,
+    out_dir=str,
+) -> Tuple[List[DefeasibleNLIExample],List[DefeasibleNLIExample]]:
+    """
+    Selects a subset of train and dev examples to train an embedding model
+    for AFLite.
+    """
+    random.seed(42)
+    train_examples = random.sample(data.train_examples, num_train_examples)
+    dev_examples = random.sample(data.dev_examples, num_dev_examples)
+
+    DefeasibleNLIDataset.write_processed_examples_for_modeling(train_examples, out_dir=out_dir, fname='aflite_train.csv')
+    DefeasibleNLIDataset.write_processed_examples_for_modeling(dev_examples, out_dir=out_dir, fname='aflite_dev.csv')
+
+    return (train_examples, dev_examples)
+
 
 def select_subset_by_stratified_confidence(
     data_source: str, 
@@ -49,17 +70,25 @@ def select_subset_by_stratified_confidence(
     return stratified_examples
 
 if __name__ == '__main__':
-    random.seed(42)
+    # random.seed(42)
 
-    dnli = DefeasibleNLIDataset('raw-data/defeasible-nli/defeasible-all/')
+    # dnli = DefeasibleNLIDataset('raw-data/defeasible-nli/defeasible-all/')
 
-    all_examples = []
+    # all_examples = []
 
-    for source in DefeasibleNLIDataset.SOURCE_SPECIFIC_METADATA.keys():
-        print('######### %s #########' % source)
-        stratified_examples = select_subset_by_stratified_confidence(source.lower(), dnli)
-        all_examples.extend(stratified_examples)
+    # for source in DefeasibleNLIDataset.SOURCE_SPECIFIC_METADATA.keys():
+    #     print('######### %s #########' % source)
+    #     stratified_examples = select_subset_by_stratified_confidence(source.lower(), dnli)
+    #     all_examples.extend(stratified_examples)
 
-        with open("data_selection/defeasible/dnli_%s_stratified_selected.json" % source.lower(), "w") as file:
-            file.write(json.dumps([asdict(e) for e in stratified_examples]))
+    #     with open("data_selection/defeasible/dnli_%s_stratified_selected.json" % source.lower(), "w") as file:
+    #         file.write(json.dumps([asdict(e) for e in stratified_examples]))
 
+    for data_source in ['social', 'atomic', 'snli']:
+        aflite_data_generation = {
+            'data': DefeasibleNLIDataset(f'raw-data/defeasible-nli/defeasible-{data_source}/'),
+            'num_train_examples': 5000,
+            'num_dev_examples': 1000,
+            'out_dir': f'data_selection/defeasible/{data_source}'
+        }
+        select_train_dev_set_for_aflite_embedding_model(**aflite_data_generation)

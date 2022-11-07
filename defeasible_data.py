@@ -1,5 +1,6 @@
 import pandas as pd
 import csv
+import os
 import json
 from dataclasses import dataclass
 from typing import List, Optional, Dict, Any
@@ -73,14 +74,13 @@ class DefeasibleNLIDataset:
             )
         print('Loaded %d nonempty %s examples...' % (len(data), data_split))
         return data
-
-    def write_processed_examples_for_modeling(self, split: str,  out_dir:str='modeling/defeasible/data') -> None:
-        data = self.get_split(split)
+    
+    @staticmethod
+    def write_processed_examples_for_modeling(data: List[DefeasibleNLIExample],  out_dir:str='modeling/defeasible/data', fname='defeasible_%s.csv') -> None:
 
         fieldnames = ['sentence1', 'sentence2', 'label']
-        fname = f'{out_dir}/defeasible_{split}.csv'
 
-        with open(fname, 'w', newline='\n') as csvfile:
+        with open(os.path.join(out_dir, fname), 'w', newline='\n') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             for example in data:
