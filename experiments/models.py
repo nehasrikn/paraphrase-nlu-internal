@@ -42,6 +42,34 @@ class TrainedModel:
 class AbductiveTrainedModel(TrainedModel):
     NUM_CHOICES = 2
 
+    def get_example_embedding(self, obs1: str, obs2: str, hyp1: str, hyp2: str) -> numpy.ndarray:
+        first_sentences = [[obs1] * AbductiveTrainedModel.NUM_CHOICES for context in [obs1]]
+        second_sentences = [
+            [f"{h} {obs2}" for h in [hyp1, hyp2]]
+        ]
+        
+        # Flatten out
+        first_sentences = list(chain(*first_sentences))
+        second_sentences = list(chain(*second_sentences))
+        
+        result = self.tokenizer(
+            first_sentences,
+            second_sentences,
+            truncation=True,
+            max_length=1024,
+            padding=True,
+        )
+        result = {k: [v[i : i + 2] for i in range(0, len(v), 2)] for k, v in result.items()}
+        
+        outputs = self.trained_model.roberta(
+            input_ids=torch.tensor(result['input_ids']), 
+            attention_mask=torch.tensor(result['attention_mask'])
+        )
+        sequence_output = outputs[0]
+        cls_rep = sequence_output[:, 0, :]
+        return cls_rep.squeeze(0).detach().numpy() # take <s> token (equiv. to [CLS])
+
+
     def predict(self, obs1: str, obs2: str, hyp1: str, hyp2: str) -> numpy.ndarray:
         return self._get_prediction(obs1, obs2, hyp1, hyp2)
 
@@ -77,6 +105,20 @@ class AbductiveTrainedModel(TrainedModel):
 
 
 class DefeasibleTrainedModel(TrainedModel):
+    
+    def get_example_embedding(self, premise: str, hypothesis: str, update: str) -> numpy.ndarray:
+        result = self.tokenizer(
+            [(premise + hypothesis, update)],
+            padding="max_length", 
+            max_length=128, 
+            truncation=True, 
+            return_tensors="pt"
+        )
+        outputs = self.trained_model.roberta(**result)
+        sequence_output = outputs[0]
+        cls_rep = sequence_output[:, 0, :]
+        return cls_rep.squeeze(0).detach().numpy() # take <s> token (equiv. to [CLS])
+
     def predict(self, premise: str, hypothesis: str, update: str) -> numpy.ndarray:
         return self._get_prediction((premise + hypothesis, update))
 
