@@ -17,9 +17,9 @@ python run_glue.py \
 	--use_fast_tokenizer false \
 	--cache_dir $CACHE_DIR \
 	--do_train \
-	--train_file /fs/clip-scratch/nehasrik/paraphrase-nlu/data_selection/defeasible/social/aflite_train.csv \
+	--train_file /fs/clip-scratch/nehasrik/paraphrase-nlu/data_selection/defeasible/snli/aflite_train.csv \
 	--do_eval \
-	--validation_file /fs/clip-scratch/nehasrik/paraphrase-nlu/data_selection/defeasible/social/aflite_dev.csv \
+	--validation_file /fs/clip-scratch/nehasrik/paraphrase-nlu/data_selection/defeasible/snli/aflite_dev.csv \
 	--max_seq_length 128 \
 	--per_device_train_batch_size=32 \
 	--per_gpu_eval_batch_size=32 \
@@ -28,7 +28,7 @@ python run_glue.py \
 	--learning_rate 2e-5 \
 	--num_train_epochs 2 \
 	--overwrite_output_dir \
-	--output_dir chkpts/aflite_embedding_models/d-social-roberta-base
+	--output_dir chkpts/aflite_embedding_models/d-snli-roberta-base
 
 #   --gradient_accumulation_steps 8 \
 #	--do_lower_case \
