@@ -33,6 +33,12 @@ def select_train_dev_set_for_aflite_embedding_model(
     DefeasibleNLIDataset.write_processed_examples_for_modeling(train_examples, out_dir=out_dir, fname='aflite_train.csv')
     DefeasibleNLIDataset.write_processed_examples_for_modeling(dev_examples, out_dir=out_dir, fname='aflite_dev.csv')
 
+    with open(os.path.join(out_dir, 'aflite_train_examples.json'), "w") as file:
+        file.write(json.dumps([asdict(e) for e in train_examples]))
+    
+    with open(os.path.join(out_dir, 'aflite_dev_examples.json'), "w") as file:
+        file.write(json.dumps([asdict(e) for e in dev_examples]))
+
     return (train_examples, dev_examples)
 
 def run_select_train_dev_set_for_aflite_embedding_model():

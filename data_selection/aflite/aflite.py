@@ -1,5 +1,6 @@
 import numpy as np
 import os
+import json
 from sklearn.linear_model import LogisticRegression
 from typing import List, Tuple, Union
 from sklearn.model_selection import train_test_split
@@ -19,9 +20,9 @@ class AFLite():
     def get_example_embeddings(
         self, 
         examples: Union[List[DefeasibleNLIExample], List[AbductiveNLIExample]],
-        model_embedding_dim: int = 768,
         embeddings_file: str,
-        labels_file: str
+        labels_file: str,
+        model_embedding_dim: int = 768,
     ) -> Tuple[np.array, np.array]:
 
         labels = [e.label for e in examples]
@@ -36,7 +37,7 @@ class AFLite():
 
         embeddings = np.zeros([len(embedding_inputs), model_embedding_dim])
 
-        for i,example in tqdm.tqdm(enumerate(embedding_inputs)):
+        for i,example in enumerate(tqdm.tqdm(embedding_inputs)):
             embeddings[i,:] = self.embedding_model.get_example_embedding(**example)
 
         np.save(embeddings_file, embeddings)
@@ -124,8 +125,14 @@ class AFLite():
 if __name__ == '__main__':
 
     dsnli = DefeasibleNLIDataset(f'raw-data/defeasible-nli/defeasible-snli/')
-    embedding_model = DefeasibleTrainedModel(trained_model_dir='/Users/nehasrikanth/Documents/hypothesis-editing/context-editing-internal/modeling/checkpoints/dnli/dnli_full_input', multiple_choice=False)
+    aflite_embedding_training_examples = set([e['example_id'] for e in json.load(open('data_selection/defeasible/snli/aflite_train_examples.json'))])
+
+    embedding_model = DefeasibleTrainedModel(trained_model_dir='modeling/defeasible/chkpts/aflite_embedding_models/d-snli-roberta-base', multiple_choice=False)
 
     af = AFLite(embedding_model=embedding_model)
 
-    af.get_example_embeddings(dsnli.get_split('test'))
+    af.get_example_embeddings(
+        examples=[e for e in dsnli.get_split('train') if e.example_id not in aflite_embedding_training_examples],
+        embeddings_file='data_selection/aflite/snli_train_embeddings.npy',
+        labels_file='data_selection/aflite/snli_train_labels.npy'
+    )
