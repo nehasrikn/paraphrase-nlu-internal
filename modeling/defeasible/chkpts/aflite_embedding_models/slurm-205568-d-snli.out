@@ -1,0 +1,296 @@
+11/08/2022 10:49:08 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+11/08/2022 10:49:08 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.NO,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+hub_model_id=None,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=2e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=chkpts/aflite_embedding_models/d-snli-roberta-base/runs/Nov08_10-49-08_clip03.umiacs.umd.edu,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=2.0,
+output_dir=chkpts/aflite_embedding_models/d-snli-roberta-base,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=32,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=chkpts/aflite_embedding_models/d-snli-roberta-base,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=IntervalStrategy.EPOCH,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+11/08/2022 10:49:08 - INFO - __main__ - load a local file for train: /fs/clip-scratch/nehasrik/paraphrase-nlu/data_selection/defeasible/snli/aflite_train.csv
+11/08/2022 10:49:08 - INFO - __main__ - load a local file for validation: /fs/clip-scratch/nehasrik/paraphrase-nlu/data_selection/defeasible/snli/aflite_dev.csv
+11/08/2022 10:49:08 - WARNING - datasets.builder - Using custom data configuration default-9895652e7c937c37
+11/08/2022 10:49:08 - INFO - datasets.info - Loading Dataset Infos from /fs/clip-scratch/nehasrik/miniconda3/envs/para-nlu/lib/python3.7/site-packages/datasets/packaged_modules/csv
+11/08/2022 10:49:08 - INFO - datasets.builder - Generating dataset csv (/fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/csv/default-9895652e7c937c37/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317)
+Downloading and preparing dataset csv/default to /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/csv/default-9895652e7c937c37/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317...
+
+Downloading data files:   0%|          | 0/2 [00:00<?, ?it/s]
+Downloading data files: 100%|██████████| 2/2 [00:00<00:00, 10420.63it/s]11/08/2022 10:49:08 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+11/08/2022 10:49:08 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+
+
+Extracting data files:   0%|          | 0/2 [00:00<?, ?it/s]
+Extracting data files: 100%|██████████| 2/2 [00:00<00:00, 389.86it/s]11/08/2022 10:49:09 - INFO - datasets.utils.info_utils - Unable to verify checksums.
+11/08/2022 10:49:09 - INFO - datasets.builder - Generating train split
+
+
+0 tables [00:00, ? tables/s]
+                            11/08/2022 10:49:09 - INFO - datasets.builder - Generating validation split
+
+
+0 tables [00:00, ? tables/s]
+                            11/08/2022 10:49:09 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+
+Dataset csv downloaded and prepared to /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/csv/default-9895652e7c937c37/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317. Subsequent calls will reuse this data.
+
+  0%|          | 0/2 [00:00<?, ?it/s]
+100%|██████████| 2/2 [00:00<00:00, 579.28it/s]
+[INFO|configuration_utils.py:583] 2022-11-08 10:49:09,123 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+/fs/clip-scratch/nehasrik/miniconda3/envs/para-nlu/lib/python3.7/site-packages/transformers/configuration_utils.py:337: UserWarning: Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 Transformers. Using `model.gradient_checkpointing_enable()` instead, or if you are using the `Trainer` API, pass `gradient_checkpointing=True` in your `TrainingArguments`.
+  "Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 "
+[INFO|configuration_utils.py:620] 2022-11-08 10:49:09,126 >> Model config RobertaConfig {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.11.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_auto.py:334] 2022-11-08 10:49:09,159 >> Could not locate the tokenizer configuration file, will try to use the model config instead.
+[INFO|configuration_utils.py:583] 2022-11-08 10:49:09,191 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+[INFO|configuration_utils.py:620] 2022-11-08 10:49:09,191 >> Model config RobertaConfig {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.11.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_utils_base.py:1741] 2022-11-08 10:49:09,447 >> loading file https://huggingface.co/roberta-base/resolve/main/vocab.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/d3ccdbfeb9aaa747ef20432d4976c32ee3fa69663b379deb253ccfce2bb1fdc5.d67d6b367eb24ab43b08ad55e014cf254076934f71d832bbab9ad35644a375ab
+[INFO|tokenization_utils_base.py:1741] 2022-11-08 10:49:09,447 >> loading file https://huggingface.co/roberta-base/resolve/main/merges.txt from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/cafdecc90fcab17011e12ac813dd574b4b3fea39da6dd817813efa010262ff3f.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b
+[INFO|tokenization_utils_base.py:1741] 2022-11-08 10:49:09,447 >> loading file https://huggingface.co/roberta-base/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1741] 2022-11-08 10:49:09,447 >> loading file https://huggingface.co/roberta-base/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1741] 2022-11-08 10:49:09,447 >> loading file https://huggingface.co/roberta-base/resolve/main/tokenizer_config.json from cache at None
+[INFO|tokenization_utils_base.py:1741] 2022-11-08 10:49:09,447 >> loading file https://huggingface.co/roberta-base/resolve/main/tokenizer.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/d53fc0fa09b8342651efd4073d75e19617b3e51287c2a535becda5808a8db287.fc9576039592f026ad76a1c231b89aee8668488c671dfbe6616bab2ed298d730
+[INFO|configuration_utils.py:583] 2022-11-08 10:49:09,488 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /nfshomes/nehasrik/.cache/huggingface/transformers/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+[INFO|configuration_utils.py:620] 2022-11-08 10:49:09,489 >> Model config RobertaConfig {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.11.0",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|modeling_utils.py:1323] 2022-11-08 10:49:09,702 >> loading weights file https://huggingface.co/roberta-base/resolve/main/pytorch_model.bin from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/51ba668f7ff34e7cdfa9561e8361747738113878850a7d717dbc69de8683aaad.c7efaa30a0d80b2958b876969faa180e485944a849deee4ad482332de65365a7
+[WARNING|modeling_utils.py:1580] 2022-11-08 10:49:10,933 >> Some weights of the model checkpoint at roberta-base were not used when initializing RobertaForSequenceClassification: ['roberta.pooler.dense.weight', 'lm_head.dense.weight', 'lm_head.dense.bias', 'lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'roberta.pooler.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.bias']
+- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:1591] 2022-11-08 10:49:10,933 >> Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at roberta-base and are newly initialized: ['classifier.out_proj.bias', 'classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+sentence1 sentence2
+S1+S2 KEYS sentence1 sentence2
+
+Running tokenizer on dataset:   0%|          | 0/9 [00:00<?, ?ba/s]11/08/2022 10:49:12 - INFO - datasets.arrow_dataset - Caching processed dataset at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/csv/default-9895652e7c937c37/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317/cache-cb752fe650b34a7a.arrow
+
+Running tokenizer on dataset:  11%|█         | 1/9 [00:00<00:03,  2.05ba/s]
+Running tokenizer on dataset:  22%|██▏       | 2/9 [00:00<00:03,  2.30ba/s]
+Running tokenizer on dataset:  33%|███▎      | 3/9 [00:01<00:02,  2.45ba/s]
+Running tokenizer on dataset:  44%|████▍     | 4/9 [00:01<00:01,  2.55ba/s]
+Running tokenizer on dataset:  56%|█████▌    | 5/9 [00:01<00:01,  2.62ba/s]
+Running tokenizer on dataset:  67%|██████▋   | 6/9 [00:02<00:01,  2.69ba/s]
+Running tokenizer on dataset:  78%|███████▊  | 7/9 [00:02<00:00,  2.74ba/s]
+Running tokenizer on dataset:  89%|████████▉ | 8/9 [00:03<00:00,  2.77ba/s]
+Running tokenizer on dataset:  89%|████████▉ | 8/9 [00:03<00:00,  2.38ba/s]
+
+Running tokenizer on dataset:   0%|          | 0/1 [00:00<?, ?ba/s]11/08/2022 10:49:16 - INFO - datasets.arrow_dataset - Caching processed dataset at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/csv/default-9895652e7c937c37/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317/cache-46af819fc8cab95d.arrow
+
+Running tokenizer on dataset:   0%|          | 0/1 [00:00<?, ?ba/s]hi
+11/08/2022 10:49:16 - INFO - __main__ - Sample 1824 of the training set: {'sentence1': 'Two men ride horses while wielding whips. Two men are racing horses.', 'sentence2': 'The horses are on a track.', 'label': 1, 'input_ids': [0, 9058, 604, 3068, 8087, 150, 34068, 8401, 7418, 4, 1596, 604, 32, 4930, 8087, 4, 2, 2, 133, 8087, 32, 15, 10, 1349, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+11/08/2022 10:49:16 - INFO - __main__ - Sample 409 of the training set: {'sentence1': 'A young blond girl stands on a beach. A girl is standing on the sand looking at the ocean.', 'sentence2': 'People are yelling that a shark has been spotted in the ocean.', 'label': 1, 'input_ids': [0, 250, 664, 33072, 1816, 3311, 15, 10, 4105, 4, 83, 1816, 16, 2934, 15, 5, 6255, 546, 23, 5, 6444, 4, 2, 2, 4763, 32, 16600, 14, 10, 14441, 34, 57, 5146, 11, 5, 6444, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+11/08/2022 10:49:16 - INFO - __main__ - Sample 4506 of the training set: {'sentence1': 'Family around table eating. the family is eating thanksgiving dinner', 'sentence2': 'They are eating turkey.', 'label': 1, 'input_ids': [0, 27818, 198, 2103, 4441, 4, 5, 284, 16, 4441, 2446, 18116, 3630, 2, 2, 1213, 32, 4441, 15164, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+
+run_glue.py:456: FutureWarning: load_metric is deprecated and will be removed in the next major version of datasets. Use 'evaluate.load' instead, from the new library 🤗 Evaluate: https://huggingface.co/docs/evaluate
+  metric = load_metric("accuracy")
+[INFO|trainer.py:541] 2022-11-08 10:49:17,940 >> The following columns in the training set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: sentence2, sentence1.
+[INFO|trainer.py:1196] 2022-11-08 10:49:17,951 >> ***** Running training *****
+[INFO|trainer.py:1197] 2022-11-08 10:49:17,951 >>   Num examples = 8867
+[INFO|trainer.py:1198] 2022-11-08 10:49:17,951 >>   Num Epochs = 2
+[INFO|trainer.py:1199] 2022-11-08 10:49:17,951 >>   Instantaneous batch size per device = 32
+[INFO|trainer.py:1200] 2022-11-08 10:49:17,951 >>   Total train batch size (w. parallel, distributed & accumulation) = 32
+[INFO|trainer.py:1201] 2022-11-08 10:49:17,951 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1202] 2022-11-08 10:49:17,951 >>   Total optimization steps = 556
+
+ 50%|████▉     | 277/556 [01:49<01:51,  2.50it/s][INFO|trainer.py:1987] 2022-11-08 10:51:07,146 >> Saving model checkpoint to chkpts/aflite_embedding_models/d-snli-roberta-base/checkpoint-278
+/fs/clip-scratch/nehasrik/miniconda3/envs/para-nlu/lib/python3.7/site-packages/transformers/configuration_utils.py:337: UserWarning: Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 Transformers. Using `model.gradient_checkpointing_enable()` instead, or if you are using the `Trainer` API, pass `gradient_checkpointing=True` in your `TrainingArguments`.
+  "Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 "
+[INFO|configuration_utils.py:413] 2022-11-08 10:51:07,150 >> Configuration saved in chkpts/aflite_embedding_models/d-snli-roberta-base/checkpoint-278/config.json
+[INFO|modeling_utils.py:1041] 2022-11-08 10:51:11,958 >> Model weights saved in chkpts/aflite_embedding_models/d-snli-roberta-base/checkpoint-278/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2022-11-08 10:51:11,962 >> tokenizer config file saved in chkpts/aflite_embedding_models/d-snli-roberta-base/checkpoint-278/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2022-11-08 10:51:11,964 >> Special tokens file saved in chkpts/aflite_embedding_models/d-snli-roberta-base/checkpoint-278/special_tokens_map.json
+
+100%|█████████▉| 554/556 [03:55<00:00,  2.45it/s]
+100%|█████████▉| 555/556 [03:55<00:00,  2.46it/s][INFO|trainer.py:1987] 2022-11-08 10:53:13,614 >> Saving model checkpoint to chkpts/aflite_embedding_models/d-snli-roberta-base/checkpoint-556
+/fs/clip-scratch/nehasrik/miniconda3/envs/para-nlu/lib/python3.7/site-packages/transformers/configuration_utils.py:337: UserWarning: Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 Transformers. Using `model.gradient_checkpointing_enable()` instead, or if you are using the `Trainer` API, pass `gradient_checkpointing=True` in your `TrainingArguments`.
+  "Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 "
+[INFO|configuration_utils.py:413] 2022-11-08 10:53:13,619 >> Configuration saved in chkpts/aflite_embedding_models/d-snli-roberta-base/checkpoint-556/config.json
+[INFO|modeling_utils.py:1041] 2022-11-08 10:53:18,419 >> Model weights saved in chkpts/aflite_embedding_models/d-snli-roberta-base/checkpoint-556/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2022-11-08 10:53:18,423 >> tokenizer config file saved in chkpts/aflite_embedding_models/d-snli-roberta-base/checkpoint-556/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2022-11-08 10:53:18,427 >> Special tokens file saved in chkpts/aflite_embedding_models/d-snli-roberta-base/checkpoint-556/special_tokens_map.json
+[INFO|trainer.py:1401] 2022-11-08 10:53:28,213 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+100%|██████████| 556/556 [04:10<00:00,  2.22it/s]
+[INFO|trainer.py:1987] 2022-11-08 10:53:28,215 >> Saving model checkpoint to chkpts/aflite_embedding_models/d-snli-roberta-base
+/fs/clip-scratch/nehasrik/miniconda3/envs/para-nlu/lib/python3.7/site-packages/transformers/configuration_utils.py:337: UserWarning: Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 Transformers. Using `model.gradient_checkpointing_enable()` instead, or if you are using the `Trainer` API, pass `gradient_checkpointing=True` in your `TrainingArguments`.
+  "Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 "
+[INFO|configuration_utils.py:413] 2022-11-08 10:53:28,219 >> Configuration saved in chkpts/aflite_embedding_models/d-snli-roberta-base/config.json
+[INFO|modeling_utils.py:1041] 2022-11-08 10:53:33,017 >> Model weights saved in chkpts/aflite_embedding_models/d-snli-roberta-base/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2033] 2022-11-08 10:53:33,022 >> tokenizer config file saved in chkpts/aflite_embedding_models/d-snli-roberta-base/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2039] 2022-11-08 10:53:33,026 >> Special tokens file saved in chkpts/aflite_embedding_models/d-snli-roberta-base/special_tokens_map.json
+{'loss': 0.6441, 'learning_rate': 2.0143884892086333e-06, 'epoch': 1.8}
+{'train_runtime': 250.2625, 'train_samples_per_second': 70.862, 'train_steps_per_second': 2.222, 'train_loss': 0.6358275482122847, 'epoch': 2.0}
+***** train metrics *****
+  epoch                    =        2.0
+  train_loss               =     0.6358
+  train_runtime            = 0:04:10.26
+  train_samples            =       8867
+  train_samples_per_second =     70.862
+  train_steps_per_second   =      2.222
+11/08/2022 10:53:33 - INFO - __main__ - *** Evaluate ***
+[INFO|trainer.py:541] 2022-11-08 10:53:33,178 >> The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: sentence2, sentence1.
+[WARNING|training_args.py:888] 2022-11-08 10:53:33,180 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[INFO|trainer.py:2235] 2022-11-08 10:53:33,180 >> ***** Running Evaluation *****
+[INFO|trainer.py:2237] 2022-11-08 10:53:33,180 >>   Num examples = 1000
+[INFO|trainer.py:2240] 2022-11-08 10:53:33,180 >>   Batch size = 32
+
+100%|██████████| 32/32 [00:04<00:00,  6.78it/s]
+[WARNING|training_args.py:888] 2022-11-08 10:53:38,081 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[WARNING|training_args.py:888] 2022-11-08 10:53:38,081 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[INFO|modelcard.py:446] 2022-11-08 10:53:38,139 >> Dropping the following result as it does not have all the necessary field:
+{'task': {'name': 'Text Classification', 'type': 'text-classification'}, 'metrics': [{'name': 'Accuracy', 'type': 'accuracy', 'value': 0.6909999847412109}]}
+***** eval metrics *****
+  epoch                   =        2.0
+  eval_accuracy           =      0.691
+  eval_loss               =     0.5878
+  eval_runtime            = 0:00:04.89
+  eval_samples            =       1000
+  eval_samples_per_second =    204.488
+  eval_steps_per_second   =      6.544

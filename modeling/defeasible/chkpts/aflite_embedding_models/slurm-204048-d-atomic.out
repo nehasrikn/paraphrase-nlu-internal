@@ -1,269 +1,0 @@
-11/07/2022 14:15:32 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
-11/07/2022 14:15:32 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
-_n_gpu=1,
-adafactor=False,
-adam_beta1=0.9,
-adam_beta2=0.999,
-adam_epsilon=1e-08,
-dataloader_drop_last=False,
-dataloader_num_workers=0,
-dataloader_pin_memory=True,
-ddp_find_unused_parameters=None,
-debug=[],
-deepspeed=None,
-disable_tqdm=False,
-do_eval=True,
-do_predict=False,
-do_train=True,
-eval_accumulation_steps=None,
-eval_steps=None,
-evaluation_strategy=IntervalStrategy.NO,
-fp16=False,
-fp16_backend=auto,
-fp16_full_eval=False,
-fp16_opt_level=O1,
-gradient_accumulation_steps=1,
-gradient_checkpointing=False,
-greater_is_better=None,
-group_by_length=False,
-hub_model_id=None,
-hub_strategy=HubStrategy.EVERY_SAVE,
-hub_token=<HUB_TOKEN>,
-ignore_data_skip=False,
-label_names=None,
-label_smoothing_factor=0.0,
-learning_rate=2e-05,
-length_column_name=length,
-load_best_model_at_end=False,
-local_rank=-1,
-log_level=-1,
-log_level_replica=-1,
-log_on_each_node=True,
-logging_dir=chkpts/aflite_embedding_models/d-atomic-roberta-base/runs/Nov07_14-15-32_clip03.umiacs.umd.edu,
-logging_first_step=False,
-logging_nan_inf_filter=True,
-logging_steps=500,
-logging_strategy=IntervalStrategy.STEPS,
-lr_scheduler_type=SchedulerType.LINEAR,
-max_grad_norm=1.0,
-max_steps=-1,
-metric_for_best_model=None,
-mp_parameters=,
-no_cuda=False,
-num_train_epochs=2.0,
-output_dir=chkpts/aflite_embedding_models/d-atomic-roberta-base,
-overwrite_output_dir=True,
-past_index=-1,
-per_device_eval_batch_size=8,
-per_device_train_batch_size=32,
-prediction_loss_only=False,
-push_to_hub=False,
-push_to_hub_model_id=None,
-push_to_hub_organization=None,
-push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
-remove_unused_columns=True,
-report_to=[],
-resume_from_checkpoint=None,
-run_name=chkpts/aflite_embedding_models/d-atomic-roberta-base,
-save_on_each_node=False,
-save_steps=500,
-save_strategy=IntervalStrategy.EPOCH,
-save_total_limit=None,
-seed=42,
-sharded_ddp=[],
-skip_memory_metrics=True,
-tpu_metrics_debug=False,
-tpu_num_cores=None,
-use_legacy_prediction_loop=False,
-warmup_ratio=0.0,
-warmup_steps=0,
-weight_decay=0.0,
-xpu_backend=None,
-)
-11/07/2022 14:15:32 - INFO - __main__ - load a local file for train: /fs/clip-scratch/nehasrik/paraphrase-nlu/data_selection/defeasible/atomic/aflite_train.csv
-11/07/2022 14:15:32 - INFO - __main__ - load a local file for validation: /fs/clip-scratch/nehasrik/paraphrase-nlu/data_selection/defeasible/atomic/aflite_dev.csv
-11/07/2022 14:15:32 - WARNING - datasets.builder - Using custom data configuration default-45086b7b78082cc4
-11/07/2022 14:15:32 - INFO - datasets.info - Loading Dataset Infos from /fs/clip-scratch/nehasrik/miniconda3/envs/para-nlu/lib/python3.7/site-packages/datasets/packaged_modules/csv
-11/07/2022 14:15:32 - INFO - datasets.builder - Generating dataset csv (/fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/csv/default-45086b7b78082cc4/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317)
-Downloading and preparing dataset csv/default to /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/csv/default-45086b7b78082cc4/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317...
-Downloading data files:   0%|          | 0/2 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 2/2 [00:00<00:00, 7115.02it/s]11/07/2022 14:15:32 - INFO - datasets.download.download_manager - Downloading took 0.0 min
-11/07/2022 14:15:32 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
-
-Extracting data files:   0%|          | 0/2 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 2/2 [00:00<00:00, 382.66it/s]11/07/2022 14:15:32 - INFO - datasets.utils.info_utils - Unable to verify checksums.
-11/07/2022 14:15:32 - INFO - datasets.builder - Generating train split
-
-0 tables [00:00, ? tables/s]                            11/07/2022 14:15:32 - INFO - datasets.builder - Generating validation split
-0 tables [00:00, ? tables/s]                            11/07/2022 14:15:32 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
-Dataset csv downloaded and prepared to /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/csv/default-45086b7b78082cc4/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317. Subsequent calls will reuse this data.
-  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 369.44it/s]
-[INFO|configuration_utils.py:583] 2022-11-07 14:15:32,927 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
-/fs/clip-scratch/nehasrik/miniconda3/envs/para-nlu/lib/python3.7/site-packages/transformers/configuration_utils.py:337: UserWarning: Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 Transformers. Using `model.gradient_checkpointing_enable()` instead, or if you are using the `Trainer` API, pass `gradient_checkpointing=True` in your `TrainingArguments`.
-  "Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 "
-[INFO|configuration_utils.py:620] 2022-11-07 14:15:32,932 >> Model config RobertaConfig {
-  "architectures": [
-    "RobertaForMaskedLM"
-  ],
-  "attention_probs_dropout_prob": 0.1,
-  "bos_token_id": 0,
-  "classifier_dropout": null,
-  "eos_token_id": 2,
-  "hidden_act": "gelu",
-  "hidden_dropout_prob": 0.1,
-  "hidden_size": 768,
-  "initializer_range": 0.02,
-  "intermediate_size": 3072,
-  "layer_norm_eps": 1e-05,
-  "max_position_embeddings": 514,
-  "model_type": "roberta",
-  "num_attention_heads": 12,
-  "num_hidden_layers": 12,
-  "pad_token_id": 1,
-  "position_embedding_type": "absolute",
-  "transformers_version": "4.11.0",
-  "type_vocab_size": 1,
-  "use_cache": true,
-  "vocab_size": 50265
-}
-
-[INFO|tokenization_auto.py:334] 2022-11-07 14:15:32,966 >> Could not locate the tokenizer configuration file, will try to use the model config instead.
-[INFO|configuration_utils.py:583] 2022-11-07 14:15:32,998 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
-[INFO|configuration_utils.py:620] 2022-11-07 14:15:32,999 >> Model config RobertaConfig {
-  "architectures": [
-    "RobertaForMaskedLM"
-  ],
-  "attention_probs_dropout_prob": 0.1,
-  "bos_token_id": 0,
-  "classifier_dropout": null,
-  "eos_token_id": 2,
-  "hidden_act": "gelu",
-  "hidden_dropout_prob": 0.1,
-  "hidden_size": 768,
-  "initializer_range": 0.02,
-  "intermediate_size": 3072,
-  "layer_norm_eps": 1e-05,
-  "max_position_embeddings": 514,
-  "model_type": "roberta",
-  "num_attention_heads": 12,
-  "num_hidden_layers": 12,
-  "pad_token_id": 1,
-  "position_embedding_type": "absolute",
-  "transformers_version": "4.11.0",
-  "type_vocab_size": 1,
-  "use_cache": true,
-  "vocab_size": 50265
-}
-
-[INFO|tokenization_utils_base.py:1741] 2022-11-07 14:15:33,251 >> loading file https://huggingface.co/roberta-base/resolve/main/vocab.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/d3ccdbfeb9aaa747ef20432d4976c32ee3fa69663b379deb253ccfce2bb1fdc5.d67d6b367eb24ab43b08ad55e014cf254076934f71d832bbab9ad35644a375ab
-[INFO|tokenization_utils_base.py:1741] 2022-11-07 14:15:33,251 >> loading file https://huggingface.co/roberta-base/resolve/main/merges.txt from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/cafdecc90fcab17011e12ac813dd574b4b3fea39da6dd817813efa010262ff3f.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b
-[INFO|tokenization_utils_base.py:1741] 2022-11-07 14:15:33,251 >> loading file https://huggingface.co/roberta-base/resolve/main/added_tokens.json from cache at None
-[INFO|tokenization_utils_base.py:1741] 2022-11-07 14:15:33,251 >> loading file https://huggingface.co/roberta-base/resolve/main/special_tokens_map.json from cache at None
-[INFO|tokenization_utils_base.py:1741] 2022-11-07 14:15:33,252 >> loading file https://huggingface.co/roberta-base/resolve/main/tokenizer_config.json from cache at None
-[INFO|tokenization_utils_base.py:1741] 2022-11-07 14:15:33,252 >> loading file https://huggingface.co/roberta-base/resolve/main/tokenizer.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/d53fc0fa09b8342651efd4073d75e19617b3e51287c2a535becda5808a8db287.fc9576039592f026ad76a1c231b89aee8668488c671dfbe6616bab2ed298d730
-[INFO|configuration_utils.py:583] 2022-11-07 14:15:33,290 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /nfshomes/nehasrik/.cache/huggingface/transformers/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
-[INFO|configuration_utils.py:620] 2022-11-07 14:15:33,291 >> Model config RobertaConfig {
-  "architectures": [
-    "RobertaForMaskedLM"
-  ],
-  "attention_probs_dropout_prob": 0.1,
-  "bos_token_id": 0,
-  "classifier_dropout": null,
-  "eos_token_id": 2,
-  "hidden_act": "gelu",
-  "hidden_dropout_prob": 0.1,
-  "hidden_size": 768,
-  "initializer_range": 0.02,
-  "intermediate_size": 3072,
-  "layer_norm_eps": 1e-05,
-  "max_position_embeddings": 514,
-  "model_type": "roberta",
-  "num_attention_heads": 12,
-  "num_hidden_layers": 12,
-  "pad_token_id": 1,
-  "position_embedding_type": "absolute",
-  "transformers_version": "4.11.0",
-  "type_vocab_size": 1,
-  "use_cache": true,
-  "vocab_size": 50265
-}
-
-[INFO|modeling_utils.py:1323] 2022-11-07 14:15:33,594 >> loading weights file https://huggingface.co/roberta-base/resolve/main/pytorch_model.bin from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/51ba668f7ff34e7cdfa9561e8361747738113878850a7d717dbc69de8683aaad.c7efaa30a0d80b2958b876969faa180e485944a849deee4ad482332de65365a7
-[WARNING|modeling_utils.py:1580] 2022-11-07 14:15:39,688 >> Some weights of the model checkpoint at roberta-base were not used when initializing RobertaForSequenceClassification: ['lm_head.layer_norm.weight', 'lm_head.bias', 'lm_head.decoder.weight', 'roberta.pooler.dense.weight', 'roberta.pooler.dense.bias', 'lm_head.dense.bias', 'lm_head.dense.weight', 'lm_head.layer_norm.bias']
-- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
-- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-[WARNING|modeling_utils.py:1591] 2022-11-07 14:15:39,688 >> Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at roberta-base and are newly initialized: ['classifier.dense.weight', 'classifier.out_proj.weight', 'classifier.dense.bias', 'classifier.out_proj.bias']
-You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
-sentence1 sentence2
-S1+S2 KEYS sentence1 sentence2
-Running tokenizer on dataset:   0%|          | 0/5 [00:00<?, ?ba/s]11/07/2022 14:15:41 - INFO - datasets.arrow_dataset - Caching processed dataset at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/csv/default-45086b7b78082cc4/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317/cache-f1db38ab8e74d7a0.arrow
-Running tokenizer on dataset:  20%|██        | 1/5 [00:00<00:01,  2.33ba/s]Running tokenizer on dataset:  40%|████      | 2/5 [00:00<00:01,  2.53ba/s]Running tokenizer on dataset:  60%|██████    | 3/5 [00:01<00:00,  2.72ba/s]Running tokenizer on dataset:  80%|████████  | 4/5 [00:01<00:00,  2.80ba/s]Running tokenizer on dataset:  80%|████████  | 4/5 [00:01<00:00,  2.20ba/s]
-Running tokenizer on dataset:   0%|          | 0/1 [00:00<?, ?ba/s]11/07/2022 14:15:43 - INFO - datasets.arrow_dataset - Caching processed dataset at /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/hf-cache/csv/default-45086b7b78082cc4/0.0.0/6b34fb8fcf56f7c8ba51dc895bfa2bfbe43546f190a60fcf74bb5e8afdcc2317/cache-a5a3206ee02902a4.arrow
-Running tokenizer on dataset:   0%|          | 0/1 [00:00<?, ?ba/s]hi
-11/07/2022 14:15:43 - INFO - __main__ - Sample 912 of the training set: {'sentence1': 'PersonX listens to the music Because PersonX wanted apreciate nice music', 'sentence2': 'PersonX has never heard the song before.', 'label': 0, 'input_ids': [0, 41761, 1000, 25245, 7, 5, 930, 3047, 18404, 1000, 770, 6256, 19954, 877, 2579, 930, 2, 2, 41761, 1000, 34, 393, 1317, 5, 2214, 137, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
-11/07/2022 14:15:43 - INFO - __main__ - Sample 204 of the training set: {'sentence1': 'PersonX saves for months PersonX is seen as responsible', 'sentence2': 'They don’t buy anything they don’t need', 'label': 1, 'input_ids': [0, 41761, 1000, 7552, 13, 377, 18404, 1000, 16, 450, 25, 2149, 2, 2, 1213, 218, 17, 27, 90, 907, 932, 51, 218, 17, 27, 90, 240, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
-11/07/2022 14:15:43 - INFO - __main__ - Sample 2253 of the training set: {'sentence1': 'PersonX serves PersonY PersonX is seen as tired', 'sentence2': 'They sound peppy', 'label': 0, 'input_ids': [0, 41761, 1000, 4542, 18404, 975, 18404, 1000, 16, 450, 25, 7428, 2, 2, 1213, 2369, 3723, 12949, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
-
-run_glue.py:456: FutureWarning: load_metric is deprecated and will be removed in the next major version of datasets. Use 'evaluate.load' instead, from the new library 🤗 Evaluate: https://huggingface.co/docs/evaluate
-  metric = load_metric("accuracy")
-[INFO|trainer.py:541] 2022-11-07 14:15:48,573 >> The following columns in the training set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: sentence2, sentence1.
-[INFO|trainer.py:1196] 2022-11-07 14:15:48,587 >> ***** Running training *****
-[INFO|trainer.py:1197] 2022-11-07 14:15:48,587 >>   Num examples = 5000
-[INFO|trainer.py:1198] 2022-11-07 14:15:48,587 >>   Num Epochs = 2
-[INFO|trainer.py:1199] 2022-11-07 14:15:48,587 >>   Instantaneous batch size per device = 32
-[INFO|trainer.py:1200] 2022-11-07 14:15:48,587 >>   Total train batch size (w. parallel, distributed & accumulation) = 32
-[INFO|trainer.py:1201] 2022-11-07 14:15:48,587 >>   Gradient Accumulation steps = 1
-[INFO|trainer.py:1202] 2022-11-07 14:15:48,587 >>   Total optimization steps = 314
-  0%|          | 0/314 [00:00<?, ?it/s]  0%|          | 1/314 [00:05<27:30,  5.27s/it]  1%|          | 2/314 [00:05<12:27,  2.40s/it]  1%|          | 3/314 [00:06<07:39,  1.48s/it]  1%|▏         | 4/314 [00:06<05:23,  1.04s/it]  2%|▏         | 5/314 [00:06<04:08,  1.24it/s]  2%|▏         | 6/314 [00:07<03:23,  1.52it/s]  2%|▏         | 7/314 [00:07<02:54,  1.76it/s]  3%|▎         | 8/314 [00:07<02:35,  1.97it/s]  3%|▎         | 9/314 [00:08<02:22,  2.14it/s]  3%|▎         | 10/314 [00:08<02:14,  2.27it/s]  4%|▎         | 11/314 [00:09<02:07,  2.37it/s]  4%|▍         | 12/314 [00:09<02:03,  2.45it/s]  4%|▍         | 13/314 [00:09<02:00,  2.50it/s]  4%|▍         | 14/314 [00:10<01:58,  2.53it/s]  5%|▍         | 15/314 [00:10<01:56,  2.56it/s]  5%|▌         | 16/314 [00:10<01:55,  2.58it/s]  5%|▌         | 17/314 [00:11<01:54,  2.59it/s]  6%|▌         | 18/314 [00:11<01:53,  2.60it/s]  6%|▌         | 19/314 [00:12<01:53,  2.61it/s]  6%|▋         | 20/314 [00:12<01:52,  2.61it/s]  7%|▋         | 21/314 [00:12<01:52,  2.61it/s]  7%|▋         | 22/314 [00:13<01:51,  2.61it/s]  7%|▋         | 23/314 [00:13<01:51,  2.61it/s]  8%|▊         | 24/314 [00:14<01:51,  2.61it/s]  8%|▊         | 25/314 [00:14<01:50,  2.61it/s]  8%|▊         | 26/314 [00:14<01:50,  2.61it/s]  9%|▊         | 27/314 [00:15<01:49,  2.61it/s]  9%|▉         | 28/314 [00:15<01:49,  2.61it/s]  9%|▉         | 29/314 [00:15<01:49,  2.61it/s] 10%|▉         | 30/314 [00:16<01:48,  2.61it/s] 10%|▉         | 31/314 [00:16<01:48,  2.61it/s] 10%|█         | 32/314 [00:17<01:48,  2.61it/s] 11%|█         | 33/314 [00:17<01:47,  2.61it/s] 11%|█         | 34/314 [00:17<01:47,  2.60it/s] 11%|█         | 35/314 [00:18<01:47,  2.60it/s] 11%|█▏        | 36/314 [00:18<01:46,  2.61it/s] 12%|█▏        | 37/314 [00:19<01:46,  2.61it/s] 12%|█▏        | 38/314 [00:19<01:45,  2.61it/s] 12%|█▏        | 39/314 [00:19<01:45,  2.60it/s] 13%|█▎        | 40/314 [00:20<01:45,  2.61it/s] 13%|█▎        | 41/314 [00:20<01:44,  2.61it/s] 13%|█▎        | 42/314 [00:20<01:44,  2.60it/s] 14%|█▎        | 43/314 [00:21<01:44,  2.61it/s] 14%|█▍        | 44/314 [00:21<01:43,  2.61it/s] 14%|█▍        | 45/314 [00:22<01:43,  2.60it/s] 15%|█▍        | 46/314 [00:22<01:43,  2.60it/s] 15%|█▍        | 47/314 [00:22<01:42,  2.60it/s] 15%|█▌        | 48/314 [00:23<01:42,  2.60it/s] 16%|█▌        | 49/314 [00:23<01:42,  2.59it/s] 16%|█▌        | 50/314 [00:24<01:41,  2.59it/s] 16%|█▌        | 51/314 [00:24<01:41,  2.59it/s] 17%|█▋        | 52/314 [00:24<01:41,  2.59it/s] 17%|█▋        | 53/314 [00:25<01:40,  2.59it/s] 17%|█▋        | 54/314 [00:25<01:40,  2.59it/s] 18%|█▊        | 55/314 [00:25<01:39,  2.59it/s] 18%|█▊        | 56/314 [00:26<01:39,  2.59it/s] 18%|█▊        | 57/314 [00:26<01:39,  2.59it/s] 18%|█▊        | 58/314 [00:27<01:38,  2.59it/s] 19%|█▉        | 59/314 [00:27<01:38,  2.59it/s] 19%|█▉        | 60/314 [00:27<01:38,  2.59it/s] 19%|█▉        | 61/314 [00:28<01:37,  2.59it/s] 20%|█▉        | 62/314 [00:28<01:37,  2.59it/s] 20%|██        | 63/314 [00:29<01:36,  2.59it/s] 20%|██        | 64/314 [00:29<01:36,  2.60it/s] 21%|██        | 65/314 [00:29<01:36,  2.59it/s] 21%|██        | 66/314 [00:30<01:35,  2.59it/s] 21%|██▏       | 67/314 [00:30<01:35,  2.59it/s] 22%|██▏       | 68/314 [00:30<01:34,  2.59it/s] 22%|██▏       | 69/314 [00:31<01:34,  2.59it/s] 22%|██▏       | 70/314 [00:31<01:34,  2.58it/s] 23%|██▎       | 71/314 [00:32<01:34,  2.58it/s] 23%|██▎       | 72/314 [00:32<01:33,  2.59it/s] 23%|██▎       | 73/314 [00:32<01:33,  2.58it/s] 24%|██▎       | 74/314 [00:33<01:32,  2.59it/s] 24%|██▍       | 75/314 [00:33<01:32,  2.59it/s] 24%|██▍       | 76/314 [00:34<01:32,  2.58it/s] 25%|██▍       | 77/314 [00:34<01:31,  2.58it/s] 25%|██▍       | 78/314 [00:34<01:31,  2.58it/s] 25%|██▌       | 79/314 [00:35<01:31,  2.57it/s] 25%|██▌       | 80/314 [00:35<01:31,  2.57it/s] 26%|██▌       | 81/314 [00:36<01:30,  2.58it/s] 26%|██▌       | 82/314 [00:36<01:29,  2.58it/s] 26%|██▋       | 83/314 [00:36<01:29,  2.58it/s] 27%|██▋       | 84/314 [00:37<01:29,  2.58it/s] 27%|██▋       | 85/314 [00:37<01:28,  2.57it/s] 27%|██▋       | 86/314 [00:37<01:28,  2.57it/s] 28%|██▊       | 87/314 [00:38<01:28,  2.57it/s] 28%|██▊       | 88/314 [00:38<01:27,  2.57it/s] 28%|██▊       | 89/314 [00:39<01:27,  2.57it/s] 29%|██▊       | 90/314 [00:39<01:27,  2.57it/s] 29%|██▉       | 91/314 [00:39<01:26,  2.57it/s] 29%|██▉       | 92/314 [00:40<01:26,  2.57it/s] 30%|██▉       | 93/314 [00:40<01:26,  2.56it/s] 30%|██▉       | 94/314 [00:41<01:25,  2.56it/s] 30%|███       | 95/314 [00:41<01:25,  2.56it/s] 31%|███       | 96/314 [00:41<01:25,  2.56it/s] 31%|███       | 97/314 [00:42<01:24,  2.57it/s] 31%|███       | 98/314 [00:42<01:24,  2.56it/s] 32%|███▏      | 99/314 [00:43<01:23,  2.56it/s] 32%|███▏      | 100/314 [00:43<01:23,  2.56it/s] 32%|███▏      | 101/314 [00:43<01:23,  2.56it/s] 32%|███▏      | 102/314 [00:44<01:22,  2.56it/s] 33%|███▎      | 103/314 [00:44<01:22,  2.56it/s] 33%|███▎      | 104/314 [00:44<01:21,  2.57it/s] 33%|███▎      | 105/314 [00:45<01:21,  2.56it/s] 34%|███▍      | 106/314 [00:45<01:21,  2.55it/s] 34%|███▍      | 107/314 [00:46<01:20,  2.56it/s] 34%|███▍      | 108/314 [00:46<01:20,  2.55it/s] 35%|███▍      | 109/314 [00:46<01:20,  2.55it/s] 35%|███▌      | 110/314 [00:47<01:19,  2.55it/s] 35%|███▌      | 111/314 [00:47<01:19,  2.55it/s] 36%|███▌      | 112/314 [00:48<01:19,  2.55it/s] 36%|███▌      | 113/314 [00:48<01:18,  2.56it/s] 36%|███▋      | 114/314 [00:48<01:18,  2.55it/s] 37%|███▋      | 115/314 [00:49<01:18,  2.55it/s] 37%|███▋      | 116/314 [00:49<01:17,  2.55it/s] 37%|███▋      | 117/314 [00:50<01:17,  2.54it/s] 38%|███▊      | 118/314 [00:50<01:17,  2.54it/s] 38%|███▊      | 119/314 [00:50<01:16,  2.55it/s] 38%|███▊      | 120/314 [00:51<01:16,  2.55it/s] 39%|███▊      | 121/314 [00:51<01:15,  2.55it/s] 39%|███▉      | 122/314 [00:52<01:15,  2.55it/s] 39%|███▉      | 123/314 [00:52<01:15,  2.54it/s] 39%|███▉      | 124/314 [00:52<01:14,  2.55it/s] 40%|███▉      | 125/314 [00:53<01:14,  2.55it/s] 40%|████      | 126/314 [00:53<01:13,  2.55it/s] 40%|████      | 127/314 [00:53<01:13,  2.55it/s] 41%|████      | 128/314 [00:54<01:12,  2.55it/s] 41%|████      | 129/314 [00:54<01:12,  2.55it/s] 41%|████▏     | 130/314 [00:55<01:12,  2.55it/s] 42%|████▏     | 131/314 [00:55<01:11,  2.55it/s] 42%|████▏     | 132/314 [00:55<01:11,  2.55it/s] 42%|████▏     | 133/314 [00:56<01:10,  2.55it/s] 43%|████▎     | 134/314 [00:56<01:10,  2.55it/s] 43%|████▎     | 135/314 [00:57<01:10,  2.54it/s] 43%|████▎     | 136/314 [00:57<01:10,  2.54it/s] 44%|████▎     | 137/314 [00:57<01:09,  2.54it/s] 44%|████▍     | 138/314 [00:58<01:09,  2.54it/s] 44%|████▍     | 139/314 [00:58<01:08,  2.54it/s] 45%|████▍     | 140/314 [00:59<01:08,  2.55it/s] 45%|████▍     | 141/314 [00:59<01:08,  2.54it/s] 45%|████▌     | 142/314 [00:59<01:07,  2.54it/s] 46%|████▌     | 143/314 [01:00<01:07,  2.54it/s] 46%|████▌     | 144/314 [01:00<01:06,  2.54it/s] 46%|████▌     | 145/314 [01:01<01:06,  2.53it/s] 46%|████▋     | 146/314 [01:01<01:06,  2.54it/s] 47%|████▋     | 147/314 [01:01<01:05,  2.53it/s] 47%|████▋     | 148/314 [01:02<01:05,  2.53it/s] 47%|████▋     | 149/314 [01:02<01:05,  2.53it/s] 48%|████▊     | 150/314 [01:03<01:04,  2.53it/s] 48%|████▊     | 151/314 [01:03<01:04,  2.53it/s] 48%|████▊     | 152/314 [01:03<01:03,  2.53it/s] 49%|████▊     | 153/314 [01:04<01:03,  2.53it/s] 49%|████▉     | 154/314 [01:04<01:03,  2.54it/s] 49%|████▉     | 155/314 [01:05<01:02,  2.54it/s] 50%|████▉     | 156/314 [01:05<01:02,  2.53it/s] 50%|█████     | 157/314 [01:05<00:49,  3.15it/s][INFO|trainer.py:1987] 2022-11-07 14:16:54,143 >> Saving model checkpoint to chkpts/aflite_embedding_models/d-atomic-roberta-base/checkpoint-157
-/fs/clip-scratch/nehasrik/miniconda3/envs/para-nlu/lib/python3.7/site-packages/transformers/configuration_utils.py:337: UserWarning: Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 Transformers. Using `model.gradient_checkpointing_enable()` instead, or if you are using the `Trainer` API, pass `gradient_checkpointing=True` in your `TrainingArguments`.
-  "Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 "
-[INFO|configuration_utils.py:413] 2022-11-07 14:16:54,149 >> Configuration saved in chkpts/aflite_embedding_models/d-atomic-roberta-base/checkpoint-157/config.json
-[INFO|modeling_utils.py:1041] 2022-11-07 14:17:02,375 >> Model weights saved in chkpts/aflite_embedding_models/d-atomic-roberta-base/checkpoint-157/pytorch_model.bin
-[INFO|tokenization_utils_base.py:2033] 2022-11-07 14:17:02,524 >> tokenizer config file saved in chkpts/aflite_embedding_models/d-atomic-roberta-base/checkpoint-157/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2039] 2022-11-07 14:17:02,631 >> Special tokens file saved in chkpts/aflite_embedding_models/d-atomic-roberta-base/checkpoint-157/special_tokens_map.json
- 50%|█████     | 158/314 [01:32<21:52,  8.41s/it] 51%|█████     | 159/314 [01:33<15:30,  6.01s/it] 51%|█████     | 160/314 [01:33<11:05,  4.32s/it] 51%|█████▏    | 161/314 [01:34<08:00,  3.14s/it] 52%|█████▏    | 162/314 [01:34<05:51,  2.31s/it] 52%|█████▏    | 163/314 [01:34<04:22,  1.74s/it] 52%|█████▏    | 164/314 [01:35<03:19,  1.33s/it] 53%|█████▎    | 165/314 [01:35<02:36,  1.05s/it] 53%|█████▎    | 166/314 [01:35<02:05,  1.17it/s] 53%|█████▎    | 167/314 [01:36<01:44,  1.40it/s] 54%|█████▎    | 168/314 [01:36<01:29,  1.62it/s] 54%|█████▍    | 169/314 [01:37<01:19,  1.82it/s] 54%|█████▍    | 170/314 [01:37<01:12,  2.00it/s] 54%|█████▍    | 171/314 [01:37<01:06,  2.14it/s] 55%|█████▍    | 172/314 [01:38<01:03,  2.25it/s] 55%|█████▌    | 173/314 [01:38<01:00,  2.34it/s] 55%|█████▌    | 174/314 [01:39<00:58,  2.40it/s] 56%|█████▌    | 175/314 [01:39<00:56,  2.45it/s] 56%|█████▌    | 176/314 [01:39<00:55,  2.48it/s] 56%|█████▋    | 177/314 [01:40<00:54,  2.50it/s] 57%|█████▋    | 178/314 [01:40<00:54,  2.51it/s] 57%|█████▋    | 179/314 [01:41<00:53,  2.53it/s] 57%|█████▋    | 180/314 [01:41<00:52,  2.53it/s] 58%|█████▊    | 181/314 [01:41<00:52,  2.53it/s] 58%|█████▊    | 182/314 [01:42<00:51,  2.54it/s] 58%|█████▊    | 183/314 [01:42<00:51,  2.54it/s] 59%|█████▊    | 184/314 [01:42<00:51,  2.54it/s] 59%|█████▉    | 185/314 [01:43<00:50,  2.55it/s] 59%|█████▉    | 186/314 [01:43<00:50,  2.55it/s] 60%|█████▉    | 187/314 [01:44<00:49,  2.55it/s] 60%|█████▉    | 188/314 [01:44<00:49,  2.55it/s] 60%|██████    | 189/314 [01:44<00:49,  2.55it/s] 61%|██████    | 190/314 [01:45<00:48,  2.55it/s] 61%|██████    | 191/314 [01:45<00:48,  2.55it/s] 61%|██████    | 192/314 [01:46<00:47,  2.55it/s] 61%|██████▏   | 193/314 [01:46<00:47,  2.55it/s] 62%|██████▏   | 194/314 [01:46<00:47,  2.55it/s] 62%|██████▏   | 195/314 [01:47<00:46,  2.54it/s] 62%|██████▏   | 196/314 [01:47<00:46,  2.54it/s] 63%|██████▎   | 197/314 [01:48<00:45,  2.55it/s] 63%|██████▎   | 198/314 [01:48<00:45,  2.54it/s] 63%|██████▎   | 199/314 [01:48<00:45,  2.54it/s] 64%|██████▎   | 200/314 [01:49<00:44,  2.54it/s] 64%|██████▍   | 201/314 [01:49<00:44,  2.54it/s] 64%|██████▍   | 202/314 [01:50<00:44,  2.54it/s] 65%|██████▍   | 203/314 [01:50<00:43,  2.54it/s] 65%|██████▍   | 204/314 [01:50<00:43,  2.54it/s] 65%|██████▌   | 205/314 [01:51<00:42,  2.54it/s] 66%|██████▌   | 206/314 [01:51<00:42,  2.54it/s] 66%|██████▌   | 207/314 [01:52<00:42,  2.54it/s] 66%|██████▌   | 208/314 [01:52<00:41,  2.54it/s] 67%|██████▋   | 209/314 [01:52<00:41,  2.53it/s] 67%|██████▋   | 210/314 [01:53<00:41,  2.53it/s] 67%|██████▋   | 211/314 [01:53<00:40,  2.54it/s] 68%|██████▊   | 212/314 [01:54<00:40,  2.54it/s] 68%|██████▊   | 213/314 [01:54<00:39,  2.54it/s] 68%|██████▊   | 214/314 [01:54<00:39,  2.54it/s] 68%|██████▊   | 215/314 [01:55<00:39,  2.54it/s] 69%|██████▉   | 216/314 [01:55<00:38,  2.54it/s] 69%|██████▉   | 217/314 [01:55<00:38,  2.54it/s] 69%|██████▉   | 218/314 [01:56<00:37,  2.54it/s] 70%|██████▉   | 219/314 [01:56<00:37,  2.54it/s] 70%|███████   | 220/314 [01:57<00:37,  2.53it/s] 70%|███████   | 221/314 [01:57<00:36,  2.53it/s] 71%|███████   | 222/314 [01:57<00:36,  2.53it/s] 71%|███████   | 223/314 [01:58<00:35,  2.53it/s] 71%|███████▏  | 224/314 [01:58<00:35,  2.54it/s] 72%|███████▏  | 225/314 [01:59<00:35,  2.54it/s] 72%|███████▏  | 226/314 [01:59<00:34,  2.54it/s] 72%|███████▏  | 227/314 [01:59<00:34,  2.54it/s] 73%|███████▎  | 228/314 [02:00<00:34,  2.53it/s] 73%|███████▎  | 229/314 [02:00<00:33,  2.52it/s] 73%|███████▎  | 230/314 [02:01<00:33,  2.52it/s] 74%|███████▎  | 231/314 [02:01<00:32,  2.52it/s] 74%|███████▍  | 232/314 [02:01<00:32,  2.52it/s] 74%|███████▍  | 233/314 [02:02<00:32,  2.52it/s] 75%|███████▍  | 234/314 [02:02<00:31,  2.51it/s] 75%|███████▍  | 235/314 [02:03<00:31,  2.49it/s] 75%|███████▌  | 236/314 [02:03<00:31,  2.49it/s] 75%|███████▌  | 237/314 [02:03<00:31,  2.46it/s] 76%|███████▌  | 238/314 [02:04<00:30,  2.45it/s] 76%|███████▌  | 239/314 [02:04<00:30,  2.46it/s] 76%|███████▋  | 240/314 [02:05<00:29,  2.48it/s] 77%|███████▋  | 241/314 [02:05<00:29,  2.46it/s] 77%|███████▋  | 242/314 [02:05<00:29,  2.46it/s] 77%|███████▋  | 243/314 [02:06<00:28,  2.47it/s] 78%|███████▊  | 244/314 [02:06<00:28,  2.45it/s] 78%|███████▊  | 245/314 [02:07<00:28,  2.42it/s] 78%|███████▊  | 246/314 [02:07<00:28,  2.41it/s] 79%|███████▊  | 247/314 [02:08<00:27,  2.43it/s] 79%|███████▉  | 248/314 [02:08<00:26,  2.45it/s] 79%|███████▉  | 249/314 [02:08<00:26,  2.43it/s] 80%|███████▉  | 250/314 [02:09<00:26,  2.41it/s] 80%|███████▉  | 251/314 [02:09<00:26,  2.41it/s] 80%|████████  | 252/314 [02:10<00:25,  2.44it/s] 81%|████████  | 253/314 [02:10<00:24,  2.46it/s] 81%|████████  | 254/314 [02:10<00:24,  2.47it/s] 81%|████████  | 255/314 [02:11<00:24,  2.45it/s] 82%|████████▏ | 256/314 [02:11<00:23,  2.43it/s] 82%|████████▏ | 257/314 [02:12<00:23,  2.44it/s] 82%|████████▏ | 258/314 [02:12<00:22,  2.46it/s] 82%|████████▏ | 259/314 [02:12<00:22,  2.44it/s] 83%|████████▎ | 260/314 [02:13<00:22,  2.43it/s] 83%|████████▎ | 261/314 [02:13<00:21,  2.44it/s] 83%|████████▎ | 262/314 [02:14<00:21,  2.44it/s] 84%|████████▍ | 263/314 [02:14<00:21,  2.41it/s] 84%|████████▍ | 264/314 [02:15<00:21,  2.38it/s] 84%|████████▍ | 265/314 [02:15<00:20,  2.36it/s] 85%|████████▍ | 266/314 [02:15<00:20,  2.37it/s] 85%|████████▌ | 267/314 [02:16<00:19,  2.39it/s] 85%|████████▌ | 268/314 [02:16<00:18,  2.43it/s] 86%|████████▌ | 269/314 [02:17<00:18,  2.45it/s] 86%|████████▌ | 270/314 [02:17<00:17,  2.47it/s] 86%|████████▋ | 271/314 [02:17<00:17,  2.48it/s] 87%|████████▋ | 272/314 [02:18<00:16,  2.49it/s] 87%|████████▋ | 273/314 [02:18<00:16,  2.49it/s] 87%|████████▋ | 274/314 [02:19<00:16,  2.49it/s] 88%|████████▊ | 275/314 [02:19<00:15,  2.46it/s] 88%|████████▊ | 276/314 [02:19<00:15,  2.46it/s] 88%|████████▊ | 277/314 [02:20<00:15,  2.44it/s] 89%|████████▊ | 278/314 [02:20<00:14,  2.46it/s] 89%|████████▉ | 279/314 [02:21<00:14,  2.45it/s] 89%|████████▉ | 280/314 [02:21<00:14,  2.41it/s] 89%|████████▉ | 281/314 [02:21<00:13,  2.40it/s] 90%|████████▉ | 282/314 [02:22<00:13,  2.42it/s] 90%|█████████ | 283/314 [02:22<00:12,  2.45it/s] 90%|█████████ | 284/314 [02:23<00:12,  2.46it/s] 91%|█████████ | 285/314 [02:23<00:11,  2.47it/s] 91%|█████████ | 286/314 [02:24<00:11,  2.47it/s] 91%|█████████▏| 287/314 [02:24<00:11,  2.43it/s] 92%|█████████▏| 288/314 [02:24<00:10,  2.42it/s] 92%|█████████▏| 289/314 [02:25<00:10,  2.44it/s] 92%|█████████▏| 290/314 [02:25<00:09,  2.46it/s] 93%|█████████▎| 291/314 [02:26<00:09,  2.45it/s] 93%|█████████▎| 292/314 [02:26<00:09,  2.41it/s] 93%|█████████▎| 293/314 [02:26<00:08,  2.41it/s] 94%|█████████▎| 294/314 [02:27<00:08,  2.44it/s] 94%|█████████▍| 295/314 [02:27<00:07,  2.46it/s] 94%|█████████▍| 296/314 [02:28<00:07,  2.47it/s] 95%|█████████▍| 297/314 [02:28<00:06,  2.48it/s] 95%|█████████▍| 298/314 [02:28<00:06,  2.44it/s] 95%|█████████▌| 299/314 [02:29<00:06,  2.40it/s] 96%|█████████▌| 300/314 [02:29<00:05,  2.39it/s] 96%|█████████▌| 301/314 [02:30<00:05,  2.41it/s] 96%|█████████▌| 302/314 [02:30<00:04,  2.43it/s] 96%|█████████▋| 303/314 [02:30<00:04,  2.45it/s] 97%|█████████▋| 304/314 [02:31<00:04,  2.47it/s] 97%|█████████▋| 305/314 [02:31<00:03,  2.48it/s] 97%|█████████▋| 306/314 [02:32<00:03,  2.45it/s] 98%|█████████▊| 307/314 [02:32<00:02,  2.41it/s] 98%|█████████▊| 308/314 [02:33<00:02,  2.41it/s] 98%|█████████▊| 309/314 [02:33<00:02,  2.43it/s] 99%|█████████▊| 310/314 [02:33<00:01,  2.45it/s] 99%|█████████▉| 311/314 [02:34<00:01,  2.47it/s] 99%|█████████▉| 312/314 [02:34<00:00,  2.48it/s]100%|█████████▉| 313/314 [02:35<00:00,  2.47it/s]100%|██████████| 314/314 [02:35<00:00,  3.07it/s][INFO|trainer.py:1987] 2022-11-07 14:18:23,799 >> Saving model checkpoint to chkpts/aflite_embedding_models/d-atomic-roberta-base/checkpoint-314
-/fs/clip-scratch/nehasrik/miniconda3/envs/para-nlu/lib/python3.7/site-packages/transformers/configuration_utils.py:337: UserWarning: Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 Transformers. Using `model.gradient_checkpointing_enable()` instead, or if you are using the `Trainer` API, pass `gradient_checkpointing=True` in your `TrainingArguments`.
-  "Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 "
-[INFO|configuration_utils.py:413] 2022-11-07 14:18:23,804 >> Configuration saved in chkpts/aflite_embedding_models/d-atomic-roberta-base/checkpoint-314/config.json
-[INFO|modeling_utils.py:1041] 2022-11-07 14:18:32,604 >> Model weights saved in chkpts/aflite_embedding_models/d-atomic-roberta-base/checkpoint-314/pytorch_model.bin
-[INFO|tokenization_utils_base.py:2033] 2022-11-07 14:18:32,609 >> tokenizer config file saved in chkpts/aflite_embedding_models/d-atomic-roberta-base/checkpoint-314/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2039] 2022-11-07 14:18:32,635 >> Special tokens file saved in chkpts/aflite_embedding_models/d-atomic-roberta-base/checkpoint-314/special_tokens_map.json
-[INFO|trainer.py:1401] 2022-11-07 14:18:50,958 >> 
-
-Training completed. Do not forget to share your model on huggingface.co/models =)
-
-
-                                                 100%|██████████| 314/314 [03:02<00:00,  3.07it/s]100%|██████████| 314/314 [03:02<00:00,  1.72it/s]
-[INFO|trainer.py:1987] 2022-11-07 14:18:50,962 >> Saving model checkpoint to chkpts/aflite_embedding_models/d-atomic-roberta-base
-/fs/clip-scratch/nehasrik/miniconda3/envs/para-nlu/lib/python3.7/site-packages/transformers/configuration_utils.py:337: UserWarning: Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 Transformers. Using `model.gradient_checkpointing_enable()` instead, or if you are using the `Trainer` API, pass `gradient_checkpointing=True` in your `TrainingArguments`.
-  "Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 "
-[INFO|configuration_utils.py:413] 2022-11-07 14:18:50,967 >> Configuration saved in chkpts/aflite_embedding_models/d-atomic-roberta-base/config.json
-[INFO|modeling_utils.py:1041] 2022-11-07 14:19:00,007 >> Model weights saved in chkpts/aflite_embedding_models/d-atomic-roberta-base/pytorch_model.bin
-[INFO|tokenization_utils_base.py:2033] 2022-11-07 14:19:00,011 >> tokenizer config file saved in chkpts/aflite_embedding_models/d-atomic-roberta-base/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2039] 2022-11-07 14:19:00,014 >> Special tokens file saved in chkpts/aflite_embedding_models/d-atomic-roberta-base/special_tokens_map.json
-{'train_runtime': 182.3738, 'train_samples_per_second': 54.832, 'train_steps_per_second': 1.722, 'train_loss': 0.5939067184545432, 'epoch': 2.0}
-***** train metrics *****
-  epoch                    =        2.0
-  train_loss               =     0.5939
-  train_runtime            = 0:03:02.37
-  train_samples            =       5000
-  train_samples_per_second =     54.832
-  train_steps_per_second   =      1.722
-11/07/2022 14:19:00 - INFO - __main__ - *** Evaluate ***
-[INFO|trainer.py:541] 2022-11-07 14:19:00,177 >> The following columns in the evaluation set  don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: sentence2, sentence1.
-[WARNING|training_args.py:888] 2022-11-07 14:19:00,178 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
-[INFO|trainer.py:2235] 2022-11-07 14:19:00,179 >> ***** Running Evaluation *****
-[INFO|trainer.py:2237] 2022-11-07 14:19:00,179 >>   Num examples = 1000
-[INFO|trainer.py:2240] 2022-11-07 14:19:00,179 >>   Batch size = 32
-  0%|          | 0/32 [00:00<?, ?it/s]  6%|▋         | 2/32 [00:00<00:02, 12.91it/s] 12%|█▎        | 4/32 [00:00<00:03,  8.22it/s] 16%|█▌        | 5/32 [00:00<00:03,  7.60it/s] 19%|█▉        | 6/32 [00:00<00:03,  7.26it/s] 22%|██▏       | 7/32 [00:00<00:03,  7.02it/s] 25%|██▌       | 8/32 [00:01<00:03,  6.87it/s] 28%|██▊       | 9/32 [00:01<00:03,  6.78it/s] 31%|███▏      | 10/32 [00:01<00:03,  6.69it/s] 34%|███▍      | 11/32 [00:01<00:03,  6.66it/s] 38%|███▊      | 12/32 [00:01<00:03,  6.63it/s] 41%|████      | 13/32 [00:01<00:02,  6.61it/s] 44%|████▍     | 14/32 [00:01<00:02,  6.58it/s] 47%|████▋     | 15/32 [00:02<00:02,  6.57it/s] 50%|█████     | 16/32 [00:02<00:02,  6.56it/s] 53%|█████▎    | 17/32 [00:02<00:02,  6.54it/s] 56%|█████▋    | 18/32 [00:02<00:02,  6.56it/s] 59%|█████▉    | 19/32 [00:02<00:01,  6.54it/s] 62%|██████▎   | 20/32 [00:02<00:01,  6.54it/s] 66%|██████▌   | 21/32 [00:03<00:01,  6.52it/s] 69%|██████▉   | 22/32 [00:03<00:01,  6.51it/s] 72%|███████▏  | 23/32 [00:03<00:01,  6.52it/s] 75%|███████▌  | 24/32 [00:03<00:01,  6.53it/s] 78%|███████▊  | 25/32 [00:03<00:01,  6.54it/s] 81%|████████▏ | 26/32 [00:03<00:00,  6.53it/s] 84%|████████▍ | 27/32 [00:03<00:00,  6.53it/s] 88%|████████▊ | 28/32 [00:04<00:00,  6.52it/s] 91%|█████████ | 29/32 [00:04<00:00,  6.50it/s] 94%|█████████▍| 30/32 [00:04<00:00,  6.52it/s] 97%|█████████▋| 31/32 [00:04<00:00,  6.50it/s][WARNING|training_args.py:888] 2022-11-07 14:19:04,986 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
-100%|██████████| 32/32 [00:04<00:00,  6.90it/s]
-[WARNING|training_args.py:888] 2022-11-07 14:19:04,993 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
-[WARNING|training_args.py:888] 2022-11-07 14:19:04,994 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
-[INFO|modelcard.py:446] 2022-11-07 14:19:05,042 >> Dropping the following result as it does not have all the necessary field:
-{'task': {'name': 'Text Classification', 'type': 'text-classification'}, 'metrics': [{'name': 'Accuracy', 'type': 'accuracy', 'value': 0.7200000286102295}]}
-***** eval metrics *****
-  epoch                   =        2.0
-  eval_accuracy           =       0.72
-  eval_loss               =     0.5636
-  eval_runtime            = 0:00:04.80
-  eval_samples            =       1000
-  eval_samples_per_second =    208.004
-  eval_steps_per_second   =      6.656
