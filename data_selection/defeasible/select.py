@@ -12,15 +12,21 @@ from dataclasses import asdict
 
 def select_train_dev_set_for_aflite_embedding_model(
     data: DefeasibleNLIDataset,
-    num_train_examples: int = 5000,
-    num_dev_examples: int = 1000,
-    out_dir=str,
+    out_dir: str,
+    frac_train_examples: float = 0.10,
+    min_train_examples: int = 5000,
+    num_dev_examples: int = 1000
 ) -> Tuple[List[DefeasibleNLIExample],List[DefeasibleNLIExample]]:
     """
     Selects a subset of train and dev examples to train an embedding model
     for AFLite.
     """
     random.seed(42)
+
+    num_train_examples = max(int(frac_train_examples * len(data.train_examples)), min_train_examples)
+    print('Sampling %d train examples...' % num_train_examples)
+    print('Sampling %d dev examples...' % num_dev_examples)
+
     train_examples = random.sample(data.train_examples, num_train_examples)
     dev_examples = random.sample(data.dev_examples, num_dev_examples)
 
@@ -28,6 +34,17 @@ def select_train_dev_set_for_aflite_embedding_model(
     DefeasibleNLIDataset.write_processed_examples_for_modeling(dev_examples, out_dir=out_dir, fname='aflite_dev.csv')
 
     return (train_examples, dev_examples)
+
+def run_select_train_dev_set_for_aflite_embedding_model():
+    for data_source in ['social', 'atomic', 'snli']:
+        aflite_data_generation = {
+            'data': DefeasibleNLIDataset(f'raw-data/defeasible-nli/defeasible-{data_source}/'),
+            'out_dir': f'data_selection/defeasible/{data_source}',
+            'frac_train_examples': 0.10,
+            'min_train_examples': 5000,
+            'num_dev_examples': 1000,
+        }
+        select_train_dev_set_for_aflite_embedding_model(**aflite_data_generation)
 
 
 def select_subset_by_stratified_confidence(
@@ -84,11 +101,4 @@ if __name__ == '__main__':
     #     with open("data_selection/defeasible/dnli_%s_stratified_selected.json" % source.lower(), "w") as file:
     #         file.write(json.dumps([asdict(e) for e in stratified_examples]))
 
-    for data_source in ['social', 'atomic', 'snli']:
-        aflite_data_generation = {
-            'data': DefeasibleNLIDataset(f'raw-data/defeasible-nli/defeasible-{data_source}/'),
-            'num_train_examples': 5000,
-            'num_dev_examples': 1000,
-            'out_dir': f'data_selection/defeasible/{data_source}'
-        }
-        select_train_dev_set_for_aflite_embedding_model(**aflite_data_generation)
+    run_select_train_dev_set_for_aflite_embedding_model()
