@@ -9,12 +9,12 @@ from defeasible_data import DefeasibleNLIExample, DefeasibleNLIDataset
 from abductive_data import AbductiveNLIExample, AbductiveNLIDataset
 from experiments.models import TrainedModel, AbductiveTrainedModel, DefeasibleTrainedModel
 import tqdm
+from collections import OrderedDict
 
 class AFLite():
 
     def __init__(self, embedding_model: Union[AbductiveTrainedModel, DefeasibleTrainedModel]):
         self.embedding_model = embedding_model
-
     
     def get_example_embeddings(
         self, 
@@ -45,9 +45,80 @@ class AFLite():
         return embeddings, labels
         
 
-    def run_filtering(X: np.array, y: np.array, save_dir: str, lm_name: str, prem_str: str, ent_str: str, n: int, m: int, k: int,
-            tau: float):
-        pass
+    def run_filtering(
+        X: np.array, 
+        y: np.array,
+        n: int, 
+        m: int, 
+        k: int,
+        tau: float,
+        save_dir: str
+    ):
+        """
+        Borrowed from https://github.com/crherlihy/clinical_nli_artifacts/blob/main/src/filter/filter.py
+        """
+        corpus_lookup = OrderedDict()
+        print(np.mean(X, axis=1).shape)
+
+        # We need a way to recover the text and label associated with each embedding
+        for i, example in enumerate(np.mean(X, axis=1)):
+            corpus_lookup[example] = i
+
+        # D' = D
+        X_filter = X
+        y_filter = y
+        
+        # while |D'| > m do:
+        while X_filter.shape[0] > m:
+
+            # filtering phase
+
+            E = OrderedDict()
+            # for all e \in D' do
+            # initialize the ensemble predictions E(e) = \emptyset
+            for example in np.mean(X_filter, axis=1):
+                E[example] = list()
+
+            # for iteration 1:n do:
+            for iteration in range(n):
+                # random partition (T_i, V_i) of D' s.t. |T_i| = m
+                X_train, X_test, y_train, y_test = train_test_split(X_filter, y_filter, train_size=m)
+
+                # Train a linear classifier L on T_i
+                clf = LogisticRegression(random_state=0, max_iter=5000).fit(X_train, y_train)
+                y_pred = clf.predict(X_test)
+
+                # forall e = (x, y) ∈ V_i do:
+                for j, test_example in enumerate(np.mean(X_test, axis=1)):
+                    # Add L(x) to E(e)
+                    E[test_example].append(y_pred[j])
+
+            # forall e = (x, y) ∈ D' do:
+            scores = OrderedDict()
+            for i, example in enumerate(np.mean(X_filter, axis=1)):
+                key = example
+                y_true = y_filter[i]
+                # score(e) = |{p \in E(e) s.t. p = y}| / |E(e)|
+                if len(E[key]) > 0:
+                    scores[i] = len([x for x in filter(lambda x: x == y_true, E[key])]) / len(E[key])
+                else:
+                    scores[i] = 0
+
+            # Select the top-k elements S \in D' s.t. score(e) >= tau
+            S_ids = [k for k, v in sorted(scores.items(), key=lambda item: item[1], reverse=True) if v >= tau][:k]
+
+            # D' = D' \ S
+            X_filter = np.array([e for i, e in enumerate(X_filter) if i not in S_ids])
+            y_filter = np.array([y for i, y in enumerate(y_filter) if i not in S_ids])
+
+            print("X filter shape ", X_filter.shape)
+
+            # if |S| < k then break
+            if len(S_ids) < k or X_filter.shape[0] < m:
+                return X_filter, y_filter, corpus_lookup
+
+        return X_filter, y_filter, corpus_lookup
+
 
 
 if __name__ == '__main__':
