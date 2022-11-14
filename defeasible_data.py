@@ -2,14 +2,15 @@ import pandas as pd
 import csv
 import os
 import json
-from dataclasses import dataclass
-from typing import List, Optional, Dict, Any
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, dataclass, asdict
+from typing import List, Optional, Dict, Any, Set
+from collections import OrderedDict
 ### Class definitions for objects representing annotated data
 
 @dataclass
 class DefeasibleNLIExample:
     example_id: str
+    premise_hypothesis_id: str
     data_source: str #snli, atomic, social
     source_example_metadata: Optional[Dict] #atomicEventId, SNLIPairId, etc
     premise: str 
@@ -44,35 +45,52 @@ class DefeasibleNLIDataset:
     }
     
 
-    def __init__(self, data_dir) -> None:
+    def __init__(self, data_dir, data_name_prefix) -> None:
         self.data_dir = data_dir
+        self.data_name_prefix = data_name_prefix
         self.train_examples = self.create_examples(data_split='train') 
         self.dev_examples = self.create_examples(data_split='dev') 
         self.test_examples = self.create_examples(data_split='test') 
 
     def create_examples(self, data_split: str) -> List[DefeasibleNLIExample]:
+        raw_data = []
         data = []
+        premise_hypothesis_ids = OrderedDict()
         fname = '%s/%s.jsonl' % (self.data_dir, data_split)
+        skipped = 0
+
+        ### get unique premise_hypothesis_ids
+
         for i, json_str in enumerate(list(open(fname, 'r'))):
             result = json.loads(json_str)
-
             if not all(v for v in [result['Hypothesis'], result['Update']]):
+                skipped += 1
                 continue
 
+            premise_hypothesis = '%s %s' % (result['Premise'] if 'SOCIAL' not in result['DataSource'] else "", result['Hypothesis'])
+            premise_hypothesis_ids[premise_hypothesis] = len(premise_hypothesis_ids)
+
+            raw_data.append((i, premise_hypothesis, result))
+
+        
+        print('Unique premise-hypothesis pairs: %d / %d' % (len(premise_hypothesis_ids), len(raw_data)))
+        
+        for i, premise_hypothesis, example in raw_data:
             data.append(
                 DefeasibleNLIExample(
-                    example_id='%s.%d' % ('dnli', i),
-                    data_source=result['DataSource'].lower(),
-                    source_example_metadata={metadata: result[metadata] for metadata in self.SOURCE_SPECIFIC_METADATA[result['DataSource']]},
-                    premise=result['Premise'] if 'SOCIAL' not in result['DataSource'] else "", #social has no premises
-                    hypothesis=result['Hypothesis'],
-                    update=result['Update'],
-                    update_type=result['UpdateType'],
-                    label=0 if result['UpdateType'] == 'weakener' else 1,
+                    example_id='%s.%s.%d' % (self.data_name_prefix, data_split, i),
+                    premise_hypothesis_id='%s.%s.%s' % (self.data_name_prefix, data_split, premise_hypothesis_ids[premise_hypothesis]),
+                    data_source=example['DataSource'].lower(),
+                    source_example_metadata={metadata: example[metadata] for metadata in self.SOURCE_SPECIFIC_METADATA[example['DataSource']]},
+                    premise=example['Premise'] if 'SOCIAL' not in example['DataSource'] else "", #social has no premises
+                    hypothesis=example['Hypothesis'],
+                    update=example['Update'],
+                    update_type=example['UpdateType'],
+                    label=0 if example['UpdateType'] == 'weakener' else 1,
                     annotated_paraphrases=None
                 )
             )
-        print('Loaded %d nonempty %s examples...' % (len(data), data_split))
+        print('Loaded %d nonempty %s examples...(skipped %d examples)' % (len(data), data_split, skipped))
         return data
     
     @staticmethod
@@ -90,7 +108,6 @@ class DefeasibleNLIDataset:
                     'label': example.label
                 })
 
-
     def get_split(self, split_name: str) -> List[DefeasibleNLIExample]:
         if split_name == 'train':
             return self.train_examples
@@ -99,8 +116,23 @@ class DefeasibleNLIDataset:
         else:
             return self.test_examples
 
+    def get_split_premise_hypothesis_ids(self, split_name: str) -> Set[str]:
+        split_examples =  self.get_split(split_name)
+        return list(set(e.premise_hypothesis_id for e in split_examples))
+
+    def get_examples_for_premise_hypothesis(self, premise_hypothesis_id: str):
+        data_source, split, ph_id = premise_hypothesis_id.split('.')
+        return [e for e in self.get_split(split) if e.premise_hypothesis_id == premise_hypothesis_id]
+
+
+    
+
 
 if __name__ == '__main__':
-    dnli = DefeasibleNLIDataset('raw-data/defeasible-nli/defeasible-all/')
-    for split in ['train', 'dev', 'test']:
-        dnli.write_processed_examples_for_modeling(split)
+    # dnli = DefeasibleNLIDataset('raw-data/defeasible-nli/defeasible-all/')
+    # for split in ['train', 'dev', 'test']:
+    #     dnli.write_processed_examples_for_modeling(split)
+
+    dnli_atomic = DefeasibleNLIDataset('raw-data/defeasible-nli/defeasible-atomic/', data_name_prefix='atomic')
+    for e in dnli_atomic.train_examples[5:15]:
+        print(e)

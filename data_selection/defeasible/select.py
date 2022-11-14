@@ -15,20 +15,35 @@ def select_train_dev_set_for_aflite_embedding_model(
     out_dir: str,
     frac_train_examples: float = 0.10,
     min_train_examples: int = 5000,
-    num_dev_examples: int = 1000
+    min_dev_examples: int = 1000
 ) -> Tuple[List[DefeasibleNLIExample],List[DefeasibleNLIExample]]:
     """
     Selects a subset of train and dev examples to train an embedding model
     for AFLite.
     """
+
     random.seed(42)
+
+    def incrementally_sample_by_ph_id(split: str, num_examples: int) -> List[DefeasibleNLIExample]:
+        random.seed(42)
+        ph_ids = data.get_split_premise_hypothesis_ids(split) # returns ordered list
+        #shuffle list and then peel off premi-hyp pairs as needed
+        random.shuffle(ph_ids)
+        examples = []
+        ph_idx = 0
+        while len(examples) < num_examples:
+            examples.extend(data.get_examples_for_premise_hypothesis(ph_ids[ph_idx]))
+            ph_idx += 1
+        print('Used %d of %d P-H pairs...' % (ph_idx, len(ph_ids)))
+        return examples
 
     num_train_examples = max(int(frac_train_examples * len(data.train_examples)), min_train_examples)
     print('Sampling %d train examples...' % num_train_examples)
-    print('Sampling %d dev examples...' % num_dev_examples)
+    train_examples = incrementally_sample_by_ph_id('train', num_train_examples) 
+    
+    print('Sampling %d dev examples...' % min_dev_examples)
+    dev_examples = incrementally_sample_by_ph_id('dev', min_dev_examples)
 
-    train_examples = random.sample(data.train_examples, num_train_examples)
-    dev_examples = random.sample(data.dev_examples, num_dev_examples)
 
     DefeasibleNLIDataset.write_processed_examples_for_modeling(train_examples, out_dir=out_dir, fname='aflite_train.csv')
     DefeasibleNLIDataset.write_processed_examples_for_modeling(dev_examples, out_dir=out_dir, fname='aflite_dev.csv')
@@ -43,14 +58,16 @@ def select_train_dev_set_for_aflite_embedding_model(
 
 def run_select_train_dev_set_for_aflite_embedding_model():
     for data_source in ['social', 'atomic', 'snli']:
+        print('#### Generating AFLite embedding train/dev set for %s ####' % data_source)
         aflite_data_generation = {
-            'data': DefeasibleNLIDataset(f'raw-data/defeasible-nli/defeasible-{data_source}/'),
+            'data': DefeasibleNLIDataset(f'raw-data/defeasible-nli/defeasible-{data_source}/', data_source),
             'out_dir': f'data_selection/defeasible/{data_source}',
             'frac_train_examples': 0.10,
             'min_train_examples': 5000,
-            'num_dev_examples': 1000,
+            'min_dev_examples': 1000,
         }
         select_train_dev_set_for_aflite_embedding_model(**aflite_data_generation)
+        print()
 
 
 def select_subset_by_stratified_confidence(
@@ -93,18 +110,6 @@ def select_subset_by_stratified_confidence(
     return stratified_examples
 
 if __name__ == '__main__':
-    # random.seed(42)
-
-    # dnli = DefeasibleNLIDataset('raw-data/defeasible-nli/defeasible-all/')
-
-    # all_examples = []
-
-    # for source in DefeasibleNLIDataset.SOURCE_SPECIFIC_METADATA.keys():
-    #     print('######### %s #########' % source)
-    #     stratified_examples = select_subset_by_stratified_confidence(source.lower(), dnli)
-    #     all_examples.extend(stratified_examples)
-
-    #     with open("data_selection/defeasible/dnli_%s_stratified_selected.json" % source.lower(), "w") as file:
-    #         file.write(json.dumps([asdict(e) for e in stratified_examples]))
+    random.seed(42)
 
     run_select_train_dev_set_for_aflite_embedding_model()

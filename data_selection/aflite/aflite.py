@@ -37,7 +37,7 @@ class AFLite():
 
         embeddings = np.zeros([len(embedding_inputs), model_embedding_dim])
 
-        for i,example in enumerate(tqdm.tqdm(embedding_inputs)):
+        for i,example in tqdm.tqdm(enumerate(embedding_inputs)):
             embeddings[i,:] = self.embedding_model.get_example_embedding(**example)
 
         np.save(embeddings_file, embeddings)
@@ -136,3 +136,4 @@ if __name__ == '__main__':
         embeddings_file='data_selection/aflite/snli_train_embeddings.npy',
         labels_file='data_selection/aflite/snli_train_labels.npy'
     )
+    
