@@ -17,9 +17,9 @@ python run_glue.py \
 	--use_fast_tokenizer false \
 	--cache_dir $CACHE_DIR \
 	--do_train \
-	--train_file /fs/clip-scratch/nehasrik/paraphrase-nlu/data_selection/defeasible/social/aflite_train.csv \
+	--train_file /fs/clip-scratch/nehasrik/paraphrase-nlu/data_selection/defeasible/social/aflite_embedding_model_examples/aflite_train.csv \
 	--do_eval \
-	--validation_file /fs/clip-scratch/nehasrik/paraphrase-nlu/data_selection/defeasible/social/aflite_dev.csv \
+	--validation_file /fs/clip-scratch/nehasrik/paraphrase-nlu/data_selection/defeasible/social/aflite_embedding_model_examples/aflite_dev.csv \
 	--max_seq_length 128 \
 	--per_device_train_batch_size=32 \
 	--per_gpu_eval_batch_size=32 \

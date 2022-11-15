@@ -14,6 +14,11 @@ from dataclasses import asdict
 
 # python -m data_selection.defeasible.select
 
+def float_floor(num, precision=1):
+    if num == 1.0:
+        return 0.9
+    return np.true_divide(np.floor(num * 10**precision), 10**precision)
+
 def select_train_dev_set_for_aflite_embedding_model(
     data: DefeasibleNLIDataset,
     out_dir: str,
@@ -79,13 +84,32 @@ def plot_and_save(values: List[Any], fig_file: str) -> None:
     plot = sns.histplot(data=pd.DataFrame(values, columns=['value']), x="value", kde=True)
     plot.get_figure().savefig(fig_file)
 
-def select_data_for_train_dev_analysis_model(
+def select_stratify_examples_by_range(examples: List[Tuple[Any, float]], num_examples_per_range: int=25) -> List[Any]:
+    """
+    Helper function to turn lists of example ids and scores into a dictionary [(ex_1, 0.43), (ex_2, 0.02), ...] -> [0: [ex_2], 0.4: [ex_1], ...]
+    and then samples num_examples_per_range.
+    If there are less than num_examples_per_range, then all examples for that range are selected.
+    """
+    random.seed(42)
+    stratified_examples = []
+    ranges = defaultdict(list) # {0.1: [e1, e2], 0.2: [e3, e4]}
+    for example_id, score in examples:
+        ranges[float_floor(score, precision=1)].append(example_id)
+
+    for range_floor, range_examples in ranges.items():
+        print(range_floor, len(range_examples))
+        stratified_examples.extend(random.sample(range_examples, min(len(range_examples), num_examples_per_range)))
+
+    return stratified_examples
+
+def select_data_for_train_analysis_model(
     af_scores: Dict[str, List[float]], 
-    dataset: DefeasibleNLIDataset, 
-    fig_file_dir: str, 
+    dataset: DefeasibleNLIDataset,
+    fig_dir: str,
+    out_dir: str, 
     agg_function=np.median,
-    frac_annotation_sample=0.05
-):
+    frac_annotation_sample=0.055
+)-> Tuple[List[DefeasibleNLIExample], List[DefeasibleNLIExample]]:
     random.seed(42)
     score_aggregate_values = [] # aggregate scores per example across each outer iteration of adversarial filtering
     score_lengths = [] # get number of iterations this particular example was in before being filtered out
@@ -96,28 +120,42 @@ def select_data_for_train_dev_analysis_model(
         score_aggregate_values.append(agg_function(v))
         score_lengths.append(len(v))
 
-    plot_and_save(score_aggregate_values, os.path.join(fig_file_dir, 'aflite_score_distribution_%s.png' % agg_function.__name__))
-    plot_and_save(score_lengths, os.path.join(fig_file_dir, 'aflite_score_distribution_lengths.png'))
+    plot_and_save(score_aggregate_values, os.path.join(fig_dir, 'aflite_score_distribution_%s.png' % agg_function.__name__))
+    plot_and_save(score_lengths, os.path.join(fig_dir, 'aflite_score_distribution_lengths.png'))
     
     shuffled_ph_ids = random.sample(list(ph_id_lookup.keys()), len(list(ph_id_lookup.keys())))
 
     num_ph_ids_for_annotation = int(frac_annotation_sample * len(shuffled_ph_ids))
     print(f'Sampling {num_ph_ids_for_annotation} premise-hypotheses for annotation...')
 
-    annotation_examples = []
+    annotation_example_ids = []
     for ph_id in shuffled_ph_ids[:num_ph_ids_for_annotation]:
-        annotation_examples.extend(ph_id_lookup[ph_id])
+        annotation_example_ids.extend(ph_id_lookup[ph_id])
 
-    plot_and_save([agg_function(v) for k, v in annotation_examples], os.path.join(fig_file_dir, 'aflite_score_distribution_annotation_sample_%s.png' % agg_function.__name__))
+    plot_and_save([agg_function(v) for k, v in annotation_example_ids], os.path.join(fig_dir, 'aflite_score_distribution_annotation_sample_%s.png' % agg_function.__name__))
 
-    analysis_model_examples = []
+    analysis_example_ids = []
     for ph_id in shuffled_ph_ids[num_ph_ids_for_annotation:]:
-        analysis_model_examples.extend(ph_id_lookup[ph_id])
+        analysis_example_ids.extend(ph_id_lookup[ph_id])
 
-    plot_and_save([agg_function(v) for k, v in analysis_model_examples], os.path.join(fig_file_dir, 'aflite_score_distribution_annotation_analysis_model_%s.png' % agg_function.__name__))
+    plot_and_save([agg_function(v) for k, v in analysis_example_ids], os.path.join(fig_dir, 'aflite_score_distribution_annotation_analysis_model_%s.png' % agg_function.__name__))
 
-    print('Sampled %d examples for annotation and %d for training analysis model' % (len(annotation_examples), len(analysis_model_examples)))
-    
+    print('Sampled %d examples for annotation stratified selection and %d for training analysis model' % (len(annotation_example_ids), len(analysis_example_ids)))
+
+    selected_annotation_example_ids = select_stratify_examples_by_range([(k, agg_function(v)) for k,v in annotation_example_ids])
+    selected_annotation_examples = [dataset.get_example_by_id(example_id) for example_id in selected_annotation_example_ids]
+
+    with open(os.path.join(out_dir, 'annotation_examples/selected_stratified_annotation_examples.json'), "w") as file:
+        file.write(json.dumps([asdict(e) for e in selected_annotation_examples]))
+
+    analysis_examples = [dataset.get_example_by_id(e) for e, score in analysis_example_ids]
+    DefeasibleNLIDataset.write_processed_examples_for_modeling(analysis_examples, out_dir=out_dir, fname='analysis_model_examples/train_examples.csv')
+    with open(os.path.join(out_dir, 'analysis_model_examples/train_examples.json'), "w") as file:
+        file.write(json.dumps([asdict(e) for e in analysis_examples]))
+
+    print('Done with stratified selection!')
+    print('%d annotation examples, %d analysis model training examples' % (len(selected_annotation_examples), len(analysis_examples)))
+    return selected_annotation_examples, analysis_examples
 
 
 def select_subset_by_stratified_confidence(
@@ -159,12 +197,39 @@ def select_subset_by_stratified_confidence(
             continue
     return stratified_examples
 
+def run_select_data_for_train_analysis_model():
+    for data_source in ['atomic', 'social', 'snli']:
+        print('################### %s ###################' % data_source)
+        dnli_dataset = DefeasibleNLIDataset(f'raw-data/defeasible-nli/defeasible-{data_source}/', data_source)
+        af_scores = json.load(open(f'data_selection/aflite/{data_source}/{data_source}_af_scores.json'))
+        out_dir = f'data_selection/defeasible/{data_source}'
+
+        select_data_for_train_analysis_model(
+            af_scores, 
+            dnli_dataset, 
+            fig_dir=f'data_selection/aflite/{data_source}/figures', 
+            out_dir=out_dir,
+            agg_function=np.mean
+        )
+        ## Dev examples will be those not used for AFLite Embedding model evaluation
+        aflite_embedding_dev_examples = json.load(open(f'data_selection/defeasible/{data_source}/aflite_embedding_model_examples/aflite_dev_examples.json'))
+        aflite_embedding_dev_example_ids = set(e['example_id'] for e in aflite_embedding_dev_examples)
+
+        analysis_dev_examples = [e for e in dnli_dataset.get_split('dev') if e.example_id not in aflite_embedding_dev_example_ids]
+        with open(os.path.join(out_dir, 'analysis_model_examples/dev_examples.json'), "w") as file:
+            file.write(json.dumps([asdict(e) for e in analysis_dev_examples]))
+       
+        DefeasibleNLIDataset.write_processed_examples_for_modeling(
+            analysis_dev_examples, 
+            out_dir=out_dir, 
+            fname='analysis_model_examples/dev_examples.csv'
+        )
+
 if __name__ == '__main__':
     random.seed(42)
 
     # run_select_train_dev_set_for_aflite_embedding_model()
 
-    atomic = DefeasibleNLIDataset(f'raw-data/defeasible-nli/defeasible-atomic/', 'atomic')
-    atomic_af_scores = json.load(open('data_selection/aflite/atomic/atomic_af_scores.json'))
+    run_select_data_for_train_analysis_model()
 
-    select_data_for_train_dev_analysis_model(atomic_af_scores, atomic, fig_file_dir='data_selection/aflite/atomic/figures', agg_function=np.mean)
+    
