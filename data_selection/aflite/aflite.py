@@ -1,5 +1,6 @@
 import numpy as np
 import os
+import argparse
 import hashlib
 import json
 from sklearn.linear_model import LogisticRegression
@@ -56,7 +57,7 @@ class AFLite():
 
     def train_test_split_by_ph_id(self, X: np.array, corpus_lookup: OrderedDict, unique_ids: np.array, dataset: DefeasibleNLIDataset, train_size: int):
         examples = {}
-        random.seed(42)
+        
         ph_id_lookup = defaultdict(list)
 
         for x in X:
@@ -171,13 +172,14 @@ class AFLite():
 
         return X_filter, y_filter, corpus_lookup, af_scores
 
-def run_aflite(data_source, generate_embeddings=True):
+def run_aflite(data_source: str, generate_embeddings=True) -> None:
     dnli = DefeasibleNLIDataset(f'raw-data/defeasible-nli/defeasible-{data_source}/', data_name_prefix=data_source)
     aflite_embedding_training_examples = set([e['example_id'] for e in json.load(open(f'data_selection/defeasible/{data_source}/aflite_train_examples.json'))])
     embedding_model = DefeasibleTrainedModel(trained_model_dir=f'modeling/defeasible/chkpts/aflite_embedding_models/d-{data_source}-roberta-base', multiple_choice=False)
     af = AFLite(embedding_model=embedding_model)
     
     if generate_embeddings:
+        print('Generating embeddings...')
         af.get_example_embeddings(
             examples=[e for e in dnli.get_split('train') if e.example_id not in aflite_embedding_training_examples],
             embeddings_file=f'data_selection/aflite/{data_source}/{data_source}_train_embeddings.npy',
@@ -185,6 +187,7 @@ def run_aflite(data_source, generate_embeddings=True):
             labels_file=f'data_selection/aflite/{data_source}/{data_source}_train_labels.npy'
         )
     
+    print('Running AFLite...')
     X_filter, y_filter, corpus_lookup, af_scores = af.run_filtering(
         dataset=dnli,
         unique_ids=np.load(f'data_selection/aflite/{data_source}/{data_source}_train_ids.npy'),
@@ -205,15 +208,17 @@ def run_aflite(data_source, generate_embeddings=True):
     with open(f'data_selection/aflite/{data_source}/{data_source}_af_scores.json', 'w') as fp:
         json.dump(af_scores, fp)
 
-if __name__ == '__main__':
+    print('Done running AFLite!')
 
-    data_sources = [
-        {'data_source': 'atomic', 'generate_embeddings': False}
-        {'data_source': 'social', 'generate_embeddings': True}
-        {'data_source': 'snli', 'generate_embeddings': True}
-    ]
+if __name__ == '__main__':
+    argparser = argparse.ArgumentParser()
     
-    for ds in data_sources:
-        run_aflite(**ds)
+    argparser.add_argument('--data_source', type=str)
+    argparser.add_argument('--generate_embeddings', type=int)
+
+    args = argparser.parse_args()
+
+    print('################### %s ###################' % args.data_source)
+    run_aflite(data_source= args.data_source, generate_embeddings=bool(args.generate_embeddings))
 
     
