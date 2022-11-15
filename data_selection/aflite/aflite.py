@@ -131,7 +131,7 @@ class AFLite():
                     unique_ids=unique_ids, 
                     dataset=dataset, 
                     train_size=m
-                ) #train_test_split(X_filter, y_filter, train_size=m)
+                ) # BEFORE: train_test_split(X_filter, y_filter, train_size=m)
 
                 # Train a linear classifier L on T_i
                 clf = LogisticRegression(random_state=0, max_iter=5000).fit(X_train, y_train)

@@ -1,8 +1,12 @@
 import random
-from typing import List, Tuple
+from typing import List, Tuple, Dict, Any
 from tqdm import tqdm
 import os
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
 import json
+import numpy as np
 from defeasible_data import DefeasibleNLIExample, ParaphrasedDefeasibleNLIExample, DefeasibleNLIDataset
 from experiments.models import DefeasibleTrainedModel
 from collections import defaultdict
@@ -69,6 +73,52 @@ def run_select_train_dev_set_for_aflite_embedding_model():
         select_train_dev_set_for_aflite_embedding_model(**aflite_data_generation)
         print()
 
+def plot_and_save(values: List[Any], fig_file: str) -> None:
+    sns.set_theme()
+    plt.figure()
+    plot = sns.histplot(data=pd.DataFrame(values, columns=['value']), x="value", kde=True)
+    plot.get_figure().savefig(fig_file)
+
+def select_data_for_train_dev_analysis_model(
+    af_scores: Dict[str, List[float]], 
+    dataset: DefeasibleNLIDataset, 
+    fig_file_dir: str, 
+    agg_function=np.median,
+    frac_annotation_sample=0.05
+):
+    random.seed(42)
+    score_aggregate_values = [] # aggregate scores per example across each outer iteration of adversarial filtering
+    score_lengths = [] # get number of iterations this particular example was in before being filtered out
+    ph_id_lookup = defaultdict(list) # so that we can split by ph-id (sample by ph-id, and get all associated)
+    
+    for k, v in af_scores.items(): #k = example_id, v = list of scores
+        ph_id_lookup[dataset.get_example_by_id(k).premise_hypothesis_id].append((k, v))
+        score_aggregate_values.append(agg_function(v))
+        score_lengths.append(len(v))
+
+    plot_and_save(score_aggregate_values, os.path.join(fig_file_dir, 'aflite_score_distribution_%s.png' % agg_function.__name__))
+    plot_and_save(score_lengths, os.path.join(fig_file_dir, 'aflite_score_distribution_lengths.png'))
+    
+    shuffled_ph_ids = random.sample(list(ph_id_lookup.keys()), len(list(ph_id_lookup.keys())))
+
+    num_ph_ids_for_annotation = int(frac_annotation_sample * len(shuffled_ph_ids))
+    print(f'Sampling {num_ph_ids_for_annotation} premise-hypotheses for annotation...')
+
+    annotation_examples = []
+    for ph_id in shuffled_ph_ids[:num_ph_ids_for_annotation]:
+        annotation_examples.extend(ph_id_lookup[ph_id])
+
+    plot_and_save([agg_function(v) for k, v in annotation_examples], os.path.join(fig_file_dir, 'aflite_score_distribution_annotation_sample_%s.png' % agg_function.__name__))
+
+    analysis_model_examples = []
+    for ph_id in shuffled_ph_ids[num_ph_ids_for_annotation:]:
+        analysis_model_examples.extend(ph_id_lookup[ph_id])
+
+    plot_and_save([agg_function(v) for k, v in analysis_model_examples], os.path.join(fig_file_dir, 'aflite_score_distribution_annotation_analysis_model_%s.png' % agg_function.__name__))
+
+    print('Sampled %d examples for annotation and %d for training analysis model' % (len(annotation_examples), len(analysis_model_examples)))
+    
+
 
 def select_subset_by_stratified_confidence(
     data_source: str, 
@@ -112,4 +162,9 @@ def select_subset_by_stratified_confidence(
 if __name__ == '__main__':
     random.seed(42)
 
-    run_select_train_dev_set_for_aflite_embedding_model()
+    # run_select_train_dev_set_for_aflite_embedding_model()
+
+    atomic = DefeasibleNLIDataset(f'raw-data/defeasible-nli/defeasible-atomic/', 'atomic')
+    atomic_af_scores = json.load(open('data_selection/aflite/atomic/atomic_af_scores.json'))
+
+    select_data_for_train_dev_analysis_model(atomic_af_scores, atomic, fig_file_dir='data_selection/aflite/atomic/figures', agg_function=np.mean)
