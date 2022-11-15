@@ -4,7 +4,7 @@ import os
 import json
 from dataclasses import dataclass, dataclass, asdict
 from typing import List, Optional, Dict, Any, Set
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
 ### Class definitions for objects representing annotated data
 
 @dataclass
@@ -52,12 +52,16 @@ class DefeasibleNLIDataset:
         self.dev_examples = self.create_examples(data_split='dev') 
         self.test_examples = self.create_examples(data_split='test') 
 
+        self.split_examples_by_id = {split: {e.example_id: e for e in self.get_split(split)} for split in ['train', 'dev', 'test']}
+
+
     def create_examples(self, data_split: str) -> List[DefeasibleNLIExample]:
         raw_data = []
         data = []
         premise_hypothesis_ids = OrderedDict()
         fname = '%s/%s.jsonl' % (self.data_dir, data_split)
         skipped = 0
+        data_by_id = {}
 
         ### get unique premise_hypothesis_ids
 
@@ -76,20 +80,20 @@ class DefeasibleNLIDataset:
         print('Unique premise-hypothesis pairs: %d / %d' % (len(premise_hypothesis_ids), len(raw_data)))
         
         for i, premise_hypothesis, example in raw_data:
-            data.append(
-                DefeasibleNLIExample(
-                    example_id='%s.%s.%d' % (self.data_name_prefix, data_split, i),
-                    premise_hypothesis_id='%s.%s.%s' % (self.data_name_prefix, data_split, premise_hypothesis_ids[premise_hypothesis]),
-                    data_source=example['DataSource'].lower(),
-                    source_example_metadata={metadata: example[metadata] for metadata in self.SOURCE_SPECIFIC_METADATA[example['DataSource']]},
-                    premise=example['Premise'] if 'SOCIAL' not in example['DataSource'] else "", #social has no premises
-                    hypothesis=example['Hypothesis'],
-                    update=example['Update'],
-                    update_type=example['UpdateType'],
-                    label=0 if example['UpdateType'] == 'weakener' else 1,
-                    annotated_paraphrases=None
-                )
+            dnli_example = DefeasibleNLIExample(
+                example_id='%s.%s.%d' % (self.data_name_prefix, data_split, i),
+                premise_hypothesis_id='%s.%s.%s' % (self.data_name_prefix, data_split, premise_hypothesis_ids[premise_hypothesis]),
+                data_source=example['DataSource'].lower(),
+                source_example_metadata={metadata: example[metadata] for metadata in self.SOURCE_SPECIFIC_METADATA[example['DataSource']]},
+                premise=example['Premise'] if 'SOCIAL' not in example['DataSource'] else "", #social has no premises
+                hypothesis=example['Hypothesis'],
+                update=example['Update'],
+                update_type=example['UpdateType'],
+                label=0 if example['UpdateType'] == 'weakener' else 1,
+                annotated_paraphrases=None
             )
+            data.append(dnli_example)
+            
         print('Loaded %d nonempty %s examples...(skipped %d examples)' % (len(data), data_split, skipped))
         return data
     
@@ -120,13 +124,14 @@ class DefeasibleNLIDataset:
         split_examples =  self.get_split(split_name)
         return list(set(e.premise_hypothesis_id for e in split_examples))
 
+    def get_example_by_id(self, example_id) -> DefeasibleNLIExample:
+        data_source, split, ex_id = example_id.split('.') #social.dev.3101
+        return self.split_examples_by_id[split][example_id]
+    
     def get_examples_for_premise_hypothesis(self, premise_hypothesis_id: str):
         data_source, split, ph_id = premise_hypothesis_id.split('.')
         return [e for e in self.get_split(split) if e.premise_hypothesis_id == premise_hypothesis_id]
-
-
     
-
 
 if __name__ == '__main__':
     # dnli = DefeasibleNLIDataset('raw-data/defeasible-nli/defeasible-all/')
