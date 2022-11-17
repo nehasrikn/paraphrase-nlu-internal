@@ -1,11 +1,20 @@
 import random
-from typing import List, Dict
+from typing import List, Dict, Any
+import seaborn as sns
+import matplotlib.pyplot as plt
 from tqdm import tqdm
 import json
 from abductive_data import AbductiveNLIExample, AbductiveNLIDataset
 from experiments.models import AbductiveTrainedModel
 from collections import defaultdict
 from dataclasses import asdict
+import pandas as pd
+
+def plot_and_save(values: List[Any], fig_file: str) -> None:
+    sns.set_theme()
+    plt.figure()
+    plot = sns.histplot(data=pd.DataFrame(values, columns=['value']), x="value", kde=True)
+    plot.get_figure().savefig(fig_file)
 
 def select_subset_random(data: AbductiveNLIDataset, num_examples: int = 115):
     """
@@ -68,16 +77,57 @@ def select_subset_by_stratified_confidence(
 
     return stratified_examples
 
+def select_stratified_easy_examples():
+    """
+    Using examples that Chandra provided that are filtered out, select stratified by original model confidence
+    InputSentence1 --> Same as obs1 in the public file. Contains Observation 1.
+    InputSentence5 --> Same as obs2 in the public file. Contains Observation 2.
+    RandomMiddleSentenceQuiz1: One candidate hypothesis.
+    RandomMiddleSentenceQuiz2: Another candidate hypothesis.
+    AnswerRightEnding: The label of which option is the correct hypothesis.
+    """
+    fname = 'raw-data/anli/af_filtered_out/train_easy_annotations.jsonl'
+    easy_examples = []
+    for i, json_str in enumerate(tqdm(list(open(fname, 'r')))):
+        result = json.loads(json_str)
+        easy_examples.append(AbductiveNLIExample(
+            story_id=None,
+            example_id='anli.train.easy.%d' % i,
+            split='train.easy',
+            obs1=result['InputSentence1'],
+            obs2=result['InputSentence5'],
+            hyp1=result['RandomMiddleSentenceQuiz1'],
+            hyp2 = result['RandomMiddleSentenceQuiz2'],
+            label = int(result['AnswerRightEnding']),
+            annotated_paraphrases=None
+        ))
+    
+    confidences = []
+
+    print('Loaded %d easy abductive examples' % len(easy_examples))
+    roberta = AbductiveTrainedModel(trained_model_dir='modeling/abductive/chkpts/roberta-large-anli', multiple_choice=True)
+
+    sample = random.sample(easy_examples, 100)
+    for e in tqdm(sample):
+        prediction = roberta.predict(obs1=e.obs1, obs2=e.obs2, hyp1=e.hyp1, hyp2=e.hyp2)
+        confidences.append(prediction[e.label - 1])
+
+    plot_and_save(confidences, 'easy_example_confidence_distribution.png')
+    
+
+
 
 if __name__ == '__main__':
 
-    anli = AbductiveNLIDataset(data_dir='raw-data/anli')
-    random_sample, confidence_ranges = select_subset_random(anli)
+    # anli = AbductiveNLIDataset(data_dir='raw-data/anli')
+    # random_sample, confidence_ranges = select_subset_random(anli)
 
-    with open("data_selection/abductive/anli_random_selected.json", "w") as file:
-        file.write(json.dumps([asdict(e) for e in random_sample]))
+    # with open("data_selection/abductive/anli_random_selected.json", "w") as file:
+    #     file.write(json.dumps([asdict(e) for e in random_sample]))
 
-    stratified_examples = select_subset_by_stratified_confidence(anli, random_sample, confidence_ranges, 25)
+    # stratified_examples = select_subset_by_stratified_confidence(anli, random_sample, confidence_ranges, 25)
 
-    with open("data_selection/abductive/anli_stratified_selected.json", "w") as file:
-        file.write(json.dumps([asdict(e) for e in stratified_examples]))
+    # with open("data_selection/abductive/anli_stratified_selected.json", "w") as file:
+    #     file.write(json.dumps([asdict(e) for e in stratified_examples]))
+
+    select_stratified_easy_examples()
