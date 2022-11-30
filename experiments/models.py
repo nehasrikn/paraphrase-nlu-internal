@@ -12,7 +12,8 @@ class TrainedModel:
     def __init__(self, trained_model_dir: str, cache_dir: str = 'checkpoints/hf_cache', multiple_choice=True) -> None:
         self.is_multiple_choice = multiple_choice
         self.tokenizer = TrainedModel.get_tokenizer(trained_model_dir, cache_dir)
-        self.trained_model = TrainedModel.get_model(trained_model_dir, cache_dir, multiple_choice=self.is_multiple_choice)
+        self.device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+        self.trained_model = self.get_model(trained_model_dir, cache_dir, multiple_choice=self.is_multiple_choice)
         
     @abstractmethod
     def predict(self) -> numpy.ndarray:
@@ -28,15 +29,14 @@ class TrainedModel:
             use_auth_token=False,
         )
 
-    @staticmethod
-    def get_model(model_path: str, hf_cache_path: str, multiple_choice=True) -> Union[AutoModelForMultipleChoice, AutoModelForSequenceClassification]:
+    def get_model(self, model_path: str, hf_cache_path: str, multiple_choice=True) -> Union[AutoModelForMultipleChoice, AutoModelForSequenceClassification]:
         print('Loading model from %s' % model_path)
         model_wrapper = AutoModelForMultipleChoice if multiple_choice else AutoModelForSequenceClassification
         return model_wrapper.from_pretrained(
             model_path,
             from_tf=False,
             cache_dir=hf_cache_path
-        )
+        ).to(device=self.device)
 
 
 class AbductiveTrainedModel(TrainedModel):
@@ -113,11 +113,11 @@ class DefeasibleTrainedModel(TrainedModel):
             max_length=128, 
             truncation=True, 
             return_tensors="pt"
-        )
+        ).to(device=self.device)
         outputs = self.trained_model.roberta(**result)
         sequence_output = outputs[0]
         cls_rep = sequence_output[:, 0, :]
-        return cls_rep.squeeze(0).detach().numpy() # take <s> token (equiv. to [CLS])
+        return cls_rep.squeeze(0).detach().cpu().numpy() # take <s> token (equiv. to [CLS])
 
     def predict(self, premise: str, hypothesis: str, update: str) -> numpy.ndarray:
         return self._get_prediction((premise + hypothesis, update))
@@ -129,7 +129,7 @@ class DefeasibleTrainedModel(TrainedModel):
             max_length=128, 
             truncation=True, 
             return_tensors="pt"
-        )
+        ).to(device=self.device)
         outputs = self.trained_model(**result)
-        probs = softmax(outputs.logits.detach().numpy(), axis=1)
+        probs = softmax(outputs.logits.detach().cpu().numpy(), axis=1)
         return probs[0]

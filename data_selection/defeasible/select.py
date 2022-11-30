@@ -1,9 +1,10 @@
 import random
-from typing import List, Tuple, Dict, Any
+from typing import List, Tuple, Dict, Any, Optional
 from tqdm import tqdm
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
+import roundrobin
 import pandas as pd
 import json
 import numpy as np
@@ -85,23 +86,101 @@ def plot_and_save(values: List[Any], fig_file: str) -> None:
     plot = sns.histplot(data=pd.DataFrame(values, columns=['value']), x="value", kde=True)
     plot.get_figure().savefig(fig_file)
 
-def select_stratify_examples_by_range(examples: List[Tuple[Any, float]], num_examples_per_range: int=25) -> List[Any]:
+def stratify_examples_by_range(examples: List[Tuple[Any, float]]) -> Dict[float, List[Any]]:
+    random.seed(42)
+    ranges = defaultdict(list) # {0.1: [e1, e2], 0.2: [e3, e4]}
+    for example_id, score in examples:
+        ranges[float_floor(score, precision=1)].append((example_id, score))
+    return ranges
+
+
+def select_stratify_examples_by_range(ranges: Dict[float, List[Tuple[DefeasibleNLIExample, float]]], num_total_examples: int=125) -> List[Any]:
     """
-    Helper function to turn lists of example ids and scores into a dictionary [(ex_1, 0.43), (ex_2, 0.02), ...] -> [0: [ex_2], 0.4: [ex_1], ...]
+    Helper function to turn lists of example ids and scores into a dictionary [(ex_1, 0.43), (ex_2, 0.02), ...] -> {0: [ex_2], 0.4: [ex_1], ...}
     and then samples num_examples_per_range.
     If there are less than num_examples_per_range, then all examples for that range are selected.
     """
-    random.seed(42)
-    stratified_examples = []
-    ranges = defaultdict(list) # {0.1: [e1, e2], 0.2: [e3, e4]}
-    for example_id, score in examples:
-        ranges[float_floor(score, precision=1)].append(example_id)
+    range_iterators = {range_floor: iter(range_examples) for range_floor, range_examples in ranges.items()}
+    examples = []
+    example_confidences = []
+    
+    get_roundrobin_range_floor = roundrobin.basic(list(ranges.keys()))
+    while len(examples) < num_total_examples:
+        range_floor = get_roundrobin_range_floor()
+        try:
+            e = next(range_iterators[range_floor])
+            examples.append(e[0]) # only appending the actual example, not the score!
+            example_confidences.append(range_floor)
+        except StopIteration as error:
+            continue
 
-    for range_floor, range_examples in ranges.items():
-        print(range_floor, len(range_examples))
-        stratified_examples.extend(random.sample(range_examples, min(len(range_examples), num_examples_per_range)))
+    print(pd.Series(example_confidences).value_counts())
+    return examples
+    
+def compare_aflite_variances_with_analysis_model_confidence(
+    examples: List[DefeasibleNLIExample],
+    analysis_model: DefeasibleTrainedModel,
+    aflite_scores:  Dict[str, List[float]],
+    fig_dir: str
+):
+    ### Inspect AFLite variances for selected examples (plot variance vs analysis model confidence)
+    
+    variances = [np.var(aflite_scores[e.example_id]) for e in examples]
+    analysis_model_confidences = generate_confidence_distribution_of_analysis_model_on_sample(
+        analysis_model, 
+        examples,
+        do_plot_and_save=True,
+        fig_file=os.path.join(fig_dir, 'selected_examples_analysis_model_confidences.png'),
+    )
 
-    return stratified_examples
+    plt.figure()
+    plt.title('AFLite Variance Across Iterations vs. RoBERTa Analysis Model Confidence')
+    plt.xlabel('aflite_variance')
+    plt.ylabel('roberta_analysis_model_confidence')
+    plot = sns.scatterplot(x=variances, y=analysis_model_confidences)
+    plot.get_figure().savefig(os.path.join(fig_dir, 'aflite_variances_vs_analysis_model_confidences.png'))
+
+def select_data_for_annotation(
+    example_pool: List[Tuple[DefeasibleNLIExample, float]], 
+    analysis_model: DefeasibleTrainedModel,
+    aflite_scores:  Dict[str, List[float]],
+    fig_dir: str,
+    easy_partition_threshold: float=0.75
+)-> List[DefeasibleNLIExample]: 
+    easy_partition, hard_partition = [], []
+
+    for e, example_af_scores in example_pool:
+        if np.mean(example_af_scores) > easy_partition_threshold:
+            easy_partition.append(DefeasibleNLIExample(**e))
+        else:
+            hard_partition.append(DefeasibleNLIExample(**e))
+
+    print('%d easy examples & %d hard examples' % (len(easy_partition), len(hard_partition)))
+    
+    easy_analysis_model_confidences = generate_confidence_distribution_of_analysis_model_on_sample(
+        analysis_model, 
+        easy_partition, 
+        do_plot_and_save=True,
+        fig_file=os.path.join(fig_dir, 'aflite_easy_example_sample_analysis_model_confidences.png'),
+    )
+    easy_analysis_model_confidences_stratified = stratify_examples_by_range(list(zip(easy_partition, easy_analysis_model_confidences)))
+    selected_easy_examples = select_stratify_examples_by_range(easy_analysis_model_confidences_stratified)
+
+    hard_analysis_model_confidences = generate_confidence_distribution_of_analysis_model_on_sample(
+        analysis_model, 
+        hard_partition, 
+        do_plot_and_save=True,
+        fig_file=os.path.join(fig_dir, 'aflite_hard_example_sample_analysis_model_confidences.png'),
+    )
+    hard_analysis_model_confidences_stratified = stratify_examples_by_range(list(zip(hard_partition, hard_analysis_model_confidences)))
+    selected_hard_examples = select_stratify_examples_by_range(hard_analysis_model_confidences_stratified)
+
+    selected_examples = selected_easy_examples + selected_hard_examples
+
+    compare_aflite_variances_with_analysis_model_confidence(selected_examples, analysis_model, aflite_scores, fig_dir)
+    print('Done selecting %d examples!' % len(selected_examples))
+    with open(os.path.join(fig_dir, 'selected_examples.json'), "w") as file:
+        file.write(json.dumps([asdict(e) for e in selected_examples]))
 
 def select_data_for_train_analysis_model(
     af_scores: Dict[str, List[float]], 
@@ -111,6 +190,10 @@ def select_data_for_train_analysis_model(
     agg_function=np.median,
     frac_annotation_sample=0.055
 )-> Tuple[List[DefeasibleNLIExample], List[DefeasibleNLIExample]]:
+    """
+    Partitions train set into two splits: one pool from which we can select examples for annotation, and another pool
+    that is used to train the analysis model. We don't select the subset of examples in this particular 
+    """
     random.seed(42)
     score_aggregate_values = [] # aggregate scores per example across each outer iteration of adversarial filtering
     score_lengths = [] # get number of iterations this particular example was in before being filtered out
@@ -142,34 +225,30 @@ def select_data_for_train_analysis_model(
     plot_and_save([agg_function(v) for k, v in analysis_example_ids], os.path.join(fig_dir, 'aflite_score_distribution_annotation_analysis_model_%s.png' % agg_function.__name__))
 
     print('Sampled %d examples for annotation stratified selection and %d for training analysis model' % (len(annotation_example_ids), len(analysis_example_ids)))
-
-    selected_annotation_example_ids = select_stratify_examples_by_range([(k, agg_function(v)) for k,v in annotation_example_ids])
-    selected_annotation_examples = [dataset.get_example_by_id(example_id) for example_id in selected_annotation_example_ids]
-
-    with open(os.path.join(out_dir, 'annotation_examples/selected_stratified_annotation_examples.json'), "w") as file:
-        file.write(json.dumps([asdict(e) for e in selected_annotation_examples]))
+    with open(os.path.join(out_dir, 'annotation_examples/annotation_example_pool_ph_id.json'), "w") as file:
+        file.write(json.dumps([(asdict(dataset.get_example_by_id(e)), score) for e, score in annotation_example_ids]))
 
     analysis_examples = [dataset.get_example_by_id(e) for e, score in analysis_example_ids]
     DefeasibleNLIDataset.write_processed_examples_for_modeling(analysis_examples, out_dir=out_dir, fname='analysis_model_examples/train_examples.csv')
     with open(os.path.join(out_dir, 'analysis_model_examples/train_examples.json'), "w") as file:
         file.write(json.dumps([asdict(e) for e in analysis_examples]))
 
-    print('Done with stratified selection!')
-    print('%d annotation examples, %d analysis model training examples' % (len(selected_annotation_examples), len(analysis_examples)))
-    return selected_annotation_examples, analysis_examples
+    print('%d annotation examples, %d analysis model training examples' % (len(annotation_example_ids), len(analysis_examples)))
+    return analysis_examples
 
 def generate_confidence_distribution_of_analysis_model_on_sample(
     model: DefeasibleTrainedModel, 
     annotation_set: List[DefeasibleNLIExample],
-    fig_file: str,
+    do_plot_and_save: bool = True,
+    fig_file: Optional[str] = None,
 ) -> None:
 
     confidences = []
     for e in tqdm(annotation_set):
         prediction = model.predict(premise=e.premise, hypothesis=e.hypothesis, update=e.update)
         confidences.append(prediction[e.label])
-
-    plot_and_save(confidences, fig_file)
+    if do_plot_and_save:
+        plot_and_save(confidences, fig_file)
     return np.array(confidences)
     
 def run_compare_analysis_model_confidence_and_aflite_aggregated_score():
@@ -187,9 +266,20 @@ def run_compare_analysis_model_confidence_and_aflite_aggregated_score():
         print('Pearson correlation: ', pearsonr(analysis_model_confidences, aflite_agg_scores))
 
         plt.figure()
-        plot = sns.scatterplot(x=analysis_model_confidences, y=aflite_agg_scores)
+        plot = sns.scatterplot(x=aflite_agg_scores, y=analysis_model_confidences)
         plot.get_figure().savefig(f'data_selection/defeasible/{data_source}/annotation_examples/analysis_model_confidence_vs_aflite_score.png')
         
+def run_select_data_for_annotation():
+    for data_source in ['atomic', 'social', 'snli']:
+        print('################### %s ###################' % data_source)
+        dnli_dataset = DefeasibleNLIDataset(f'raw-data/defeasible-nli/defeasible-{data_source}/', data_source)
+        out_dir = f'data_selection/defeasible/{data_source}'
+        annotation_example_pool = json.load(open(
+            f'data_selection/defeasible/{data_source}/annotation_examples/annotation_example_pool_ph_id.json'
+        ))
+        model = DefeasibleTrainedModel(f'modeling/defeasible/chkpts/analysis_models/d-{data_source}-roberta-large', multiple_choice=False)
+        aflite_scores = json.load(open(f'data_selection/aflite/{data_source}/{data_source}_af_scores.json'))
+        select_data_for_annotation(annotation_example_pool, model, aflite_scores=aflite_scores, fig_dir=f'data_selection/defeasible/{data_source}/annotation_examples/')
 
 def run_select_data_for_train_analysis_model():
     for data_source in ['atomic', 'social', 'snli']:
@@ -205,7 +295,7 @@ def run_select_data_for_train_analysis_model():
             out_dir=out_dir,
             agg_function=np.mean
         )
-        ## Dev examples will be those not used for AFLite Embedding model evaluation
+        # Dev examples will be those not used for AFLite Embedding model evaluation
         aflite_embedding_dev_examples = json.load(open(f'data_selection/defeasible/{data_source}/aflite_embedding_model_examples/aflite_dev_examples.json'))
         aflite_embedding_dev_example_ids = set(e['example_id'] for e in aflite_embedding_dev_examples)
 
@@ -224,8 +314,9 @@ if __name__ == '__main__':
 
     # run_select_train_dev_set_for_aflite_embedding_model()
 
-    # run_select_data_for_train_analysis_model()
+    #run_select_data_for_train_analysis_model()
 
-    run_compare_analysis_model_confidence_and_aflite_aggregated_score()
+    #run_compare_analysis_model_confidence_and_aflite_aggregated_score()
+    run_select_data_for_annotation()
 
     
