@@ -49,7 +49,14 @@ class MTurkBatch:
             outfile.write(json.dumps(asdict(self), indent=1, sort_keys=True))
 
     def store_posted_batch_data(self, posted_hits: List[Dict]) -> None:
-        self.posted_hits = [{str(k): str(v) for k,v in h.items()} for h in posted_hits]
+        save_keys = [
+            'HITId', 'HITTypeId', 'HITStatus', 'MaxAssignments', 
+            'Reward', 'AutoApprovalDelayInSeconds', 
+            'AssignmentDurationInSeconds', 'RequesterAnnotation', 
+            'QualificationRequirements', 'HITReviewStatus', 
+            'NumberOfAssignmentsPending', 'NumberOfAssignmentsAvailable', 'NumberOfAssignmentsCompleted'
+        ]
+        self.posted_hits = [{k: v for k,v in h['HIT'].items() if k in save_keys} for h in posted_hits]
 
 
 class MTurkHITCreator:
