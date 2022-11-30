@@ -13,7 +13,7 @@ TASK_CONTENT = """
 		<h3>Scenario</h3>
 			<crowd-card>
 			    <div class="card">
-			    	<b><u>Premise Sentence 1</u></b> 
+			    	<b><span style='color:#eb8034'>Context</span></b> 
 					<br>
 					PREMISE
 			    </div>
@@ -22,7 +22,7 @@ TASK_CONTENT = """
 			<br>
 			<crowd-card>
 				<div class="card">
-			        <b><u>Premise Sentence 2</u></b>
+			        <b><span style='color:#7b76db'>Inference</span></b>
 					<br>
 					HYPOTHESIS
 			    </div>
@@ -30,7 +30,7 @@ TASK_CONTENT = """
 	</div>
 	<!-- <span id="vertical-separator"></span> -->
 	<div class="right-container">
-		<h3>EVIDENCE_TYPE Evidence</h3>
+		<h3><span style='color:#0f6066'>EVIDENCE_TYPE Evidence for Inference</span></h3>
 			<crowd-card>
 				<div class="card">
 					UPDATE

@@ -48,6 +48,7 @@ class DefeasibleHITCreator():
             self.task_template, 
             DefeasibleNLIExample(
                 example_id="1",
+                premise_hypothesis_id='1',
                 source_example_metadata=None,
                 data_source="snli",
                 premise="A group is walking between two giant rock formations." ,
