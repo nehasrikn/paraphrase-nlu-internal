@@ -1,9 +1,9 @@
 from typing import *
-#import boto3
+import boto3
 import json
 import pandas as pd
 import ast
-#from simple_colors import *
+from simple_colors import *
 from typing import Dict
 import re
 import pprint
@@ -16,6 +16,13 @@ if module_path not in sys.path:
     sys.path.append(module_path)
 
 from defeasible_data import DefeasibleNLIDataset, DefeasibleNLIExample, ParaphrasedDefeasibleNLIExample
+
+mturk = boto3.client(
+    'mturk', 
+    aws_access_key_id = 'AKIA3HQJKSL4YZUFYGQ4', 
+    aws_secret_access_key = '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',
+    region_name='us-east-1',
+)
 
 
 def extract_paraphrases_from_task(mturk_assignment: Dict):
