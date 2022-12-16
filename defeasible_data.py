@@ -22,7 +22,7 @@ class DefeasibleNLIExample:
 
 @dataclass
 class ParaphrasedDefeasibleNLIExample:
-    paraphrase_id: str # <example_id>.<example_annotator_id>.<h1_id>.<h2_id> for human, <example_id>.<system>.<identifiers> for generated
+    paraphrase_id: str # <example_id>.<example_annotator_id>.<u_id> and for human, <example_id>.<system>.<identifiers> for generated
     original_example: DefeasibleNLIExample
     original_example_id: str
     update_paraphrase: str
