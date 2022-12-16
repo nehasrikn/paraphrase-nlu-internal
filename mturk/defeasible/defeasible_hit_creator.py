@@ -38,7 +38,7 @@ class DefeasibleHITCreator():
             hit_data_examples.append(MTurkHITData(
                 task_html=DefeasibleHITCreator.create_HTML_from_example(self.task_template, e),
                 internal_id=str(e.example_id),
-                split=e.split,
+                split=e.example_id.split('.')[0],
                 example_data = asdict(e)
             ))
         return hit_data_examples
@@ -48,6 +48,7 @@ class DefeasibleHITCreator():
             self.task_template, 
             DefeasibleNLIExample(
                 example_id="1",
+                premise_hypothesis_id='1',
                 source_example_metadata=None,
                 data_source="snli",
                 premise="A group is walking between two giant rock formations." ,
@@ -116,7 +117,8 @@ class DefeasibleHITCreator():
         return task_html
 
 def connect_and_post_defeasible_hits(
-    split: str, 
+    split: str,
+    batch_name: str, 
     examples: List[DefeasibleNLIExample],
     requestor_note: str,
     max_assignments: int,
@@ -147,8 +149,8 @@ def connect_and_post_defeasible_hits(
     batch = MTurkBatch(
         tasks=hit_data_examples,
         origin_split=split,
-        dataset_name='defeasible_nli',
-        example_ids=ids,
+        dataset_name=batch_name,
+        example_ids=[str(e.example_id) for e in examples],
         max_assignments=max_assignments,
         post_date=str(datetime.now()),
         requestor_note=requestor_note,
@@ -157,8 +159,9 @@ def connect_and_post_defeasible_hits(
 
     posted_hits = turk_creator.create_HITs_from_mturk_batch(batch)
     batch.store_posted_batch_data(posted_hits)
-    batch.write_to_json('defeasible/mturk_data/creation/pilot.json')
+    batch.write_to_json(f'mturk/defeasible/mturk_data/creation/{batch_name}.json')
     turk_creator.trigger_email_notifications(hit_type_id, "nehasrik@umd.edu")
+    turk_creator.check_balance()
 
 def view_assignment(
     assignment_id: str,
@@ -185,10 +188,6 @@ if __name__ == '__main__':
     parser.add_argument("--aws_access_key", type=str, help="AWS Access Key", required=False)
     parser.add_argument("--aws_secret_access_key", type=str, help="AWS Secret Key", required=False)
 
-    parser.add_argument(
-        "--split", type=str, default="test", help="Split to draw examples for annotation."
-    )
-    parser.add_argument("--num_examples", type=int, default=1, help="Number of examples to post.")
     parser.add_argument("--requestor_note", type=str, default="", help="Arbitrary internal note")
 
     parser.add_argument("--max_assignments", type=int, default=3, help="Number of workers per HIT.")
@@ -204,7 +203,32 @@ if __name__ == '__main__':
 
 
     dh = DefeasibleHITCreator('mturk/defeasible/defeasible_para_nlu_template.html')
-    dh.get_proof_of_concept_HIT()
+
+    atomic_examples = [
+        DefeasibleNLIExample(**j)
+        for j in json.load(open(f'data_selection/defeasible/atomic/annotation_examples/selected_examples.json', 'rb'))
+    ]
+    snli_examples = [
+        DefeasibleNLIExample(**j)
+        for j in json.load(open(f'data_selection/defeasible/snli/annotation_examples/selected_examples.json', 'rb'))
+    ]
+
+    atomic_examples_batch_1 = atomic_examples[:50]
+    atomic_examples_batch_2 = atomic_examples[50:75]
+    connect_and_post_defeasible_hits(
+        split='atomic_train_annotation_examples',
+        batch_name='atomic_dnli_annotation_examples_2', 
+        examples=atomic_examples_batch_2,
+        requestor_note='first batch of atomic examples',
+        max_assignments=3,
+        hit_type_id=None,
+        live_marketplace=True,
+        aws_access_key='AKIA3HQJKSL4YZUFYGQ4',
+        aws_secret_access_key='51DNsHKAT+SiThFybgaEIZS8YT1sJyHt6zsNLSHE'
+    )
+
+
+    #dh.get_proof_of_concept_HIT()
 
     #connect_and_post_defeasible_hits(**vars(args))
 
