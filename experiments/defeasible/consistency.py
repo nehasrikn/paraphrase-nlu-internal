@@ -3,7 +3,7 @@ import json
 from typing import List
 import numpy as np
 from tqdm import tqdm
-from models import DefeasibleTrainedModel
+from models_wrappers import DefeasibleTrainedModel
 
 with open('/fs/clip-scratch/nehasrik/paraphrase-nlu/annotated_data/defeasible/semantic_equivalence.json') as f:
     semantic_equivalence = json.load(f)
