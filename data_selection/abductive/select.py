@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 import json
 from abductive_data import AbductiveNLIExample, AbductiveNLIDataset
-from experiments.models import AbductiveTrainedModel
+from models import AbductiveTrainedModel
 from collections import defaultdict
 from dataclasses import asdict
 import pandas as pd
