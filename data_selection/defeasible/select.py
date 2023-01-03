@@ -10,7 +10,7 @@ import json
 import numpy as np
 from scipy.stats import pearsonr
 from defeasible_data import DefeasibleNLIExample, ParaphrasedDefeasibleNLIExample, DefeasibleNLIDataset
-from models_wrappers import DefeasibleTrainedModel
+from model_wrappers import DefeasibleTrainedModel
 from collections import defaultdict
 from dataclasses import asdict
 
