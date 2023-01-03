@@ -93,13 +93,13 @@ if __name__ == '__main__':
     print('Loading model...')
     nli_model = NLIModel('roberta-large-mnli', cache_dir='/fs/clip-scratch/nehasrik/paraphrase-nlu/experiments/hf-cache/')
     #print(nli_predict('I like you', 'I love you', nli_model))
-    labels, examples_with_labels = validate_mturk_hits_with_nli('snli_approved.json', nli_model)
-    plot_and_save(labels, 'nli_labels_validation.png')
+    labels, examples_with_labels = validate_mturk_hits_with_nli('atomic/atomic_approved_175.json', nli_model)
+    plot_and_save(labels, 'atomic/nli_labels_validation.png')
 
     semantic_equivalence = defaultdict(list)
     for e, (forward, backward) in examples_with_labels:
         if forward == 'entailment' and backward == 'entailment':
             semantic_equivalence[e['original_example_id']].append(e)
 
-    with open('semantic_equivalence.json', 'w') as f:
+    with open('atomic/semantic_equivalence.json', 'w') as f:
         json.dump(semantic_equivalence, f)
