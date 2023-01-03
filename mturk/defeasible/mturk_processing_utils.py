@@ -7,6 +7,8 @@ from simple_colors import *
 from typing import Dict
 import re
 import pprint
+from collections import defaultdict
+from dataclasses import asdict
 import string
 
 import os
@@ -30,13 +32,22 @@ def extract_paraphrases_from_task(mturk_assignment: Dict):
     result = ast.literal_eval(result)[0]
     return result
 
+def get_dataset(raw_data_path: str, data_source: str):
+    dataset = DefeasibleNLIDataset(raw_data_path, data_source)
+    return dataset
 
-def get_dataset_and_hit_id_dict(raw_data_path: str, data_source: str, creation_metadata_path: str):
-    dataset = dnli_atomic = DefeasibleNLIDataset(raw_data_path, data_source)
+def get_hit_id_dict(creation_metadata_path: str)-> Tuple[Dict, Dict, Dict]:
+    """
+    Returns a tuple of dicts:
+    - posted_tasks: a dict of the tasks that were posted to MTurk (along with posting metadata)
+    - hit_id_2_example_id: a dict mapping HIT IDs to example IDs
+    - example_id_2_hit_id: a dict mapping example IDs to HIT IDs
+    """
     posted_tasks = json.load(open(creation_metadata_path, 'rb'))['posted_hits']
     hit_id_2_example_id = {h['HITId']: h['RequesterAnnotation'] for h in posted_tasks}
+    example_id_2_hit_id = {h['RequesterAnnotation']: h['HITId'] for h in posted_tasks}
     
-    return dataset, posted_tasks, hit_id_2_example_id
+    return posted_tasks, hit_id_2_example_id, example_id_2_hit_id
 
 def progress_bar(count, total, bar_len = 30):
     filled_len = int(round(bar_len * count / float(total)))
@@ -73,9 +84,16 @@ def view_assignment(assignment_id: str, defeasible_dataset: DefeasibleNLIDataset
     pprint.pprint(result)
 
 def parse_batch(hit_id_2_example):
+    """
+    Returns a tuple of dicts:
+    - approved: a dict mapping example IDs to a list of (worker ID, paraphrases) tuples
+    - rejected: a dict mapping example IDs to the number of rejections
+    - incomplete: a dict mapping example IDs to the number of incomplete tasks
+    """
     
     approved = defaultdict(list)
     rejected = defaultdict(int)
+    incomplete = defaultdict(int)
     
     for hit_id, example_id in hit_id_2_example.items():
         assignments = [a for a in mturk.list_assignments_for_hit(HITId=hit_id)['Assignments']]
@@ -84,8 +102,33 @@ def parse_batch(hit_id_2_example):
                 approved[example_id].append((a['WorkerId'], extract_paraphrases_from_task(a)))
             elif a['AssignmentStatus'] == 'Rejected':
                 rejected[example_id] += 1
-    
-    return approved, rejected
+        
+        if len(approved[example_id]) + rejected[example_id] < 3:
+            incomplete[example_id] += 1
+
+    return approved, rejected, incomplete
+
+def approved_parsed_batch_2_dicts(approved_HITs: Dict, dataset: DefeasibleNLIDataset):
+    """
+    Converts the approved output of parse_batch() to a dict of paraphrased NLI examples
+    for output to a json file.
+    """
+    paraphrased_examples = defaultdict(list) 
+    for ex, workers in approved_HITs.items():
+        for i, (worker_id, worker_paraphrases) in enumerate(workers):
+            for j, paraphrase in enumerate(worker_paraphrases.values()):
+                paraphrased_examples[ex].append(asdict(ParaphrasedDefeasibleNLIExample(
+                    paraphrase_id=f'{ex}.{i}.{j}',
+                    original_example=dataset.get_example_by_id(ex),
+                    original_example_id=ex,
+                    update_paraphrase=paraphrase,
+                    example_worker_id=None,
+                    worker_id=worker_id,
+                    premise_paraphrase=None,
+                    hypothesis_paraphrase=None,
+                    automatic_system_metadata=None
+                )))
+    return paraphrased_examples
 
 def programmatically_review_HITs(hit_id_2_example_id, dataset):
     HITids = list(hit_id_2_example_id.keys())
