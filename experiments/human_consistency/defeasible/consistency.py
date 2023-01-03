@@ -10,11 +10,13 @@ def bucket_predictions(examples: List, nli_model: DefeasibleTrainedModel):
     buckets = {}
 
     for ex_id, paraphrases in tqdm(examples.items()):
-        original_prediction = np.argmax(nli_model.predict(
+        original_prediction = nli_model.predict(
             paraphrases[0]['original_example']['premise'],
             paraphrases[0]['original_example']['hypothesis'],
             paraphrases[0]['original_example']['update']
-        ))
+        )
+        original_binary_prediction = int(np.argmax(original_prediction))
+
         bucket_preds = []
         bucket_confidences = []
         label = paraphrases[0]['original_example']['label']
@@ -28,10 +30,11 @@ def bucket_predictions(examples: List, nli_model: DefeasibleTrainedModel):
             bucket_preds.append(int(np.argmax(prediction)))
 
         
-        bucket_consistency = len([x for x in bucket_preds if x == original_prediction])/len(bucket_preds)
+        bucket_consistency = len([x for x in bucket_preds if x == original_binary_prediction])/len(bucket_preds)
         
         buckets[ex_id] = {
-            'original_prediction': int(np.argmax(original_prediction)),
+            'original_confidence': original_prediction.tolist(),
+            'original_prediction': original_binary_prediction,
             'label': label,
             'bucket_confidences': bucket_confidences,
             'bucket_preds': bucket_preds,
@@ -42,13 +45,13 @@ def bucket_predictions(examples: List, nli_model: DefeasibleTrainedModel):
 
 if __name__ == '__main__':
 
-    with open('/fs/clip-scratch/nehasrik/paraphrase-nlu/annotated_data/defeasible/atomic/semantic_equivalence.json') as f:
+    with open('/fs/clip-scratch/nehasrik/paraphrase-nlu/annotated_data/defeasible/snli/semantic_equivalence.json') as f:
         semantic_equivalence = json.load(f)
 
-    nli_model = DefeasibleTrainedModel('modeling/defeasible/chkpts/analysis_models/d-atomic-roberta-large', 'experiments/hf-cache', multiple_choice=False)
+    nli_model = DefeasibleTrainedModel('modeling/defeasible/chkpts/analysis_models/d-snli-roberta-large', 'experiments/hf-cache', multiple_choice=False)
     buckets = bucket_predictions(semantic_equivalence, nli_model)
 
-    with open('/fs/clip-scratch/nehasrik/paraphrase-nlu/experiments/human_consistency/defeasible/atomic/atomic_buckets.json', 'w') as f:
+    with open('/fs/clip-scratch/nehasrik/paraphrase-nlu/experiments/human_consistency/defeasible/snli/snli_buckets.json', 'w') as f:
         json.dump(buckets, f)
 
 
