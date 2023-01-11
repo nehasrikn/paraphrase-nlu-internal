@@ -52,3 +52,42 @@ TASK_CONTENT = """
 </div>
 
 """
+
+TASK_CONTENT_SOCIAL = """
+<div id=task1 class='first-container'>
+	<div class="left-container">
+		<h3>Scenario</h3>
+			<br>
+			<br>
+			<crowd-card>
+				<div class="card">
+			        <b><span style='color:#7b76db'>Social Inference / Rule of Thumb</span></b>
+					<br>
+					HYPOTHESIS
+			    </div>
+			</crowd-card>
+	</div>
+	<!-- <span id="vertical-separator"></span> -->
+	<div class="right-container">
+		<h3><span style='color:#0f6066'>EVIDENCE_TYPE Evidence for Social Inference</span></h3>
+			<crowd-card>
+				<div class="card">
+					UPDATE
+				</div>
+			</crowd-card>
+		<div style='text-align: left; padding-left: 5px; padding-top: 30px'>
+			INSTRUCTIONS							
+		</div>
+		PARAPHRASES_INPUT
+	</div>
+</div>
+<br>
+<div style="position: relative;">
+	<crowd-button id="submit_button" form-action="submit">
+		Submit
+	</crowd-button>
+	<div id="errorBox"></div>
+	<br>
+</div>
+
+"""

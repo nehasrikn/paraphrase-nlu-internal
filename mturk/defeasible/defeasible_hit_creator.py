@@ -6,7 +6,7 @@ from dataclasses import asdict, dataclass
 from typing import List, Dict, Tuple
 from datetime import datetime
 
-from mturk.defeasible.task_constants import INSTRUCTIONS, INPUT_TEMPLATE, TASK_CONTENT
+from mturk.defeasible.task_constants import INSTRUCTIONS, INPUT_TEMPLATE, TASK_CONTENT, TASK_CONTENT_SOCIAL
 from defeasible_data import DefeasibleNLIExample, DefeasibleNLIDataset
 from mturk.defeasible.task_parameters import TASK_PARAMETERS
 
@@ -29,24 +29,30 @@ class DefeasibleHITCreator():
     FUNCTION_SIMILARITY_ID = 'similarity_%s'
 
  
-    def __init__(self, HIT_template_path: str):
+    def __init__(self, HIT_template_path: str, data_name: str, task_content_template: str = TASK_CONTENT):
         self.task_template = open(HIT_template_path, "r").read()
+        self.data_name = data_name
+        self.task_content_template = task_content_template
 
     def get_hit_data_from_examples(self, examples: List[DefeasibleNLIExample]) -> List[MTurkHITData]:
         hit_data_examples = []
         for e in examples:
             hit_data_examples.append(MTurkHITData(
-                task_html=DefeasibleHITCreator.create_HTML_from_example(self.task_template, e),
+                task_html=DefeasibleHITCreator.create_HTML_from_example(
+                    task_template=self.task_template, 
+                    ex=e,
+                    data_name=self.data_name,
+                    task_content_template=self.task_content_template
+                ),
                 internal_id=str(e.example_id),
                 split=e.example_id.split('.')[0],
                 example_data = asdict(e)
             ))
         return hit_data_examples
 
-    def get_proof_of_concept_HIT(self) -> None:
-        DefeasibleHITCreator.create_HTML_from_example(
-            self.task_template, 
-            DefeasibleNLIExample(
+    def get_proof_of_concept_HIT(self, example=None) -> None:
+        if not example:
+            example = DefeasibleNLIExample(
                 example_id="1",
                 premise_hypothesis_id='1',
                 source_example_metadata=None,
@@ -57,14 +63,22 @@ class DefeasibleHITCreator():
                 update_type="strengthener",
                 label=1,
                 annotated_paraphrases=None,
-            ), 
+            )
+
+        DefeasibleHITCreator.create_HTML_from_example(
+            self.task_template,
+            example,
+            self.data_name,
+            self.task_content_template,
             True
         )
 
     @staticmethod
     def create_HTML_from_example(
         task_template: str, 
-        ex: DefeasibleNLIExample, 
+        ex: DefeasibleNLIExample,
+        data_name: str,
+        task_content_template: str = TASK_CONTENT,
         display_html_in_browser: bool = False
     ) -> str:
         """
@@ -97,12 +111,13 @@ class DefeasibleHITCreator():
             'INSTRUCTIONS': INSTRUCTIONS,
             'PARAPHRASES_INPUT': create_paraphrase_task_html(ex.update),
             'UPDATE': ex.update,
-            'PREMISE': ex.premise,
             'HYPOTHESIS': ex.hypothesis,
             'EVIDENCE_TYPE': (ex.update_type[:-2] + 'ing').title()
         }
+        if data_name != 'social':
+            example_parameter_values['PREMISE'] = ex.premise
 
-        task_content = TASK_CONTENT
+        task_content = task_content_template
         for key, value in example_parameter_values.items():
             task_content = task_content.replace(key, value)
 
@@ -120,6 +135,7 @@ def connect_and_post_defeasible_hits(
     split: str,
     batch_name: str, 
     examples: List[DefeasibleNLIExample],
+    defeasible_hit_creator: DefeasibleHITCreator,
     requestor_note: str,
     max_assignments: int,
     hit_type_id: str,
@@ -135,8 +151,6 @@ def connect_and_post_defeasible_hits(
         aws_secret_access_key=aws_secret_access_key,
         live_marketplace=live_marketplace
     )
-
-    defeasible_hit_creator = DefeasibleHITCreator('mturk/defeasible/defeasible_para_nlu_template.html')
 
     if not hit_type_id:
         hit_type = turk_creator.create_HIT_type(MTurkHITTypeParameters(**TASK_PARAMETERS))
@@ -202,16 +216,16 @@ if __name__ == '__main__':
     print(args)
 
 
-    dh = DefeasibleHITCreator('mturk/defeasible/defeasible_para_nlu_template.html')
+    # dh = DefeasibleHITCreator('mturk/defeasible/defeasible_para_nlu_template.html')
 
-    atomic_examples = [
-        DefeasibleNLIExample(**j)
-        for j in json.load(open(f'data_selection/defeasible/atomic/annotation_examples/selected_examples.json', 'rb'))
-    ]
-    snli_examples = [
-        DefeasibleNLIExample(**j)
-        for j in json.load(open(f'data_selection/defeasible/snli/annotation_examples/selected_examples.json', 'rb'))
-    ]
+    # atomic_examples = [
+    #     DefeasibleNLIExample(**j)
+    #     for j in json.load(open(f'data_selection/defeasible/atomic/annotation_examples/selected_examples.json', 'rb'))
+    # ]
+    # snli_examples = [
+    #     DefeasibleNLIExample(**j)
+    #     for j in json.load(open(f'data_selection/defeasible/snli/annotation_examples/selected_examples.json', 'rb'))
+    # ]
 
     # atomic_examples_batch_1 = atomic_examples[:50]
     # atomic_examples_batch_2 = atomic_examples[50:75]
@@ -222,11 +236,26 @@ if __name__ == '__main__':
     # snli_examples_batch_2 = snli_examples[75:175]
     # snli_examples_batch_3 = snli_examples[175:]
 
+    social_examples = [
+        DefeasibleNLIExample(**j)
+        for j in json.load(open(f'data_selection/defeasible/social/annotation_examples/selected_examples.json', 'rb'))
+    ]
+
+    defeasible_social_hit_creator = DefeasibleHITCreator(
+        HIT_template_path='mturk/defeasible/defeasible_para_nlu_template_social.html',
+        data_name='social',
+        task_content_template=TASK_CONTENT_SOCIAL
+
+    )
+    #defeasible_social_hit_creator.get_proof_of_concept_HIT(social_examples[3])
+    social_examples_batch_1 = social_examples[:25]
+
     connect_and_post_defeasible_hits(
-        split='atomic_train_annotation_examples',
-        batch_name='atomic_dnli_annotation_examples_4', 
-        examples=atomic_examples_batch_4,
-        requestor_note='fourth batch of atomic examples',
+        split='social_train_annotation_examples',
+        batch_name='social_dnli_annotation_examples_1', 
+        examples=social_examples_batch_1,
+        defeasible_hit_creator=defeasible_social_hit_creator,
+        requestor_note='first batch of social examples',
         max_assignments=3,
         hit_type_id=None,
         live_marketplace=True,
