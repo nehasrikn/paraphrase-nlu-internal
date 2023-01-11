@@ -213,19 +213,20 @@ if __name__ == '__main__':
         for j in json.load(open(f'data_selection/defeasible/snli/annotation_examples/selected_examples.json', 'rb'))
     ]
 
-    atomic_examples_batch_1 = atomic_examples[:50]
-    atomic_examples_batch_2 = atomic_examples[50:75]
-    atomic_examples_batch_3 = atomic_examples[75:175]
+    # atomic_examples_batch_1 = atomic_examples[:50]
+    # atomic_examples_batch_2 = atomic_examples[50:75]
+    # atomic_examples_batch_3 = atomic_examples[75:175]
+    # atomic_examples_batch_4 = atomic_examples[175:]
 
-    snli_examples_batch_1 = snli_examples[:75]
-    snli_examples_batch_2 = snli_examples[75:175]
-    snli_examples_batch_3 = snli_examples[175:]
+    # snli_examples_batch_1 = snli_examples[:75]
+    # snli_examples_batch_2 = snli_examples[75:175]
+    # snli_examples_batch_3 = snli_examples[175:]
 
     connect_and_post_defeasible_hits(
         split='atomic_train_annotation_examples',
-        batch_name='atomic_dnli_annotation_examples_3', 
-        examples=atomic_examples_batch_3,
-        requestor_note='third batch of atomic examples',
+        batch_name='atomic_dnli_annotation_examples_4', 
+        examples=atomic_examples_batch_4,
+        requestor_note='fourth batch of atomic examples',
         max_assignments=3,
         hit_type_id=None,
         live_marketplace=True,
