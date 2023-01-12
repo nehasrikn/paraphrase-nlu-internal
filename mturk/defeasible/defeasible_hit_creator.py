@@ -250,18 +250,18 @@ if __name__ == '__main__':
     #defeasible_social_hit_creator.get_proof_of_concept_HIT(social_examples[3])
     social_examples_batch_1 = social_examples[:25]
 
-    connect_and_post_defeasible_hits(
-        split='social_train_annotation_examples',
-        batch_name='social_dnli_annotation_examples_1', 
-        examples=social_examples_batch_1,
-        defeasible_hit_creator=defeasible_social_hit_creator,
-        requestor_note='first batch of social examples',
-        max_assignments=3,
-        hit_type_id=None,
-        live_marketplace=True,
-        aws_access_key='AKIA3HQJKSL4YZUFYGQ4',
-        aws_secret_access_key='51DNsHKAT+SiThFybgaEIZS8YT1sJyHt6zsNLSHE'
-    )
+    # connect_and_post_defeasible_hits(
+    #     split='social_train_annotation_examples',
+    #     batch_name='social_dnli_annotation_examples_1', 
+    #     examples=social_examples_batch_1,
+    #     defeasible_hit_creator=defeasible_social_hit_creator,
+    #     requestor_note='first batch of social examples',
+    #     max_assignments=3,
+    #     hit_type_id=None,
+    #     live_marketplace=True,
+    #     aws_access_key='AKIA3HQJKSL4YZUFYGQ4',
+    #     aws_secret_access_key='51DNsHKAT+SiThFybgaEIZS8YT1sJyHt6zsNLSHE'
+    # )
 
 
     #dh.get_proof_of_concept_HIT()
