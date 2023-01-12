@@ -1,7 +1,11 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
-from typing import List, Any
+from typing import List, Any, Tuple
 import pandas as pd
+import json
+import random
+
+PROJECT_ROOT_DIR = '/Users/nehasrikanth/Documents/paraphrase-nlu/'
 
 def plot_and_save_countplot(values: List[Any], fig_file: str) -> None:
     sns.set_theme()
@@ -15,3 +19,22 @@ def plot_and_save_hist(values: List[Any], fig_file: str) -> None:
     plt.figure()
     plot = sns.histplot(data=pd.DataFrame(values, columns=['value']), x="value", kde=True)
     plot.get_figure().savefig(fig_file)
+
+
+def load_jsonlines(path: str) -> List[Any]:
+    with open(path, 'r') as f:
+        return [json.loads(line) for line in f.readlines()]
+
+def get_example_kv_pair_from_dict(d) -> Tuple[Any, Any]:
+    sample_k = random.sample(d.keys(), 1)[0]
+    sample_v = d[sample_k]
+    return sample_k, sample_v
+
+def get_example_kv_pair_from_list_of_dicts(d):
+    """
+    Sample a random k,v pair from a list of dicts. Just to see the shape of the data.
+    Example: [{'a': 1}, {'b': 2}, {'c': 3, 'd': 4}] ->  'd': 4
+    """
+    sample_dict = random.sample(d, 1)[0]
+    sample_k, sample_v = get_example_kv_pair_from_dict(sample_dict)
+    print(f'\nSample k,v pair from list of dicts: [{sample_k}: {sample_v}]')

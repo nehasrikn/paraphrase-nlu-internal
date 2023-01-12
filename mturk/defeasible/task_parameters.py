@@ -2,7 +2,7 @@ from mturk.mturk_qualification_parameters import QUALIFICATIONS_LAX
 
 TASK_PARAMETERS = {
     'AutoApprovalDelayInSeconds': 3600*51, # hours allotted (3600 seconds/hr * n hr)
-    'AssignmentDurationInSeconds': 60*25, # minutes allotted (60 seconds/min * n min)
+    'AssignmentDurationInSeconds': 60*30, # minutes allotted (60 seconds/min * n min)
     'Reward': '0.21',
     'Title': 'Paraphrase Simple Sentences!',
     'Keywords': 'text, paraphrase',

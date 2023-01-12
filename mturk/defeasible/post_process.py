@@ -19,24 +19,15 @@ from .mturk_processing_utils import (
     mturk,
     approved_parsed_batch_2_dicts
 )
+from utils import PROJECT_ROOT_DIR, get_example_kv_pair_from_list_of_dicts
 
 
-PROJECT_ROOT_DIR = '/Users/nehasrikanth/Documents/paraphrase-nlu/'
 dataset_name = ['atomic', 'snli', 'social']
 
 raw_data_paths = {d: os.path.join(PROJECT_ROOT_DIR, f'raw-data/defeasible-nli/defeasible-{d}') for d in dataset_name}
 
 import random
 
-def get_example_kv_pair_from_list_of_dicts(d):
-    """
-    Sample a random k,v pair from a list of dicts. Just to see the shape of the data.
-    Example: [{'a': 1}, {'b': 2}, {'c': 3, 'd': 4}] ->  'd': 4
-    """
-    sample_dict = random.sample(d, 1)[0]
-    sample_k = random.sample(sample_dict.keys(), 1)[0]
-    sample_v = sample_dict[sample_k]
-    print(f'\nSample k,v pair from list of dicts: [{sample_k}: {sample_v}]')
 
 def extract_approved_paraphrased_examples(
     dataset_name: str,
