@@ -35,7 +35,9 @@ def extract_approved_paraphrased_examples(
     mturk_creation_dir: str = os.path.join(PROJECT_ROOT_DIR, 'mturk/defeasible/mturk_data/creation/')
 ):
     """
-    Processes all batches.
+    Processes all batches and compiles into a single file of approved hits.
+    Warning: these hits are not validated for task-invariance. They are simply
+    not spammers. 
     """
     print(f"#### COMPILED APPROVED HITS FOR {dataset_name} ####")
     dataset = get_dataset(raw_data_paths[dataset_name], dataset_name)
@@ -59,7 +61,9 @@ def extract_approved_paraphrased_examples(
     for a in approved:
         approved_paraphrases.update(approved_parsed_batch_2_dicts(a, dataset))
 
-    with open(os.path.join(PROJECT_ROOT_DIR, f'annotated_data/defeasible/{dataset_name}/{dataset_name}_approved.jsonl'), 'w') as f:
+    num_approved_paraphrases = [len(v) for v in approved_paraphrases.values()]
+    
+    with open(os.path.join(PROJECT_ROOT_DIR, f'mturk/defeasible/{dataset_name}_approved.jsonl'), 'w') as f:
         for k, v in approved_paraphrases.items():
             entry = {
                 'example_id': k,
@@ -72,3 +76,4 @@ def extract_approved_paraphrased_examples(
 if __name__ == '__main__':
     extract_approved_paraphrased_examples('atomic', 4)
     extract_approved_paraphrased_examples('snli', 3)
+    extract_approved_paraphrased_examples('social', 5)

@@ -253,15 +253,16 @@ if __name__ == '__main__':
     social_examples_batch_3 = social_examples[100:175]
 
     social_examples_batch_4 = social_examples[175:200]
+    social_examples_batch_5= social_examples[200:]
 
 
 
     connect_and_post_defeasible_hits(
         split='social_train_annotation_examples',
-        batch_name='social_dnli_annotation_examples_4', 
-        examples=social_examples_batch_4,
+        batch_name='social_dnli_annotation_examples_5', 
+        examples=social_examples_batch_5,
         defeasible_hit_creator=defeasible_social_hit_creator,
-        requestor_note='fourth batch of social examples',
+        requestor_note='fifth batch of social examples',
         max_assignments=3,
         hit_type_id=None,
         live_marketplace=True,

@@ -5,8 +5,8 @@ from mturk.mturk_qualification_parameters import (
 )
 
 TASK_PARAMETERS = {
-    'AutoApprovalDelayInSeconds': 3600*51, # hours allotted (3600 seconds/hr * n hr)
-    'AssignmentDurationInSeconds': 60*40, # minutes allotted (60 seconds/min * n min)
+    'AutoApprovalDelayInSeconds': 3600*48, # hours allotted (3600 seconds/hr * n hr)
+    'AssignmentDurationInSeconds': 60*45, # minutes allotted (60 seconds/min * n min)
     'Reward': '0.21',
     'Title': 'Paraphrase Simple Sentences!',
     'Keywords': 'text, paraphrase',

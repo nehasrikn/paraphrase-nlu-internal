@@ -1,19 +1,25 @@
 QUALIFICATIONS_STRICT = [
     {
         'QualificationTypeId': '00000000000000000071', # Worker_Locale
-        'Comparator': 'EqualTo',
-        'LocaleValues': [{'Country': 'US',},{'Country': 'US',}]
-    },               
+        'Comparator': 'In',
+        'LocaleValues': [
+            {'Country': 'US',}, 
+            {'Country': 'CA',}, 
+            {'Country': 'GB',}, 
+            {'Country': 'AU',},
+            {'Country': 'NZ',}
+        ]
+    },
     {
-        'QualificationTypeId': '00000000000000000040', # Worker_NumberHITsApproved  
+        'QualificationTypeId': '00000000000000000040', # Worker_NumberHITsApproved
         'Comparator': 'GreaterThanOrEqualTo',
         'IntegerValues': [500],
     },
     {
-        'QualificationTypeId': '000000000000000000L0', # Worker_PercentAssignmentsApproved  
+        'QualificationTypeId': '000000000000000000L0', # Worker_PercentAssignmentsApproved
         'Comparator': 'GreaterThanOrEqualTo',
         'IntegerValues': [95],
-    },
+    },     
 ]
 
 QUALIFICATIONS_EXTRA_STRICT = [
@@ -36,7 +42,7 @@ QUALIFICATIONS_EXTRA_STRICT = [
     {
         'QualificationTypeId': '000000000000000000L0', # Worker_PercentAssignmentsApproved
         'Comparator': 'GreaterThanOrEqualTo',
-        'IntegerValues': [98],
+        'IntegerValues': [95],
     },     
 ]
 
