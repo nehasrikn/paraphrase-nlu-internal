@@ -250,13 +250,18 @@ if __name__ == '__main__':
     #defeasible_social_hit_creator.get_proof_of_concept_HIT(social_examples[3])
     social_examples_batch_1 = social_examples[:25]
     social_examples_batch_2 = social_examples[25:100]
+    social_examples_batch_3 = social_examples[100:175]
+
+    social_examples_batch_4 = social_examples[175:200]
+
+
 
     connect_and_post_defeasible_hits(
         split='social_train_annotation_examples',
-        batch_name='social_dnli_annotation_examples_2', 
-        examples=social_examples_batch_2,
+        batch_name='social_dnli_annotation_examples_4', 
+        examples=social_examples_batch_4,
         defeasible_hit_creator=defeasible_social_hit_creator,
-        requestor_note='second batch of social examples',
+        requestor_note='fourth batch of social examples',
         max_assignments=3,
         hit_type_id=None,
         live_marketplace=True,

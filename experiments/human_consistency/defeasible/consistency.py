@@ -3,7 +3,7 @@ import json
 from typing import List
 import numpy as np
 from tqdm import tqdm
-from model_wrappers import DefeasibleTrainedModel
+from modeling.roberta.models import DefeasibleTrainedModel
 
 
 def bucket_predictions(examples: List, nli_model: DefeasibleTrainedModel): 

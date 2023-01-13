@@ -11,6 +11,8 @@ from string import punctuation
 import json
 from tqdm import tqdm
 
+from utils import PROJECT_ROOT_DIR, PretrainedNLIModel
+
 mnli_huggingface_labels = {0: 'contradiction', 1: 'neutral', 2: 'entailment'}
 
 def plot_and_save(values: List[Any], fig_file: str) -> None:
@@ -21,52 +23,7 @@ def plot_and_save(values: List[Any], fig_file: str) -> None:
     plot.get_figure().savefig(fig_file)
 
 
-class NLIModel:
 
-    def __init__(self, trained_model_dir: str, cache_dir: str = 'checkpoints/hf_cache') -> None:
-        self.device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-        self.tokenizer = NLIModel.get_tokenizer(trained_model_dir, cache_dir)
-        self.trained_model = self.get_model(trained_model_dir, cache_dir)
-        
-    def predict(self, premise: str, hypothesis: str) -> np.ndarray:
-        return self._get_prediction((premise, hypothesis))
-
-    def _get_prediction(self, inp: Union[str, Tuple[str, str]]) -> np.ndarray:
-        """
-        Input will either be a single string in case of partial input, or 
-        tuple of strings in the case of full input.
-        """
-        result = self.tokenizer(
-            [inp],
-            padding="max_length", 
-            max_length=128, 
-            truncation=True, 
-            return_tensors="pt"
-        )
-        outputs = self.trained_model(
-            input_ids=torch.tensor(result['input_ids']).to(device=self.device), 
-            attention_mask=torch.tensor(result['attention_mask']).to(device=self.device)
-        )
-        probs = softmax(outputs.logits.detach().cpu().numpy(), axis=1)
-        return probs[0]
-
-    @staticmethod
-    def get_tokenizer(model_path: str, hf_cache_path: str) -> AutoTokenizer:
-        return AutoTokenizer.from_pretrained(
-            model_path,
-            cache_dir=hf_cache_path,
-            use_fast=False,
-            revision="main",
-            use_auth_token=False,
-        )
-
-    def get_model(self, model_path: str, hf_cache_path: str) -> AutoModelForSequenceClassification:
-        print('Loading model from %s' % model_path)
-        return AutoModelForSequenceClassification.from_pretrained(
-            model_path,
-            from_tf=bool(".ckpt" in model_path),
-            cache_dir=hf_cache_path
-        ).to(device=self.device)
 
 
 def nli_predict(premise: str, hypothesis: str, model: NLIModel, label_map=mnli_huggingface_labels) -> str:

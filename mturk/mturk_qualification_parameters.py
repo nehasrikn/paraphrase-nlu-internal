@@ -16,6 +16,30 @@ QUALIFICATIONS_STRICT = [
     },
 ]
 
+QUALIFICATIONS_EXTRA_STRICT = [
+    {
+        'QualificationTypeId': '00000000000000000071', # Worker_Locale
+        'Comparator': 'In',
+        'LocaleValues': [
+            {'Country': 'US',}, 
+            {'Country': 'CA',}, 
+            {'Country': 'GB',}, 
+            {'Country': 'AU',},
+            {'Country': 'NZ',}
+        ]
+    },
+    {
+        'QualificationTypeId': '00000000000000000040', # Worker_NumberHITsApproved
+        'Comparator': 'GreaterThanOrEqualTo',
+        'IntegerValues': [500],
+    },
+    {
+        'QualificationTypeId': '000000000000000000L0', # Worker_PercentAssignmentsApproved
+        'Comparator': 'GreaterThanOrEqualTo',
+        'IntegerValues': [98],
+    },     
+]
+
 QUALIFICATIONS_LAX = [
     {
         'QualificationTypeId': '00000000000000000071', # Worker_Locale

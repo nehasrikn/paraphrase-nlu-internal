@@ -10,7 +10,7 @@ from collections import OrderedDict
 from transformers import AutoTokenizer, AutoModelForMultipleChoice, AutoModelForSequenceClassification
 from defeasible_data import DefeasibleNLIExample, DefeasibleNLIDataset
 from abductive_data import AbductiveNLIExample, AbductiveNLIDataset
-from model_wrappers import TrainedModel, AbductiveTrainedModel, DefeasibleTrainedModel
+from modeling.roberta.models import TrainedModel, AbductiveTrainedModel, DefeasibleTrainedModel
 import tqdm
 import random
 from typing import List

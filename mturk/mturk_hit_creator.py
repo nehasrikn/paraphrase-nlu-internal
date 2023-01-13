@@ -11,6 +11,7 @@ from typing import List, Optional, Dict, Union
 
 from mturk.mturk_qualification_parameters import (
     QUALIFICATIONS_STRICT, 
+    QUALIFICATIONS_EXTRA_STRICT,
     QUALIFICATIONS_LAX, 
     SANDBOX_QUALIFICATIONS
 )
