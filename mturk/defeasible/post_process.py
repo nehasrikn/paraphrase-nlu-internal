@@ -6,8 +6,11 @@ import os
 from simple_colors import *
 from typing import Dict
 import re
+import numpy as np
 import random
 import pprint
+import termplotlib as tpl
+
 import string
 from pathlib import Path
 
@@ -61,9 +64,14 @@ def extract_approved_paraphrased_examples(
     for a in approved:
         approved_paraphrases.update(approved_parsed_batch_2_dicts(a, dataset))
 
+
     num_approved_paraphrases = [len(v) for v in approved_paraphrases.values()]
+    counts, bin_edges = np.histogram(num_approved_paraphrases, bins=5)
+    fig = tpl.figure()
+    fig.hist(counts, bin_edges, orientation="horizontal", force_ascii=False)
+    fig.show()
     
-    with open(os.path.join(PROJECT_ROOT_DIR, f'mturk/defeasible/{dataset_name}_approved.jsonl'), 'w') as f:
+    with open(os.path.join(PROJECT_ROOT_DIR, f'mturk/defeasible/mturk_data/approved/{dataset_name}_approved.jsonl'), 'w') as f:
         for k, v in approved_paraphrases.items():
             entry = {
                 'example_id': k,

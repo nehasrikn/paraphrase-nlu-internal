@@ -236,39 +236,39 @@ if __name__ == '__main__':
     # snli_examples_batch_2 = snli_examples[75:175]
     # snli_examples_batch_3 = snli_examples[175:]
 
-    social_examples = [
-        DefeasibleNLIExample(**j)
-        for j in json.load(open(f'data_selection/defeasible/social/annotation_examples/selected_examples.json', 'rb'))
-    ]
+    # social_examples = [
+    #     DefeasibleNLIExample(**j)
+    #     for j in json.load(open(f'data_selection/defeasible/social/annotation_examples/selected_examples.json', 'rb'))
+    # ]
 
-    defeasible_social_hit_creator = DefeasibleHITCreator(
-        HIT_template_path='mturk/defeasible/defeasible_para_nlu_template_social.html',
-        data_name='social',
-        task_content_template=TASK_CONTENT_SOCIAL
+    # defeasible_social_hit_creator = DefeasibleHITCreator(
+    #     HIT_template_path='mturk/defeasible/defeasible_para_nlu_template_social.html',
+    #     data_name='social',
+    #     task_content_template=TASK_CONTENT_SOCIAL
 
-    )
-    #defeasible_social_hit_creator.get_proof_of_concept_HIT(social_examples[3])
-    social_examples_batch_1 = social_examples[:25]
-    social_examples_batch_2 = social_examples[25:100]
-    social_examples_batch_3 = social_examples[100:175]
+    # )
+    # #defeasible_social_hit_creator.get_proof_of_concept_HIT(social_examples[3])
+    # social_examples_batch_1 = social_examples[:25]
+    # social_examples_batch_2 = social_examples[25:100]
+    # social_examples_batch_3 = social_examples[100:175]
 
-    social_examples_batch_4 = social_examples[175:200]
-    social_examples_batch_5= social_examples[200:]
+    # social_examples_batch_4 = social_examples[175:200]
+    # social_examples_batch_5= social_examples[200:]
 
 
 
-    connect_and_post_defeasible_hits(
-        split='social_train_annotation_examples',
-        batch_name='social_dnli_annotation_examples_5', 
-        examples=social_examples_batch_5,
-        defeasible_hit_creator=defeasible_social_hit_creator,
-        requestor_note='fifth batch of social examples',
-        max_assignments=3,
-        hit_type_id=None,
-        live_marketplace=True,
-        aws_access_key='AKIA3HQJKSL4YZUFYGQ4',
-        aws_secret_access_key='51DNsHKAT+SiThFybgaEIZS8YT1sJyHt6zsNLSHE'
-    )
+    # connect_and_post_defeasible_hits(
+    #     split='social_train_annotation_examples',
+    #     batch_name='social_dnli_annotation_examples_5', 
+    #     examples=social_examples_batch_5,
+    #     defeasible_hit_creator=defeasible_social_hit_creator,
+    #     requestor_note='fifth batch of social examples',
+    #     max_assignments=3,
+    #     hit_type_id=None,
+    #     live_marketplace=True,
+    #     aws_access_key='AKIA3HQJKSL4YZUFYGQ4',
+    #     aws_secret_access_key='51DNsHKAT+SiThFybgaEIZS8YT1sJyHt6zsNLSHE'
+    # )
 
 
     #dh.get_proof_of_concept_HIT()

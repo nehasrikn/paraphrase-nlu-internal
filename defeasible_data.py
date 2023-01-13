@@ -26,7 +26,6 @@ class ParaphrasedDefeasibleNLIExample:
     original_example: DefeasibleNLIExample
     original_example_id: str
     update_paraphrase: str
-    example_worker_id: Optional[int] = None
     worker_id: Optional[str] = None #mturk worker id or system
     premise_paraphrase: Optional[str] = None
     hypothesis_paraphrase: Optional[str] = None

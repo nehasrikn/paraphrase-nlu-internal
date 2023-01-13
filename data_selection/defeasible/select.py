@@ -9,7 +9,7 @@ import pandas as pd
 import json
 import numpy as np
 from scipy.stats import pearsonr
-from defeasible_data import DefeasibleNLIExample, ParaphrasedDefeasibleNLIExample, DefeasibleNLIDataset
+from defeasible_data import DefeasibleNLIExample, DefeasibleNLIDataset
 from modeling.roberta.models import DefeasibleTrainedModel
 from collections import defaultdict
 from dataclasses import asdict

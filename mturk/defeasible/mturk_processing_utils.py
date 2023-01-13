@@ -99,7 +99,11 @@ def parse_batch(hit_id_2_example):
         assignments = [a for a in mturk.list_assignments_for_hit(HITId=hit_id)['Assignments']]
         for a in assignments:
             if a['AssignmentStatus'] == 'Approved':
-                approved[example_id].append((a['WorkerId'], extract_paraphrases_from_task(a)))
+                approved[example_id].append({
+                    'worker_id': a['WorkerId'],
+                    'assignment_id': a['AssignmentId'],
+                    'paraphrases': extract_paraphrases_from_task(a)
+                })
             elif a['AssignmentStatus'] == 'Rejected':
                 rejected[example_id] += 1
         
@@ -108,22 +112,25 @@ def parse_batch(hit_id_2_example):
 
     return approved, rejected, incomplete
 
-def approved_parsed_batch_2_dicts(approved_HITs: Dict, dataset: DefeasibleNLIDataset):
+def approved_parsed_batch_2_dicts(approved_HITs: Dict[str, List[Dict]], dataset: DefeasibleNLIDataset):
     """
     Converts the approved output of parse_batch() to a dict of paraphrased NLI examples
     for output to a json file.
+    approved_HITs: {example_id: List[{'worker_id': str, 'paraphrase_id': str, 'paraphrases': Dict[str, str]}]}]}
+
     """
     paraphrased_examples = defaultdict(list) 
-    for ex, workers in approved_HITs.items():
-        for i, (worker_id, worker_paraphrases) in enumerate(workers):
-            for j, paraphrase in enumerate(worker_paraphrases.values()):
-                paraphrased_examples[ex].append(asdict(ParaphrasedDefeasibleNLIExample(
-                    paraphrase_id=f'{ex}.{i}.{j}',
-                    original_example=dataset.get_example_by_id(ex),
-                    original_example_id=ex,
+    for example_id, workers in approved_HITs.items():
+        for worker_assignment in workers: # there should be three workers per example
+            for paraphrase_num, paraphrase in enumerate(worker_assignment['paraphrases']):
+                worker_assignment_id = worker_assignment['assignment_id']
+                paraphrase_id = f'{example_id}.{worker_assignment_id}.{paraphrase_num}' # This should be unique
+                paraphrased_examples[example_id].append(asdict(ParaphrasedDefeasibleNLIExample(
+                    paraphrase_id=paraphrase_id,
+                    original_example=dataset.get_example_by_id(example_id),
+                    original_example_id=example_id,
                     update_paraphrase=paraphrase,
-                    example_worker_id=None,
-                    worker_id=worker_id,
+                    worker_id=worker_assignment['worker_id'],
                     premise_paraphrase=None,
                     hypothesis_paraphrase=None,
                     automatic_system_metadata=None
