@@ -122,7 +122,7 @@ def approved_parsed_batch_2_dicts(approved_HITs: Dict[str, List[Dict]], dataset:
     paraphrased_examples = defaultdict(list) 
     for example_id, workers in approved_HITs.items():
         for worker_assignment in workers: # there should be three workers per example
-            for paraphrase_num, paraphrase in enumerate(worker_assignment['paraphrases']):
+            for paraphrase_num, paraphrase in enumerate(worker_assignment['paraphrases'].values()):
                 worker_assignment_id = worker_assignment['assignment_id']
                 paraphrase_id = f'{example_id}.{worker_assignment_id}.{paraphrase_num}' # This should be unique
                 paraphrased_examples[example_id].append(asdict(ParaphrasedDefeasibleNLIExample(

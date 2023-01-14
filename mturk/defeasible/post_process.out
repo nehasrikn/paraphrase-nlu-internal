@@ -1,0 +1,50 @@
+Fri Jan 13 17:04:11 PST 2023
+
+#### COMPILED APPROVED HITS FOR atomic ####
+Unique premise-hypothesis pairs: 17689 / 35002
+Loaded 35002 nonempty train examples...(skipped 4034 examples)
+Unique premise-hypothesis pairs: 1940 / 3840
+Loaded 3840 nonempty dev examples...(skipped 470 examples)
+Unique premise-hypothesis pairs: 2091 / 4138
+Loaded 4138 nonempty test examples...(skipped 516 examples)
+
+Sample k,v pair from list of dicts: [3YGE63DIN7WEUR8PSFPCP6QWTF80WP: atomic.train.322]
+
+Sample k,v pair from list of dicts: [atomic.train.15308: 3DIIW4IV8OUDSK6LMZ8Z0I71VME4I2]
++3.00e+00 - +4.20e+00  [  2]  ▍
++4.20e+00 - +5.40e+00  [  0]
++5.40e+00 - +6.60e+00  [ 35]  ██████▋
++6.60e+00 - +7.80e+00  [  0]
++7.80e+00 - +9.00e+00  [213]  ████████████████████████████████████████
+#### COMPILED APPROVED HITS FOR snli ####
+Unique premise-hypothesis pairs: 9572 / 88676
+Loaded 88676 nonempty train examples...(skipped 5184 examples)
+Unique premise-hypothesis pairs: 195 / 1785
+Loaded 1785 nonempty dev examples...(skipped 103 examples)
+Unique premise-hypothesis pairs: 203 / 1837
+Loaded 1837 nonempty test examples...(skipped 135 examples)
+
+Sample k,v pair from list of dicts: [3B623HUYJ3P35ZWJ3ESQLWTT61N8S6: snli.train.32683]
+
+Sample k,v pair from list of dicts: [snli.train.71000: 3YOAVL4CAZGZNAVVM3WL0DARRUPZ4T]
++3.00e+00 - +4.20e+00  [  1]  ▏
++4.20e+00 - +5.40e+00  [  0]
++5.40e+00 - +6.60e+00  [ 13]  ██▎
++6.60e+00 - +7.80e+00  [  0]
++7.80e+00 - +9.00e+00  [236]  ████████████████████████████████████████
+#### COMPILED APPROVED HITS FOR social ####
+Unique premise-hypothesis pairs: 7893 / 77016
+Loaded 77016 nonempty train examples...(skipped 3314 examples)
+Unique premise-hypothesis pairs: 979 / 9343
+Loaded 9343 nonempty dev examples...(skipped 467 examples)
+Unique premise-hypothesis pairs: 982 / 9439
+Loaded 9439 nonempty test examples...(skipped 421 examples)
+
+Sample k,v pair from list of dicts: [3UYRNV2KISY6PM4EVIB4M2JNK2WN8R: social.train.41355]
+
+Sample k,v pair from list of dicts: [social.train.63713: 3NCN4N1H1FGPRK2LYUVED49OS7CBN7]
++3.00e+00 - +4.20e+00  [  6]  █▎
++4.20e+00 - +5.40e+00  [  0]
++5.40e+00 - +6.60e+00  [ 49]  ██████████
++6.60e+00 - +7.80e+00  [  0]
++7.80e+00 - +9.00e+00  [195]  ████████████████████████████████████████

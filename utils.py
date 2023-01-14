@@ -4,6 +4,7 @@ from typing import List, Any, Tuple
 import pandas as pd
 import json
 import random
+import os
 
 PROJECT_ROOT_DIR = '/Users/nehasrikanth/Documents/paraphrase-nlu/'
 
@@ -24,6 +25,12 @@ def plot_and_save_hist(values: List[Any], fig_file: str) -> None:
 def load_jsonlines(path: str) -> List[Any]:
     with open(path, 'r') as f:
         return [json.loads(line) for line in f.readlines()]
+
+def write_jsonlines(l: List[Any], path: str) -> None:
+    with open(os.path.join(PROJECT_ROOT_DIR, path), 'w') as f:
+        for entry in l:
+            json.dump(entry, f)
+            f.write('\n')
 
 def get_example_kv_pair_from_dict(d) -> Tuple[Any, Any]:
     sample_k = random.sample(d.keys(), 1)[0]
