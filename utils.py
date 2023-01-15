@@ -4,6 +4,7 @@ from typing import List, Any, Tuple
 import pandas as pd
 import json
 import random
+import string
 import os
 
 PROJECT_ROOT_DIR = '/Users/nehasrikanth/Documents/paraphrase-nlu/'
@@ -21,6 +22,11 @@ def plot_and_save_hist(values: List[Any], fig_file: str) -> None:
     plot = sns.histplot(data=pd.DataFrame(values, columns=['value']), x="value", kde=True)
     plot.get_figure().savefig(fig_file)
 
+def clean_paraphrase(p: str) -> str:
+    """
+    Lower case, remove surrounding whitespace, remove punctuation 
+    """
+    return p.strip().lower().translate(str.maketrans('', '', string.punctuation))
 
 def load_jsonlines(path: str) -> List[Any]:
     with open(path, 'r') as f:
