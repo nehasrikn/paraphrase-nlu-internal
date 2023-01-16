@@ -1,14 +1,18 @@
 import json
 import os
+import numpy as np
 from typing import List, Any, Dict
 from utils import load_jsonlines, PROJECT_ROOT_DIR, write_jsonlines, clean_paraphrase
 from defeasible_data import DefeasibleNLIDataset, DefeasibleNLIExample, ParaphrasedDefeasibleNLIExample
 import pandas as pd
 from collections import defaultdict
 
+
 def dedup_bucket(paraphrases: str) -> Dict[str, List[Dict]]:
     """
     paraphrases: path to jsonl file containing approved hits or generated paraphrases
+    util function to dedup paraphrases in a bucket before validation so as not to waste
+    annotator time.
     """
     paraphrase_buckets = defaultdict(list)
     for bucket in load_jsonlines(paraphrases):
@@ -44,7 +48,6 @@ def export_to_label_studio_format(
     """
     deduped_buckets = dedup_bucket(paraphrases)
 
-
     examples = []
     for original_example_id, bucket in deduped_buckets.items():
         for paraphrase in bucket:
@@ -57,8 +60,7 @@ def export_to_label_studio_format(
     
     pd.DataFrame(examples).to_csv(outfile, index=False)
 
-
-if __name__ == '__main__':
+def export_mturk_defeasible_data():
     export_to_label_studio_format(
         'mturk/defeasible/mturk_data/approved/snli_approved.jsonl',
         'annotated_data/paraphrase_validation/source_files/snli_approved.csv'

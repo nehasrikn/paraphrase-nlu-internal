@@ -38,6 +38,15 @@ def write_jsonlines(l: List[Any], path: str) -> None:
             json.dump(entry, f)
             f.write('\n')
 
+def write_json(d: dict, path: str) -> None:
+    with open(path, 'w') as fp:
+        json.dump(d, fp)
+
+def read_json(path: str) -> dict:
+    with open(path, 'r') as json_file:
+        data = json.load(json_file)
+    return data
+
 def get_example_kv_pair_from_dict(d) -> Tuple[Any, Any]:
     sample_k = random.sample(d.keys(), 1)[0]
     sample_v = d[sample_k]
