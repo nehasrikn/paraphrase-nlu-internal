@@ -2,10 +2,10 @@ from abc import ABC, abstractmethod
 import numpy
 from transformers import AutoTokenizer, AutoModelForMultipleChoice, AutoModelForSequenceClassification
 import torch
-import openai
 from scipy.special import softmax
 from typing import List, Union, Tuple
 from itertools import chain
+import numpy as np
 
 OPENAI_KEY = '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'
 

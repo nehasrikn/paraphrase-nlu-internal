@@ -7,7 +7,10 @@ import random
 import string
 import os
 
-PROJECT_ROOT_DIR = '/Users/nehasrikanth/Documents/paraphrase-nlu/'
+
+ON_CLUSTER = True
+
+PROJECT_ROOT_DIR = '/fs/clip-scratch/nehasrik/paraphrase-nlu' if ON_CLUSTER else '/Users/nehasrikanth/Documents/paraphrase-nlu/'
 
 def plot_and_save_countplot(values: List[Any], fig_file: str) -> None:
     sns.set_theme()

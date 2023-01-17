@@ -40,3 +40,9 @@ def load_defeasible_paraphrased_set(validated_annotated_file: str) -> List[str]:
 
 dnli_social = load_defeasible_paraphrased_set(os.path.join(PROJECT_ROOT_DIR, 'annotated_data/defeasible/social/social_paraphrases_human.json'))
 dnli_snli = load_defeasible_paraphrased_set(os.path.join(PROJECT_ROOT_DIR, 'annotated_data/defeasible/snli/snli_paraphrases_human.json'))
+
+
+dnli_dataset_by_name = {
+    'social': dnli_social,
+    'snli': dnli_snli
+}
