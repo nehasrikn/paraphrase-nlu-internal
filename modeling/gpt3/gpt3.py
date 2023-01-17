@@ -34,7 +34,13 @@ class GPT3Model:
 
 def calculate_example_cost(text: str, model='davinci'): 
     rates_per_1K_tokens = {'davinci': 0.02, 'curie': 0.002, 'babbage': 0.0005, 'ada': 0.0004}
-    return (len(gpt_tokenizer(text)['input_ids']) * rates_per_1K_tokens[model]) / 1000
+    num_tokens = len(gpt_tokenizer(text)['input_ids'])
+
+    return {
+        'num_tokens': num_tokens,
+        'cost': (num_tokens * rates_per_1K_tokens[model]) / 1000
+    }
+
 
 def extract_confidences(api_response: Dict):
     top_logprobs = api_response[0]['choices'][0]['logprobs']['top_logprobs'][0]

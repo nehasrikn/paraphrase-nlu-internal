@@ -1,4 +1,74 @@
 from modeling.gpt3.defeasible.defeasible_prompt import construct_prompt_template
+from modeling.gpt3.gpt3 import GPT3Model
+from tqdm import tqdm
+from annotated_data.annotated_data import dnli_human_dataset_by_name
+from defeasible_data import ParaphrasedDefeasibleNLIExample, DefeasibleNLIExample
+from typing import List, Dict, Any, Tuple
+from dataclasses import asdict
+import numpy as np
+import os
+from utils import write_json, PROJECT_ROOT_DIR
 
 
+def bucket_predictions(
+    examples: Dict[str, List[ParaphrasedDefeasibleNLIExample]], 
+    gpt3_model: GPT3Model,
+    num_icl_examples_per_dataset: int = 13
+) -> Dict[str, List[Dict[str, Any]]]:
+    """
+    Generates predictions using nli_model for a family of paraphrases, as well as the original
+    model.
+    Each bucket:
+        <original_example_id>: {
+            'original_confidence': [confidence for original example],
+            'original_prediction': [prediction for original example],
+            'gold_label': [gold label for original example],
+            'bucket_confidences': list of dicts (one for each paraphrase) (confidence, prediction, and paraphrased example)
+        }
+    """
+
+
+
+    buckets = {}
+    for ex_id, paraphrases in tqdm(examples.items()):
+        
+        original_confidence = nli_model.predict( #grabs original example object for first example in the list
+            paraphrases[0].original_example.premise,
+            paraphrases[0].original_example.hypothesis,
+            paraphrases[0].original_example.update
+        )
+        original_binary_prediction = int(np.argmax(original_confidence))
+        bucket_confidences = []
+        
+        for p in paraphrases:
+            prediction = nli_model.predict(
+                p.original_example.premise,
+                p.original_example.hypothesis,
+                p.update_paraphrase
+            )
+            bucket_confidences.append({
+                'confidence': prediction.tolist(),
+                'prediction': int(np.argmax(prediction)),
+                'paraphrased_example': asdict(p)
+            })
+        
+        buckets[ex_id] = {
+            'original_confidence': original_confidence.tolist(),
+            'original_prediction': original_binary_prediction,
+            'gold_label': paraphrases[0].original_example.label,
+            'bucket_confidences': bucket_confidences,
+        }
+    return buckets
+
+
+if __name__ == '__main__':
+
+    for dataset_name, dataset in dnli_human_dataset_by_name.items():
+        nli_model = DefeasibleTrainedModel(
+            os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/chkpts/analysis_models/d-{dataset_name}-roberta-large'), 
+            'experiments/hf-cache', 
+            multiple_choice=False
+        )
+        buckets = bucket_predictions(dataset, nli_model)
+        write_json(buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{dataset_name}_human.json'))
 
