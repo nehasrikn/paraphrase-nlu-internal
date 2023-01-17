@@ -6,9 +6,10 @@ import json
 import random
 import string
 import os
+import socket
 
 
-ON_CLUSTER = True
+ON_CLUSTER = 'clip' in socket.gethostname()
 
 PROJECT_ROOT_DIR = '/fs/clip-scratch/nehasrik/paraphrase-nlu' if ON_CLUSTER else '/Users/nehasrikanth/Documents/paraphrase-nlu/'
 
