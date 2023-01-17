@@ -5,6 +5,8 @@ import json
 from dataclasses import dataclass, dataclass, asdict
 from typing import List, Optional, Dict, Any, Set
 from collections import OrderedDict, defaultdict
+from utils import PROJECT_ROOT_DIR
+
 ### Class definitions for objects representing annotated data
 
 @dataclass
@@ -76,7 +78,7 @@ class DefeasibleNLIDataset:
             raw_data.append((i, premise_hypothesis, result))
 
         
-        print('Unique premise-hypothesis pairs: %d / %d' % (len(premise_hypothesis_ids), len(raw_data)))
+        # print('Unique premise-hypothesis pairs: %d / %d' % (len(premise_hypothesis_ids), len(raw_data)))
         
         for i, premise_hypothesis, example in raw_data:
             dnli_example = DefeasibleNLIExample(
@@ -93,7 +95,7 @@ class DefeasibleNLIDataset:
             )
             data.append(dnli_example)
             
-        print('Loaded %d nonempty %s examples...(skipped %d examples)' % (len(data), data_split, skipped))
+        # print('Loaded %d nonempty %s examples...(skipped %d examples)' % (len(data), data_split, skipped))
         return data
     
     @staticmethod
@@ -132,11 +134,23 @@ class DefeasibleNLIDataset:
         return [e for e in self.get_split(split) if e.premise_hypothesis_id == premise_hypothesis_id]
     
 
-if __name__ == '__main__':
-    # dnli = DefeasibleNLIDataset('raw-data/defeasible-nli/defeasible-all/')
-    # for split in ['train', 'dev', 'test']:
-    #     dnli.write_processed_examples_for_modeling(split)
+dnli_atomic_dataset = DefeasibleNLIDataset(
+    os.path.join(PROJECT_ROOT_DIR, 'raw-data/defeasible-nli/defeasible-atomic/'),
+    data_name_prefix='atomic'
+)
 
-    dnli_atomic = DefeasibleNLIDataset('raw-data/defeasible-nli/defeasible-atomic/', data_name_prefix='atomic')
-    for e in dnli_atomic.train_examples[5:15]:
-        print(e)
+dnli_snli_dataset = DefeasibleNLIDataset(
+    os.path.join(PROJECT_ROOT_DIR, 'raw-data/defeasible-nli/defeasible-snli/'), 
+    data_name_prefix='snli'
+)
+
+dnli_social_dataset = DefeasibleNLIDataset(
+    os.path.join(PROJECT_ROOT_DIR, 'raw-data/defeasible-nli/defeasible-social/'), 
+    data_name_prefix='social'
+)
+
+dnli_datasets = {
+    'atomic': dnli_atomic_dataset,
+    'snli': dnli_snli_dataset,
+    'social': dnli_social_dataset
+}

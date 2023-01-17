@@ -1,5 +1,5 @@
 from modeling.roberta.models import DefeasibleTrainedModel
-from annotated_data.annotated_data import dnli_dataset_by_name
+from annotated_data.annotated_data import dnli_human_dataset_by_name
 from typing import List, Dict, Any, Tuple
 from defeasible_data import ParaphrasedDefeasibleNLIExample, DefeasibleNLIExample
 from tqdm import tqdm
@@ -20,7 +20,7 @@ def bucket_predictions(
             'original_confidence': [confidence for original example],
             'original_prediction': [prediction for original example],
             'gold_label': [gold label for original example],
-            'bucket_confidences': list of dicts (one for each paraphrase) (confidence and prediction)
+            'bucket_confidences': list of dicts (one for each paraphrase) (confidence, prediction, and paraphrased example)
         }
 
     """
@@ -57,7 +57,7 @@ def bucket_predictions(
 
 if __name__ == '__main__':
 
-    for dataset_name, dataset in dnli_dataset_by_name.items():
+    for dataset_name, dataset in dnli_human_dataset_by_name.items():
         nli_model = DefeasibleTrainedModel(
             os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/chkpts/analysis_models/d-{dataset_name}-roberta-large'), 
             'experiments/hf-cache', 

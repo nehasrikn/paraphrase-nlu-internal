@@ -10,12 +10,12 @@ module_path = os.path.abspath(os.path.join('../../..'))
 if module_path not in sys.path:
     sys.path.append(module_path)
     
-from annotated_data.annotated_data import dnli_dataset_by_name
+from annotated_data.annotated_data import dnli_human_dataset_by_name
 from utils import load_json, PROJECT_ROOT_DIR
 
-dnli_buckets = {k: {
+dnli_human_buckets = {k: {
     'buckets': load_json(os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{k}_human.json'))
-} for k in dnli_dataset_by_name.keys()}
+} for k in dnli_human_dataset_by_name.keys()}
 
 
 def construct_bucket_metadata(buckets):
@@ -46,7 +46,7 @@ def plot_orig_v_bucket_conf(df, plot_title):
         color='bucket_consistency',
         color_continuous_scale='Sunsetdark',
         labels={
-         "original_confidence": "RoBERTa Confidence: Original Example",
+         "original_confidence": "Model Confidence: Original Example",
          "bucket_confidence_mean": "Mean Confidence: Paraphrased Examples",
         }
     )
