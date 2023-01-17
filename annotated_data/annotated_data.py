@@ -14,25 +14,29 @@ from abductive_data import (
     ParaphrasedAbductiveNLIExample
 )
 
-from utils import load_jsonlines, PROJECT_ROOT_DIR, get_example_kv_pair_from_dict
+from utils import load_json, PROJECT_ROOT_DIR, get_example_kv_pair_from_dict
 
 
-def load_approved_defeasible_paraphrases(annotated_file: str) -> List[str]:
+def load_defeasible_paraphrased_set(validated_annotated_file: str) -> List[str]:
     """
     Loads approved paraphrases from a jsonl file.
     """
-    approved_paraphrases = load_jsonlines(annotated_file)
+    validated_paraphrases = load_json(validated_annotated_file)
     return {
-        e['example_id']: [ParaphrasedDefeasibleNLIExample(**p) for p in e['paraphrased_examples']] for e in approved_paraphrases
+        e_id: [
+            ParaphrasedDefeasibleNLIExample(
+                paraphrase_id=p['paraphrase_id'],
+                original_example=DefeasibleNLIExample(**p['original_example']),
+                original_example_id=p['original_example_id'],
+                update_paraphrase=p['update_paraphrase'],
+                worker_id=p['worker_id'],
+                premise_paraphrase=p['premise_paraphrase'],
+                hypothesis_paraphrase=p['hypothesis_paraphrase'],
+                automatic_system_metadata=p['automatic_system_metadata'],
+            ) for p in paraphrases
+        ] for e_id, paraphrases in validated_paraphrases.items()
     }
     
 
-dnli_snli_approved = load_approved_defeasible_paraphrases(os.path.join(
-    PROJECT_ROOT_DIR, 'annotated_data/defeasible/snli/snli_approved.jsonl'
-))
-
-dnli_atomic_approved = load_approved_defeasible_paraphrases(os.path.join(
-    PROJECT_ROOT_DIR, 'annotated_data/defeasible/snli/snli_approved.jsonl'
-))
-
-print(get_example_kv_pair_from_dict(dnli_snli_approved))
+dnli_social = load_defeasible_paraphrased_set(os.path.join(PROJECT_ROOT_DIR, 'annotated_data/defeasible/social/social_paraphrases_human.json'))
+dnli_snli = load_defeasible_paraphrased_set(os.path.join(PROJECT_ROOT_DIR, 'annotated_data/defeasible/snli/snli_paraphrases_human.json'))

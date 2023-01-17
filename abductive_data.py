@@ -115,6 +115,6 @@ class AnnotatedAbductiveSet:
                             )
                         )
 
-pilot_annotated_abductive_set = AnnotatedAbductiveSet(mturk_processed_annotations_csv='annotated_data/abductive/paraphrased_pilot_revised.csv')
-pilot_annotated_abductive_set.create_intra_worker_paraphrased_examples()
-pilot_annotated_abductive_set.create_zipped_intra_worker_paraphrased_examples()
+# pilot_annotated_abductive_set = AnnotatedAbductiveSet(mturk_processed_annotations_csv='annotated_data/abductive/paraphrased_pilot_revised.csv')
+# pilot_annotated_abductive_set.create_intra_worker_paraphrased_examples()
+# pilot_annotated_abductive_set.create_zipped_intra_worker_paraphrased_examples()

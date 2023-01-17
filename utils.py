@@ -42,7 +42,7 @@ def write_json(d: dict, path: str) -> None:
     with open(path, 'w') as fp:
         json.dump(d, fp)
 
-def read_json(path: str) -> dict:
+def load_json(path: str) -> dict:
     with open(path, 'r') as json_file:
         data = json.load(json_file)
     return data
