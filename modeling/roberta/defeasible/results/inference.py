@@ -65,7 +65,7 @@ if __name__ == '__main__':
         )
         
         buckets = bucket_predictions(dataset, dataset_specific_dnli_model)
-        write_json(buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{dataset_name}_human_d-{dataset_name}-roberta-large.json'))
+        write_json(buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{dataset_name}/{dataset_name}_human_d-{dataset_name}-roberta-large.json'))
 
         general_dnli_model = DefeasibleTrainedModel(
             os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/chkpts/roberta-large-dnli'), 
@@ -74,4 +74,4 @@ if __name__ == '__main__':
         )
 
         general_dnli_buckets = bucket_predictions(dataset, general_dnli_model)
-        write_json(general_dnli_buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{dataset_name}_human_dnli-roberta-large.json'))
+        write_json(general_dnli_buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{dataset_name}/{dataset_name}_human_dnli-roberta-large.json'))

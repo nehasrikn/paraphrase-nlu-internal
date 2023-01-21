@@ -43,7 +43,11 @@ def calculate_example_cost(text: str, model='davinci'):
 
 
 def extract_confidences(api_response: Dict):
-    top_logprobs = api_response[0]['choices'][0]['logprobs']['top_logprobs'][0]
+
+    if isinstance(api_response, list):
+        api_response = api_response[0]
+
+    top_logprobs = api_response['choices'][0]['logprobs']['top_logprobs'][0]
 
     if not (' W' in top_logprobs.keys() and ' S' in top_logprobs.keys()):
         print('Both class tokens not in top 5 likely tokens.')
@@ -56,5 +60,8 @@ def extract_confidences(api_response: Dict):
     
 def extract_answer(api_response: Dict):
     label_dict = {'W': 0, 'S': 1}
-    return label_dict[api_response[0]['choices'][0]['text'].strip()]
+    if isinstance(api_response, list):
+        api_response = api_response[0]
+
+    return label_dict[api_response['choices'][0]['text'].strip()]
     

@@ -11,8 +11,7 @@ from string import Template
 
 DEFEASIBLE_INSTRUCTIONS = """Given a Premise sentence, a Hypothesis sentence is defeasible if there exists an Update sentence (consistent with the Premise) such that a human would find the Hypothesis less likely to be true after learning the Update. Specifically, an Update is called a weakener (abbreviated W) if given a Premise and Hypothesis, a human would most likely find the Hypothesis less likely to be true after learning the Update; if they would find the Hypothesis more likely to be true, then the Update is called a strengthener (abbreviated S).
 
-Given a Premise, a Hypothesis, and an Update sentence, assign either W or S to the Update sentence.
-"""
+Given a Premise, a Hypothesis, and an Update sentence, assign either W or S to the Update sentence."""
 
 INFERENCE_EXAMPLE_TEMPLATE = "Premise: {premise}\nHypothesis: {hypothesis}\nUpdate: {update}\nAnswer:"
 

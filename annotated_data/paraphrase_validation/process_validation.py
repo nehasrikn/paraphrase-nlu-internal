@@ -74,7 +74,7 @@ def construct_gold_set_from_validation_annotation(
         
 if __name__ == '__main__':
 
-    for dataset in ['snli', 'social']:
+    for dataset in ['snli', 'social', 'atomic']:
         construct_gold_set_from_validation_annotation(
             os.path.join(PROJECT_ROOT_DIR, f'mturk/defeasible/mturk_data/approved/{dataset}_approved.jsonl'),
             os.path.join(PROJECT_ROOT_DIR, f'annotated_data/paraphrase_validation/validation_annotation_files/human/dnli_{dataset}_mturk_validated.csv'),

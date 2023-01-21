@@ -47,6 +47,9 @@ def write_json(d: dict, path: str) -> None:
         json.dump(d, fp)
 
 def load_json(path: str) -> dict:
+    if not path.startswith(PROJECT_ROOT_DIR):
+        path = os.path.join(PROJECT_ROOT_DIR, path)
+
     with open(path, 'r') as json_file:
         data = json.load(json_file)
     return data

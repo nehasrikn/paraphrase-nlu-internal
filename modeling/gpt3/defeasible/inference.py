@@ -1,5 +1,5 @@
-from modeling.gpt3.defeasible.defeasible_prompt import construct_prompt_template
-from modeling.gpt3.gpt3 import GPT3Model
+from modeling.gpt3.defeasible.defeasible_prompt import construct_prompt_template, form_prompt_with_example
+from modeling.gpt3.gpt3 import GPT3Model, extract_confidences, extract_answer
 from tqdm import tqdm
 from annotated_data.annotated_data import dnli_human_dataset_by_name
 from defeasible_data import ParaphrasedDefeasibleNLIExample, DefeasibleNLIExample
@@ -7,7 +7,7 @@ from typing import List, Dict, Any, Tuple
 from dataclasses import asdict
 import numpy as np
 import os
-from utils import write_json, PROJECT_ROOT_DIR
+from utils import write_json, PROJECT_ROOT_DIR, load_json
 
 
 def bucket_predictions(
@@ -26,49 +26,58 @@ def bucket_predictions(
             'bucket_confidences': list of dicts (one for each paraphrase) (confidence, prediction, and paraphrased example)
         }
     """
-
-
+    prompt = construct_prompt_template(num_icl_examples_per_dataset)
 
     buckets = {}
     for ex_id, paraphrases in tqdm(examples.items()):
         
-        original_confidence = nli_model.predict( #grabs original example object for first example in the list
-            paraphrases[0].original_example.premise,
-            paraphrases[0].original_example.hypothesis,
-            paraphrases[0].original_example.update
+        original_prediction = gpt3_model.generate(
+            prompt=form_prompt_with_example(prompt, paraphrases[0].original_example)
         )
-        original_binary_prediction = int(np.argmax(original_confidence))
+        
         bucket_confidences = []
         
         for p in paraphrases:
-            prediction = nli_model.predict(
-                p.original_example.premise,
-                p.original_example.hypothesis,
-                p.update_paraphrase
+            para_prediction = gpt3_model.generate(
+                prompt=form_prompt_with_example(prompt, p)
             )
+        
             bucket_confidences.append({
-                'confidence': prediction.tolist(),
-                'prediction': int(np.argmax(prediction)),
+                'open_ai_response': para_prediction,
                 'paraphrased_example': asdict(p)
             })
         
         buckets[ex_id] = {
-            'original_confidence': original_confidence.tolist(),
-            'original_prediction': original_binary_prediction,
+            'original_open_ai_response': original_prediction,
             'gold_label': paraphrases[0].original_example.label,
             'bucket_confidences': bucket_confidences,
         }
     return buckets
 
+def extract_confidences_from_bucket_predictions(buckets: Dict):
+    for ex_id in buckets.keys():
+
+        buckets[ex_id]['original_confidence'] = extract_confidences(buckets[ex_id]['original_open_ai_response'])
+        buckets[ex_id]['original_prediction'] = extract_answer(buckets[ex_id]['original_open_ai_response'])
+        for i in range(len(buckets[ex_id]['bucket_confidences'])):
+            buckets[ex_id]['bucket_confidences'][i]['confidence'] = extract_confidences(buckets[ex_id]['bucket_confidences'][i]['open_ai_response'])
+            buckets[ex_id]['bucket_confidences'][i]['prediction'] = extract_answer(buckets[ex_id]['bucket_confidences'][i]['open_ai_response'])
+    
+    return buckets
+        
 
 if __name__ == '__main__':
 
-    for dataset_name, dataset in dnli_human_dataset_by_name.items():
-        nli_model = DefeasibleTrainedModel(
-            os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/chkpts/analysis_models/d-{dataset_name}-roberta-large'), 
-            'experiments/hf-cache', 
-            multiple_choice=False
-        )
-        buckets = bucket_predictions(dataset, nli_model)
-        write_json(buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{dataset_name}_human.json'))
+    gpt3_model = GPT3Model(model='text-curie-001')
 
+    for dataset_name, dataset in dnli_human_dataset_by_name.items():
+        if dataset_name != 'social':
+            continue
+        print('### {dataset_name} ###'.format(dataset_name=dataset_name))
+        # buckets = bucket_predictions(dataset, gpt3_model, num_icl_examples_per_dataset=13)
+        # write_json(buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/gpt3/defeasible/results/{dataset_name}/{dataset_name}_human_gpt3-{gpt3_model.model}.json'))
+
+        buckets = load_json(f'modeling/gpt3/defeasible/results/{dataset_name}/{dataset_name}_human_gpt3-{gpt3_model.model}.json')
+        buckets_with_confidences_processed = extract_confidences_from_bucket_predictions(buckets)
+
+        write_json(buckets_with_confidences_processed, os.path.join(PROJECT_ROOT_DIR, f'modeling/gpt3/defeasible/results/{dataset_name}/{dataset_name}_human_gpt3-{gpt3_model.model}_processed.json'))

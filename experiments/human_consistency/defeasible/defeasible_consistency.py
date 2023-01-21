@@ -14,7 +14,8 @@ from annotated_data.annotated_data import dnli_human_dataset_by_name
 from utils import load_json, PROJECT_ROOT_DIR
 
 dnli_human_buckets = {k: {
-    'buckets': load_json(os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{k}_human.json'))
+    'specialized_model_buckets': load_json(os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{k}/{k}_human_d-{k}-roberta-large.json')),
+    'unified_model_buckets': load_json(os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{k}/{k}_human_dnli-roberta-large.json'))
 } for k in dnli_human_dataset_by_name.keys()}
 
 
@@ -33,6 +34,9 @@ def construct_bucket_metadata(buckets):
             'bucket_consistency': bucket_consistency
         })
     return pd.DataFrame(df)
+
+def get_original_example_prediction_accuracy(buckets):
+    return len([x for x in buckets.values() if x['original_prediction'] == x['gold_label']])/len(buckets)
 
 
 def plot_orig_v_bucket_conf(df, plot_title):
