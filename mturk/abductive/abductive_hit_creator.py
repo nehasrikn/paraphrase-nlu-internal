@@ -4,9 +4,10 @@ import tempfile, webbrowser
 from dataclasses import asdict, dataclass
 from typing import List, Dict, Tuple
 from datetime import datetime
+import json
 
 from mturk.abductive.task_constants import TAB_INSTRUCTIONS, INPUT_TEMPLATE, TABS
-from abductive_data import AbductiveNLIExample, AbductiveNLIDataset
+from abductive_data import AbductiveNLIExample, AbductiveNLIDataset, anli_dataset
 from mturk.abductive.task_parameters import TASK_PARAMETERS
 
 from mturk.mturk_hit_creator import (
@@ -15,6 +16,7 @@ from mturk.mturk_hit_creator import (
     MTurkHITCreator,
     MTurkHITData
 )
+from utils import PROJECT_ROOT_DIR, load_json, write_json
 
 class AbductiveHITCreator():
     """
@@ -41,7 +43,7 @@ class AbductiveHITCreator():
             hit_data_examples.append(MTurkHITData(
                 task_html=AbductiveHITCreator.create_HTML_from_example(self.task_template, e),
                 internal_id=str(e.example_id),
-                split=e.split,
+                split=e.example_id.split('.')[1],
                 example_data = asdict(e)
             ))
         return hit_data_examples
@@ -123,7 +125,8 @@ class AbductiveHITCreator():
         return task_html
 
 def connect_and_post_abductive_hits(
-    split: str, 
+    split: str,
+    batch_name: str,
     examples: List[AbductiveNLIExample],
     requestor_note: str,
     max_assignments: int,
@@ -154,8 +157,8 @@ def connect_and_post_abductive_hits(
     batch = MTurkBatch(
         tasks=hit_data_examples,
         origin_split=split,
-        dataset_name='abductive_nli',
-        example_ids=ids,
+        dataset_name=batch_name,
+        example_ids=[str(e.example_id) for e in examples],
         max_assignments=max_assignments,
         post_date=str(datetime.now()),
         requestor_note=requestor_note,
@@ -164,8 +167,10 @@ def connect_and_post_abductive_hits(
 
     posted_hits = turk_creator.create_HITs_from_mturk_batch(batch)
     batch.store_posted_batch_data(posted_hits)
-    batch.write_to_json('abductive/mturk_data/creation/pilot.json')
+    batch.write_to_json(f'mturk/abductive/mturk_data/creation/{batch_name}.json')
     turk_creator.trigger_email_notifications(hit_type_id, "nehasrik@umd.edu")
+    turk_creator.check_balance()
+
 
 def view_assignment(
     assignment_id: str,
@@ -185,31 +190,14 @@ def view_assignment(
 
 if __name__ == '__main__':
 
-
-    parser = argparse.ArgumentParser(description="Post Abductive HITs to the live marketplace")
-
-    parser.add_argument("--aws_access_key", type=str, help="AWS Access Key", required=False)
-    parser.add_argument("--aws_secret_access_key", type=str, help="AWS Secret Key", required=False)
-
-    parser.add_argument(
-        "--split", type=str, default="test", help="Split to draw examples for annotation."
-    )
-    parser.add_argument("--num_examples", type=int, default=1, help="Number of examples to post.")
-    parser.add_argument("--requestor_note", type=str, default="", help="Arbitrary internal note")
-
-    parser.add_argument("--max_assignments", type=int, default=3, help="Number of workers per HIT.")
-
-    parser.add_argument("--hit_type_id", type=str, default=None, help="HIT Type ID (if exists) for batch.")
-    parser.add_argument("--live_marketplace", action='store_true', help="Post to live marketplace if specified, otherwise sandbox.")
-    parser.add_argument("--assignment_id", type=str, default=None, help="Get assignment")
-
-
-    args = parser.parse_known_args()[0]
-
-    print(args)
-
     ah = AbductiveHITCreator(HIT_template_path='mturk/abductive/abductive_para_nlu_template.html')
-    ah.get_proof_of_concept_HIT()
+
+    examples = [
+        AbductiveNLIExample(**j)
+        for j in load_json('data_selection/abductive/selected_examples.json')
+    ]
+
+    # ah.get_proof_of_concept_HIT()
 
     #connect_and_post_abductive_hits(**vars(args))
 

@@ -65,12 +65,12 @@ class AbductiveTrainedModel(TrainedModel):
         result = {k: [v[i : i + 2] for i in range(0, len(v), 2)] for k, v in result.items()}
         
         outputs = self.trained_model.roberta(
-            input_ids=torch.tensor(result['input_ids']), 
-            attention_mask=torch.tensor(result['attention_mask'])
+            input_ids=torch.tensor(result['input_ids']).to(device=self.device), 
+            attention_mask=torch.tensor(result['attention_mask']).to(device=self.device)
         )
         sequence_output = outputs[0]
         cls_rep = sequence_output[:, 0, :]
-        return cls_rep.squeeze(0).detach().numpy() # take <s> token (equiv. to [CLS])
+        return cls_rep.squeeze(0).detach().cpu().numpy() # take <s> token (equiv. to [CLS])
 
 
     def predict(self, obs1: str, obs2: str, hyp1: str, hyp2: str) -> numpy.ndarray:
@@ -100,10 +100,10 @@ class AbductiveTrainedModel(TrainedModel):
         result = {k: [v[i : i + 2] for i in range(0, len(v), 2)] for k, v in result.items()}
         
         outputs = self.trained_model(
-            input_ids=torch.tensor(result['input_ids']), 
-            attention_mask=torch.tensor(result['attention_mask'])
+            input_ids=torch.tensor(result['input_ids']).to(device=self.device), 
+            attention_mask=torch.tensor(result['attention_mask']).to(device=self.device)
         )
-        probs = softmax(outputs.logits.detach().numpy(), axis=1)
+        probs = softmax(outputs.logits.detach().cpu().numpy(), axis=1)
         return probs[0]
 
 

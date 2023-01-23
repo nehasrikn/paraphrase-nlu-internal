@@ -1,11 +1,12 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
-from typing import List, Any, Tuple
+from typing import List, Any, Tuple, Union
 import pandas as pd
 import json
 import random
 import string
 import os
+import termplotlib as tpl
 import socket
 
 
@@ -33,16 +34,25 @@ def clean_paraphrase(p: str) -> str:
     return p.strip().lower().translate(str.maketrans('', '', string.punctuation))
 
 def load_jsonlines(path: str) -> List[Any]:
+    if not path.startswith(PROJECT_ROOT_DIR):
+        path = os.path.join(PROJECT_ROOT_DIR, path)
+
     with open(path, 'r') as f:
         return [json.loads(line) for line in f.readlines()]
 
 def write_jsonlines(l: List[Any], path: str) -> None:
-    with open(os.path.join(PROJECT_ROOT_DIR, path), 'w') as f:
+    if not path.startswith(PROJECT_ROOT_DIR):
+        path = os.path.join(PROJECT_ROOT_DIR, path)
+
+    with open(path, 'w') as f:
         for entry in l:
             json.dump(entry, f)
             f.write('\n')
 
 def write_json(d: dict, path: str) -> None:
+    if not path.startswith(PROJECT_ROOT_DIR):
+        path = os.path.join(PROJECT_ROOT_DIR, path)
+
     with open(path, 'w') as fp:
         json.dump(d, fp)
 
@@ -67,3 +77,10 @@ def get_example_kv_pair_from_list_of_dicts(d):
     sample_dict = random.sample(d, 1)[0]
     sample_k, sample_v = get_example_kv_pair_from_dict(sample_dict)
     print(f'\nSample k,v pair from list of dicts: [{sample_k}: {sample_v}]')
+
+
+def termplot(data: List[Union[int, float]]):
+    counts, bin_edges = np.histogram(data, bins=10)
+    fig = tpl.figure()
+    fig.hist(counts, bin_edges, orientation="horizontal", force_ascii=False)
+    fig.show()

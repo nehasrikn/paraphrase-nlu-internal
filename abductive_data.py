@@ -4,7 +4,8 @@ from typing import List, Optional, Dict, Any
 from dataclasses import dataclass, asdict
 import os
 import json
-
+from tqdm import tqdm
+from utils import PROJECT_ROOT_DIR
 ### Class definitions for objects representing annotated data
 
 @dataclass
@@ -40,8 +41,10 @@ class AbductiveNLIDataset:
         self.dev_examples = self.create_examples(data_split='dev') 
         self.test_examples = self.create_examples(data_split='test') 
 
-        self.split_examples_by_id = {split: {e.example_id: e for e in self.get_split(split)} for split in ['train', 'dev', 'test']}
+        self.easy_examples = self.create_easy_examples()
 
+        self.split_examples_by_id = {split: {e.example_id: e for e in self.get_split(split)} for split in ['train', 'dev', 'test']}
+        self.easy_examples_by_id = {e.example_id: e for e in self.easy_examples}
 
     def create_examples(self, data_split: str) -> List[AbductiveNLIExample]:
         examples = []
@@ -69,6 +72,24 @@ class AbductiveNLIDataset:
         
         print('Loaded %d nonempty %s examples' % (len(data), data_split))
         return examples
+    
+    def create_easy_examples(self) -> List[AbductiveNLIExample]:
+        fname = os.path.join(PROJECT_ROOT_DIR, 'raw-data/anli/af_filtered_out/train_easy_annotations.jsonl')
+        easy_examples = []
+        for i, json_str in enumerate(tqdm(list(open(fname, 'r')))):
+            result = json.loads(json_str)
+            easy_examples.append(AbductiveNLIExample(
+                example_id='anli.train.easy.%d' % i,
+                source_example_metadata=None,
+                obs1=result['InputSentence1'],
+                obs2=result['InputSentence5'],
+                hyp1=result['RandomMiddleSentenceQuiz1'],
+                hyp2 = result['RandomMiddleSentenceQuiz2'],
+                label = int(result['AnswerRightEnding']),
+                modeling_label=int(result['AnswerRightEnding'])-1,
+                annotated_paraphrases=None
+            ))
+        return easy_examples
 
     def get_split(self, split_name: str) -> List[AbductiveNLIExample]:
         if split_name == 'train':
@@ -79,6 +100,9 @@ class AbductiveNLIDataset:
             return self.test_examples
 
     def get_example_by_id(self, example_id) -> AbductiveNLIExample:
+        if 'easy' in example_id:
+            return self.easy_examples_by_id[example_id]
+
         _, split, ex_id = example_id.split('.') #anli.test.2619
         return self.split_examples_by_id[split][example_id]
 
