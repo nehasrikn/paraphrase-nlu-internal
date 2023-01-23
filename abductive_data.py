@@ -82,8 +82,4 @@ class AbductiveNLIDataset:
         _, split, ex_id = example_id.split('.') #anli.test.2619
         return self.split_examples_by_id[split][example_id]
 
-# pilot_annotated_abductive_set = AnnotatedAbductiveSet(mturk_processed_annotations_csv='annotated_data/abductive/paraphrased_pilot_revised.csv')
-# pilot_annotated_abductive_set.create_intra_worker_paraphrased_examples()
-# pilot_annotated_abductive_set.create_zipped_intra_worker_paraphrased_examples()
-
 anli_dataset = AbductiveNLIDataset(data_dir='raw-data/anli')

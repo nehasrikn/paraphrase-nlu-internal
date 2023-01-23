@@ -13,13 +13,9 @@ from defeasible_data import DefeasibleNLIExample, DefeasibleNLIDataset
 from modeling.roberta.models import DefeasibleTrainedModel
 from collections import defaultdict
 from dataclasses import asdict
+from data_selection.data_selection_utils import float_floor, stratify_examples_by_range
 
 # python -m data_selection.defeasible.select
-
-def float_floor(num, precision=1):
-    if num == 1.0:
-        return 0.9
-    return np.true_divide(np.floor(num * 10**precision), 10**precision)
 
 def select_train_dev_set_for_aflite_embedding_model(
     data: DefeasibleNLIDataset,
@@ -85,14 +81,6 @@ def plot_and_save(values: List[Any], fig_file: str) -> None:
     plt.figure()
     plot = sns.histplot(data=pd.DataFrame(values, columns=['value']), x="value", kde=True)
     plot.get_figure().savefig(fig_file)
-
-def stratify_examples_by_range(examples: List[Tuple[Any, float]]) -> Dict[float, List[Any]]:
-    random.seed(42)
-    ranges = defaultdict(list) # {0.1: [e1, e2], 0.2: [e3, e4]}
-    for example_id, score in examples:
-        ranges[float_floor(score, precision=1)].append((example_id, score))
-    return ranges
-
 
 def select_stratify_examples_by_range(ranges: Dict[float, List[Tuple[DefeasibleNLIExample, float]]], num_total_examples: int=125) -> List[Any]:
     """

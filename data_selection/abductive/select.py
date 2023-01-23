@@ -1,47 +1,47 @@
 import random
+import os
 from typing import List, Dict, Any
 import seaborn as sns
 import matplotlib.pyplot as plt
 from tqdm import tqdm
+import numpy as np
+import roundrobin
 import json
-from abductive_data import AbductiveNLIExample, AbductiveNLIDataset
+from abductive_data import AbductiveNLIExample, AbductiveNLIDataset, anli_dataset
 from modeling.roberta.models import AbductiveTrainedModel
 from collections import defaultdict
 from dataclasses import asdict
 import pandas as pd
-
-def plot_and_save(values: List[Any], fig_file: str) -> None:
-    sns.set_theme()
-    plt.figure()
-    plot = sns.histplot(data=pd.DataFrame(values, columns=['value']), x="value", kde=True)
-    plot.get_figure().savefig(fig_file)
+from utils import plot_and_save_countplot, plot_and_save_hist, PROJECT_ROOT_DIR, termplot, write_json
+from data_selection.data_selection_utils import stratify_examples_by_range, float_floor
 
 def select_subset_random(data: AbductiveNLIDataset, num_examples: int = 115):
     """
     Unfortunately, we first selected 115 examples at random for the pilot :(
     This function replicates that. We then fill in the remaining examples to upsample
     examples predicted with weaker confidence.
+
+    There's a heavy skew towards examples with high confidence, so stratified 
+    sampling will need to downsample.
     """
+    roberta = AbductiveTrainedModel(
+        trained_model_dir=os.path.join(PROJECT_ROOT_DIR, 'modeling/roberta/abductive/chkpts/roberta-large-anli'), 
+        multiple_choice=True
+    )
     random.seed(42)
-    roberta = AbductiveTrainedModel(trained_model_dir='modeling/abductive/chkpts/roberta-large-anli', multiple_choice=True)
     sample = random.sample(data.get_split('test'), num_examples)
+    confidences = [
+        (e, roberta.predict(obs1=e.obs1, obs2=e.obs2, hyp1=e.hyp1, hyp2=e.hyp2)[e.modeling_label]) for e in tqdm(sample)
+    ]
 
-    confidence_ranges = defaultdict(list) # {0.1: [e1, e2], 0.2: [e3, e4]}
-    
-    for e in tqdm(sample):
-        prediction = roberta.predict(obs1=e.obs1, obs2=e.obs2, hyp1=e.hyp1, hyp2=e.hyp2)
-        confidence_ranges[round(prediction[e.label - 1], 1)].append(e)
+    stratified = {k: [e[0] for e in v] for k, v in stratify_examples_by_range(confidences, print_ranges=False).items()}
+    return sample, stratified
 
-    for k, v in confidence_ranges.items():
-        print(k, len(v))
-    
-    return sample, confidence_ranges
-
-def select_subset_by_stratified_confidence(
+def select_subset_by_stratified_confidence_hard_aflite_examples(
     data: AbductiveNLIDataset, 
     random_subset_already_selected: List[AbductiveNLIExample],
     confidence_ranges_of_random_subset: Dict[float, List[AbductiveNLIExample]],
-    num_examples_per_confidence_range: int = 25
+    num_total_examples: int = 125
 ) -> List[AbductiveNLIExample]:
     """
     Selects a subset of examples from the test split of a dataset for analysis 
@@ -50,34 +50,60 @@ def select_subset_by_stratified_confidence(
     example. 
     
     data: Original abductive dataset
-    num_examples_per_confidence_range: 25 examples * 10 = 250 examples
-    We deliberately avoid examples that round to 1.0 since we've got a plethora of those from the
-    random sampling.
     """
-    random.seed(42)
-    test_split = data.get_split('test')
-    roberta = AbductiveTrainedModel(trained_model_dir='modeling/abductive/chkpts/roberta-large-anli', multiple_choice=True)
-    confidence_ranges = defaultdict(list) # {0.1: [e1, e2], 0.2: [e3, e4]}
-
     example_ids_already_annotated = set([e.example_id for e in random_subset_already_selected])
     assert len(example_ids_already_annotated) == 115
 
-    for e in tqdm(test_split):
-        if e.example_id in example_ids_already_annotated:
+    defacto_range_examples = 12
+
+    stratified_examples = defaultdict(list)
+    # for any given confidence range, we want to select ~12 examples, so if there's more, let's downsample
+    for crange, crange_examples in confidence_ranges_of_random_subset.items():
+        if len(crange_examples) > defacto_range_examples:
+            stratified_examples[crange] = random.sample(crange_examples, defacto_range_examples)
+        else:
+            stratified_examples[crange] = crange_examples
+
+
+    random.seed(42)
+    test_split = data.get_split('test')
+    roberta = AbductiveTrainedModel(
+        trained_model_dir=os.path.join(PROJECT_ROOT_DIR, 'modeling/roberta/abductive/chkpts/roberta-large-anli'), 
+        multiple_choice=True
+    )
+
+    # Get confidences for every single example in the test split
+    test_split_confidences = [
+        (e, roberta.predict(obs1=e.obs1, obs2=e.obs2, hyp1=e.hyp1, hyp2=e.hyp2)[e.modeling_label]) for e in tqdm(test_split) if e.example_id not in example_ids_already_annotated
+    ]
+    test_split_confidence_ranges = stratify_examples_by_range(test_split_confidences, print_ranges=False)
+    for r in test_split_confidence_ranges.keys():
+        random.seed(42)
+        random.shuffle(test_split_confidence_ranges[r])
+
+    assert len(test_split_confidence_ranges.keys()) == 10 # 10 confidence ranges
+ 
+    # In this hard aflite split, we want 125 examples, i.e ~12 examples per confidence range    
+    # Round robin style, iterate through all the confidence ranges, sampling one by one
+    range_iterators = {range_floor: iter(range_examples) for range_floor, range_examples in test_split_confidence_ranges.items()}
+
+    get_roundrobin_range_floor = roundrobin.basic(list(test_split_confidence_ranges.keys()))
+    while sum([len(v) for v in stratified_examples.values()]) < num_total_examples:
+        range_floor = get_roundrobin_range_floor()
+        try:
+            e = next(range_iterators[range_floor])
+            stratified_examples[range_floor].append(e[0])
+        except StopIteration as error:
             continue
-        prediction = roberta.predict(obs1=e.obs1, obs2=e.obs2, hyp1=e.hyp1, hyp2=e.hyp2)
-        confidence_ranges[round(prediction[e.label - 1], 1)].append(e)
 
-    stratified_examples = [] # sample n examples for each confidence range (25 * 10)
-    for confidence_range, confidence_range_examples in confidence_ranges.items():
-        print(confidence_range, len(confidence_range_examples))
-        to_sample = max(0, num_examples_per_confidence_range - len(confidence_ranges_of_random_subset[confidence_range]))
+    examples = []
+    for k, v in stratified_examples.items():
+        print(f'Confidence range {k}: {len(v)} examples')
+        examples.extend(v)
+    assert len(examples) == num_total_examples
+    return examples
 
-        stratified_examples.extend(random.sample(confidence_range_examples, to_sample))
-
-    return stratified_examples
-
-def select_stratified_easy_examples():
+def select_subset_by_stratified_confidence_easy_aflite_examples(num_total_examples: int = 125):
     """
     Using examples that Chandra provided that are filtered out, select stratified by original model confidence
     InputSentence1 --> Same as obs1 in the public file. Contains Observation 1.
@@ -91,43 +117,76 @@ def select_stratified_easy_examples():
     for i, json_str in enumerate(tqdm(list(open(fname, 'r')))):
         result = json.loads(json_str)
         easy_examples.append(AbductiveNLIExample(
-            story_id=None,
             example_id='anli.train.easy.%d' % i,
-            split='train.easy',
+            source_example_metadata=None,
             obs1=result['InputSentence1'],
             obs2=result['InputSentence5'],
             hyp1=result['RandomMiddleSentenceQuiz1'],
             hyp2 = result['RandomMiddleSentenceQuiz2'],
             label = int(result['AnswerRightEnding']),
+            modeling_label=int(result['AnswerRightEnding'])-1,
             annotated_paraphrases=None
         ))
     
     confidences = []
+    roberta = AbductiveTrainedModel(
+        trained_model_dir=os.path.join(PROJECT_ROOT_DIR, 'modeling/roberta/abductive/chkpts/roberta-large-anli'), 
+        multiple_choice=True
+    )
 
     print('Loaded %d easy abductive examples' % len(easy_examples))
-    roberta = AbductiveTrainedModel(trained_model_dir='modeling/abductive/chkpts/roberta-large-anli', multiple_choice=True)
 
-    sample = random.sample(easy_examples, 100)
-    for e in tqdm(sample):
-        prediction = roberta.predict(obs1=e.obs1, obs2=e.obs2, hyp1=e.hyp1, hyp2=e.hyp2)
-        confidences.append(prediction[e.label - 1])
+    random.seed(42)
+    sample = random.sample(easy_examples, 5000)
+    confidences = [
+        (e, roberta.predict(obs1=e.obs1, obs2=e.obs2, hyp1=e.hyp1, hyp2=e.hyp2)[e.modeling_label]) for e in tqdm(sample)
+    ]
+    ranges = stratify_examples_by_range(confidences, print_ranges=False)
+    assert len(ranges) == 10
 
-    plot_and_save(confidences, 'easy_example_confidence_distribution.png')
+    selected_examples = defaultdict(list)
+    range_iterators = {range_floor: iter(range_examples) for range_floor, range_examples in ranges.items()}
+
+    get_roundrobin_range_floor = roundrobin.basic(list(ranges.keys()))
+    while sum([len(v) for v in selected_examples.values()]) < num_total_examples:
+        range_floor = get_roundrobin_range_floor()
+        try:
+            e = next(range_iterators[range_floor])
+            selected_examples[range_floor].append(e[0])
+        except StopIteration as error:
+            continue
     
-
+    examples = []
+    for k, v in selected_examples.items():
+        print(f'Confidence range {k}: {len(v)} examples')
+        print(v[0])
+        examples.extend(v)
+    assert len(examples) == num_total_examples
+    return examples
 
 
 if __name__ == '__main__':
 
-    # anli = AbductiveNLIDataset(data_dir='raw-data/anli')
-    # random_sample, confidence_ranges = select_subset_random(anli)
+    print('Recreating the random sample that was used for the pilot...')
+    random_sample, confidence_ranges = select_subset_random(anli_dataset)
 
-    # with open("data_selection/abductive/anli_random_selected.json", "w") as file:
-    #     file.write(json.dumps([asdict(e) for e in random_sample]))
+    write_json([asdict(e) for e in random_sample], 'data_selection/abductive/pilot_selected_examples.json')
 
-    # stratified_examples = select_subset_by_stratified_confidence(anli, random_sample, confidence_ranges, 25)
 
-    # with open("data_selection/abductive/anli_stratified_selected.json", "w") as file:
-    #     file.write(json.dumps([asdict(e) for e in stratified_examples]))
+    print('Upsampling and downsampling with the counts of random sample to get a stratified sample of 125 hard AFLITE examples...')
+    random_and_stratified_examples = select_subset_by_stratified_confidence_hard_aflite_examples(
+        anli_dataset, 
+        random_sample, 
+        confidence_ranges
+    )
 
-    select_stratified_easy_examples()
+    print('Stratified sampling for 125 easy AFLITE examples...')
+    easy_stratified_examples = select_subset_by_stratified_confidence_easy_aflite_examples()
+
+
+    stratified_examples = random_and_stratified_examples + easy_stratified_examples
+    # print(type(stratified_examples), type(stratified_examples[0]), stratified_examples[0])
+
+    assert len(stratified_examples) == 250
+
+    write_json([asdict(e) for e in stratified_examples], 'data_selection/abductive/selected_examples.json')
