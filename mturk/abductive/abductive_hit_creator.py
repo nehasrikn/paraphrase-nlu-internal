@@ -201,9 +201,8 @@ if __name__ == '__main__':
 
     non_pilot_examples = [e for e in examples if e.example_id not in pilot_annotated]
     
-    batch_1 = non_pilot_examples[:75]
-    batch_2 = non_pilot_examples[75:150]
-    batch_3 = non_pilot_examples[150:]
+    batch_1 = non_pilot_examples[:100]
+    batch_2 = non_pilot_examples[100:]
 
     connect_and_post_abductive_hits(
         split='anli_annotation_examples',
