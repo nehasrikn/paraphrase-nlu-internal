@@ -48,8 +48,8 @@ class AbductiveNLIDataset:
 
     def create_examples(self, data_split: str) -> List[AbductiveNLIExample]:
         examples = []
-        data_fname = '%s/%s.jsonl' % (self.data_dir, data_split)
-        label_fname = '%s/%s-labels.lst' % (self.data_dir, data_split)
+        data_fname = os.path.join(PROJECT_ROOT_DIR, '%s/%s.jsonl' % (self.data_dir, data_split))
+        label_fname = os.path.join(PROJECT_ROOT_DIR, '%s/%s-labels.lst' % (self.data_dir, data_split))
         
         with open(label_fname) as label_file:
             labels = [line.rstrip() for line in label_file]
