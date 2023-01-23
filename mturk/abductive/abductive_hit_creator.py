@@ -5,7 +5,7 @@ from dataclasses import asdict, dataclass
 from typing import List, Dict, Tuple
 from datetime import datetime
 import json
-
+import os
 from mturk.abductive.task_constants import TAB_INSTRUCTIONS, INPUT_TEMPLATE, TABS
 from abductive_data import AbductiveNLIExample, AbductiveNLIDataset, anli_dataset
 from mturk.abductive.task_parameters import TASK_PARAMETERS
@@ -16,7 +16,7 @@ from mturk.mturk_hit_creator import (
     MTurkHITCreator,
     MTurkHITData
 )
-from utils import PROJECT_ROOT_DIR, load_json, write_json
+from utils import PROJECT_ROOT_DIR, load_json, write_json, load_jsonlines
 
 class AbductiveHITCreator():
     """
@@ -144,7 +144,9 @@ def connect_and_post_abductive_hits(
         live_marketplace=live_marketplace
     )
 
-    abductive_hit_creator = AbductiveHITCreator(HIT_template_path='abductive/abductive_para_nlu_template.html')
+    abductive_hit_creator = AbductiveHITCreator(
+        HIT_template_path=os.path.join(PROJECT_ROOT_DIR, 'mturk/abductive/abductive_para_nlu_template.html')
+    )
 
     if not hit_type_id:
         hit_type = turk_creator.create_HIT_type(MTurkHITTypeParameters(**TASK_PARAMETERS))
@@ -177,14 +179,12 @@ def view_assignment(
     live_marketplace: bool,
     aws_access_key: str,
     aws_secret_access_key: str
-) -> None:
-        
+) -> None: 
     turk_creator = MTurkHITCreator(
         aws_access_key=aws_access_key,
         aws_secret_access_key=aws_secret_access_key,
         live_marketplace=live_marketplace
     )
-
     turk_creator.get_assignment(assignment_id)
 
 
@@ -195,12 +195,24 @@ if __name__ == '__main__':
     examples = [
         AbductiveNLIExample(**j)
         for j in load_json('data_selection/abductive/selected_examples.json')
-    ]
+    ]   
+    pilot_annotated = load_jsonlines('mturk/abductive/mturk_data/approved/pilot_approved.jsonl')
+    pilot_annotated = [e['example_id'] for e in pilot_annotated]
+
+    non_pilot_examples = [e for e in examples if e.example_id not in pilot_annotated]
     
+    batch_1 = non_pilot_examples[:75]
+    batch_2 = non_pilot_examples[75:150]
+    batch_3 = non_pilot_examples[150:]
 
-    # ah.get_proof_of_concept_HIT()
-
-    #connect_and_post_abductive_hits(**vars(args))
-
-    #view_assignment(args.assignment_id, args.live_marketplace, args.aws_access_key, args.aws_secret_access_key)
-
+    connect_and_post_abductive_hits(
+        split='anli_annotation_examples',
+        batch_name='anli_annotation_examples_1', 
+        examples=batch_1,
+        requestor_note='first batch of abductive examples',
+        max_assignments=3,
+        hit_type_id=None,
+        live_marketplace=False,
+        aws_access_key='AKIA3HQJKSL4YZUFYGQ4',
+        aws_secret_access_key='51DNsHKAT+SiThFybgaEIZS8YT1sJyHt6zsNLSHE'
+    )
