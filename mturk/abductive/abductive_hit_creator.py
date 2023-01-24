@@ -211,7 +211,7 @@ if __name__ == '__main__':
         requestor_note='first batch of abductive examples',
         max_assignments=3,
         hit_type_id=None,
-        live_marketplace=False,
+        live_marketplace=True,
         aws_access_key='AKIA3HQJKSL4YZUFYGQ4',
         aws_secret_access_key='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'
     )

@@ -37,12 +37,12 @@ QUALIFICATIONS_EXTRA_STRICT = [
     {
         'QualificationTypeId': '00000000000000000040', # Worker_NumberHITsApproved
         'Comparator': 'GreaterThanOrEqualTo',
-        'IntegerValues': [500],
+        'IntegerValues': [1000],
     },
     {
         'QualificationTypeId': '000000000000000000L0', # Worker_PercentAssignmentsApproved
         'Comparator': 'GreaterThanOrEqualTo',
-        'IntegerValues': [95],
+        'IntegerValues': [98],
     },     
 ]
 
