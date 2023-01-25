@@ -14,8 +14,10 @@ from annotated_data.annotated_data import dnli_human_dataset_by_name
 from utils import load_json, PROJECT_ROOT_DIR
 
 dnli_human_buckets = {k: {
-    'specialized_model_buckets': load_json(os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{k}/{k}_human_d-{k}-roberta-large.json')),
-    'unified_model_buckets': load_json(os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{k}/{k}_human_dnli-roberta-large.json'))
+    'specialized_roberta': load_json(f'modeling/roberta/defeasible/results/{k}/{k}_human_d-{k}-roberta-large.json'),
+    'unified_roberta': load_json(f'modeling/roberta/defeasible/results/{k}/{k}_human_dnli-roberta-large.json'),
+    'specialized_full_input_lexical': load_json(f'modeling/fasttext/defeasible/results/{k}/{k}_human_d-{k}-full_input_lexical.json'),
+    'specialized_partial_input_lexical': load_json(f'modeling/fasttext/defeasible/results/{k}/{k}_human_d-{k}-partial_input_lexical.json')
 } for k in dnli_human_dataset_by_name.keys()}
 
 
@@ -35,8 +37,8 @@ def construct_bucket_metadata(buckets):
         })
     return pd.DataFrame(df)
 
-def get_original_example_prediction_accuracy(buckets):
-    return len([x for x in buckets.values() if x['original_prediction'] == x['gold_label']])/len(buckets)
+def get_original_example_prediction_accuracy(buckets, y_pred='original_prediction', y_true='gold_label'):
+    return len([x for x in buckets.values() if x[y_pred] == x[y_true]])/len(buckets)
 
 
 def plot_orig_v_bucket_conf(df, plot_title):

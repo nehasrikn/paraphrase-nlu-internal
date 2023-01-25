@@ -202,13 +202,16 @@ if __name__ == '__main__':
     non_pilot_examples = [e for e in examples if e.example_id not in pilot_annotated]
     
     batch_1 = non_pilot_examples[:100]
-    batch_2 = non_pilot_examples[100:]
+
+
+    batch_2 = non_pilot_examples[100:150]
+    batch_3 = non_pilot_examples[150:]
 
     connect_and_post_abductive_hits(
         split='anli_annotation_examples',
-        batch_name='anli_annotation_examples_1', 
-        examples=batch_1,
-        requestor_note='first batch of abductive examples',
+        batch_name='anli_annotation_examples_3', 
+        examples=batch_3,
+        requestor_note='third batch of abductive examples',
         max_assignments=3,
         hit_type_id=None,
         live_marketplace=True,

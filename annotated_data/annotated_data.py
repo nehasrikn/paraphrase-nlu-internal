@@ -17,7 +17,7 @@ from abductive_data import (
 from utils import load_json, PROJECT_ROOT_DIR, get_example_kv_pair_from_dict
 
 
-def load_defeasible_paraphrased_set(validated_annotated_file: str) -> List[str]:
+def load_defeasible_paraphrased_set(validated_annotated_file: str) -> Dict[str, ParaphrasedDefeasibleNLIExample]:
     """
     Loads approved paraphrases from a jsonl file.
     """

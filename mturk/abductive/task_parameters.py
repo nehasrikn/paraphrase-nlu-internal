@@ -6,6 +6,6 @@ TASK_PARAMETERS = {
     'Reward': '0.41',
     'Title': 'Paraphrase Simple Stories!',
     'Keywords': 'text, paraphrase',
-    'Description': """Write paraphrases of simple stories.""",
+    'Description': """Write paraphrases of short and simple stories.""",
     'QualificationRequirements': QUALIFICATIONS_EXTRA_STRICT,
 }
