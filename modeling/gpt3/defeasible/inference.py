@@ -71,11 +71,9 @@ if __name__ == '__main__':
     gpt3_model = GPT3Model(model='text-curie-001')
 
     for dataset_name, dataset in dnli_human_dataset_by_name.items():
-        if dataset_name != 'social':
-            continue
         print('### {dataset_name} ###'.format(dataset_name=dataset_name))
-        # buckets = bucket_predictions(dataset, gpt3_model, num_icl_examples_per_dataset=13)
-        # write_json(buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/gpt3/defeasible/results/{dataset_name}/{dataset_name}_human_gpt3-{gpt3_model.model}.json'))
+        #buckets = bucket_predictions(dataset, gpt3_model, num_icl_examples_per_dataset=13)
+        #write_json(buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/gpt3/defeasible/results/{dataset_name}/{dataset_name}_human_gpt3-{gpt3_model.model}.json'))
 
         buckets = load_json(f'modeling/gpt3/defeasible/results/{dataset_name}/{dataset_name}_human_gpt3-{gpt3_model.model}.json')
         buckets_with_confidences_processed = extract_confidences_from_bucket_predictions(buckets)
