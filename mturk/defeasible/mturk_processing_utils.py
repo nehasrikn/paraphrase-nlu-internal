@@ -148,6 +148,10 @@ def programmatically_review_HITs(hit_id_2_example_id, dataset):
         assignments = [a for a in mturk.list_assignments_for_hit(HITId=hit_id)['Assignments']]
         print([a['AssignmentStatus'] for a in assignments])
         for assignment in assignments:
+            if assignment['AssignmentStatus'] in ['Submitted', 'Approved']:
+                #continue
+                view_assignment(assignment['AssignmentId'], dataset, hit_id_2_example_id)
+
             if assignment['AssignmentStatus'] != 'Submitted':
                 continue
             view_assignment(assignment['AssignmentId'], dataset, hit_id_2_example_id)
