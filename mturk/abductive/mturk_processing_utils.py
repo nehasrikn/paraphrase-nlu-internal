@@ -7,6 +7,8 @@ import pprint
 from collections import defaultdict
 from dataclasses import asdict
 
+import random
+
 import os
 import sys
 module_path = os.path.abspath(os.path.join('../../'))
@@ -142,8 +144,13 @@ def approved_parsed_batch_2_dicts(approved_HITs: Dict[str, List[Dict]], dataset:
 
             paraphrases = worker_assignment['paraphrases']
             assignment_id = worker_assignment['assignment_id']
-            
-            for hi, (h1, h2) in enumerate(zip(paraphrases['hyp1_paraphrases'], paraphrases['hyp2_paraphrases'])):
+
+            random.seed(42)
+
+            hyp1_shuffled = random.sample(paraphrases['hyp1_paraphrases'], len(paraphrases['hyp1_paraphrases']))
+            hyp2_shuffled = random.sample(paraphrases['hyp2_paraphrases'], len(paraphrases['hyp2_paraphrases']))
+
+            for hi, (h1, h2) in enumerate(zip(hyp1_shuffled, hyp2_shuffled)):
                 paraphrased_examples[example_id].append(asdict(ParaphrasedAbductiveNLIExample(
                     paraphrase_id=f'{example_id}.{assignment_id}.{hi}',
                     original_example=dataset.get_example_by_id(example_id),

@@ -70,13 +70,13 @@ class AbductiveNLIDataset:
             )
             examples.append(abductive_example)
         
-        print('Loaded %d nonempty %s examples' % (len(data), data_split))
+        # print('Loaded %d nonempty %s examples' % (len(data), data_split))
         return examples
     
     def create_easy_examples(self) -> List[AbductiveNLIExample]:
         fname = os.path.join(PROJECT_ROOT_DIR, 'raw-data/anli/af_filtered_out/train_easy_annotations.jsonl')
         easy_examples = []
-        for i, json_str in enumerate(tqdm(list(open(fname, 'r')))):
+        for i, json_str in enumerate(list(open(fname, 'r'))):
             result = json.loads(json_str)
             easy_examples.append(AbductiveNLIExample(
                 example_id='anli.train.easy.%d' % i,

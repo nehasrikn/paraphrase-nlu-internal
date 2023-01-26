@@ -5,17 +5,18 @@ from tzlocal import get_localzone as tzlocal
 import pandas as pd
 import termplotlib as tpl
 import numpy as np
+import random
 
 from mturk.abductive.mturk_processing_utils import extract_paraphrases_from_task
-from abductive_data import anli_dataset, ParaphrasedAbductiveNLIExample
+from abductive_data import anli_dataset, ParaphrasedAbductiveNLIExample, AbductiveNLIExample
 from dataclasses import asdict
 from collections import defaultdict
-from utils import PROJECT_ROOT_DIR
+from utils import PROJECT_ROOT_DIR, load_json
 from .mturk_processing_utils import parse_batch, get_hit_id_dict, approved_parsed_batch_2_dicts
 
 
 def extract_approved_paraphrased_examples(
-    num_batches: int, 
+    num_batches: int,
     mturk_creation_dir: str = os.path.join(PROJECT_ROOT_DIR, 'mturk/abductive/mturk_data/creation/')
 ):
     """
@@ -26,24 +27,24 @@ def extract_approved_paraphrased_examples(
     
     batches = [
         os.path.join(mturk_creation_dir, f'anli_annotation_examples_{bnum}.json') 
-        for bnum in range(1, num_batches+ 1)
+        for bnum in range(1, num_batches+1)
     ]
+
    
     hit_dicts = [get_hit_id_dict(b)[1] for b in batches] #get_hit_id_dict
-    example_dicts = [get_hit_id_dict(b)[2] for b in batches]
     
     approved = [
-       parse_batch(hit_dict, anli_dataset)[0] for hit_dict in hit_dicts
+       approved_parsed_batch_2_dicts(parse_batch(hit_dict, anli_dataset)[0], anli_dataset) for hit_dict in hit_dicts
     ]
-    
-    approved_paraphrases = {}
+    approved.append(parse_pilot_results())
+    approved_paraphrases = defaultdict(list)
 
     for a in approved:
-        approved_paraphrases.update(approved_parsed_batch_2_dicts(a, anli_dataset))
-
+        for k, v in a.items():
+            approved_paraphrases[k].extend(v)
 
     num_approved_paraphrases = [len(v) for v in approved_paraphrases.values()]
-    counts, bin_edges = np.histogram(num_approved_paraphrases, bins=5)
+    counts, bin_edges = np.histogram(num_approved_paraphrases, bins=9)
     fig = tpl.figure()
     fig.hist(counts, bin_edges, orientation="horizontal", force_ascii=False)
     fig.show()
@@ -73,8 +74,13 @@ def parse_pilot_results():
                 continue
             paraphrases = extract_paraphrases_from_task(a, anli_dataset.get_example_by_id(original_example_id))
             assignment_id = a['AssignmentId']
+
+            random.seed(42)
+
+            hyp1_shuffled = random.sample(paraphrases['hyp1_paraphrases'], len(paraphrases['hyp1_paraphrases']))
+            hyp2_shuffled = random.sample(paraphrases['hyp2_paraphrases'], len(paraphrases['hyp2_paraphrases']))
             
-            for hi, (h1, h2) in enumerate(zip(paraphrases['hyp1_paraphrases'], paraphrases['hyp2_paraphrases'])):
+            for hi, (h1, h2) in enumerate(zip(hyp1_shuffled, hyp2_shuffled)):
                 paraphrased_examples[original_example_id].append(asdict(ParaphrasedAbductiveNLIExample(
                     paraphrase_id=f'{original_example_id}.{assignment_id}.{hi}',
                     original_example=anli_dataset.get_example_by_id(original_example_id),
@@ -87,16 +93,7 @@ def parse_pilot_results():
                     automatic_system_metadata=None
                 )))
                 
-    with open(os.path.join(PROJECT_ROOT_DIR, f'mturk/abductive/mturk_data/approved/pilot_approved.jsonl'), 'w') as f:
-        for k, v in paraphrased_examples.items():
-            entry = {
-                'example_id': k,
-                'paraphrased_examples': v
-            }
-            json.dump(entry, f)
-            f.write('\n')
+    return paraphrased_examples
 
 if __name__ == '__main__':
-    # parse_pilot_results()
-
-    extract_approved_paraphrased_examples(1)
+    extract_approved_paraphrased_examples(6)
