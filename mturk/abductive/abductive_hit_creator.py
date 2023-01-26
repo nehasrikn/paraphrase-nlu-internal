@@ -17,6 +17,7 @@ from mturk.mturk_hit_creator import (
     MTurkHITData
 )
 from utils import PROJECT_ROOT_DIR, load_json, write_json, load_jsonlines
+from .mturk_processing_utils import parse_batch, get_hit_id_dict
 
 class AbductiveHITCreator():
     """
@@ -207,14 +208,43 @@ if __name__ == '__main__':
     batch_2 = non_pilot_examples[100:150]
     batch_3 = non_pilot_examples[150:]
 
-    connect_and_post_abductive_hits(
-        split='anli_annotation_examples',
-        batch_name='anli_annotation_examples_3', 
-        examples=batch_3,
-        requestor_note='third batch of abductive examples',
-        max_assignments=3,
-        hit_type_id=None,
-        live_marketplace=True,
-        aws_access_key='AKIA3HQJKSL4YZUFYGQ4',
-        aws_secret_access_key='51DNsHKAT+SiThFybgaEIZS8YT1sJyHt6zsNLSHE'
-    )
+    # Repost 6 HITs from batch 2 that didn't get posted because of lack of balance
+    eids = load_json('mturk/abductive/mturk_data/creation/anli_annotation_examples_2.json')['example_ids']
+    repost = [anli_dataset.get_example_by_id(a) for a in list(set([e.example_id for e in batch_2]).difference(set(eids)))]
+
+    one_assignment = []
+    two_assignments = []
+    three_assignments = []
+
+    for i in range(1, 4):
+        _, rejected, _ = parse_batch(get_hit_id_dict(
+            f'mturk/abductive/mturk_data/creation/anli_annotation_examples_{i}.json',
+        )[1], anli_dataset)
+        
+        for eid, num in rejected.items():
+            if num == 0:
+                continue
+            elif num == 1:
+                one_assignment.append(eid)
+            elif num == 2:
+                two_assignments.append(eid)
+            elif num == 3:
+                three_assignments.append(eid)
+                
+    one_assignment_examples = [anli_dataset.get_example_by_id(a) for a in one_assignment]
+    two_assignment_examples = [anli_dataset.get_example_by_id(a) for a in two_assignments]
+    three_assignment_examples = [anli_dataset.get_example_by_id(a) for a in three_assignments]
+    print(len(one_assignment_examples), len(two_assignment_examples), len(three_assignment_examples))
+
+    # connect_and_post_abductive_hits(
+    #     split='anli_annotation_examples',
+    #     batch_name='anli_annotation_examples_repost_2.json', 
+    #     examples=two_assignment_examples,
+    #     requestor_note='second reposted batch of abductive examples',
+    #     max_assignments=2,
+    #     hit_type_id=None,
+    #     live_marketplace=False,
+    #     aws_access_key='AKIA3HQJKSL4YZUFYGQ4',
+    #     aws_secret_access_key='51DNsHKAT+SiThFybgaEIZS8YT1sJyHt6zsNLSHE'
+    # )
+
