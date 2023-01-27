@@ -2,6 +2,7 @@ from modeling.roberta.models import DefeasibleTrainedModel
 from annotated_data.annotated_data import dnli_human_dataset_by_name
 from typing import List, Dict, Any, Tuple
 from defeasible_data import ParaphrasedDefeasibleNLIExample, DefeasibleNLIExample
+from defeasible_data import dnli_datasets
 from tqdm import tqdm
 import os
 from dataclasses import asdict
@@ -10,7 +11,7 @@ from utils import write_json, PROJECT_ROOT_DIR
 
 def bucket_predictions(
     examples: Dict[str, List[ParaphrasedDefeasibleNLIExample]], 
-    nli_model: DefeasibleNLIExample
+    nli_model: DefeasibleTrainedModel
 ) -> Dict[str, List[Dict[str, Any]]]:
     """
     Generates predictions using nli_model for a family of paraphrases, as well as the original
@@ -55,6 +56,25 @@ def bucket_predictions(
         }
     return buckets
 
+def test_set_evaluation(examples, nli_model: DefeasibleTrainedModel):
+    predictions = []
+
+    for example in tqdm(examples):
+        confidence = nli_model.predict( #grabs original example object for first example in the list
+            example.premise,
+            example.hypothesis,
+            example.update
+        )
+        predictions.append({
+            'confidence': confidence.tolist(),
+            'prediction': int(np.argmax(confidence)),
+            'label': example.label,
+            'example_id': example.example_id
+        })
+
+    return predictions
+    
+
 if __name__ == '__main__':
 
     for dataset_name, dataset in dnli_human_dataset_by_name.items():
@@ -64,8 +84,11 @@ if __name__ == '__main__':
             multiple_choice=False
         )
         
-        buckets = bucket_predictions(dataset, dataset_specific_dnli_model)
-        write_json(buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{dataset_name}/{dataset_name}_human_d-{dataset_name}-roberta-large.json'))
+        # buckets = bucket_predictions(dataset, dataset_specific_dnli_model)
+        # write_json(buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{dataset_name}/{dataset_name}_human_d-{dataset_name}-roberta-large.json'))
+
+        test_set_predictions_specialized = test_set_evaluation(dnli_datasets[dataset_name].test_examples, dataset_specific_dnli_model)
+        write_json(test_set_predictions_specialized, f'modeling/roberta/defeasible/results/{dataset_name}/{dataset_name}_test_set_d-{dataset_name}-roberta-large.json')
 
         general_dnli_model = DefeasibleTrainedModel(
             os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/chkpts/roberta-large-dnli'), 
@@ -73,5 +96,8 @@ if __name__ == '__main__':
             multiple_choice=False
         )
 
-        general_dnli_buckets = bucket_predictions(dataset, general_dnli_model)
-        write_json(general_dnli_buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{dataset_name}/{dataset_name}_human_dnli-roberta-large.json'))
+        # general_dnli_buckets = bucket_predictions(dataset, general_dnli_model)
+        # write_json(general_dnli_buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{dataset_name}/{dataset_name}_human_dnli-roberta-large.json'))
+
+        test_set_predictions_general = test_set_evaluation(dnli_datasets[dataset_name].test_examples, general_dnli_model)
+        write_json(test_set_predictions_general, f'modeling/roberta/defeasible/results/{dataset_name}/{dataset_name}_test_set_dnli-roberta-large.json')
