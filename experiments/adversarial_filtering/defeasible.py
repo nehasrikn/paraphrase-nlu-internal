@@ -2,6 +2,8 @@ from typing import List
 import numpy as np
 import plotly.express as px
 import pandas as pd
+from scipy.special import logsumexp
+
 
 EASY_PARTITION_THRESHOLD=0.75
 
