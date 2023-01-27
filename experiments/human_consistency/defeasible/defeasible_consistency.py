@@ -2,7 +2,7 @@ import json
 import pandas as pd
 import numpy as np
 import plotly.express as px
-
+from scipy.special import logsumexp
 from scipy.spatial import distance
 from itertools import combinations
 
@@ -43,15 +43,15 @@ def calculate_bucket_metadata(buckets):
         bucket_predictions = [c['prediction'] for c in bucket['bucket_confidences']]
         bucket_consistency = len([x for x in bucket_predictions if x == bucket['original_prediction']])/len(bucket_predictions)
 
-        all_paraphrase_pairs_js_distance_mean = get_all_pairs_jensen_shannon_mean_distance(bucket['bucket_confidences'])
+        #all_paraphrase_pairs_js_distance_mean = get_all_pairs_jensen_shannon_mean_distance(bucket['bucket_confidences'])
 
         metadata[ex_id] = {
             'bucket_confidence_mean': np.mean(confidences_in_correct_label),
             'bucket_confidence_var': np.var(confidences_in_correct_label),
             'original_confidence': bucket['original_confidence'][bucket['gold_label']],
             'bucket_consistency': bucket_consistency,
-            'all_paraphrase_pairs_js_distance_mean': all_paraphrase_pairs_js_distance_mean,
-            'mean_paraphrase_js_distance_from_original': get_mean_js_distance_from_original(bucket['bucket_confidences'], bucket['original_confidence'])
+            #'all_paraphrase_pairs_js_distance_mean': all_paraphrase_pairs_js_distance_mean,
+            #'mean_paraphrase_js_distance_from_original': get_mean_js_distance_from_original(bucket['bucket_confidences'], bucket['original_confidence'])
         }
     
     return metadata
