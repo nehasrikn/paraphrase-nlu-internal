@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 from scipy.special import logsumexp
 from scipy.spatial import distance
 from itertools import combinations
+from scipy.stats import pearsonr
 
 import os
 import sys
@@ -83,14 +84,11 @@ def plot_orig_v_bucket_conf(df, plot_title):
         color_continuous_scale='Burg',
         labels={
          "original_confidence": "Model Confidence: Original Example",
-         "conf_shift": "Shift (Mean Bucket Conf - Original Conf)",
+         "conf_shift": "Confidence Shift: Original Conf ➔ Bucket Mean",
+         "bucket_consistency": "Bucket Consistency",
         }
     )
     fig.update_traces(marker_sizemin=5, selector=dict(type='scatter'))
-
-    max_line = px.line(pd.DataFrame({'x': [0, 1], 'y': [1, 0]}), x="x", y="y")
-    max_line['data'][0]['line']['color']='rgb(0, 0, 0)'
-    fig['data'][0]['line']['width']=5
 
     fig.add_trace(go.Scatter(x=[0,1], y=[1,0], name=None, line=dict(color='green', width=1, dash='dot')))
     fig.add_trace(go.Scatter(x=[0,1], y=[0,-1], name=None, line=dict(color='green', width=1, dash='dot')))
@@ -98,6 +96,21 @@ def plot_orig_v_bucket_conf(df, plot_title):
     fig.update_xaxes(range=[-0.1, 1.1])
     fig.update_yaxes(range=[-1.1, 1.1])
 
+    stat, pvalue = pearsonr(df['original_confidence'], df['conf_shift'])
+    a = px.get_trendline_results(fig).px_fit_results.iloc[0].rsquared
+    
+    fig.add_annotation(x=1, y=0.75,
+            text="Pearson r=%0.2f" % (stat),
+            showarrow=False,
+            arrowhead=0)
+    fig.add_annotation(x=1, y=0.65,
+            text="pvalue=%0.2f" % (pvalue),
+            showarrow=False,
+            arrowhead=0)
+    fig.add_annotation(x=1, y=0.55,
+            text="R²=%0.2f" % (a),
+            showarrow=False,
+            arrowhead=0)
     fig.show()
 
 
