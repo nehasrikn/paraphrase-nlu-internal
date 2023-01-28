@@ -84,3 +84,11 @@ def termplot(data: List[Union[int, float]]):
     fig = tpl.figure()
     fig.hist(counts, bin_edges, orientation="horizontal", force_ascii=False)
     fig.show()
+
+def write_strings_to_file(strings, path):
+    if not path.startswith(PROJECT_ROOT_DIR):
+        path = os.path.join(PROJECT_ROOT_DIR, path)
+
+    with open(path, 'w') as f:
+        for string in strings:
+            f.write(string + '\n')

@@ -46,7 +46,7 @@ parser.add_argument("--encoder_type", type=str, default='InferSent', help="see l
 parser.add_argument("--enc_lstm_dim", type=int, default=2048, help="encoder nhid dimension")
 parser.add_argument("--n_enc_layers", type=int, default=1, help="encoder num layers")
 parser.add_argument("--fc_dim", type=int, default=512, help="nhid of fc layers")
-parser.add_argument("--n_classes", type=int, default=3, help="entailment/neutral/contradiction")
+parser.add_argument("--n_classes", type=int, default=2, help="entailment/neutral/contradiction")
 parser.add_argument("--pool_type", type=str, default='max', help="max or mean")
 
 # gpu
@@ -219,9 +219,9 @@ def trainepoch(epoch):
         #     last_time = time.time()
         #     words_count = 0
         #     all_costs = []
-    train_acc = round(100 * correct.item()/len(s1), 2)
-    print('results : epoch {0} ; mean accuracy train : {1}'
-          .format(epoch, train_acc))
+    train_acc = round(100 * correct.item()/len(s1), 5)
+    print('results : epoch {0} ; mean accuracy train : {1} ; loss : {2}'
+          .format(epoch, train_acc, sum(all_costs)))
     return train_acc
 
 
@@ -251,7 +251,7 @@ def evaluate(epoch, eval_type='valid', final_eval=False):
         correct += pred.long().eq(tgt_batch.data.long()).cpu().sum()
 
     # save model
-    eval_acc = round(100 * correct / len(s1), 2)
+    eval_acc = round(100 * correct.item() / len(s1), 5)
     if final_eval:
         print('finalgrep : accuracy {0} : {1}'.format(eval_type, eval_acc))
     else:
