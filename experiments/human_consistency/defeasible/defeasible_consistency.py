@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 from scipy.special import logsumexp
 from scipy.spatial import distance
 from itertools import combinations
+
 from scipy.stats import pearsonr
 
 import os
@@ -77,14 +78,16 @@ def plot_orig_v_bucket_conf(df, plot_title):
         df, 
         x="original_confidence", 
         y="conf_shift", 
-        title=plot_title,
+        #title=plot_title,
         trendline="ols",
         color='bucket_consistency',
         size='bucket_confidence_var',
+        width=800, 
+        height=400,
         color_continuous_scale='Burg',
         labels={
          "original_confidence": "Model Confidence: Original Example",
-         "conf_shift": "Confidence Shift: Original Conf ➔ Bucket Mean",
+         "conf_shift": "Conf Shift: Original ➔ Bucket Mean",
          "bucket_consistency": "Bucket Consistency",
         }
     )
@@ -93,25 +96,38 @@ def plot_orig_v_bucket_conf(df, plot_title):
     fig.add_trace(go.Scatter(x=[0,1], y=[1,0], name=None, line=dict(color='green', width=1, dash='dot')))
     fig.add_trace(go.Scatter(x=[0,1], y=[0,-1], name=None, line=dict(color='green', width=1, dash='dot')))
     fig.update(layout_showlegend=False)
-    fig.update_xaxes(range=[-0.1, 1.1])
+    fig.update_xaxes(range=[-0.025, 1.025])
     fig.update_yaxes(range=[-1.1, 1.1])
 
     stat, pvalue = pearsonr(df['original_confidence'], df['conf_shift'])
     a = px.get_trendline_results(fig).px_fit_results.iloc[0].rsquared
     
-    fig.add_annotation(x=1, y=0.75,
+    fig.add_annotation(x=0.53, y=1.0,
+            text=plot_title,
+            showarrow=False,
+            arrowhead=0,
+            font=dict(
+                #family="Inconsolata, monospace",
+                size=15,
+                #color="#8a435d"
+            ),
+    )
+
+    fig.add_annotation(x=0.9, y=0.8,
             text="Pearson r=%0.2f" % (stat),
             showarrow=False,
             arrowhead=0)
-    fig.add_annotation(x=1, y=0.65,
+    fig.add_annotation(x=0.9, y=0.7,
             text="pvalue=%0.2f" % (pvalue),
             showarrow=False,
             arrowhead=0)
-    fig.add_annotation(x=1, y=0.55,
+    fig.add_annotation(x=0.9, y=0.6,
             text="R²=%0.2f" % (a),
             showarrow=False,
             arrowhead=0)
-    fig.show()
+    #fig.show()
+    return fig
+    
 
 
 def plot_consistency_cdf(df, plot_title):
