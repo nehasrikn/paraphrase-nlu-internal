@@ -8,6 +8,7 @@
 import os
 import sys
 import time
+import json
 import argparse
 
 import numpy as np
@@ -299,4 +300,11 @@ evaluate(1e6, 'valid', True)
 evaluate(0, 'test', True)
 
 # Save encoder instead of full model
-torch.save(nli_net.encoder.state_dict(), os.path.join(params.outputdir, params.outputmodelname + '.encoder.pkl'))
+# torch.save(nli_net.encoder.state_dict(), os.path.join(params.outputdir, params.outputmodelname + '.encoder.pkl'))
+
+
+with open(params.outputdir + 'config_nli_model.json', 'w') as fp:
+    json.dump(config_nli_model, fp)
+
+with open(params.outputdir + 'params.json', 'w') as fp:
+    json.dump(vars(params), fp)

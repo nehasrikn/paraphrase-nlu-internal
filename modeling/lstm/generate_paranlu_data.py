@@ -58,4 +58,14 @@ def write_training_data_defeasible():
 write_training_data_defeasible()
 
 
+def write_training_data_abductive():
+    for dataset_name, dataset in dnli_datasets.items():
+        examples_to_data_lists(anli_dataset.train_examples, 'anli', 'train')
+        examples_to_data_lists(anli_dataset.dev_examples, 'anli', 'dev')
+        examples_to_data_lists(anli_dataset.test_examples, 'anli', 'test')
+
+        
+write_training_data_defeasible()
+
+
 
