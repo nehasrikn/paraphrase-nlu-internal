@@ -3,7 +3,7 @@ import os
 import numpy as np
 from typing import List, Any, Dict
 from dataclasses import asdict
-from utils import load_jsonlines, PROJECT_ROOT_DIR, write_jsonlines, clean_paraphrase, write_json
+from utils import load_jsonlines, PROJECT_ROOT_DIR, write_jsonlines, clean_paraphrase, write_json, load_json
 from abductive_data import ParaphrasedAbductiveNLIExample
 import pandas as pd
 from collections import defaultdict
@@ -49,8 +49,15 @@ def construct_gold_set_from_validation_annotation(
 )-> Dict[str, List[ParaphrasedAbductiveNLIExample]]:
     """
     Takes validated paraphrases through label studio and constructs a gold set
+    We ended up annotating more examples than we needed, so trim the gold set to the number of examples we need
+    to balance AF and non-AF examples.
     """
     all_paraphrases = {e['example_id']: e['paraphrased_examples'] for e in load_jsonlines(all_paraphrases)}
+    selected_examples = [e['example_id'] for e in load_json('data_selection/abductive/selected_examples.json')]
+    print(
+        'Total original examples annotated (due to pilot first, then AF-based sampling later)', len(all_paraphrases),
+        'Total examples in final abductive gold set', len(selected_examples)
+    )
     
     valid_paraphrases = process_label_studio_validations(label_studio_validated_paraphrases)
     
@@ -72,7 +79,11 @@ def construct_gold_set_from_validation_annotation(
             automatic_system_metadata=paraphrase_example['automatic_system_metadata']
         )))
     
-    write_json(gold_set, save_path)
+    write_json(gold_set, f'annotated_data/abductive/anli_paraphrases_human_large.json')
+    write_json(
+        {k: v for k, v in gold_set.items() if k in selected_examples}, 
+        f'annotated_data/abductive/anli_paraphrases_human.json'
+    )
     return gold_set
 
 
