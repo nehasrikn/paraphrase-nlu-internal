@@ -16,7 +16,7 @@ if module_path not in sys.path:
 
 from defeasible_data import DefeasibleNLIDataset, ParaphrasedDefeasibleNLIExample, DefeasibleNLIExample
 from annotated_data.annotated_data import dnli_human_dataset_by_name
-from experiments.human_consistency.defeasible.defeasible_consistency import calculate_bucket_metadata
+from experiments.human_consistency.consistency import calculate_bucket_metadata
 from utils import PROJECT_ROOT_DIR, load_json
 
 

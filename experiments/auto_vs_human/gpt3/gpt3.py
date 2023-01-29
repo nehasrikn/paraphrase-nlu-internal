@@ -53,7 +53,7 @@ def generate_paraphrases_defeasible(model, examples):
         update_paraphrases = set()
 
         for i in range(10): #10 sampling tries
-            update_para = gpt3.generate(example.update, temperature=1.0)
+            update_para = model.generate(example.update, temperature=1.0)
             update_paraphrases.add(update_para)
 
         example.annotated_paraphrases = []

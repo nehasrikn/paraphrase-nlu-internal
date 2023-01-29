@@ -20,6 +20,9 @@ class AbductiveNLIExample:
     modeling_label: Optional[int] # label - 1 (0 or 1) for modeling purposes
     annotated_paraphrases: List[Dict[str, List[str]]]
 
+    def __str__(self):
+        return f'Obs1: {self.obs1}\nObs2: {self.obs2}\nHyp1: {self.hyp1}\nHyp2: {self.hyp2}'
+
 @dataclass
 class ParaphrasedAbductiveNLIExample:
     paraphrase_id: str # # <example_id>.<UUID>.<Paraphrase_Num_hyp1>.<paraphrased_num_hyp2> for human, <example_id>.<system>.<identifiers> for generated
@@ -31,6 +34,9 @@ class ParaphrasedAbductiveNLIExample:
     obs1_paraphrase: Optional[str] = None
     obs2_paraphrase: Optional[str] = None
     automatic_system_metadata: Optional[Dict[Any, Any]] = None # can contain system-specific metadata
+
+    def __str__(self):
+        return f'Hyp1:{self.hyp1_paraphrase}\nHyp2:{self.hyp2_paraphrase}'
 
 
 class AbductiveNLIDataset:

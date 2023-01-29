@@ -71,3 +71,13 @@ dnli_human_dataset_by_name = {
 
 anli_human = load_anli_paraphrased_set('annotated_data/abductive/anli_paraphrases_human.json')
 
+para_nlu = {
+    'anli': anli_human,
+    'social': dnli_social_human,
+    'snli': dnli_snli_human,
+    'atomic': dnli_atomic_human
+}
+
+para_nlu_pretty_names = {'anli': 'α-NLI', 'social': 'δ-SOCIAL', 'snli': 'δ-SOCIAL', 'atomic': 'δ-ATOMIC'}
+
+
