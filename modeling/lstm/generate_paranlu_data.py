@@ -1,7 +1,7 @@
-from abductive_data import anli_dataset, AbductiveNLIExample
-from defeasible_data import DefeasibleNLIDataset, DefeasibleNLIExample, dnli_datasets
+from abductive_data import anli_dataset, AbductiveNLIExample, ParaphrasedAbductiveNLIExample
+from defeasible_data import DefeasibleNLIDataset, DefeasibleNLIExample, dnli_datasets, ParaphrasedDefeasibleNLIExample
 from nltk.tokenize import word_tokenize
-from typing import List, Set
+from typing import List, Set, Union
 from tqdm import tqdm
 from utils import load_json, write_strings_to_file
 import string
@@ -17,21 +17,50 @@ def tokenize(text: str) -> List[str]:
         text += '.'
     return " ".join(word_tokenize(text))
 
-def form_defeasible_example(ex: DefeasibleNLIExample) -> str:
-    s1 = DEFEASIBLE_S1_EXAMPLE_TEMPLATE.format(
-        premise=tokenize(ex.premise), hypothesis=tokenize(ex.hypothesis)
-    )
-    s2 = DEFEASIBLE_S2_EXAMPLE_TEMPLATE.format(update=tokenize(ex.update))
-    return s1, s2, ex.update_type
+def form_defeasible_example(ex: Union[DefeasibleNLIExample, ParaphrasedDefeasibleNLIExample], return_label=True) -> str:
+    if isinstance(ex, ParaphrasedDefeasibleNLIExample):
+        premise = ex.original_example.premise
+        hypothesis = ex.original_example.hypothesis
+        update = ex.update_paraphrase
+    elif isinstance(ex, DefeasibleNLIExample):
+        premise = ex.premise
+        hypothesis = ex.hypothesis
+        update = ex.update
+    else:
+        raise ValueError("ex must be either a DefeasibleNLIExample or a ParaphrasedDefeasibleNLIExample")
 
-def form_abductive_example(ex: AbductiveNLIExample) -> str:
+    s1 = DEFEASIBLE_S1_EXAMPLE_TEMPLATE.format(
+        premise=tokenize(premise), hypothesis=tokenize(hypothesis)
+    )
+    s2 = DEFEASIBLE_S2_EXAMPLE_TEMPLATE.format(update=tokenize(update))
+    if return_label:
+        return s1, s2, ex.update_type
+
+    return s1, s2
+
+
+def form_abductive_example(ex: Union[AbductiveNLIExample, ParaphrasedAbductiveNLIExample], return_label=True) -> str:
+    if isinstance(ex, ParaphrasedAbductiveNLIExample):
+        obs1 = ex.original_example.obs1
+        obs2 = ex.original_example.obs2
+        hyp1 = ex.hyp1_paraphrase
+        hyp2 = ex.hyp2_paraphrase
+    elif isinstance(ex, AbductiveNLIExample):
+        obs1 = ex.obs1
+        obs2 = ex.obs2
+        hyp1 = ex.hyp1
+        hyp2 = ex.hyp2
+
     s1 = ABDUCTIVE_S1_EXAMPLE_TEMPLATE.format(
-        obs1=tokenize(ex.obs1), hyp1=tokenize(ex.hyp1), obs2=tokenize(ex.obs2)
+        obs1=tokenize(obs1), hyp1=tokenize(hyp1), obs2=tokenize(obs2)
     )
     s2 = ABDUCTIVE_S2_EXAMPLE_TEMPLATE.format(
-        obs1=tokenize(ex.obs1), hyp2=tokenize(ex.hyp2), obs2=tokenize(ex.obs2)
+        obs1=tokenize(obs1), hyp2=tokenize(hyp2), obs2=tokenize(hyp2)
     )
-    return s1, s2, ex.label
+    if return_label:
+        return s1, s2, ex.label
+
+    return s1, s2
 
 def examples_to_data_lists(examples, dataset_name: str, split: str):
     s1_data, s2_data, labels = [], [], []
@@ -54,18 +83,6 @@ def write_training_data_defeasible():
         examples_to_data_lists(dataset.dev_examples, f'd-{dataset_name}', 'dev')
         examples_to_data_lists(dataset.test_examples, f'd-{dataset_name}', 'test')
 
-        
-write_training_data_defeasible()
 
-
-def write_training_data_abductive():
-    for dataset_name, dataset in dnli_datasets.items():
-        examples_to_data_lists(anli_dataset.train_examples, 'anli', 'train')
-        examples_to_data_lists(anli_dataset.dev_examples, 'anli', 'dev')
-        examples_to_data_lists(anli_dataset.test_examples, 'anli', 'test')
-
-        
-write_training_data_defeasible()
-
-
-
+if __name__ == '__main__':
+    write_training_data_defeasible()
