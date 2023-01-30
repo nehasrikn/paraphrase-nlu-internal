@@ -19,6 +19,6 @@ Paraphrase: At the drug store, she made a decision to purchase some self tanner 
 Sentence: One night she ate a lot of junk food and got sick.
 Paraphrase: Her stomach hurt badly when she gobbled up a bunch of unhealthy snacks before bed. 
 
-Sentence: %s
+Sentence: {sentence}
 Paraphrase:
 """

@@ -7,21 +7,24 @@ import numpy as np
 import json
 from tqdm import tqdm
 from experiments.auto_vs_human.gpt3.prompt import PARAPHRASE_PROMPT
-from experiments.auto_vs_human.parse_paraphrases import parse_validated_qcpg_paraphrases
-from defeasible_data import DefeasibleNLIExample
+from defeasible_data import DefeasibleNLIExample, ParaphrasedDefeasibleNLIExample, dnli_datasets
+from annotated_data.annotated_data import dnli_human_dataset_by_name
+from typing import List, Dict
+from utils import write_json
+from dataclasses import asdict
 
 OPENAI_KEY = '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'
 
-class GPT3Pipeline:
+
+class GPT3Paraphraser(object):
 
     def __init__(self, engine='davinci'):
         openai.api_key = OPENAI_KEY
-        self.prompt = PARAPHRASE_PROMPT
 
-    def generate(self, sentence, model='text-davinci-002', top_p=1, temperature=0, max_tokens=50):
+    def generate(self, text, model='text-davinci-002', top_p=1, temperature=0, max_tokens=50):
         paraphrase = openai.Completion.create(
             model=model,
-            prompt=self.prompt % sentence,
+            prompt=text,
             temperature=temperature,
             max_tokens=max_tokens,
             top_p=top_p,
@@ -36,9 +39,9 @@ def generate_paraphrases_abductive(model, examples, step=0.2):
         hyp2_paraphrases = set()
 
         for i in range(10): #10 sampling tries
-            step_hyp1 = gpt3.generate(example.hyp1, temperature=1.0)
+            step_hyp1 = model.generate(example.hyp1, temperature=1.0)
             hyp1_paraphrases.add(step_hyp1)
-            step_hyp2 = gpt3.generate(example.hyp2, temperature=1.0)
+            step_hyp2 = model.generate(example.hyp2, temperature=1.0)
             hyp2_paraphrases.add(step_hyp2)
 
         example.annotated_paraphrases.append({
@@ -48,20 +51,9 @@ def generate_paraphrases_abductive(model, examples, step=0.2):
             'hyp2_paraphrases': list(hyp2_paraphrases)
         })
 
-def generate_paraphrases_defeasible(model, examples):
-    for example in tqdm(examples):
-        update_paraphrases = set()
 
-        for i in range(10): #10 sampling tries
-            update_para = gpt3.generate(example.update, temperature=1.0)
-            update_paraphrases.add(update_para)
 
-        example.annotated_paraphrases = []
-        example.annotated_paraphrases.append({
-            'worker_id': 'gpt3',
-            'example_worker_id': 1,
-            'update_paraphrases': list(update_paraphrases),
-        })
+        
 
 def create_abduction_validation_tasks_from_gpt3_sweep(paraphrased_examples, outfile_prefix: str='experiments/auto_vs_human/gpt3/results'):
     hyp1_tasks = []
@@ -93,6 +85,10 @@ def create_abduction_validation_tasks_from_gpt3_sweep(paraphrased_examples, outf
     pd.DataFrame(hyp1_tasks).to_csv('%s/gpt3_paraphrases_hyp1.csv' % outfile_prefix, index=False)
     pd.DataFrame(hyp2_tasks).to_csv('%s/gpt3_paraphrases_hyp2.csv' % outfile_prefix, index=False)
 
+
+
+
+
 def create_defeasible_validation_tasks_from_gpt3_sweep(paraphrased_examples, outfile_prefix: str='experiments/auto_vs_human/gpt3/results/defeasible'):
     tasks = []
     for e in tqdm(paraphrased_examples):
@@ -117,14 +113,17 @@ if __name__== '__main__':
     # print(len(validated_auto_examples))
     
     # defeasible_examples = [DefeasibleNLIExample(**e) for e in json.load(open('data_selection/defeasible/stratified_selected_defeasible_examples.json', 'r'))]
-    # gpt3 = GPT3Pipeline()
+    gpt3 = GPT3Paraphraser()
     
-    # generate_paraphrases_abductive(gpt3, validated_auto_examples)
-    # generate_paraphrases_defeasible(gpt3, defeasible_examples)
+    paraphrases = generate_paraphrases_defeasible(gpt3, [
+        dnli_datasets['social'].get_example_by_id(i) for i in dnli_human_dataset_by_name['social'].keys()
+    ])
+
+    write_json(paraphrases, 'experiments/auto_vs_human/gpt3/results/defeasible/gpt3_social_paraphrases.json')
 
     # with open("experiments/auto_vs_human/gpt3/results/defeasible/gpt3_sweep.dat", "wb") as f:
     #     pickle.dump(defeasible_examples, f)
 
-    defeasible_examples_paraphrased = pickle.load(open('experiments/auto_vs_human/gpt3/results/defeasible/gpt3_sweep.dat', 'rb'))
-    print(defeasible_examples_paraphrased[0])
-    create_defeasible_validation_tasks_from_gpt3_sweep(defeasible_examples_paraphrased)
+    # defeasible_examples_paraphrased = pickle.load(open('experiments/auto_vs_human/gpt3/results/defeasible/gpt3_sweep.dat', 'rb'))
+    # print(defeasible_examples_paraphrased[0])
+    # create_defeasible_validation_tasks_from_gpt3_sweep(defeasible_examples_paraphrased)

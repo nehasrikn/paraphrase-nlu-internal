@@ -3,77 +3,77 @@ import pandas as pd
 from collections import defaultdict
 from copy import deepcopy
 from typing import List
-from abductive_data import AbductiveNLIExample, AnnotatedAbductiveSet
+from abductive_data import AbductiveNLIExample
 
 
-def parse_validated_qcpg_paraphrases(
-    hyp1_validation_tasks_file: str = 'experiments/auto_vs_human/qcpg/results/qcpg_paraphrases_hyp1_validated.csv', 
-    hyp2_validation_tasks_file: str = 'experiments/auto_vs_human/qcpg/results/qcpg_paraphrases_hyp2_validated.csv'
-) -> List[AbductiveNLIExample]:
+# def parse_validated_qcpg_paraphrases(
+#     hyp1_validation_tasks_file: str = 'experiments/auto_vs_human/qcpg/results/qcpg_paraphrases_hyp1_validated.csv', 
+#     hyp2_validation_tasks_file: str = 'experiments/auto_vs_human/qcpg/results/qcpg_paraphrases_hyp2_validated.csv'
+# ) -> List[AbductiveNLIExample]:
     
-    hyp1_validated = pd.read_csv(hyp1_validation_tasks_file)  
-    hyp2_validated = pd.read_csv(hyp2_validation_tasks_file)
+#     hyp1_validated = pd.read_csv(hyp1_validation_tasks_file)  
+#     hyp2_validated = pd.read_csv(hyp2_validation_tasks_file)
 
-    examples = {}
+#     examples = {}
     
-    for i, example in hyp1_validated.iterrows():
-        if example.original_example_id in examples.keys():
-            if example.hyp1_paraphrase_invalid == 'valid':
-                examples[example.original_example_id].annotated_paraphrases[0]['hyp1_paraphrases'].append(example.hyp1_paraphrase)
-        else:
-            examples[example.original_example_id] = AbductiveNLIExample(
-                story_id=None,
-                example_id=example.original_example_id,
-                split='test',
-                obs1=example.obs1, 
-                obs2=example.obs2,
-                hyp1=example.hyp1,
-                hyp2=example.hyp2, 
-                label=example.label,
-                annotated_paraphrases=[{
-                    'worker_id': 'qcpg',
-                    'example_worker_id': 0,
-                    'hyp1_paraphrases': [example.hyp1] if example.hyp1_paraphrase_invalid == 'valid' else [],
-                    'hyp2_paraphrases': []
-                }]
-            )
-    for i, example in hyp2_validated.iterrows():
-        if example.hyp2_paraphrase_invalid == 'valid':
-            examples[example.original_example_id].annotated_paraphrases[0]['hyp2_paraphrases'].append(example.hyp2_paraphrase)
+#     for i, example in hyp1_validated.iterrows():
+#         if example.original_example_id in examples.keys():
+#             if example.hyp1_paraphrase_invalid == 'valid':
+#                 examples[example.original_example_id].annotated_paraphrases[0]['hyp1_paraphrases'].append(example.hyp1_paraphrase)
+#         else:
+#             examples[example.original_example_id] = AbductiveNLIExample(
+#                 story_id=None,
+#                 example_id=example.original_example_id,
+#                 split='test',
+#                 obs1=example.obs1, 
+#                 obs2=example.obs2,
+#                 hyp1=example.hyp1,
+#                 hyp2=example.hyp2, 
+#                 label=example.label,
+#                 annotated_paraphrases=[{
+#                     'worker_id': 'qcpg',
+#                     'example_worker_id': 0,
+#                     'hyp1_paraphrases': [example.hyp1] if example.hyp1_paraphrase_invalid == 'valid' else [],
+#                     'hyp2_paraphrases': []
+#                 }]
+#             )
+#     for i, example in hyp2_validated.iterrows():
+#         if example.hyp2_paraphrase_invalid == 'valid':
+#             examples[example.original_example_id].annotated_paraphrases[0]['hyp2_paraphrases'].append(example.hyp2_paraphrase)
         
-    return list(examples.values())
+#     return list(examples.values())
 
-def parse_validated_gpt3_paraphrases(
-    existing_validated_paraphrases: List[AbductiveNLIExample],
-    hyp1_validation_tasks_file: str = 'experiments/auto_vs_human/gpt3/results/gpt3_paraphrases_hyp1_validated.csv', 
-    hyp2_validation_tasks_file: str = 'experiments/auto_vs_human/gpt3/results/gpt3_paraphrases_hyp2_validated.csv'
-): 
-    examples = {}
-    for e in existing_validated_paraphrases:
-        e.annotated_paraphrases.append({
-            'worker_id': 'gpt3',
-            'example_worker_id': 1,
-            'hyp1_paraphrases': [],
-            'hyp2_paraphrases': []
-        })
-        examples[e.example_id] = e
+# def parse_validated_gpt3_paraphrases(
+#     existing_validated_paraphrases: List[AbductiveNLIExample],
+#     hyp1_validation_tasks_file: str = 'experiments/auto_vs_human/gpt3/results/gpt3_paraphrases_hyp1_validated.csv', 
+#     hyp2_validation_tasks_file: str = 'experiments/auto_vs_human/gpt3/results/gpt3_paraphrases_hyp2_validated.csv'
+# ): 
+#     examples = {}
+#     for e in existing_validated_paraphrases:
+#         e.annotated_paraphrases.append({
+#             'worker_id': 'gpt3',
+#             'example_worker_id': 1,
+#             'hyp1_paraphrases': [],
+#             'hyp2_paraphrases': []
+#         })
+#         examples[e.example_id] = e
 
 
-    for _, h1 in pd.read_csv(hyp1_validation_tasks_file).iterrows():
-        if h1.hyp1_paraphrase_invalid == 'valid':
-            examples[h1.original_example_id].annotated_paraphrases[1]['hyp1_paraphrases'].append(h1.hyp1_paraphrase)
+#     for _, h1 in pd.read_csv(hyp1_validation_tasks_file).iterrows():
+#         if h1.hyp1_paraphrase_invalid == 'valid':
+#             examples[h1.original_example_id].annotated_paraphrases[1]['hyp1_paraphrases'].append(h1.hyp1_paraphrase)
     
-    for _, h2 in pd.read_csv(hyp2_validation_tasks_file).iterrows():
-        if h2.hyp2_paraphrase_invalid == 'valid':
-            examples[h2.original_example_id].annotated_paraphrases[1]['hyp2_paraphrases'].append(h2.hyp2_paraphrase)
+#     for _, h2 in pd.read_csv(hyp2_validation_tasks_file).iterrows():
+#         if h2.hyp2_paraphrase_invalid == 'valid':
+#             examples[h2.original_example_id].annotated_paraphrases[1]['hyp2_paraphrases'].append(h2.hyp2_paraphrase)
     
-    return list(examples.values())
+#     return list(examples.values())
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
 
-    validated = parse_validated_gpt3_paraphrases(parse_validated_qcpg_paraphrases())
+#     validated = parse_validated_gpt3_paraphrases(parse_validated_qcpg_paraphrases())
     
-    for e in validated:
-        print(e.annotated_paraphrases)
+#     for e in validated:
+#         print(e.annotated_paraphrases)
    

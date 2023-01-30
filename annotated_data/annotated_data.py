@@ -64,10 +64,20 @@ dnli_snli_human = load_defeasible_paraphrased_set('annotated_data/defeasible/snl
 dnli_atomic_human = load_defeasible_paraphrased_set('annotated_data/defeasible/atomic/atomic_paraphrases_human.json')
 
 dnli_human_dataset_by_name = {
-    'social': dnli_social_human,
     'snli': dnli_snli_human,
-    'atomic': dnli_atomic_human
+    'atomic': dnli_atomic_human,
+    'social': dnli_social_human
 }
 
 anli_human = load_anli_paraphrased_set('annotated_data/abductive/anli_paraphrases_human.json')
+
+para_nlu = {
+    'anli': anli_human,
+    'snli': dnli_snli_human,
+    'atomic': dnli_atomic_human,
+    'social': dnli_social_human,
+}
+
+para_nlu_pretty_names = {'anli': 'α-NLI', 'social': 'δ-SOCIAL', 'snli': 'δ-SOCIAL', 'atomic': 'δ-ATOMIC'}
+
 
