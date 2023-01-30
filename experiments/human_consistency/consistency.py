@@ -177,9 +177,10 @@ def plot_consistency_cdf(df, plot_title):
 
 def calculate_weighted_consistency(paraphrase_predictions, test_set_predictions=None, show_test_distribution=False):
     metadata = construct_bucket_metadata(paraphrase_predictions)
+    accuracy = get_original_example_prediction_accuracy(paraphrase_predictions)
     
     if not test_set_predictions:
-        return {'mean_consistency': np.mean(metadata.bucket_consistency)}
+        return {'accuracy': accuracy, 'mean_consistency': np.mean(metadata.bucket_consistency)}
     
     test_set_confidences = [
         p['confidence'][p['label']] for p in test_set_predictions
@@ -207,12 +208,12 @@ def calculate_weighted_consistency(paraphrase_predictions, test_set_predictions=
         weighted_bucket_consistences.append(confidence_densities[int(10*decile)] * np.mean(decile_consistences))
 
     return {
+        'accuracy': accuracy,
         'mean_consistency': np.mean(metadata.bucket_consistency),
         'weighted_consistency': sum(weighted_bucket_consistences)
     }
 
 def plot_buckets(name: str, bucket_preds: Dict[str, List[str]]):
-    print('Original Prediction Accuracy:', get_original_example_prediction_accuracy(bucket_preds))
     metadata = construct_bucket_metadata(bucket_preds)
     plot = plot_orig_v_bucket_conf(metadata, name)
     return plot
