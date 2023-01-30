@@ -173,7 +173,12 @@ def plot_consistency_cdf(df, plot_title):
     fig.show()
 
 
-def calculate_weighted_consistency(paraphrase_predictions, test_set_predictions, show_test_distribution=False):
+def calculate_weighted_consistency(paraphrase_predictions, test_set_predictions=None, show_test_distribution=False):
+    metadata = construct_bucket_metadata(paraphrase_predictions)
+    
+    if not test_set_predictions:
+        return {'mean_consistency': np.mean(metadata.bucket_consistency)}
+    
     test_set_confidences = [
         p['confidence'][p['label']] for p in test_set_predictions
     ]
@@ -190,8 +195,6 @@ def calculate_weighted_consistency(paraphrase_predictions, test_set_predictions,
         )
         fig.show()
     
-    metadata = construct_bucket_metadata(paraphrase_predictions)
-    
     ranges = defaultdict(list)
     
     for _, row in metadata.iterrows():
@@ -202,7 +205,7 @@ def calculate_weighted_consistency(paraphrase_predictions, test_set_predictions,
         weighted_bucket_consistences.append(confidence_densities[int(10*decile)] * np.mean(decile_consistences))
 
     return {
-        'weighted_consistency': sum(weighted_bucket_consistences), 
-        'mean_consistency': np.mean(metadata.bucket_consistency)
+        'mean_consistency': np.mean(metadata.bucket_consistency),
+        'weighted_consistency': sum(weighted_bucket_consistences)
     }
     
