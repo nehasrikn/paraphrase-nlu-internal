@@ -100,7 +100,7 @@ def plot_orig_v_bucket_conf(df, plot_title):
         labels={
          "original_confidence": "Model Confidence: Original Example",
          "conf_shift": "Conf Shift: Original ➔ Bucket Mean",
-         "bucket_consistency": "Bucket Consistency",
+         "bucket_consistency": "consistency",
         }
     )
     fig.update_traces(marker_sizemin=5, selector=dict(type='scatter'))
@@ -108,8 +108,19 @@ def plot_orig_v_bucket_conf(df, plot_title):
     fig.add_trace(go.Scatter(x=[0,1], y=[1,0], name=None, line=dict(color='green', width=1, dash='dot')))
     fig.add_trace(go.Scatter(x=[0,1], y=[0,-1], name=None, line=dict(color='green', width=1, dash='dot')))
     fig.update(layout_showlegend=False)
+    fig.update_layout(legend=dict(orientation="h"))
     fig.update_xaxes(range=[-0.025, 1.025])
     fig.update_yaxes(range=[-1.1, 1.1])
+
+    fig.update_layout(
+        coloraxis_colorbar_orientation = 'h', 
+        coloraxis_colorbar_len = 0.2,
+        coloraxis_colorbar_thickness=10,
+        coloraxis_colorbar_x=0.2,
+        coloraxis_colorbar_y=0.05,
+        coloraxis_colorbar_title_side='top'
+    )
+
 
     stat, pvalue = pearsonr(df['original_confidence'], df['conf_shift'])
     a = px.get_trendline_results(fig).px_fit_results.iloc[0].rsquared
