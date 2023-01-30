@@ -8,7 +8,7 @@ from scipy.spatial import distance
 from itertools import combinations
 from collections import defaultdict
 from data_selection.data_selection_utils import float_floor
-
+from typing import List, Dict
 from scipy.stats import pearsonr
 
 import os
@@ -26,7 +26,8 @@ dnli_human_bucket_predictions = {k: {
     'unified_roberta': load_json(f'modeling/roberta/defeasible/results/{k}/{k}_human_dnli-roberta-large.json'),
     'specialized_full_input_lexical': load_json(f'modeling/fasttext/defeasible/results/{k}/{k}_human_d-{k}-full_input_lexical.json'),
     'specialized_partial_input_lexical': load_json(f'modeling/fasttext/defeasible/results/{k}/{k}_human_d-{k}-partial_input_lexical.json'),
-    'gpt3-curie': load_json(f'modeling/gpt3/defeasible/results/{k}/{k}_human_gpt3-text-curie-001_processed.json')
+    'gpt3-curie': load_json(f'modeling/gpt3/defeasible/results/{k}/{k}_human_gpt3-text-curie-001_processed.json'),
+    'bilstm': load_json(f'modeling/lstm/defeasible/results/{k}/{k}_human_d-{k}-bilstm.json'),
 } for k in dnli_human_dataset_by_name.keys()}
 
 anli_human_bucket_predictions = {
@@ -38,6 +39,7 @@ dnli_test_set_predictions = {k: {
     'unified_roberta': load_json(f'modeling/roberta/defeasible/results/{k}/{k}_test_set_dnli-roberta-large.json'),
     'specialized_full_input_lexical': load_json(f'modeling/fasttext/defeasible/results/{k}/{k}_test_set_d-{k}-full_input_lexical.json'),
     'specialized_partial_input_lexical': load_json(f'modeling/fasttext/defeasible/results/{k}/{k}_test_set_d-{k}-partial_input_lexical.json'),
+    'bilstm': load_json(f'modeling/lstm/defeasible/results/{k}/{k}_test_set_d-{k}-bilstm.json'),
 } for k in dnli_human_dataset_by_name.keys()}
 
 anli_test_set_predictions = {
@@ -208,4 +210,9 @@ def calculate_weighted_consistency(paraphrase_predictions, test_set_predictions=
         'mean_consistency': np.mean(metadata.bucket_consistency),
         'weighted_consistency': sum(weighted_bucket_consistences)
     }
-    
+
+def plot_buckets(name: str, bucket_preds: Dict[str, List[str]]):
+    print('Original Prediction Accuracy:', get_original_example_prediction_accuracy(bucket_preds))
+    metadata = construct_bucket_metadata(bucket_preds)
+    plot = plot_orig_v_bucket_conf(metadata, name)
+    return plot
