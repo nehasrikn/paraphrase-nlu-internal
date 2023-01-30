@@ -86,28 +86,29 @@ def process_gpt3_paraphrases(paraphrases: Dict[str, List[str]], dataset):
         original_example = dataset.get_example_by_id(k)
         bucket = []
         for i, p in enumerate(v):
-            bucket.append(ParaphrasedDefeasibleNLIExample(
+            bucket.append(asdict(ParaphrasedDefeasibleNLIExample(
                 paraphrase_id='%s.gpt3.%d' % (k, i),
                 original_example=asdict(original_example),
                 original_example_id=k,
                 update_paraphrase=p,
                 worker_id='gpt3',
                 automatic_system_metadata={'model': 'text-davinci-002', 'temperature': 1.0, 'top_p': 1.0, 'max_tokens': 50}
-            ))
+            )))
         paraphrased_dataset[k] = bucket
     return paraphrased_dataset
 
 if __name__== '__main__':
-    gpt3 = GPT3Paraphraser()
+    # gpt3 = GPT3Paraphraser()
     
-    paraphrases = generate_paraphrases(gpt3, [
-        dnli_datasets['atomic'].get_example_by_id(i) for i in dnli_human_dataset_by_name['atomic'].keys()
-    ])
+    # paraphrases = generate_paraphrases(gpt3, [
+    #     dnli_datasets['atomic'].get_example_by_id(i) for i in dnli_human_dataset_by_name['atomic'].keys()
+    # ])
 
-    write_json(paraphrases, 'experiments/auto_vs_human/gpt3/defeasible/results/unvalidated_generation_results/gpt3_atomic_paraphrases.json')
+    # write_json(paraphrases, 'experiments/auto_vs_human/gpt3/defeasible/results/unvalidated_generation_results/raw_generation/gpt3_atomic_paraphrases.json')
     
+    paraphrased_dataset = process_gpt3_paraphrases(load_json('experiments/auto_vs_human/gpt3/defeasible/results/unvalidated_generation_results/raw_generation/gpt3_snli_paraphrases.json'), dnli_datasets['snli'])
+    write_json(paraphrased_dataset, 'experiments/auto_vs_human/gpt3/defeasible/results/unvalidated_generation_results/snli_paraphrases.json')
     export_paraphrases_to_label_studio_format(
-        process_gpt3_paraphrases(load_json('experiments/auto_vs_human/gpt3/defeasible/results/unvalidated_generation_results/gpt3_atomic_paraphrases.json'), 
-        dnli_datasets['atomic']),
+        paraphrased_dataset,
         os.path.join(PROJECT_ROOT_DIR, 'experiments/auto_vs_human/gpt3/defeasible/results/validation_source_files/gpt3_atomic_paraphrases.csv')
     )
