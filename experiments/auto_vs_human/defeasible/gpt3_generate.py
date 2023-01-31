@@ -92,7 +92,7 @@ def process_gpt3_paraphrases(paraphrases: Dict[str, List[str]], dataset):
                 original_example_id=k,
                 update_paraphrase=p,
                 worker_id='gpt3',
-                automatic_system_metadata={'model': 'text-davinci-002', 'temperature': 1.0, 'top_p': 1.0, 'max_tokens': 50}
+                automatic_system_metadata={'model': 'text-davinci-002', 'temperature': 1.0, 'top_p': 1.0, 'max_tokens': 25}
             )))
         paraphrased_dataset[k] = bucket
     return paraphrased_dataset

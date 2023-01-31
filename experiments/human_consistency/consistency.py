@@ -68,6 +68,7 @@ def calculate_bucket_metadata(buckets):
         metadata[ex_id] = {
             'bucket_confidence_mean': np.mean(confidences_in_correct_label),
             'bucket_confidence_var': np.var(confidences_in_correct_label),
+            'bucket_confidence_std': np.std(confidences_in_correct_label),
             'original_confidence': bucket['original_confidence'][bucket['gold_label']],
             'bucket_consistency': bucket_consistency,
             'conf_shift': np.mean(confidences_in_correct_label) - bucket['original_confidence'][bucket['gold_label']],
@@ -94,18 +95,31 @@ def plot_orig_v_bucket_conf(df, plot_title):
         #title=plot_title,
         trendline="ols",
         color='bucket_consistency',
-        size='bucket_confidence_var',
         width=800, 
         height=400,
         color_continuous_scale='Burg',
-        hover_data=['example_id'],
+        hover_data=['example_id', 'bucket_confidence_std'],
         labels={
          "original_confidence": "Model Confidence: Original Example",
          "conf_shift": "Conf Shift: Original ➔ Bucket Mean",
          "bucket_consistency": "consistency",
         }
     )
-    fig.update_traces(marker_sizemin=5, selector=dict(type='scatter'))
+    
+    max_size=5
+    size_col = df["bucket_confidence_std"]*2
+
+    sizeref = size_col.max() / max_size ** 2
+
+    fig.update_traces(
+        marker=dict(
+            sizemode="diameter",
+            sizeref=sizeref,
+            sizemin=5,
+            size=list(size_col),
+        ), 
+        selector=dict(type='scatter')
+    )
 
     fig.add_trace(go.Scatter(x=[0,1], y=[1,0], name=None, line=dict(color='green', width=1, dash='dot')))
     fig.add_trace(go.Scatter(x=[0,1], y=[0,-1], name=None, line=dict(color='green', width=1, dash='dot')))

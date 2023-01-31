@@ -34,36 +34,6 @@ class QualityControlPipeline:
 
 
 
-
-
-# def generate_paraphrases(model, examples, lexical_range, syntactic_range, semantic_range, step=0.05):
-#     paraphrased_examples = []
-#     for e in tqdm(examples):
-#         for lexical in np.arange(lexical_range[0], lexical_range[1], step):
-#             for syntactic in np.arange(syntactic_range[0], syntactic_range[1], step):
-#                 for semantic in np.arange(semantic_range[0], semantic_range[1], step):
-#                     lex = np.round(lexical, 2)
-#                     syn = np.round(syntactic, 2)
-#                     sem = np.round(semantic, 2)
-
-#                     h1 = model(e.hyp1, lexical=lex, syntactic=syn, semantic=sem)
-#                     h2 = model(e.hyp2, lexical=lex, syntactic=syn, semantic=sem)
-                    
-#                     paraphrased_examples.append(
-#                         ParaphrasedAbductiveNLIExample(
-#                             paraphrase_id='%d.%s.%.2f.%.2f.%.2f' % (e.example_id, 'qcpg', lex, syn, sem),
-#                             original_example_id=e.example_id,
-#                             original_example=e,
-#                             hyp1_paraphrase=h1[0]['generated_text'], 
-#                             hyp2_paraphrase=h2[0]['generated_text'],
-#                             automatic_system_metadata={'lexical': lex, 'syntactic': syn, 'semantic': sem}
-#                         )
-#                     )
-    
-#     return paraphrased_examples
-
-
-
 if __name__ == '__main__':
 
     model = QualityControlPipeline('sentences')
