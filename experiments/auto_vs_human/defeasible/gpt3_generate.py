@@ -108,6 +108,7 @@ if __name__== '__main__':
     
     paraphrased_dataset = process_gpt3_paraphrases(load_json('experiments/auto_vs_human/gpt3/defeasible/results/unvalidated_generation_results/raw_generation/gpt3_snli_paraphrases.json'), dnli_datasets['snli'])
     write_json(paraphrased_dataset, 'experiments/auto_vs_human/gpt3/defeasible/results/unvalidated_generation_results/snli_paraphrases.json')
+    
     export_paraphrases_to_label_studio_format(
         paraphrased_dataset,
         os.path.join(PROJECT_ROOT_DIR, 'experiments/auto_vs_human/gpt3/defeasible/results/validation_source_files/gpt3_atomic_paraphrases.csv')

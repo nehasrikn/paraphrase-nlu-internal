@@ -1,0 +1,5248 @@
+paraphrase_example,original_example_id,paraphrase_id
+"Paraphrase ID: social.train.36765.qcpg.0
+
+    Premise: 
+    Hypothesis: You should be nice to everyone.
+    Update: Under the care of a team of doctors.
+    Update Type: strengthener
+
+    Paraphrase: Under a medical team.
+    ",social.train.36765,social.train.36765.qcpg.0
+"Paraphrase ID: social.train.68689.qcpg.0
+
+    Premise: 
+    Hypothesis: It's not okay to do something that could hurt people that depend on you.
+    Update: You are doing it for your own selfish desires.
+    Update Type: strengthener
+
+    Paraphrase: You do it for your selfish selfish selfish selfish purpose.
+    ",social.train.68689,social.train.68689.qcpg.0
+"Paraphrase ID: social.train.68689.qcpg.1
+
+    Premise: 
+    Hypothesis: It's not okay to do something that could hurt people that depend on you.
+    Update: You are doing it for your own selfish desires.
+    Update Type: strengthener
+
+    Paraphrase: You do it for your selfish selfish selfish purpose.
+    ",social.train.68689,social.train.68689.qcpg.1
+"Paraphrase ID: social.train.31427.qcpg.0
+
+    Premise: 
+    Hypothesis: It is ok to be upset if someone gives you food that causes an allergic reaction.
+    Update: The person was a restaurant server.
+    Update Type: strengthener
+
+    Paraphrase: It was a restaurant server.
+    ",social.train.31427,social.train.31427.qcpg.0
+"Paraphrase ID: social.train.26351.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't be a parent if you're terminally ill.
+    Update: You became pregnant after your terminal diagnosis.
+    Update Type: strengthener
+
+    Paraphrase: You were pregnant after you had a terminal diagnosis.
+    ",social.train.26351,social.train.26351.qcpg.0
+"Paraphrase ID: social.train.26351.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't be a parent if you're terminally ill.
+    Update: You became pregnant after your terminal diagnosis.
+    Update Type: strengthener
+
+    Paraphrase: You've been pregnant since the end of your diagnosis.
+    ",social.train.26351,social.train.26351.qcpg.1
+"Paraphrase ID: social.train.26351.qcpg.2
+
+    Premise: 
+    Hypothesis: You shouldn't be a parent if you're terminally ill.
+    Update: You became pregnant after your terminal diagnosis.
+    Update Type: strengthener
+
+    Paraphrase: You've been pregnant since your terminal diagnosis.
+    ",social.train.26351,social.train.26351.qcpg.2
+"Paraphrase ID: social.train.5865.qcpg.0
+
+    Premise: 
+    Hypothesis: It is good to call people out for cheating.
+    Update: there is a cash reward for winning.
+    Update Type: strengthener
+
+    Paraphrase: A win is rewarded.
+    ",social.train.5865,social.train.5865.qcpg.0
+"Paraphrase ID: social.train.5865.qcpg.1
+
+    Premise: 
+    Hypothesis: It is good to call people out for cheating.
+    Update: there is a cash reward for winning.
+    Update Type: strengthener
+
+    Paraphrase: A win is cash reward.
+    ",social.train.5865,social.train.5865.qcpg.1
+"Paraphrase ID: social.train.609.qcpg.0
+
+    Premise: 
+    Hypothesis: It is expected that a surrogate father would be unwanted if they might be harmful to a mother and child.
+    Update: The mother wants to raise her child with her same sex lover as the other parent.
+    Update Type: strengthener
+
+    Paraphrase: Mother wants her baby with the same sex loved one of her other parents.
+    ",social.train.609,social.train.609.qcpg.0
+"Paraphrase ID: social.train.609.qcpg.1
+
+    Premise: 
+    Hypothesis: It is expected that a surrogate father would be unwanted if they might be harmful to a mother and child.
+    Update: The mother wants to raise her child with her same sex lover as the other parent.
+    Update Type: strengthener
+
+    Paraphrase: Mother wants her baby with the same sex love.
+    ",social.train.609,social.train.609.qcpg.1
+"Paraphrase ID: social.train.74031.qcpg.0
+
+    Premise: 
+    Hypothesis: It's understandable to want to save money that you could use for other things.
+    Update: You are thinking about purchasing something on impulse, that you did not plan to purchase.
+    Update Type: strengthener
+
+    Paraphrase: You want to buy something on impulse, not on your own.
+    ",social.train.74031,social.train.74031.qcpg.0
+"Paraphrase ID: social.train.74031.qcpg.1
+
+    Premise: 
+    Hypothesis: It's understandable to want to save money that you could use for other things.
+    Update: You are thinking about purchasing something on impulse, that you did not plan to purchase.
+    Update Type: strengthener
+
+    Paraphrase: You want to buy something from an impulse, not a plan to buy.
+    ",social.train.74031,social.train.74031.qcpg.1
+"Paraphrase ID: social.train.15494.qcpg.0
+
+    Premise: 
+    Hypothesis: It is wrong to start a new relationship until the previous one has clearly ended.
+    Update: you're overwhelmed by your emotions.
+    Update Type: weakener
+
+    Paraphrase: Your emotions are shattered.
+    ",social.train.15494,social.train.15494.qcpg.0
+"Paraphrase ID: social.train.56478.qcpg.0
+
+    Premise: 
+    Hypothesis: It is okay to confront others you see doing wrong
+    Update: People could get hurt.
+    Update Type: weakener
+
+    Paraphrase: Humans are hurt.
+    ",social.train.56478,social.train.56478.qcpg.0
+"Paraphrase ID: social.train.56478.qcpg.1
+
+    Premise: 
+    Hypothesis: It is okay to confront others you see doing wrong
+    Update: People could get hurt.
+    Update Type: weakener
+
+    Paraphrase: Humans are bound to be hurt.
+    ",social.train.56478,social.train.56478.qcpg.1
+"Paraphrase ID: social.train.56478.qcpg.2
+
+    Premise: 
+    Hypothesis: It is okay to confront others you see doing wrong
+    Update: People could get hurt.
+    Update Type: weakener
+
+    Paraphrase: Humans are liable to be injured.
+    ",social.train.56478,social.train.56478.qcpg.2
+"Paraphrase ID: social.train.56478.qcpg.3
+
+    Premise: 
+    Hypothesis: It is okay to confront others you see doing wrong
+    Update: People could get hurt.
+    Update Type: weakener
+
+    Paraphrase: Humans are vulnerable.
+    ",social.train.56478,social.train.56478.qcpg.3
+"Paraphrase ID: social.train.4299.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to assume the motives of another person.
+    Update: You could ask the person what their motives are.
+    Update Type: strengthener
+
+    Paraphrase: You can ask him why they want to do it.
+    ",social.train.4299,social.train.4299.qcpg.0
+"Paraphrase ID: social.train.4299.qcpg.1
+
+    Premise: 
+    Hypothesis: It's wrong to assume the motives of another person.
+    Update: You could ask the person what their motives are.
+    Update Type: strengthener
+
+    Paraphrase: You ask him why they want to ask.
+    ",social.train.4299,social.train.4299.qcpg.1
+"Paraphrase ID: social.train.4299.qcpg.2
+
+    Premise: 
+    Hypothesis: It's wrong to assume the motives of another person.
+    Update: You could ask the person what their motives are.
+    Update Type: strengthener
+
+    Paraphrase: You're welcome to ask him what's their interest.
+    ",social.train.4299,social.train.4299.qcpg.2
+"Paraphrase ID: social.train.4299.qcpg.3
+
+    Premise: 
+    Hypothesis: It's wrong to assume the motives of another person.
+    Update: You could ask the person what their motives are.
+    Update Type: strengthener
+
+    Paraphrase: You ask him why.
+    ",social.train.4299,social.train.4299.qcpg.3
+"Paraphrase ID: social.train.34914.qcpg.0
+
+    Premise: 
+    Hypothesis: You should turn off something if someone keeps turning it back on.
+    Update: It is not your property.
+    Update Type: weakener
+
+    Paraphrase: This isn't your property.
+    ",social.train.34914,social.train.34914.qcpg.0
+"Paraphrase ID: social.train.68686.qcpg.0
+
+    Premise: 
+    Hypothesis: It's not okay to do something that could hurt people that depend on you.
+    Update: it was by accident.
+    Update Type: weakener
+
+    Paraphrase: It was an accident.
+    ",social.train.68686,social.train.68686.qcpg.0
+"Paraphrase ID: social.train.68686.qcpg.1
+
+    Premise: 
+    Hypothesis: It's not okay to do something that could hurt people that depend on you.
+    Update: it was by accident.
+    Update Type: weakener
+
+    Paraphrase: It's just by accident.
+    ",social.train.68686,social.train.68686.qcpg.1
+"Paraphrase ID: social.train.8512.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to be fed up with somebody.
+    Update: You're fed up with a trivial matter.
+    Update Type: weakener
+
+    Paraphrase: You have a lot of trivial stuff.
+    ",social.train.8512,social.train.8512.qcpg.0
+"Paraphrase ID: social.train.6407.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't do things that cause your parents to become so angry that they behave irrationally
+    Update: you know you are doing something wrong and don't stop.
+    Update Type: strengthener
+
+    Paraphrase: You know you're doing a bad thing, and you can't stop it.
+    ",social.train.6407,social.train.6407.qcpg.0
+"Paraphrase ID: social.train.6407.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't do things that cause your parents to become so angry that they behave irrationally
+    Update: you know you are doing something wrong and don't stop.
+    Update Type: strengthener
+
+    Paraphrase: You know you're doing a little wrong, and you can't stop it.
+    ",social.train.6407,social.train.6407.qcpg.1
+"Paraphrase ID: social.train.6407.qcpg.2
+
+    Premise: 
+    Hypothesis: You shouldn't do things that cause your parents to become so angry that they behave irrationally
+    Update: you know you are doing something wrong and don't stop.
+    Update Type: strengthener
+
+    Paraphrase: You know you're doing a bad thing, and you're not going to stop
+    ",social.train.6407,social.train.6407.qcpg.2
+"Paraphrase ID: social.train.53987.qcpg.0
+
+    Premise: 
+    Hypothesis: It's good to pull your weight when you are part of a team.
+    Update: your team is already short handed.
+    Update Type: strengthener
+
+    Paraphrase: Your team's short-handed.
+    ",social.train.53987,social.train.53987.qcpg.0
+"Paraphrase ID: social.train.50366.qcpg.0
+
+    Premise: 
+    Hypothesis: It's good to respect and celebrate loved ones' individual life choices.
+    Update: they are poor ones
+    Update Type: weakener
+
+    Paraphrase: They're poor.
+    ",social.train.50366,social.train.50366.qcpg.0
+"Paraphrase ID: social.train.50366.qcpg.1
+
+    Premise: 
+    Hypothesis: It's good to respect and celebrate loved ones' individual life choices.
+    Update: they are poor ones
+    Update Type: weakener
+
+    Paraphrase: It's poor.
+    ",social.train.50366,social.train.50366.qcpg.1
+"Paraphrase ID: social.train.19273.qcpg.0
+
+    Premise: 
+    Hypothesis: Family is expected to keep in contact.
+    Update: The family members must be apart for a long time.
+    Update Type: strengthener
+
+    Paraphrase: Family members have to be left for a long time.
+    ",social.train.19273,social.train.19273.qcpg.0
+"Paraphrase ID: social.train.19273.qcpg.1
+
+    Premise: 
+    Hypothesis: Family is expected to keep in contact.
+    Update: The family members must be apart for a long time.
+    Update Type: strengthener
+
+    Paraphrase: Family members need to stay a long time.
+    ",social.train.19273,social.train.19273.qcpg.1
+"Paraphrase ID: social.train.19273.qcpg.2
+
+    Premise: 
+    Hypothesis: Family is expected to keep in contact.
+    Update: The family members must be apart for a long time.
+    Update Type: strengthener
+
+    Paraphrase: Family members have to stay for a long time.
+    ",social.train.19273,social.train.19273.qcpg.2
+"Paraphrase ID: social.train.19273.qcpg.3
+
+    Premise: 
+    Hypothesis: Family is expected to keep in contact.
+    Update: The family members must be apart for a long time.
+    Update Type: strengthener
+
+    Paraphrase: Family members have to stay a long time.
+    ",social.train.19273,social.train.19273.qcpg.3
+"Paraphrase ID: social.train.19017.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to want privacy.
+    Update: you don't have anything to hide.
+    Update Type: strengthener
+
+    Paraphrase: You have nothing to hide.
+    ",social.train.19017,social.train.19017.qcpg.0
+"Paraphrase ID: social.train.19017.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to want privacy.
+    Update: you don't have anything to hide.
+    Update Type: strengthener
+
+    Paraphrase: There's nothing you can hide.
+    ",social.train.19017,social.train.19017.qcpg.1
+"Paraphrase ID: social.train.48806.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to want privacy.
+    Update: You live in a dorm room with three other people.
+    Update Type: weakener
+
+    Paraphrase: You're living at the Dorm Room with 3 people.
+    ",social.train.48806,social.train.48806.qcpg.0
+"Paraphrase ID: social.train.48806.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to want privacy.
+    Update: You live in a dorm room with three other people.
+    Update Type: weakener
+
+    Paraphrase: You're living at Dorm with 3 people.
+    ",social.train.48806,social.train.48806.qcpg.1
+"Paraphrase ID: social.train.49328.qcpg.0
+
+    Premise: 
+    Hypothesis: It is bad to keep low wages.
+    Update: It equals the federal minimum wage.
+    Update Type: weakener
+
+    Paraphrase: Equals Federal Minimum Wages.
+    ",social.train.49328,social.train.49328.qcpg.0
+"Paraphrase ID: social.train.49328.qcpg.1
+
+    Premise: 
+    Hypothesis: It is bad to keep low wages.
+    Update: It equals the federal minimum wage.
+    Update Type: weakener
+
+    Paraphrase: That's equal to Federal Minimum Wages.
+    ",social.train.49328,social.train.49328.qcpg.1
+"Paraphrase ID: social.train.21137.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay if things don't work out between you and a partner even if it might seem like something little to the other person.
+    Update: The other person has been cheating.
+    Update Type: strengthener
+
+    Paraphrase: Another person was cheating.
+    ",social.train.21137,social.train.21137.qcpg.0
+"Paraphrase ID: social.train.21137.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay if things don't work out between you and a partner even if it might seem like something little to the other person.
+    Update: The other person has been cheating.
+    Update Type: strengthener
+
+    Paraphrase: Another person cheated.
+    ",social.train.21137,social.train.21137.qcpg.1
+"Paraphrase ID: social.train.68685.qcpg.0
+
+    Premise: 
+    Hypothesis: It's not okay to do something that could hurt people that depend on you.
+    Update: the people that your actions put in danger are your own children.
+    Update Type: strengthener
+
+    Paraphrase: People who are in danger are your kids.
+    ",social.train.68685,social.train.68685.qcpg.0
+"Paraphrase ID: social.train.71239.qcpg.0
+
+    Premise: 
+    Hypothesis: Partners should keep their hands to themselves.
+    Update: One partner is much stronger than the other.
+    Update Type: strengthener
+
+    Paraphrase: One partner's more powerful than others.
+    ",social.train.71239,social.train.71239.qcpg.0
+"Paraphrase ID: social.train.71239.qcpg.1
+
+    Premise: 
+    Hypothesis: Partners should keep their hands to themselves.
+    Update: One partner is much stronger than the other.
+    Update Type: strengthener
+
+    Paraphrase: One of the partners is stronger.
+    ",social.train.71239,social.train.71239.qcpg.1
+"Paraphrase ID: social.train.71239.qcpg.2
+
+    Premise: 
+    Hypothesis: Partners should keep their hands to themselves.
+    Update: One partner is much stronger than the other.
+    Update Type: strengthener
+
+    Paraphrase: One of the partners is stronger than others.
+    ",social.train.71239,social.train.71239.qcpg.2
+"Paraphrase ID: social.train.53400.qcpg.0
+
+    Premise: 
+    Hypothesis: Giving your friend the cold shoulder without explanation is mean.
+    Update: they have not apologized.
+    Update Type: weakener
+
+    Paraphrase: They're not sorry.
+    ",social.train.53400,social.train.53400.qcpg.0
+"Paraphrase ID: social.train.53400.qcpg.1
+
+    Premise: 
+    Hypothesis: Giving your friend the cold shoulder without explanation is mean.
+    Update: they have not apologized.
+    Update Type: weakener
+
+    Paraphrase: No apology they're making.
+    ",social.train.53400,social.train.53400.qcpg.1
+"Paraphrase ID: social.train.53400.qcpg.2
+
+    Premise: 
+    Hypothesis: Giving your friend the cold shoulder without explanation is mean.
+    Update: they have not apologized.
+    Update Type: weakener
+
+    Paraphrase: They never apologise.
+    ",social.train.53400,social.train.53400.qcpg.2
+"Paraphrase ID: social.train.80251.qcpg.0
+
+    Premise: 
+    Hypothesis: It is normal to have arguments.
+    Update: The two are married.
+    Update Type: strengthener
+
+    Paraphrase: They're married.
+    ",social.train.80251,social.train.80251.qcpg.0
+"Paraphrase ID: social.train.80251.qcpg.1
+
+    Premise: 
+    Hypothesis: It is normal to have arguments.
+    Update: The two are married.
+    Update Type: strengthener
+
+    Paraphrase: They're both married.
+    ",social.train.80251,social.train.80251.qcpg.1
+"Paraphrase ID: social.train.21118.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't tell your classmate what to do.
+    Update: They were in the bathroom during instructions.
+    Update Type: weakener
+
+    Paraphrase: They were waiting for us at the bathroom.
+    ",social.train.21118,social.train.21118.qcpg.0
+"Paraphrase ID: social.train.21118.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't tell your classmate what to do.
+    Update: They were in the bathroom during instructions.
+    Update Type: weakener
+
+    Paraphrase: They were bathed when I gave instructions.
+    ",social.train.21118,social.train.21118.qcpg.1
+"Paraphrase ID: social.train.21118.qcpg.2
+
+    Premise: 
+    Hypothesis: You shouldn't tell your classmate what to do.
+    Update: They were in the bathroom during instructions.
+    Update Type: weakener
+
+    Paraphrase: They've been in the bathroom for my orders.
+    ",social.train.21118,social.train.21118.qcpg.2
+"Paraphrase ID: social.train.21118.qcpg.3
+
+    Premise: 
+    Hypothesis: You shouldn't tell your classmate what to do.
+    Update: They were in the bathroom during instructions.
+    Update Type: weakener
+
+    Paraphrase: They had been in the bathroom when we had been instructed.
+    ",social.train.21118,social.train.21118.qcpg.3
+"Paraphrase ID: social.train.21118.qcpg.4
+
+    Premise: 
+    Hypothesis: You shouldn't tell your classmate what to do.
+    Update: They were in the bathroom during instructions.
+    Update Type: weakener
+
+    Paraphrase: They're at the bathroom when we got instructions.
+    ",social.train.21118,social.train.21118.qcpg.4
+"Paraphrase ID: social.train.52416.qcpg.0
+
+    Premise: 
+    Hypothesis: It can be very rewarding to complete a job on your own.
+    Update: You are easily frustrated.
+    Update Type: weakener
+
+    Paraphrase: You can easily be disappointed.
+    ",social.train.52416,social.train.52416.qcpg.0
+"Paraphrase ID: social.train.52416.qcpg.1
+
+    Premise: 
+    Hypothesis: It can be very rewarding to complete a job on your own.
+    Update: You are easily frustrated.
+    Update Type: weakener
+
+    Paraphrase: It's easy to frustration you.
+    ",social.train.52416,social.train.52416.qcpg.1
+"Paraphrase ID: social.train.52416.qcpg.2
+
+    Premise: 
+    Hypothesis: It can be very rewarding to complete a job on your own.
+    Update: You are easily frustrated.
+    Update Type: weakener
+
+    Paraphrase: You can be easily frustrated.
+    ",social.train.52416,social.train.52416.qcpg.2
+"Paraphrase ID: social.train.52416.qcpg.3
+
+    Premise: 
+    Hypothesis: It can be very rewarding to complete a job on your own.
+    Update: You are easily frustrated.
+    Update Type: weakener
+
+    Paraphrase: It's easy to be frustrated.
+    ",social.train.52416,social.train.52416.qcpg.3
+"Paraphrase ID: social.train.32480.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't use your bright lights when other cars are around.
+    Update: it is very foggy and you can't see.
+    Update Type: weakener
+
+    Paraphrase: It's very foggy, you know.
+    ",social.train.32480,social.train.32480.qcpg.0
+"Paraphrase ID: social.train.32480.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't use your bright lights when other cars are around.
+    Update: it is very foggy and you can't see.
+    Update Type: weakener
+
+    Paraphrase: It's very foggy and invisible.
+    ",social.train.32480,social.train.32480.qcpg.1
+"Paraphrase ID: social.train.32480.qcpg.2
+
+    Premise: 
+    Hypothesis: You shouldn't use your bright lights when other cars are around.
+    Update: it is very foggy and you can't see.
+    Update Type: weakener
+
+    Paraphrase: It's foggy, you know.
+    ",social.train.32480,social.train.32480.qcpg.2
+"Paraphrase ID: social.train.32480.qcpg.3
+
+    Premise: 
+    Hypothesis: You shouldn't use your bright lights when other cars are around.
+    Update: it is very foggy and you can't see.
+    Update Type: weakener
+
+    Paraphrase: It's foggy and invisible.
+    ",social.train.32480,social.train.32480.qcpg.3
+"Paraphrase ID: social.train.33957.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to have a life of your own.
+    Update: You spend a lot of time working and have very little free time.
+    Update Type: strengthener
+
+    Paraphrase: You're spending too long. You're short on time.
+    ",social.train.33957,social.train.33957.qcpg.0
+"Paraphrase ID: social.train.33957.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to have a life of your own.
+    Update: You spend a lot of time working and have very little free time.
+    Update Type: strengthener
+
+    Paraphrase: You're working very long, you're short on time.
+    ",social.train.33957,social.train.33957.qcpg.1
+"Paraphrase ID: social.train.33957.qcpg.2
+
+    Premise: 
+    Hypothesis: It's okay to have a life of your own.
+    Update: You spend a lot of time working and have very little free time.
+    Update Type: strengthener
+
+    Paraphrase: You're spending too long. You're very short on time.
+    ",social.train.33957,social.train.33957.qcpg.2
+"Paraphrase ID: social.train.32481.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't use your bright lights when other cars are around.
+    Update: you are on the freeway.
+    Update Type: strengthener
+
+    Paraphrase: You're on freeway.
+    ",social.train.32481,social.train.32481.qcpg.0
+"Paraphrase ID: social.train.32481.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't use your bright lights when other cars are around.
+    Update: you are on the freeway.
+    Update Type: strengthener
+
+    Paraphrase: You're freeway.
+    ",social.train.32481,social.train.32481.qcpg.1
+"Paraphrase ID: social.train.11397.qcpg.0
+
+    Premise: 
+    Hypothesis: It's not okay to do things for one person then not do them for another.
+    Update: you are just mowing the lawn.
+    Update Type: strengthener
+
+    Paraphrase: You mowed the lawn.
+    ",social.train.11397,social.train.11397.qcpg.0
+"Paraphrase ID: social.train.68684.qcpg.0
+
+    Premise: 
+    Hypothesis: It's not okay to do something that could hurt people that depend on you.
+    Update: the most likely outcome will really help the people that depend on you.
+    Update Type: weakener
+
+    Paraphrase: The most likely outcome is to help people who rely on you.
+    ",social.train.68684,social.train.68684.qcpg.0
+"Paraphrase ID: social.train.68684.qcpg.1
+
+    Premise: 
+    Hypothesis: It's not okay to do something that could hurt people that depend on you.
+    Update: the most likely outcome will really help the people that depend on you.
+    Update Type: weakener
+
+    Paraphrase: Probably the result helps people who rely on you.
+    ",social.train.68684,social.train.68684.qcpg.1
+"Paraphrase ID: social.train.68684.qcpg.2
+
+    Premise: 
+    Hypothesis: It's not okay to do something that could hurt people that depend on you.
+    Update: the most likely outcome will really help the people that depend on you.
+    Update Type: weakener
+
+    Paraphrase: Probably the results will help people counting on you.
+    ",social.train.68684,social.train.68684.qcpg.2
+"Paraphrase ID: social.train.68684.qcpg.3
+
+    Premise: 
+    Hypothesis: It's not okay to do something that could hurt people that depend on you.
+    Update: the most likely outcome will really help the people that depend on you.
+    Update Type: weakener
+
+    Paraphrase: Probably the results will help people who rely on you.
+    ",social.train.68684,social.train.68684.qcpg.3
+"Paraphrase ID: social.train.14467.qcpg.0
+
+    Premise: 
+    Hypothesis: It's good to tell someone to slow down if they are going too fast.
+    Update: They are in a speed trap.
+    Update Type: strengthener
+
+    Paraphrase: They're fast-trapped.
+    ",social.train.14467,social.train.14467.qcpg.0
+"Paraphrase ID: social.train.14467.qcpg.1
+
+    Premise: 
+    Hypothesis: It's good to tell someone to slow down if they are going too fast.
+    Update: They are in a speed trap.
+    Update Type: strengthener
+
+    Paraphrase: It's a speed trap.
+    ",social.train.14467,social.train.14467.qcpg.1
+"Paraphrase ID: social.train.30755.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to plan an event on someone else's special day.
+    Update: you were gonna be with that person on their special day.
+    Update Type: strengthener
+
+    Paraphrase: You'll be with this guy on their special day.
+    ",social.train.30755,social.train.30755.qcpg.0
+"Paraphrase ID: social.train.30755.qcpg.1
+
+    Premise: 
+    Hypothesis: It is rude to plan an event on someone else's special day.
+    Update: you were gonna be with that person on their special day.
+    Update Type: strengthener
+
+    Paraphrase: You were going to be with this guy for a very special day.
+    ",social.train.30755,social.train.30755.qcpg.1
+"Paraphrase ID: social.train.30755.qcpg.2
+
+    Premise: 
+    Hypothesis: It is rude to plan an event on someone else's special day.
+    Update: you were gonna be with that person on their special day.
+    Update Type: strengthener
+
+    Paraphrase: You'll be with this guy for a special day.
+    ",social.train.30755,social.train.30755.qcpg.2
+"Paraphrase ID: social.train.30755.qcpg.3
+
+    Premise: 
+    Hypothesis: It is rude to plan an event on someone else's special day.
+    Update: you were gonna be with that person on their special day.
+    Update Type: strengthener
+
+    Paraphrase: You were going to be with this guy for a special day.
+    ",social.train.30755,social.train.30755.qcpg.3
+"Paraphrase ID: social.train.51504.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude if you expect a tip and say something to your customer about it.
+    Update: you think the customer made an honest mistake.
+    Update Type: weakener
+
+    Paraphrase: You're thinking that the client's making a big mistake.
+    ",social.train.51504,social.train.51504.qcpg.0
+"Paraphrase ID: social.train.51504.qcpg.1
+
+    Premise: 
+    Hypothesis: It is rude if you expect a tip and say something to your customer about it.
+    Update: you think the customer made an honest mistake.
+    Update Type: weakener
+
+    Paraphrase: Think that client was wrong.
+    ",social.train.51504,social.train.51504.qcpg.1
+"Paraphrase ID: social.train.2916.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't shelter your mentally disabled child.
+    Update: Other children bully your child because of their disability.
+    Update Type: weakener
+
+    Paraphrase: Other kids are raping your kids for having disabilities.
+    ",social.train.2916,social.train.2916.qcpg.0
+"Paraphrase ID: social.train.2916.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't shelter your mentally disabled child.
+    Update: Other children bully your child because of their disability.
+    Update Type: weakener
+
+    Paraphrase: Other kids bully your kids for their infirmity.
+    ",social.train.2916,social.train.2916.qcpg.1
+"Paraphrase ID: social.train.19142.qcpg.0
+
+    Premise: 
+    Hypothesis: It's expected to set rules for you child.
+    Update: the other parent has done so and you agree with their rules
+    Update Type: weakener
+
+    Paraphrase: Other parents do this and you agree with their rules.
+    ",social.train.19142,social.train.19142.qcpg.0
+"Paraphrase ID: social.train.19142.qcpg.1
+
+    Premise: 
+    Hypothesis: It's expected to set rules for you child.
+    Update: the other parent has done so and you agree with their rules
+    Update Type: weakener
+
+    Paraphrase: The other parents did this and you agreed to their rules.
+    ",social.train.19142,social.train.19142.qcpg.1
+"Paraphrase ID: social.train.19142.qcpg.2
+
+    Premise: 
+    Hypothesis: It's expected to set rules for you child.
+    Update: the other parent has done so and you agree with their rules
+    Update Type: weakener
+
+    Paraphrase: Other parents do this and you agree on their rules.
+    ",social.train.19142,social.train.19142.qcpg.2
+"Paraphrase ID: social.train.19142.qcpg.3
+
+    Premise: 
+    Hypothesis: It's expected to set rules for you child.
+    Update: the other parent has done so and you agree with their rules
+    Update Type: weakener
+
+    Paraphrase: Other parents do that and you agree with their rules.
+    ",social.train.19142,social.train.19142.qcpg.3
+"Paraphrase ID: social.train.41755.qcpg.0
+
+    Premise: 
+    Hypothesis: It's ok to not want a loved one to get a tattoo.
+    Update: You still support your loved one despite your feelings.
+    Update Type: strengthener
+
+    Paraphrase: You still support your loved one, no matter what you thought.
+    ",social.train.41755,social.train.41755.qcpg.0
+"Paraphrase ID: social.train.41755.qcpg.1
+
+    Premise: 
+    Hypothesis: It's ok to not want a loved one to get a tattoo.
+    Update: You still support your loved one despite your feelings.
+    Update Type: strengthener
+
+    Paraphrase: You still support your loved one, no matter what you think.
+    ",social.train.41755,social.train.41755.qcpg.1
+"Paraphrase ID: social.train.41755.qcpg.2
+
+    Premise: 
+    Hypothesis: It's ok to not want a loved one to get a tattoo.
+    Update: You still support your loved one despite your feelings.
+    Update Type: strengthener
+
+    Paraphrase: You still support your loved one, despite your emotions.
+    ",social.train.41755,social.train.41755.qcpg.2
+"Paraphrase ID: social.train.41758.qcpg.0
+
+    Premise: 
+    Hypothesis: It's ok to not want a loved one to get a tattoo.
+    Update: it is for selfish reasons.
+    Update Type: weakener
+
+    Paraphrase: This is selfish.
+    ",social.train.41758,social.train.41758.qcpg.0
+"Paraphrase ID: social.train.41758.qcpg.1
+
+    Premise: 
+    Hypothesis: It's ok to not want a loved one to get a tattoo.
+    Update: it is for selfish reasons.
+    Update Type: weakener
+
+    Paraphrase: It's selfish.
+    ",social.train.41758,social.train.41758.qcpg.1
+"Paraphrase ID: social.train.21138.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay if things don't work out between you and a partner even if it might seem like something little to the other person.
+    Update: You told that person that thing didn't bother you in the first place.
+    Update Type: weakener
+
+    Paraphrase: You said not to bother you.
+    ",social.train.21138,social.train.21138.qcpg.0
+"Paraphrase ID: social.train.49520.qcpg.0
+
+    Premise: 
+    Hypothesis: It is good to not take on too much debt.
+    Update: You make enough money to pay it all off easily.
+    Update Type: weakener
+
+    Paraphrase: You've got enough cash to pay it easily.
+    ",social.train.49520,social.train.49520.qcpg.0
+"Paraphrase ID: social.train.49520.qcpg.1
+
+    Premise: 
+    Hypothesis: It is good to not take on too much debt.
+    Update: You make enough money to pay it all off easily.
+    Update Type: weakener
+
+    Paraphrase: You're making a lot of money to pay easily.
+    ",social.train.49520,social.train.49520.qcpg.1
+"Paraphrase ID: social.train.12698.qcpg.0
+
+    Premise: 
+    Hypothesis: It's ok if you're not in the mood to go over to someone's house.
+    Update: You said you would.
+    Update Type: weakener
+
+    Paraphrase: You told me yes.
+    ",social.train.12698,social.train.12698.qcpg.0
+"Paraphrase ID: social.train.12698.qcpg.1
+
+    Premise: 
+    Hypothesis: It's ok if you're not in the mood to go over to someone's house.
+    Update: You said you would.
+    Update Type: weakener
+
+    Paraphrase: You've told me yes.
+    ",social.train.12698,social.train.12698.qcpg.1
+"Paraphrase ID: social.train.75324.qcpg.0
+
+    Premise: 
+    Hypothesis: It's understandable to be upset when someone lies to you.
+    Update: they lied because they care about you
+    Update Type: weakener
+
+    Paraphrase: They lie about you.
+    ",social.train.75324,social.train.75324.qcpg.0
+"Paraphrase ID: social.train.30753.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to plan an event on someone else's special day.
+    Update: The other person is your best friend.
+    Update Type: strengthener
+
+    Paraphrase: Another is your best friend.
+    ",social.train.30753,social.train.30753.qcpg.0
+"Paraphrase ID: social.train.51502.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude if you expect a tip and say something to your customer about it.
+    Update: You are close friends with the customer.
+    Update Type: weakener
+
+    Paraphrase: You're close customers.
+    ",social.train.51502,social.train.51502.qcpg.0
+"Paraphrase ID: social.train.51502.qcpg.1
+
+    Premise: 
+    Hypothesis: It is rude if you expect a tip and say something to your customer about it.
+    Update: You are close friends with the customer.
+    Update Type: weakener
+
+    Paraphrase: You're a very close friend of yours.
+    ",social.train.51502,social.train.51502.qcpg.1
+"Paraphrase ID: social.train.2914.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't shelter your mentally disabled child.
+    Update: They're prone to outbursts of rage towards others.
+    Update Type: weakener
+
+    Paraphrase: They tend to rage with others.
+    ",social.train.2914,social.train.2914.qcpg.0
+"Paraphrase ID: social.train.2914.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't shelter your mentally disabled child.
+    Update: They're prone to outbursts of rage towards others.
+    Update Type: weakener
+
+    Paraphrase: They tend to anger others.
+    ",social.train.2914,social.train.2914.qcpg.1
+"Paraphrase ID: social.train.76920.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to always use your parent's money for things.
+    Update: You are too young to seek employment.
+    Update Type: weakener
+
+    Paraphrase: You're too young in order to get a job.
+    ",social.train.76920,social.train.76920.qcpg.0
+"Paraphrase ID: social.train.76920.qcpg.1
+
+    Premise: 
+    Hypothesis: It's wrong to always use your parent's money for things.
+    Update: You are too young to seek employment.
+    Update Type: weakener
+
+    Paraphrase: You're too young. You want to get a job.
+    ",social.train.76920,social.train.76920.qcpg.1
+"Paraphrase ID: social.train.21136.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay if things don't work out between you and a partner even if it might seem like something little to the other person.
+    Update: You are very religious and don't believe in divorce.
+    Update Type: weakener
+
+    Paraphrase: You're religious. You're not religious. You're not religious.
+    ",social.train.21136,social.train.21136.qcpg.0
+"Paraphrase ID: social.train.21136.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay if things don't work out between you and a partner even if it might seem like something little to the other person.
+    Update: You are very religious and don't believe in divorce.
+    Update Type: weakener
+
+    Paraphrase: You're religious, you're not divorced.
+    ",social.train.21136,social.train.21136.qcpg.1
+"Paraphrase ID: social.train.20674.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to cancel an job interview.
+    Update: You are too lazy to get out of bed.
+    Update Type: weakener
+
+    Paraphrase: You're too lazy sleep.
+    ",social.train.20674,social.train.20674.qcpg.0
+"Paraphrase ID: social.train.7309.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to expect to stay over at your friend's place for the night.
+    Update: You live across the street.
+    Update Type: strengthener
+
+    Paraphrase: You're living on the other side of the street.
+    ",social.train.7309,social.train.7309.qcpg.0
+"Paraphrase ID: social.train.7309.qcpg.1
+
+    Premise: 
+    Hypothesis: It's wrong to expect to stay over at your friend's place for the night.
+    Update: You live across the street.
+    Update Type: strengthener
+
+    Paraphrase: Your lives are on the other side of the street.
+    ",social.train.7309,social.train.7309.qcpg.1
+"Paraphrase ID: social.train.31422.qcpg.0
+
+    Premise: 
+    Hypothesis: It is ok to be upset if someone gives you food that causes an allergic reaction.
+    Update: You do not eat it and give it back.
+    Update Type: weakener
+
+    Paraphrase: You don't eat and you're going back.
+    ",social.train.31422,social.train.31422.qcpg.0
+"Paraphrase ID: social.train.31422.qcpg.1
+
+    Premise: 
+    Hypothesis: It is ok to be upset if someone gives you food that causes an allergic reaction.
+    Update: You do not eat it and give it back.
+    Update Type: weakener
+
+    Paraphrase: You don't have any food and you're going back.
+    ",social.train.31422,social.train.31422.qcpg.1
+"Paraphrase ID: social.train.31422.qcpg.2
+
+    Premise: 
+    Hypothesis: It is ok to be upset if someone gives you food that causes an allergic reaction.
+    Update: You do not eat it and give it back.
+    Update Type: weakener
+
+    Paraphrase: You don't eat and return.
+    ",social.train.31422,social.train.31422.qcpg.2
+"Paraphrase ID: social.train.31422.qcpg.3
+
+    Premise: 
+    Hypothesis: It is ok to be upset if someone gives you food that causes an allergic reaction.
+    Update: You do not eat it and give it back.
+    Update Type: weakener
+
+    Paraphrase: You don't have any food and return it.
+    ",social.train.31422,social.train.31422.qcpg.3
+"Paraphrase ID: social.train.31422.qcpg.4
+
+    Premise: 
+    Hypothesis: It is ok to be upset if someone gives you food that causes an allergic reaction.
+    Update: You do not eat it and give it back.
+    Update Type: weakener
+
+    Paraphrase: You don't eat and you're back.
+    ",social.train.31422,social.train.31422.qcpg.4
+"Paraphrase ID: social.train.20267.qcpg.0
+
+    Premise: 
+    Hypothesis: It is mean to kick someone out of a friend group.
+    Update: It would cause a lot of emotional duress to the person being shunned.
+    Update Type: strengthener
+
+    Paraphrase: That's going to cause emotional pressure to shut him down.
+    ",social.train.20267,social.train.20267.qcpg.0
+"Paraphrase ID: social.train.20267.qcpg.1
+
+    Premise: 
+    Hypothesis: It is mean to kick someone out of a friend group.
+    Update: It would cause a lot of emotional duress to the person being shunned.
+    Update Type: strengthener
+
+    Paraphrase: That causes emotional pressure to suppress him.
+    ",social.train.20267,social.train.20267.qcpg.1
+"Paraphrase ID: social.train.20267.qcpg.2
+
+    Premise: 
+    Hypothesis: It is mean to kick someone out of a friend group.
+    Update: It would cause a lot of emotional duress to the person being shunned.
+    Update Type: strengthener
+
+    Paraphrase: That's going to cause emotional pain to this person to be shut down.
+    ",social.train.20267,social.train.20267.qcpg.2
+"Paraphrase ID: social.train.75322.qcpg.0
+
+    Premise: 
+    Hypothesis: It's understandable to be upset when someone lies to you.
+    Update: They set you up with an intervention.
+    Update Type: weakener
+
+    Paraphrase: They're introducing you an intervention.
+    ",social.train.75322,social.train.75322.qcpg.0
+"Paraphrase ID: social.train.25290.qcpg.0
+
+    Premise: 
+    Hypothesis: It's not polite to push your wishes on your partner.
+    Update: You usually accommodate what they want, but this issue is especially important to you.
+    Update Type: weakener
+
+    Paraphrase: You're welcome to whatever they want, but you're in particular drawn to it.
+    ",social.train.25290,social.train.25290.qcpg.0
+"Paraphrase ID: social.train.25290.qcpg.1
+
+    Premise: 
+    Hypothesis: It's not polite to push your wishes on your partner.
+    Update: You usually accommodate what they want, but this issue is especially important to you.
+    Update Type: weakener
+
+    Paraphrase: You're welcome to whatever they want, but you're in particular very important.
+    ",social.train.25290,social.train.25290.qcpg.1
+"Paraphrase ID: social.train.59071.qcpg.0
+
+    Premise: 
+    Hypothesis: As you get older it is normal to want to go on vacation without your family.
+    Update: You have multiple kids and rarely get breaks from them.
+    Update Type: strengthener
+
+    Paraphrase: You've got multiple kids, and you've got no breaks.
+    ",social.train.59071,social.train.59071.qcpg.0
+"Paraphrase ID: social.train.2913.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't shelter your mentally disabled child.
+    Update: You have it under control.
+    Update Type: strengthener
+
+    Paraphrase: You've got it under control.
+    ",social.train.2913,social.train.2913.qcpg.0
+"Paraphrase ID: social.train.2913.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't shelter your mentally disabled child.
+    Update: You have it under control.
+    Update Type: strengthener
+
+    Paraphrase: You're in control.
+    ",social.train.2913,social.train.2913.qcpg.1
+"Paraphrase ID: social.train.48791.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to use people for your own purposes.
+    Update: They are your friends doing tasks for you for free.
+    Update Type: strengthener
+
+    Paraphrase: Your friends do the work of freeing you.
+    ",social.train.48791,social.train.48791.qcpg.0
+"Paraphrase ID: social.train.34748.qcpg.0
+
+    Premise: 
+    Hypothesis: It's important to give proper notice when you are leaving your job.
+    Update: They haven't paid you in a month.
+    Update Type: weakener
+
+    Paraphrase: They didn't pay you any month.
+    ",social.train.34748,social.train.34748.qcpg.0
+"Paraphrase ID: social.train.34748.qcpg.1
+
+    Premise: 
+    Hypothesis: It's important to give proper notice when you are leaving your job.
+    Update: They haven't paid you in a month.
+    Update Type: weakener
+
+    Paraphrase: They never paid you a month.
+    ",social.train.34748,social.train.34748.qcpg.1
+"Paraphrase ID: social.train.34744.qcpg.0
+
+    Premise: 
+    Hypothesis: It's important to give proper notice when you are leaving your job.
+    Update: Your position is being eliminated.
+    Update Type: weakener
+
+    Paraphrase: Your position is eliminated.
+    ",social.train.34744,social.train.34744.qcpg.0
+"Paraphrase ID: social.train.34744.qcpg.1
+
+    Premise: 
+    Hypothesis: It's important to give proper notice when you are leaving your job.
+    Update: Your position is being eliminated.
+    Update Type: weakener
+
+    Paraphrase: Your position is annihilated.
+    ",social.train.34744,social.train.34744.qcpg.1
+"Paraphrase ID: social.train.34744.qcpg.2
+
+    Premise: 
+    Hypothesis: It's important to give proper notice when you are leaving your job.
+    Update: Your position is being eliminated.
+    Update Type: weakener
+
+    Paraphrase: Your position will be eliminated.
+    ",social.train.34744,social.train.34744.qcpg.2
+"Paraphrase ID: social.train.34744.qcpg.3
+
+    Premise: 
+    Hypothesis: It's important to give proper notice when you are leaving your job.
+    Update: Your position is being eliminated.
+    Update Type: weakener
+
+    Paraphrase: Your position will end.
+    ",social.train.34744,social.train.34744.qcpg.3
+"Paraphrase ID: social.train.7303.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to expect to stay over at your friend's place for the night.
+    Update: Your parent told you they had to pick you up in the evening for an activity.
+    Update Type: strengthener
+
+    Paraphrase: Your parents said they had to pick you tonight to do something.
+    ",social.train.7303,social.train.7303.qcpg.0
+"Paraphrase ID: social.train.7303.qcpg.1
+
+    Premise: 
+    Hypothesis: It's wrong to expect to stay over at your friend's place for the night.
+    Update: Your parent told you they had to pick you up in the evening for an activity.
+    Update Type: strengthener
+
+    Paraphrase: Your parents said they'd have to pick you tonight to do something.
+    ",social.train.7303,social.train.7303.qcpg.1
+"Paraphrase ID: social.train.7303.qcpg.2
+
+    Premise: 
+    Hypothesis: It's wrong to expect to stay over at your friend's place for the night.
+    Update: Your parent told you they had to pick you up in the evening for an activity.
+    Update Type: strengthener
+
+    Paraphrase: Your parents said, ""They have to pick you tonight, to do something.""
+    ",social.train.7303,social.train.7303.qcpg.2
+"Paraphrase ID: social.train.7303.qcpg.3
+
+    Premise: 
+    Hypothesis: It's wrong to expect to stay over at your friend's place for the night.
+    Update: Your parent told you they had to pick you up in the evening for an activity.
+    Update Type: strengthener
+
+    Paraphrase: Your parents said, ""They have to pick you tonight for activity.""
+    ",social.train.7303,social.train.7303.qcpg.3
+"Paraphrase ID: social.train.79602.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with your ex's friends.
+    Update: You broke up with your ex in high school and you are all now in your thirties.
+    Update Type: weakener
+
+    Paraphrase: You've abandoned your ex-high schools, and you've got 30.
+    ",social.train.79602,social.train.79602.qcpg.0
+"Paraphrase ID: social.train.79602.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with your ex's friends.
+    Update: You broke up with your ex in high school and you are all now in your thirties.
+    Update Type: weakener
+
+    Paraphrase: You've abandoned your old school and you've got 30.
+    ",social.train.79602,social.train.79602.qcpg.1
+"Paraphrase ID: social.train.79602.qcpg.2
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with your ex's friends.
+    Update: You broke up with your ex in high school and you are all now in your thirties.
+    Update Type: weakener
+
+    Paraphrase: You've abandoned your ex-high school and you've got 30.
+    ",social.train.79602,social.train.79602.qcpg.2
+"Paraphrase ID: social.train.20263.qcpg.0
+
+    Premise: 
+    Hypothesis: It is mean to kick someone out of a friend group.
+    Update: You are doing it because you are jealous.
+    Update Type: strengthener
+
+    Paraphrase: You do it because you are jealous.
+    ",social.train.20263,social.train.20263.qcpg.0
+"Paraphrase ID: social.train.20263.qcpg.1
+
+    Premise: 
+    Hypothesis: It is mean to kick someone out of a friend group.
+    Update: You are doing it because you are jealous.
+    Update Type: strengthener
+
+    Paraphrase: You do it 'cause you're jealous.
+    ",social.train.20263,social.train.20263.qcpg.1
+"Paraphrase ID: social.train.602.qcpg.0
+
+    Premise: 
+    Hypothesis: It is expected that a surrogate father would be unwanted if they might be harmful to a mother and child.
+    Update: The father was very wealthy.
+    Update Type: weakener
+
+    Paraphrase: His father was rich.
+    ",social.train.602,social.train.602.qcpg.0
+"Paraphrase ID: social.train.602.qcpg.1
+
+    Premise: 
+    Hypothesis: It is expected that a surrogate father would be unwanted if they might be harmful to a mother and child.
+    Update: The father was very wealthy.
+    Update Type: weakener
+
+    Paraphrase: Father had been rich.
+    ",social.train.602,social.train.602.qcpg.1
+"Paraphrase ID: social.train.602.qcpg.2
+
+    Premise: 
+    Hypothesis: It is expected that a surrogate father would be unwanted if they might be harmful to a mother and child.
+    Update: The father was very wealthy.
+    Update Type: weakener
+
+    Paraphrase: Father was rich.
+    ",social.train.602,social.train.602.qcpg.2
+"Paraphrase ID: social.train.70808.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to seduce an ex.
+    Update: You both want to get back together.
+    Update Type: weakener
+
+    Paraphrase: Both of you want to return.
+    ",social.train.70808,social.train.70808.qcpg.0
+"Paraphrase ID: social.train.33179.qcpg.0
+
+    Premise: 
+    Hypothesis: It is okay to express your dislike for someone.
+    Update: Your friend wants to set you up with the person you dislike.
+    Update Type: strengthener
+
+    Paraphrase: Your friend wants you to find someone who you hate.
+    ",social.train.33179,social.train.33179.qcpg.0
+"Paraphrase ID: social.train.33179.qcpg.1
+
+    Premise: 
+    Hypothesis: It is okay to express your dislike for someone.
+    Update: Your friend wants to set you up with the person you dislike.
+    Update Type: strengthener
+
+    Paraphrase: Your friend will find you who you hate.
+    ",social.train.33179,social.train.33179.qcpg.1
+"Paraphrase ID: social.train.7960.qcpg.0
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: Someone's child injured their arm as a result.
+    Update Type: weakener
+
+    Paraphrase: A kid's child injured his arm.
+    ",social.train.7960,social.train.7960.qcpg.0
+"Paraphrase ID: social.train.7960.qcpg.1
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: Someone's child injured their arm as a result.
+    Update Type: weakener
+
+    Paraphrase: A kid injured their arm.
+    ",social.train.7960,social.train.7960.qcpg.1
+"Paraphrase ID: social.train.19014.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to want privacy.
+    Update: you are in a very public place.
+    Update Type: weakener
+
+    Paraphrase: You're in a very public place.
+    ",social.train.19014,social.train.19014.qcpg.0
+"Paraphrase ID: social.train.19014.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to want privacy.
+    Update: you are in a very public place.
+    Update Type: weakener
+
+    Paraphrase: You're very public.
+    ",social.train.19014,social.train.19014.qcpg.1
+"Paraphrase ID: social.train.55915.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to expect money out of people.
+    Update: You are an adult asking money from your parents.
+    Update Type: strengthener
+
+    Paraphrase: You're grown-ups looking for money from your parents.
+    ",social.train.55915,social.train.55915.qcpg.0
+"Paraphrase ID: social.train.55915.qcpg.1
+
+    Premise: 
+    Hypothesis: It's wrong to expect money out of people.
+    Update: You are an adult asking money from your parents.
+    Update Type: strengthener
+
+    Paraphrase: You're grown-ups who ask for money from your parents.
+    ",social.train.55915,social.train.55915.qcpg.1
+"Paraphrase ID: social.train.79606.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with your ex's friends.
+    Update: You are in a relationship with one of your ex's friends.
+    Update Type: weakener
+
+    Paraphrase: You have a relationship with a former friend.
+    ",social.train.79606,social.train.79606.qcpg.0
+"Paraphrase ID: social.train.79606.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with your ex's friends.
+    Update: You are in a relationship with one of your ex's friends.
+    Update Type: weakener
+
+    Paraphrase: You have a friend of yours.
+    ",social.train.79606,social.train.79606.qcpg.1
+"Paraphrase ID: social.train.4193.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to not want to say goodbye to a beloved pet.
+    Update: The pet is healthy and the only problem is that your apartment doesn't allow pets.
+    Update Type: strengthener
+
+    Paraphrase: Animal's healthy, and your apartment isn't any animal.
+    ",social.train.4193,social.train.4193.qcpg.0
+"Paraphrase ID: social.train.4193.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to not want to say goodbye to a beloved pet.
+    Update: The pet is healthy and the only problem is that your apartment doesn't allow pets.
+    Update Type: strengthener
+
+    Paraphrase: Animal's healthy, but your apartment doesn't have pets.
+    ",social.train.4193,social.train.4193.qcpg.1
+"Paraphrase ID: social.train.4193.qcpg.2
+
+    Premise: 
+    Hypothesis: It's okay to not want to say goodbye to a beloved pet.
+    Update: The pet is healthy and the only problem is that your apartment doesn't allow pets.
+    Update Type: strengthener
+
+    Paraphrase: Animal's healthy, but your apartment has no pets.
+    ",social.train.4193,social.train.4193.qcpg.2
+"Paraphrase ID: social.train.4193.qcpg.3
+
+    Premise: 
+    Hypothesis: It's okay to not want to say goodbye to a beloved pet.
+    Update: The pet is healthy and the only problem is that your apartment doesn't allow pets.
+    Update Type: strengthener
+
+    Paraphrase: Animal's healthy, and your apartment isn't an issue.
+    ",social.train.4193,social.train.4193.qcpg.3
+"Paraphrase ID: social.train.32918.qcpg.0
+
+    Premise: 
+    Hypothesis: You should take responsibility for your actions.
+    Update: You were not competent during the particular time in question.
+    Update Type: weakener
+
+    Paraphrase: You weren't competent in this particular time.
+    ",social.train.32918,social.train.32918.qcpg.0
+"Paraphrase ID: social.train.25031.qcpg.0
+
+    Premise: 
+    Hypothesis: It's acceptable to want to share your identity with your extended family.
+    Update: Your identity is being LGBT.
+    Update Type: strengthener
+
+    Paraphrase: You're a gay person.
+    ",social.train.25031,social.train.25031.qcpg.0
+"Paraphrase ID: social.train.25031.qcpg.1
+
+    Premise: 
+    Hypothesis: It's acceptable to want to share your identity with your extended family.
+    Update: Your identity is being LGBT.
+    Update Type: strengthener
+
+    Paraphrase: You're LGBT.
+    ",social.train.25031,social.train.25031.qcpg.1
+"Paraphrase ID: social.train.25031.qcpg.2
+
+    Premise: 
+    Hypothesis: It's acceptable to want to share your identity with your extended family.
+    Update: Your identity is being LGBT.
+    Update Type: strengthener
+
+    Paraphrase: You're gay.
+    ",social.train.25031,social.train.25031.qcpg.2
+"Paraphrase ID: social.train.55760.qcpg.0
+
+    Premise: 
+    Hypothesis: Inviting troublesome family can ruin your event.
+    Update: You invite those family members to a separate portion of the event.
+    Update Type: weakener
+
+    Paraphrase: You're inviting these family members into a different kind of event.
+    ",social.train.55760,social.train.55760.qcpg.0
+"Paraphrase ID: social.train.41355.qcpg.0
+
+    Premise: 
+    Hypothesis: It is okay to be worried about people you care about.
+    Update: You know the person you care about is doing dangerous things.
+    Update Type: strengthener
+
+    Paraphrase: You know your interest in doing something unsafe.
+    ",social.train.41355,social.train.41355.qcpg.0
+"Paraphrase ID: social.train.41355.qcpg.1
+
+    Premise: 
+    Hypothesis: It is okay to be worried about people you care about.
+    Update: You know the person you care about is doing dangerous things.
+    Update Type: strengthener
+
+    Paraphrase: You know your passion for something dangerous.
+    ",social.train.41355,social.train.41355.qcpg.1
+"Paraphrase ID: social.train.41355.qcpg.2
+
+    Premise: 
+    Hypothesis: It is okay to be worried about people you care about.
+    Update: You know the person you care about is doing dangerous things.
+    Update Type: strengthener
+
+    Paraphrase: You know your passion is doing something unsafe.
+    ",social.train.41355,social.train.41355.qcpg.2
+"Paraphrase ID: social.train.41355.qcpg.3
+
+    Premise: 
+    Hypothesis: It is okay to be worried about people you care about.
+    Update: You know the person you care about is doing dangerous things.
+    Update Type: strengthener
+
+    Paraphrase: You know your passion for doing something unsafe.
+    ",social.train.41355,social.train.41355.qcpg.3
+"Paraphrase ID: social.train.57436.qcpg.0
+
+    Premise: 
+    Hypothesis: Businesses pay people for their time and can't flourish when employees leave early and ask for too much time off.
+    Update: The businesses are staffed well enough to ensure that one person missing time doesn't impact the workflow.
+    Update Type: weakener
+
+    Paraphrase: Enterprises have sufficient staff to ensure that the number of people missing is not affected.
+    ",social.train.57436,social.train.57436.qcpg.0
+"Paraphrase ID: social.train.57436.qcpg.1
+
+    Premise: 
+    Hypothesis: Businesses pay people for their time and can't flourish when employees leave early and ask for too much time off.
+    Update: The businesses are staffed well enough to ensure that one person missing time doesn't impact the workflow.
+    Update Type: weakener
+
+    Paraphrase: Enterprises have a good deal to ensure that the number of people missing is not affected by
+    ",social.train.57436,social.train.57436.qcpg.1
+"Paraphrase ID: social.train.50406.qcpg.0
+
+    Premise: 
+    Hypothesis: It's understandable to want others to follow game instructions.
+    Update: You are trying to learn people's character by seeing if they play by the rules or cheat.
+    Update Type: weakener
+
+    Paraphrase: You want to learn the characteristics of the human beings by seeing the rules or cheating.
+    ",social.train.50406,social.train.50406.qcpg.0
+"Paraphrase ID: social.train.50406.qcpg.1
+
+    Premise: 
+    Hypothesis: It's understandable to want others to follow game instructions.
+    Update: You are trying to learn people's character by seeing if they play by the rules or cheat.
+    Update Type: weakener
+
+    Paraphrase: You want to learn the character of the people by seeing how to play the rules or cheating
+    ",social.train.50406,social.train.50406.qcpg.1
+"Paraphrase ID: social.train.19012.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to want privacy.
+    Update: you are a celebrity.
+    Update Type: weakener
+
+    Paraphrase: You're celebrity.
+    ",social.train.19012,social.train.19012.qcpg.0
+"Paraphrase ID: social.train.19012.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to want privacy.
+    Update: you are a celebrity.
+    Update Type: weakener
+
+    Paraphrase: You're famous.
+    ",social.train.19012,social.train.19012.qcpg.1
+"Paraphrase ID: social.train.30757.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to plan an event on someone else's special day.
+    Update: The other person is your sister and she is getting married that day.
+    Update Type: strengthener
+
+    Paraphrase: Another person is your sister and her marriage today.
+    ",social.train.30757,social.train.30757.qcpg.0
+"Paraphrase ID: social.train.30757.qcpg.1
+
+    Premise: 
+    Hypothesis: It is rude to plan an event on someone else's special day.
+    Update: The other person is your sister and she is getting married that day.
+    Update Type: strengthener
+
+    Paraphrase: Another is your sister, and she's married this morning.
+    ",social.train.30757,social.train.30757.qcpg.1
+"Paraphrase ID: social.train.30757.qcpg.2
+
+    Premise: 
+    Hypothesis: It is rude to plan an event on someone else's special day.
+    Update: The other person is your sister and she is getting married that day.
+    Update Type: strengthener
+
+    Paraphrase: Another is your sister, which is married today.
+    ",social.train.30757,social.train.30757.qcpg.2
+"Paraphrase ID: social.train.30757.qcpg.3
+
+    Premise: 
+    Hypothesis: It is rude to plan an event on someone else's special day.
+    Update: The other person is your sister and she is getting married that day.
+    Update Type: strengthener
+
+    Paraphrase: Another is your sister and her marriage today.
+    ",social.train.30757,social.train.30757.qcpg.3
+"Paraphrase ID: social.train.9409.qcpg.0
+
+    Premise: 
+    Hypothesis: If you want to talk to someone, you should start the conversation.
+    Update: They are shy and never talk in school.
+    Update Type: strengthener
+
+    Paraphrase: They're shy and they're never talking about school.
+    ",social.train.9409,social.train.9409.qcpg.0
+"Paraphrase ID: social.train.31426.qcpg.0
+
+    Premise: 
+    Hypothesis: It is ok to be upset if someone gives you food that causes an allergic reaction.
+    Update: The person was a child.
+    Update Type: weakener
+
+    Paraphrase: It was a child.
+    ",social.train.31426,social.train.31426.qcpg.0
+"Paraphrase ID: social.train.34901.qcpg.0
+
+    Premise: 
+    Hypothesis: It's rude to miss your friend's wedding.
+    Update: You forgot to set an alarm
+    Update Type: strengthener
+
+    Paraphrase: Forgot to set the alarm.
+    ",social.train.34901,social.train.34901.qcpg.0
+"Paraphrase ID: social.train.34901.qcpg.1
+
+    Premise: 
+    Hypothesis: It's rude to miss your friend's wedding.
+    Update: You forgot to set an alarm
+    Update Type: strengthener
+
+    Paraphrase: Forgot about setting the alarm.
+    ",social.train.34901,social.train.34901.qcpg.1
+"Paraphrase ID: social.train.34901.qcpg.2
+
+    Premise: 
+    Hypothesis: It's rude to miss your friend's wedding.
+    Update: You forgot to set an alarm
+    Update Type: strengthener
+
+    Paraphrase: Forgot about waking up.
+    ",social.train.34901,social.train.34901.qcpg.2
+"Paraphrase ID: social.train.34901.qcpg.3
+
+    Premise: 
+    Hypothesis: It's rude to miss your friend's wedding.
+    Update: You forgot to set an alarm
+    Update Type: strengthener
+
+    Paraphrase: Forgot your alarm.
+    ",social.train.34901,social.train.34901.qcpg.3
+"Paraphrase ID: social.train.69154.qcpg.0
+
+    Premise: 
+    Hypothesis: It's OK to decide not to have a relationship with someone.
+    Update: It's an arranged marriage.
+    Update Type: weakener
+
+    Paraphrase: It's arranged marriage.
+    ",social.train.69154,social.train.69154.qcpg.0
+"Paraphrase ID: social.train.69154.qcpg.1
+
+    Premise: 
+    Hypothesis: It's OK to decide not to have a relationship with someone.
+    Update: It's an arranged marriage.
+    Update Type: weakener
+
+    Paraphrase: It'sarranged marriage.
+    ",social.train.69154,social.train.69154.qcpg.1
+"Paraphrase ID: social.train.54661.qcpg.0
+
+    Premise: 
+    Hypothesis: It's expected that you provide someone with information they need in order to carry out a favor for you.
+    Update: It's a task you're familiar with and they aren't.
+    Update Type: strengthener
+
+    Paraphrase: It is a task which you know and not.
+    ",social.train.54661,social.train.54661.qcpg.0
+"Paraphrase ID: social.train.54661.qcpg.1
+
+    Premise: 
+    Hypothesis: It's expected that you provide someone with information they need in order to carry out a favor for you.
+    Update: It's a task you're familiar with and they aren't.
+    Update Type: strengthener
+
+    Paraphrase: It is your task, and they are not.
+    ",social.train.54661,social.train.54661.qcpg.1
+"Paraphrase ID: social.train.55768.qcpg.0
+
+    Premise: 
+    Hypothesis: Inviting troublesome family can ruin your event.
+    Update: you warn them ahead of time to act proper.
+    Update Type: weakener
+
+    Paraphrase: You warn them to be ready.
+    ",social.train.55768,social.train.55768.qcpg.0
+"Paraphrase ID: social.train.55768.qcpg.1
+
+    Premise: 
+    Hypothesis: Inviting troublesome family can ruin your event.
+    Update: you warn them ahead of time to act proper.
+    Update Type: weakener
+
+    Paraphrase: You warn them to be ready to do it.
+    ",social.train.55768,social.train.55768.qcpg.1
+"Paraphrase ID: social.train.55768.qcpg.2
+
+    Premise: 
+    Hypothesis: Inviting troublesome family can ruin your event.
+    Update: you warn them ahead of time to act proper.
+    Update Type: weakener
+
+    Paraphrase: You warn them to be correct.
+    ",social.train.55768,social.train.55768.qcpg.2
+"Paraphrase ID: social.train.55768.qcpg.3
+
+    Premise: 
+    Hypothesis: Inviting troublesome family can ruin your event.
+    Update: you warn them ahead of time to act proper.
+    Update Type: weakener
+
+    Paraphrase: You're warning them they're going to be properly behaved.
+    ",social.train.55768,social.train.55768.qcpg.3
+"Paraphrase ID: social.train.8513.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to be fed up with somebody.
+    Update: It's a serious matter that can get you hurt.
+    Update Type: strengthener
+
+    Paraphrase: It can seriously bring you hurt.
+    ",social.train.8513,social.train.8513.qcpg.0
+"Paraphrase ID: social.train.8513.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to be fed up with somebody.
+    Update: It's a serious matter that can get you hurt.
+    Update Type: strengthener
+
+    Paraphrase: A serious thing could get you hurt.
+    ",social.train.8513,social.train.8513.qcpg.1
+"Paraphrase ID: social.train.8513.qcpg.2
+
+    Premise: 
+    Hypothesis: It's okay to be fed up with somebody.
+    Update: It's a serious matter that can get you hurt.
+    Update Type: strengthener
+
+    Paraphrase: This can seriously get you hurt.
+    ",social.train.8513,social.train.8513.qcpg.2
+"Paraphrase ID: social.train.8513.qcpg.3
+
+    Premise: 
+    Hypothesis: It's okay to be fed up with somebody.
+    Update: It's a serious matter that can get you hurt.
+    Update Type: strengthener
+
+    Paraphrase: This could seriously get you hurt.
+    ",social.train.8513,social.train.8513.qcpg.3
+"Paraphrase ID: social.train.8513.qcpg.4
+
+    Premise: 
+    Hypothesis: It's okay to be fed up with somebody.
+    Update: It's a serious matter that can get you hurt.
+    Update Type: strengthener
+
+    Paraphrase: This can seriously bring you hurt.
+    ",social.train.8513,social.train.8513.qcpg.4
+"Paraphrase ID: social.train.69053.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't pry into your friend's business.
+    Update: They are a private investigator.
+    Update Type: strengthener
+
+    Paraphrase: They're private inquiry.
+    ",social.train.69053,social.train.69053.qcpg.0
+"Paraphrase ID: social.train.69053.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't pry into your friend's business.
+    Update: They are a private investigator.
+    Update Type: strengthener
+
+    Paraphrase: They're Private Investigations.
+    ",social.train.69053,social.train.69053.qcpg.1
+"Paraphrase ID: social.train.4195.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to not want to say goodbye to a beloved pet.
+    Update: The pet is very sick and you have had it for 15 years.
+    Update Type: strengthener
+
+    Paraphrase: The pet's very ill and you've been 15 years.
+    ",social.train.4195,social.train.4195.qcpg.0
+"Paraphrase ID: social.train.4195.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to not want to say goodbye to a beloved pet.
+    Update: The pet is very sick and you have had it for 15 years.
+    Update Type: strengthener
+
+    Paraphrase: The pet is ill, and you are 15 years old.
+    ",social.train.4195,social.train.4195.qcpg.1
+"Paraphrase ID: social.train.4195.qcpg.2
+
+    Premise: 
+    Hypothesis: It's okay to not want to say goodbye to a beloved pet.
+    Update: The pet is very sick and you have had it for 15 years.
+    Update Type: strengthener
+
+    Paraphrase: Pet is very ill, you are 15 years old.
+    ",social.train.4195,social.train.4195.qcpg.2
+"Paraphrase ID: social.train.4195.qcpg.3
+
+    Premise: 
+    Hypothesis: It's okay to not want to say goodbye to a beloved pet.
+    Update: The pet is very sick and you have had it for 15 years.
+    Update Type: strengthener
+
+    Paraphrase: Pet is very ill, you're 15 years old.
+    ",social.train.4195,social.train.4195.qcpg.3
+"Paraphrase ID: social.train.4195.qcpg.4
+
+    Premise: 
+    Hypothesis: It's okay to not want to say goodbye to a beloved pet.
+    Update: The pet is very sick and you have had it for 15 years.
+    Update Type: strengthener
+
+    Paraphrase: Pet is very ill, 15 years.
+    ",social.train.4195,social.train.4195.qcpg.4
+"Paraphrase ID: social.train.19963.qcpg.0
+
+    Premise: 
+    Hypothesis: It's good to be honest with your parents.
+    Update: They are just trying to help you help yourself if you are in trouble.
+    Update Type: strengthener
+
+    Paraphrase: They're trying to help you if you have problems.
+    ",social.train.19963,social.train.19963.qcpg.0
+"Paraphrase ID: social.train.19963.qcpg.1
+
+    Premise: 
+    Hypothesis: It's good to be honest with your parents.
+    Update: They are just trying to help you help yourself if you are in trouble.
+    Update Type: strengthener
+
+    Paraphrase: They'll try to help you if you have problems.
+    ",social.train.19963,social.train.19963.qcpg.1
+"Paraphrase ID: social.train.19963.qcpg.2
+
+    Premise: 
+    Hypothesis: It's good to be honest with your parents.
+    Update: They are just trying to help you help yourself if you are in trouble.
+    Update Type: strengthener
+
+    Paraphrase: They're helping you if you have problems.
+    ",social.train.19963,social.train.19963.qcpg.2
+"Paraphrase ID: social.train.19963.qcpg.3
+
+    Premise: 
+    Hypothesis: It's good to be honest with your parents.
+    Update: They are just trying to help you help yourself if you are in trouble.
+    Update Type: strengthener
+
+    Paraphrase: They'll help you if you have problems.
+    ",social.train.19963,social.train.19963.qcpg.3
+"Paraphrase ID: social.train.30751.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to plan an event on someone else's special day.
+    Update: you are trying to throw a party on someone's wedding day.
+    Update Type: strengthener
+
+    Paraphrase: You want to celebrate someone's wedding day.
+    ",social.train.30751,social.train.30751.qcpg.0
+"Paraphrase ID: social.train.66637.qcpg.0
+
+    Premise: 
+    Hypothesis: If a relationship isn't working out for you, it's okay to cut things off
+    Update: you are in danger
+    Update Type: strengthener
+
+    Paraphrase: You're in great jeopardy.
+    ",social.train.66637,social.train.66637.qcpg.0
+"Paraphrase ID: social.train.66637.qcpg.1
+
+    Premise: 
+    Hypothesis: If a relationship isn't working out for you, it's okay to cut things off
+    Update: you are in danger
+    Update Type: strengthener
+
+    Paraphrase: You're at risk.
+    ",social.train.66637,social.train.66637.qcpg.1
+"Paraphrase ID: social.train.2415.qcpg.0
+
+    Premise: 
+    Hypothesis: People are expected to take punishment seriously.
+    Update: The punishment was meant to be harsh because of aggravating circumstances.
+    Update Type: strengthener
+
+    Paraphrase: Penalisation should be harsh because of the worsening situation.
+    ",social.train.2415,social.train.2415.qcpg.0
+"Paraphrase ID: social.train.69153.qcpg.0
+
+    Premise: 
+    Hypothesis: It's OK to decide not to have a relationship with someone.
+    Update: that person wants you to do illegal things with them.
+    Update Type: strengthener
+
+    Paraphrase: This person wants you to do something against them.
+    ",social.train.69153,social.train.69153.qcpg.0
+"Paraphrase ID: social.train.69153.qcpg.1
+
+    Premise: 
+    Hypothesis: It's OK to decide not to have a relationship with someone.
+    Update: that person wants you to do illegal things with them.
+    Update Type: strengthener
+
+    Paraphrase: This person wants you to do something illegal with them.
+    ",social.train.69153,social.train.69153.qcpg.1
+"Paraphrase ID: social.train.69153.qcpg.2
+
+    Premise: 
+    Hypothesis: It's OK to decide not to have a relationship with someone.
+    Update: that person wants you to do illegal things with them.
+    Update Type: strengthener
+
+    Paraphrase: This person wants you to do something illegal.
+    ",social.train.69153,social.train.69153.qcpg.2
+"Paraphrase ID: social.train.69153.qcpg.3
+
+    Premise: 
+    Hypothesis: It's OK to decide not to have a relationship with someone.
+    Update: that person wants you to do illegal things with them.
+    Update Type: strengthener
+
+    Paraphrase: It's this person that wants you to do something illegal.
+    ",social.train.69153,social.train.69153.qcpg.3
+"Paraphrase ID: social.train.12690.qcpg.0
+
+    Premise: 
+    Hypothesis: It's ok if you're not in the mood to go over to someone's house.
+    Update: You promised to go last week.
+    Update Type: weakener
+
+    Paraphrase: You promised last week.
+    ",social.train.12690,social.train.12690.qcpg.0
+"Paraphrase ID: social.train.12690.qcpg.1
+
+    Premise: 
+    Hypothesis: It's ok if you're not in the mood to go over to someone's house.
+    Update: You promised to go last week.
+    Update Type: weakener
+
+    Paraphrase: You promised, last week, that you would go.
+    ",social.train.12690,social.train.12690.qcpg.1
+"Paraphrase ID: social.train.12690.qcpg.2
+
+    Premise: 
+    Hypothesis: It's ok if you're not in the mood to go over to someone's house.
+    Update: You promised to go last week.
+    Update Type: weakener
+
+    Paraphrase: You promised, last week, to go.
+    ",social.train.12690,social.train.12690.qcpg.2
+"Paraphrase ID: social.train.21116.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't tell your classmate what to do.
+    Update: they are risking getting expelled for their actions.
+    Update Type: weakener
+
+    Paraphrase: They risk committing their actions.
+    ",social.train.21116,social.train.21116.qcpg.0
+"Paraphrase ID: social.train.14085.qcpg.0
+
+    Premise: 
+    Hypothesis: It's rude to walk away from someone while they are talking to you.
+    Update: You get distracted and weren't paying attention.
+    Update Type: strengthener
+
+    Paraphrase: You're disoriented and not attentive.
+    ",social.train.14085,social.train.14085.qcpg.0
+"Paraphrase ID: social.train.14085.qcpg.1
+
+    Premise: 
+    Hypothesis: It's rude to walk away from someone while they are talking to you.
+    Update: You get distracted and weren't paying attention.
+    Update Type: strengthener
+
+    Paraphrase: You're disoriented and unseemly.
+    ",social.train.14085,social.train.14085.qcpg.1
+"Paraphrase ID: social.train.14085.qcpg.2
+
+    Premise: 
+    Hypothesis: It's rude to walk away from someone while they are talking to you.
+    Update: You get distracted and weren't paying attention.
+    Update Type: strengthener
+
+    Paraphrase: You're disoriented, you've never been attentive.
+    ",social.train.14085,social.train.14085.qcpg.2
+"Paraphrase ID: social.train.14085.qcpg.3
+
+    Premise: 
+    Hypothesis: It's rude to walk away from someone while they are talking to you.
+    Update: You get distracted and weren't paying attention.
+    Update Type: strengthener
+
+    Paraphrase: You're disoriented, and you've been unseemly.
+    ",social.train.14085,social.train.14085.qcpg.3
+"Paraphrase ID: social.train.63014.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't put up with a partner that forces you to choose between two people.
+    Update: They are trying to force you to choose between themselves and your lover.
+    Update Type: weakener
+
+    Paraphrase: They want you to choose between yourself and your lover.
+    ",social.train.63014,social.train.63014.qcpg.0
+"Paraphrase ID: social.train.63014.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't put up with a partner that forces you to choose between two people.
+    Update: They are trying to force you to choose between themselves and your lover.
+    Update Type: weakener
+
+    Paraphrase: They want you to choose between yourself and your love.
+    ",social.train.63014,social.train.63014.qcpg.1
+"Paraphrase ID: social.train.11398.qcpg.0
+
+    Premise: 
+    Hypothesis: It's not okay to do things for one person then not do them for another.
+    Update: These people are of different ranks
+    Update Type: weakener
+
+    Paraphrase: These guys have different backgrounds.
+    ",social.train.11398,social.train.11398.qcpg.0
+"Paraphrase ID: social.train.11398.qcpg.1
+
+    Premise: 
+    Hypothesis: It's not okay to do things for one person then not do them for another.
+    Update: These people are of different ranks
+    Update Type: weakener
+
+    Paraphrase: These humans have different levels.
+    ",social.train.11398,social.train.11398.qcpg.1
+"Paraphrase ID: social.train.21119.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't tell your classmate what to do.
+    Update: It is time to take a test.
+    Update Type: strengthener
+
+    Paraphrase: It's time for us to test.
+    ",social.train.21119,social.train.21119.qcpg.0
+"Paraphrase ID: social.train.21119.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't tell your classmate what to do.
+    Update: It is time to take a test.
+    Update Type: strengthener
+
+    Paraphrase: Time is to test.
+    ",social.train.21119,social.train.21119.qcpg.1
+"Paraphrase ID: social.train.70806.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to seduce an ex.
+    Update: You both hope to get back together again.
+    Update Type: weakener
+
+    Paraphrase: Both of you hope to return.
+    ",social.train.70806,social.train.70806.qcpg.0
+"Paraphrase ID: social.train.7962.qcpg.0
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: The complaints are coming from a ""Karen""
+    Update Type: weakener
+
+    Paraphrase: Complainings are from Karen.
+    ",social.train.7962,social.train.7962.qcpg.0
+"Paraphrase ID: social.train.7962.qcpg.1
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: The complaints are coming from a ""Karen""
+    Update Type: weakener
+
+    Paraphrase: Complainings are from Karan.
+    ",social.train.7962,social.train.7962.qcpg.1
+"Paraphrase ID: social.train.55766.qcpg.0
+
+    Premise: 
+    Hypothesis: Inviting troublesome family can ruin your event.
+    Update: They are the only ones bringing the alcohol.
+    Update Type: weakener
+
+    Paraphrase: They only bring alcohol.
+    ",social.train.55766,social.train.55766.qcpg.0
+"Paraphrase ID: social.train.69150.qcpg.0
+
+    Premise: 
+    Hypothesis: It's OK to decide not to have a relationship with someone.
+    Update: That person is your child and there's no other family who can take them in.
+    Update Type: weakener
+
+    Paraphrase: This is your baby, and no other family would ever have come in here.
+    ",social.train.69150,social.train.69150.qcpg.0
+"Paraphrase ID: social.train.69150.qcpg.1
+
+    Premise: 
+    Hypothesis: It's OK to decide not to have a relationship with someone.
+    Update: That person is your child and there's no other family who can take them in.
+    Update Type: weakener
+
+    Paraphrase: This is your baby, and no other family can accept them.
+    ",social.train.69150,social.train.69150.qcpg.1
+"Paraphrase ID: social.train.69150.qcpg.2
+
+    Premise: 
+    Hypothesis: It's OK to decide not to have a relationship with someone.
+    Update: That person is your child and there's no other family who can take them in.
+    Update Type: weakener
+
+    Paraphrase: This is your baby, and no other family would have been able to accept them.
+    ",social.train.69150,social.train.69150.qcpg.2
+"Paraphrase ID: social.train.69150.qcpg.3
+
+    Premise: 
+    Hypothesis: It's OK to decide not to have a relationship with someone.
+    Update: That person is your child and there's no other family who can take them in.
+    Update Type: weakener
+
+    Paraphrase: This is your baby, and no other family would ever have taken them in.
+    ",social.train.69150,social.train.69150.qcpg.3
+"Paraphrase ID: social.train.59438.qcpg.0
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: The children are trust fund babies.
+    Update Type: weakener
+
+    Paraphrase: Kids trust the kids.
+    ",social.train.59438,social.train.59438.qcpg.0
+"Paraphrase ID: social.train.59438.qcpg.1
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: The children are trust fund babies.
+    Update Type: weakener
+
+    Paraphrase: Kids are trusting babies.
+    ",social.train.59438,social.train.59438.qcpg.1
+"Paraphrase ID: social.train.2919.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't shelter your mentally disabled child.
+    Update: you are not able to effectively take care of them.
+    Update Type: strengthener
+
+    Paraphrase: You can't take care of them effectively.
+    ",social.train.2919,social.train.2919.qcpg.0
+"Paraphrase ID: social.train.2919.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't shelter your mentally disabled child.
+    Update: you are not able to effectively take care of them.
+    Update Type: strengthener
+
+    Paraphrase: You can't efficiently care of them.
+    ",social.train.2919,social.train.2919.qcpg.1
+"Paraphrase ID: social.train.2919.qcpg.2
+
+    Premise: 
+    Hypothesis: You shouldn't shelter your mentally disabled child.
+    Update: you are not able to effectively take care of them.
+    Update Type: strengthener
+
+    Paraphrase: You can't effectively care of them.
+    ",social.train.2919,social.train.2919.qcpg.2
+"Paraphrase ID: social.train.19968.qcpg.0
+
+    Premise: 
+    Hypothesis: It's good to be honest with your parents.
+    Update: you snuck out the night before.
+    Update Type: weakener
+
+    Paraphrase: You were sneaking out the night ago.
+    ",social.train.19968,social.train.19968.qcpg.0
+"Paraphrase ID: social.train.19968.qcpg.1
+
+    Premise: 
+    Hypothesis: It's good to be honest with your parents.
+    Update: you snuck out the night before.
+    Update Type: weakener
+
+    Paraphrase: You're sneaking out the night.
+    ",social.train.19968,social.train.19968.qcpg.1
+"Paraphrase ID: social.train.19968.qcpg.2
+
+    Premise: 
+    Hypothesis: It's good to be honest with your parents.
+    Update: you snuck out the night before.
+    Update Type: weakener
+
+    Paraphrase: You were sneaking out last night.
+    ",social.train.19968,social.train.19968.qcpg.2
+"Paraphrase ID: social.train.19968.qcpg.3
+
+    Premise: 
+    Hypothesis: It's good to be honest with your parents.
+    Update: you snuck out the night before.
+    Update Type: weakener
+
+    Paraphrase: You're sneaking tonight.
+    ",social.train.19968,social.train.19968.qcpg.3
+"Paraphrase ID: social.train.19968.qcpg.4
+
+    Premise: 
+    Hypothesis: It's good to be honest with your parents.
+    Update: you snuck out the night before.
+    Update Type: weakener
+
+    Paraphrase: You're sneaking out tonight.
+    ",social.train.19968,social.train.19968.qcpg.4
+"Paraphrase ID: social.train.12695.qcpg.0
+
+    Premise: 
+    Hypothesis: It's ok if you're not in the mood to go over to someone's house.
+    Update: They ask you to take them to the hospital.
+    Update Type: strengthener
+
+    Paraphrase: They want you to go to the Hospital.
+    ",social.train.12695,social.train.12695.qcpg.0
+"Paraphrase ID: social.train.12695.qcpg.1
+
+    Premise: 
+    Hypothesis: It's ok if you're not in the mood to go over to someone's house.
+    Update: They ask you to take them to the hospital.
+    Update Type: strengthener
+
+    Paraphrase: They want to see them in the Hospital.
+    ",social.train.12695,social.train.12695.qcpg.1
+"Paraphrase ID: social.train.12695.qcpg.2
+
+    Premise: 
+    Hypothesis: It's ok if you're not in the mood to go over to someone's house.
+    Update: They ask you to take them to the hospital.
+    Update Type: strengthener
+
+    Paraphrase: They want them in the Hospital.
+    ",social.train.12695,social.train.12695.qcpg.2
+"Paraphrase ID: social.train.12695.qcpg.3
+
+    Premise: 
+    Hypothesis: It's ok if you're not in the mood to go over to someone's house.
+    Update: They ask you to take them to the hospital.
+    Update Type: strengthener
+
+    Paraphrase: You're invited to hospital.
+    ",social.train.12695,social.train.12695.qcpg.3
+"Paraphrase ID: social.train.55911.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to expect money out of people.
+    Update: You are very rich
+    Update Type: strengthener
+
+    Paraphrase: You're a wealthy man.
+    ",social.train.55911,social.train.55911.qcpg.0
+"Paraphrase ID: social.train.55911.qcpg.1
+
+    Premise: 
+    Hypothesis: It's wrong to expect money out of people.
+    Update: You are very rich
+    Update Type: strengthener
+
+    Paraphrase: You're rich.
+    ",social.train.55911,social.train.55911.qcpg.1
+"Paraphrase ID: social.train.55911.qcpg.2
+
+    Premise: 
+    Hypothesis: It's wrong to expect money out of people.
+    Update: You are very rich
+    Update Type: strengthener
+
+    Paraphrase: You're a rich man.
+    ",social.train.55911,social.train.55911.qcpg.2
+"Paraphrase ID: social.train.55911.qcpg.3
+
+    Premise: 
+    Hypothesis: It's wrong to expect money out of people.
+    Update: You are very rich
+    Update Type: strengthener
+
+    Paraphrase: You're very wealthy.
+    ",social.train.55911,social.train.55911.qcpg.3
+"Paraphrase ID: social.train.55911.qcpg.4
+
+    Premise: 
+    Hypothesis: It's wrong to expect money out of people.
+    Update: You are very rich
+    Update Type: strengthener
+
+    Paraphrase: You're wealthy.
+    ",social.train.55911,social.train.55911.qcpg.4
+"Paraphrase ID: social.train.19806.qcpg.0
+
+    Premise: 
+    Hypothesis: It's good for the environment to reuse towels.
+    Update: they are covered in body material.
+    Update Type: weakener
+
+    Paraphrase: They contain body material.
+    ",social.train.19806,social.train.19806.qcpg.0
+"Paraphrase ID: social.train.65255.qcpg.0
+
+    Premise: 
+    Hypothesis: You should respect people's choices even if they don't go your way.
+    Update: they tell you they are not interested in you after you told them you liked them.
+    Update Type: strengthener
+
+    Paraphrase: They said they didn't like you.
+    ",social.train.65255,social.train.65255.qcpg.0
+"Paraphrase ID: social.train.65255.qcpg.1
+
+    Premise: 
+    Hypothesis: You should respect people's choices even if they don't go your way.
+    Update: they tell you they are not interested in you after you told them you liked them.
+    Update Type: strengthener
+
+    Paraphrase: They say they're not interested.
+    ",social.train.65255,social.train.65255.qcpg.1
+"Paraphrase ID: social.train.7961.qcpg.0
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: The person filled your inbox with three thousand messages in an hour.
+    Update Type: strengthener
+
+    Paraphrase: That person flooded your mailbox with 3,000 messages in one hour.
+    ",social.train.7961,social.train.7961.qcpg.0
+"Paraphrase ID: social.train.7961.qcpg.1
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: The person filled your inbox with three thousand messages in an hour.
+    Update Type: strengthener
+
+    Paraphrase: It was your mailbox that contained 3000 messages in one hour.
+    ",social.train.7961,social.train.7961.qcpg.1
+"Paraphrase ID: social.train.7961.qcpg.2
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: The person filled your inbox with three thousand messages in an hour.
+    Update Type: strengthener
+
+    Paraphrase: That person crowded your mailbox with 3,000 messages in one hour.
+    ",social.train.7961,social.train.7961.qcpg.2
+"Paraphrase ID: social.train.7961.qcpg.3
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: The person filled your inbox with three thousand messages in an hour.
+    Update Type: strengthener
+
+    Paraphrase: It was your mailbox that contained 3000 messages in an hour.
+    ",social.train.7961,social.train.7961.qcpg.3
+"Paraphrase ID: social.train.7969.qcpg.0
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: The complaint is your fault
+    Update Type: strengthener
+
+    Paraphrase: Complaining is your mistake.
+    ",social.train.7969,social.train.7969.qcpg.0
+"Paraphrase ID: social.train.7969.qcpg.1
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: The complaint is your fault
+    Update Type: strengthener
+
+    Paraphrase: Complaining's your fault.
+    ",social.train.7969,social.train.7969.qcpg.1
+"Paraphrase ID: social.train.2276.qcpg.0
+
+    Premise: 
+    Hypothesis: It is understandable to be concerned about family.
+    Update: you know they're safe.
+    Update Type: weakener
+
+    Paraphrase: You know that they are safe.
+    ",social.train.2276,social.train.2276.qcpg.0
+"Paraphrase ID: social.train.2276.qcpg.1
+
+    Premise: 
+    Hypothesis: It is understandable to be concerned about family.
+    Update: you know they're safe.
+    Update Type: weakener
+
+    Paraphrase: You're aware that they are safe.
+    ",social.train.2276,social.train.2276.qcpg.1
+"Paraphrase ID: social.train.59435.qcpg.0
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: The're struggling to survive as it is.
+    Update Type: strengthener
+
+    Paraphrase: They struggle to survive.
+    ",social.train.59435,social.train.59435.qcpg.0
+"Paraphrase ID: social.train.59435.qcpg.1
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: The're struggling to survive as it is.
+    Update Type: strengthener
+
+    Paraphrase: They try to survive.
+    ",social.train.59435,social.train.59435.qcpg.1
+"Paraphrase ID: social.train.12691.qcpg.0
+
+    Premise: 
+    Hypothesis: It's ok if you're not in the mood to go over to someone's house.
+    Update: You visited them yesterday.
+    Update Type: strengthener
+
+    Paraphrase: You came to see them yesterday.
+    ",social.train.12691,social.train.12691.qcpg.0
+"Paraphrase ID: social.train.54660.qcpg.0
+
+    Premise: 
+    Hypothesis: It's expected that you provide someone with information they need in order to carry out a favor for you.
+    Update: Obtaining that information is the favor you're asking for.
+    Update Type: weakener
+
+    Paraphrase: Information gathering is the kind of thing you want.
+    ",social.train.54660,social.train.54660.qcpg.0
+"Paraphrase ID: social.train.54660.qcpg.1
+
+    Premise: 
+    Hypothesis: It's expected that you provide someone with information they need in order to carry out a favor for you.
+    Update: Obtaining that information is the favor you're asking for.
+    Update Type: weakener
+
+    Paraphrase: The information you need is the favor you want.
+    ",social.train.54660,social.train.54660.qcpg.1
+"Paraphrase ID: social.train.54660.qcpg.2
+
+    Premise: 
+    Hypothesis: It's expected that you provide someone with information they need in order to carry out a favor for you.
+    Update: Obtaining that information is the favor you're asking for.
+    Update Type: weakener
+
+    Paraphrase: Your information is the favor you want.
+    ",social.train.54660,social.train.54660.qcpg.2
+"Paraphrase ID: social.train.25037.qcpg.0
+
+    Premise: 
+    Hypothesis: It's acceptable to want to share your identity with your extended family.
+    Update: They celebrate birthdays and your religion prohibits you from doing the same.
+    Update Type: strengthener
+
+    Paraphrase: Celebrate birthdays, and your religions do not.
+    ",social.train.25037,social.train.25037.qcpg.0
+"Paraphrase ID: social.train.25037.qcpg.1
+
+    Premise: 
+    Hypothesis: It's acceptable to want to share your identity with your extended family.
+    Update: They celebrate birthdays and your religion prohibits you from doing the same.
+    Update Type: strengthener
+
+    Paraphrase: Celebrate birthdays, and your religions, you're forbidden to do that.
+    ",social.train.25037,social.train.25037.qcpg.1
+"Paraphrase ID: social.train.25037.qcpg.2
+
+    Premise: 
+    Hypothesis: It's acceptable to want to share your identity with your extended family.
+    Update: They celebrate birthdays and your religion prohibits you from doing the same.
+    Update Type: strengthener
+
+    Paraphrase: Celebrate birthdays, and you're forbidden to do that.
+    ",social.train.25037,social.train.25037.qcpg.2
+"Paraphrase ID: social.train.25037.qcpg.3
+
+    Premise: 
+    Hypothesis: It's acceptable to want to share your identity with your extended family.
+    Update: They celebrate birthdays and your religion prohibits you from doing the same.
+    Update Type: strengthener
+
+    Paraphrase: Celebrate birthdays, but you're not allowed to do that.
+    ",social.train.25037,social.train.25037.qcpg.3
+"Paraphrase ID: social.train.30758.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to plan an event on someone else's special day.
+    Update: The event is for their own special day.
+    Update Type: weakener
+
+    Paraphrase: It's a special day of theirs.
+    ",social.train.30758,social.train.30758.qcpg.0
+"Paraphrase ID: social.train.30758.qcpg.1
+
+    Premise: 
+    Hypothesis: It is rude to plan an event on someone else's special day.
+    Update: The event is for their own special day.
+    Update Type: weakener
+
+    Paraphrase: It's a special day for theirs.
+    ",social.train.30758,social.train.30758.qcpg.1
+"Paraphrase ID: social.train.2917.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't shelter your mentally disabled child.
+    Update: You want your child to have a rich life despite their disability.
+    Update Type: strengthener
+
+    Paraphrase: You want your baby to live, despite your illness.
+    ",social.train.2917,social.train.2917.qcpg.0
+"Paraphrase ID: social.train.63018.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't put up with a partner that forces you to choose between two people.
+    Update: One of those two people is consistently abusing you.
+    Update Type: weakener
+
+    Paraphrase: One such person is still using you.
+    ",social.train.63018,social.train.63018.qcpg.0
+"Paraphrase ID: social.train.63016.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't put up with a partner that forces you to choose between two people.
+    Update: Those people are hurting you.
+    Update Type: weakener
+
+    Paraphrase: These people hurt you.
+    ",social.train.63016,social.train.63016.qcpg.0
+"Paraphrase ID: social.train.63016.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't put up with a partner that forces you to choose between two people.
+    Update: Those people are hurting you.
+    Update Type: weakener
+
+    Paraphrase: These humans hurt you.
+    ",social.train.63016,social.train.63016.qcpg.1
+"Paraphrase ID: social.train.10224.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: You are upset with that friend for something they did.
+    Update Type: weakener
+
+    Paraphrase: You're sad about a friend of theirs for doing something.
+    ",social.train.10224,social.train.10224.qcpg.0
+"Paraphrase ID: social.train.10224.qcpg.1
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: You are upset with that friend for something they did.
+    Update Type: weakener
+
+    Paraphrase: You're upset about a friend of theirs for doing something.
+    ",social.train.10224,social.train.10224.qcpg.1
+"Paraphrase ID: social.train.10224.qcpg.2
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: You are upset with that friend for something they did.
+    Update Type: weakener
+
+    Paraphrase: You're sad about their friend because of what they've done.
+    ",social.train.10224,social.train.10224.qcpg.2
+"Paraphrase ID: social.train.59434.qcpg.0
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: Their children are independently wealthy and they want to assume the cost.
+    Update Type: weakener
+
+    Paraphrase: Their kids are rich and they want to take a price.
+    ",social.train.59434,social.train.59434.qcpg.0
+"Paraphrase ID: social.train.59434.qcpg.1
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: Their children are independently wealthy and they want to assume the cost.
+    Update Type: weakener
+
+    Paraphrase: Their kids are rich and want to take a gamble.
+    ",social.train.59434,social.train.59434.qcpg.1
+"Paraphrase ID: social.train.59433.qcpg.0
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: They set up funds to have someone take care of them
+    Update Type: strengthener
+
+    Paraphrase: They created the funds to help them.
+    ",social.train.59433,social.train.59433.qcpg.0
+"Paraphrase ID: social.train.59433.qcpg.1
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: They set up funds to have someone take care of them
+    Update Type: strengthener
+
+    Paraphrase: They created money to help someone.
+    ",social.train.59433,social.train.59433.qcpg.1
+"Paraphrase ID: social.train.59433.qcpg.2
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: They set up funds to have someone take care of them
+    Update Type: strengthener
+
+    Paraphrase: They've got the money to help them.
+    ",social.train.59433,social.train.59433.qcpg.2
+"Paraphrase ID: social.train.59431.qcpg.0
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: the parents are struggling.
+    Update Type: strengthener
+
+    Paraphrase: Parents struggle.
+    ",social.train.59431,social.train.59431.qcpg.0
+"Paraphrase ID: social.train.59430.qcpg.0
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: they are not adults yet.
+    Update Type: weakener
+
+    Paraphrase: They're not grown-ups.
+    ",social.train.59430,social.train.59430.qcpg.0
+"Paraphrase ID: social.train.59430.qcpg.1
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: they are not adults yet.
+    Update Type: weakener
+
+    Paraphrase: They're no grown-ups.
+    ",social.train.59430,social.train.59430.qcpg.1
+"Paraphrase ID: social.train.49790.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to be loud and disturb the neighbors.
+    Update: you are being loud with the neighbors.
+    Update Type: weakener
+
+    Paraphrase: You're loud with neighbors.
+    ",social.train.49790,social.train.49790.qcpg.0
+"Paraphrase ID: social.train.49790.qcpg.1
+
+    Premise: 
+    Hypothesis: It is rude to be loud and disturb the neighbors.
+    Update: you are being loud with the neighbors.
+    Update Type: weakener
+
+    Paraphrase: You're loud with your neighbors.
+    ",social.train.49790,social.train.49790.qcpg.1
+"Paraphrase ID: social.train.2272.qcpg.0
+
+    Premise: 
+    Hypothesis: It is understandable to be concerned about family.
+    Update: there is no reason to be concerned.
+    Update Type: weakener
+
+    Paraphrase: We have no reason to worry.
+    ",social.train.2272,social.train.2272.qcpg.0
+"Paraphrase ID: social.train.2272.qcpg.1
+
+    Premise: 
+    Hypothesis: It is understandable to be concerned about family.
+    Update: there is no reason to be concerned.
+    Update Type: weakener
+
+    Paraphrase: No reason to be concerned.
+    ",social.train.2272,social.train.2272.qcpg.1
+"Paraphrase ID: social.train.2272.qcpg.2
+
+    Premise: 
+    Hypothesis: It is understandable to be concerned about family.
+    Update: there is no reason to be concerned.
+    Update Type: weakener
+
+    Paraphrase: We have no reason.
+    ",social.train.2272,social.train.2272.qcpg.2
+"Paraphrase ID: social.train.2272.qcpg.3
+
+    Premise: 
+    Hypothesis: It is understandable to be concerned about family.
+    Update: there is no reason to be concerned.
+    Update Type: weakener
+
+    Paraphrase: We don't have any reason.
+    ",social.train.2272,social.train.2272.qcpg.3
+"Paraphrase ID: social.train.2272.qcpg.4
+
+    Premise: 
+    Hypothesis: It is understandable to be concerned about family.
+    Update: there is no reason to be concerned.
+    Update Type: weakener
+
+    Paraphrase: No reason to worry.
+    ",social.train.2272,social.train.2272.qcpg.4
+"Paraphrase ID: social.train.19371.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to have to do things in your job other people might not like.
+    Update: you are low man on the totem pole.
+    Update Type: strengthener
+
+    Paraphrase: You're a low-minded man at the Tox Pole.
+    ",social.train.19371,social.train.19371.qcpg.0
+"Paraphrase ID: social.train.19371.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to have to do things in your job other people might not like.
+    Update: you are low man on the totem pole.
+    Update Type: strengthener
+
+    Paraphrase: You're a low-minded tom pole.
+    ",social.train.19371,social.train.19371.qcpg.1
+"Paraphrase ID: social.train.19371.qcpg.2
+
+    Premise: 
+    Hypothesis: It's okay to have to do things in your job other people might not like.
+    Update: you are low man on the totem pole.
+    Update Type: strengthener
+
+    Paraphrase: You're a low-minded guy at Tom Pole.
+    ",social.train.19371,social.train.19371.qcpg.2
+"Paraphrase ID: social.train.19371.qcpg.3
+
+    Premise: 
+    Hypothesis: It's okay to have to do things in your job other people might not like.
+    Update: you are low man on the totem pole.
+    Update Type: strengthener
+
+    Paraphrase: You're a low-minded tomp pole.
+    ",social.train.19371,social.train.19371.qcpg.3
+"Paraphrase ID: social.train.652.qcpg.0
+
+    Premise: 
+    Hypothesis: It's understandable not to want to see an ex-boyfriend again.
+    Update: They still have something that belongs to you.
+    Update Type: weakener
+
+    Paraphrase: They've got something to give you.
+    ",social.train.652,social.train.652.qcpg.0
+"Paraphrase ID: social.train.56890.qcpg.0
+
+    Premise: 
+    Hypothesis: Not everything you do deserves a prize.
+    Update: You're a scientist.
+    Update Type: weakener
+
+    Paraphrase: You're scientific.
+    ",social.train.56890,social.train.56890.qcpg.0
+"Paraphrase ID: social.train.56890.qcpg.1
+
+    Premise: 
+    Hypothesis: Not everything you do deserves a prize.
+    Update: You're a scientist.
+    Update Type: weakener
+
+    Paraphrase: Are you scientists.
+    ",social.train.56890,social.train.56890.qcpg.1
+"Paraphrase ID: social.train.50.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to get upset with a partner if they are talking to someone you don't approve of.
+    Update: they have business with them
+    Update Type: weakener
+
+    Paraphrase: They work with them.
+    ",social.train.50,social.train.50.qcpg.0
+"Paraphrase ID: social.train.48792.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to use people for your own purposes.
+    Update: the other people get some benefit too.
+    Update Type: weakener
+
+    Paraphrase: Others have other advantages as well.
+    ",social.train.48792,social.train.48792.qcpg.0
+"Paraphrase ID: social.train.48792.qcpg.1
+
+    Premise: 
+    Hypothesis: It's wrong to use people for your own purposes.
+    Update: the other people get some benefit too.
+    Update Type: weakener
+
+    Paraphrase: Others have also some advantages.
+    ",social.train.48792,social.train.48792.qcpg.1
+"Paraphrase ID: social.train.59741.qcpg.0
+
+    Premise: 
+    Hypothesis: A child should respect what their parents want to do in their home.
+    Update: Their child is a grown adult.
+    Update Type: strengthener
+
+    Paraphrase: Their baby's grown up.
+    ",social.train.59741,social.train.59741.qcpg.0
+"Paraphrase ID: social.train.2271.qcpg.0
+
+    Premise: 
+    Hypothesis: It is understandable to be concerned about family.
+    Update: you think they might be in trouble.
+    Update Type: strengthener
+
+    Paraphrase: You're thinking they've got problems.
+    ",social.train.2271,social.train.2271.qcpg.0
+"Paraphrase ID: social.train.2271.qcpg.1
+
+    Premise: 
+    Hypothesis: It is understandable to be concerned about family.
+    Update: you think they might be in trouble.
+    Update Type: strengthener
+
+    Paraphrase: Think they've got problems.
+    ",social.train.2271,social.train.2271.qcpg.1
+"Paraphrase ID: social.train.22524.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to stop talking to your friend for something their partner did to you.
+    Update: Your friend acted with their partner.
+    Update Type: weakener
+
+    Paraphrase: Your friend was interacting with his partner.
+    ",social.train.22524,social.train.22524.qcpg.0
+"Paraphrase ID: social.train.22524.qcpg.1
+
+    Premise: 
+    Hypothesis: It's wrong to stop talking to your friend for something their partner did to you.
+    Update: Your friend acted with their partner.
+    Update Type: weakener
+
+    Paraphrase: Your friend has been acting with their partner.
+    ",social.train.22524,social.train.22524.qcpg.1
+"Paraphrase ID: social.train.52.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to get upset with a partner if they are talking to someone you don't approve of.
+    Update: That person is their boss.
+    Update Type: weakener
+
+    Paraphrase: That's the boss of them.
+    ",social.train.52,social.train.52.qcpg.0
+"Paraphrase ID: social.train.52.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to get upset with a partner if they are talking to someone you don't approve of.
+    Update: That person is their boss.
+    Update Type: weakener
+
+    Paraphrase: It's their boss.
+    ",social.train.52,social.train.52.qcpg.1
+"Paraphrase ID: social.train.71486.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't hang up on people.
+    Update: there is an emergency.
+    Update Type: weakener
+
+    Paraphrase: We've got an emergency.
+    ",social.train.71486,social.train.71486.qcpg.0
+"Paraphrase ID: social.train.31060.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't be jealous of a significant others friendships with someone of the other sex.
+    Update: they make fun of you about it.
+    Update Type: weakener
+
+    Paraphrase: They're funking you.
+    ",social.train.31060,social.train.31060.qcpg.0
+"Paraphrase ID: social.train.31060.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't be jealous of a significant others friendships with someone of the other sex.
+    Update: they make fun of you about it.
+    Update Type: weakener
+
+    Paraphrase: They laugh about you.
+    ",social.train.31060,social.train.31060.qcpg.1
+"Paraphrase ID: social.train.32487.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't use your bright lights when other cars are around.
+    Update: It is nighttime.
+    Update Type: strengthener
+
+    Paraphrase: It's a Nighttime.
+    ",social.train.32487,social.train.32487.qcpg.0
+"Paraphrase ID: social.train.32487.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't use your bright lights when other cars are around.
+    Update: It is nighttime.
+    Update Type: strengthener
+
+    Paraphrase: It's a Night.
+    ",social.train.32487,social.train.32487.qcpg.1
+"Paraphrase ID: social.train.32487.qcpg.2
+
+    Premise: 
+    Hypothesis: You shouldn't use your bright lights when other cars are around.
+    Update: It is nighttime.
+    Update Type: strengthener
+
+    Paraphrase: I mean, it's nighttime.
+    ",social.train.32487,social.train.32487.qcpg.2
+"Paraphrase ID: social.train.53605.qcpg.0
+
+    Premise: 
+    Hypothesis: There are limits to how often you can help family out.
+    Update: You have a large family
+    Update Type: strengthener
+
+    Paraphrase: You've got a big family.
+    ",social.train.53605,social.train.53605.qcpg.0
+"Paraphrase ID: social.train.53605.qcpg.1
+
+    Premise: 
+    Hypothesis: There are limits to how often you can help family out.
+    Update: You have a large family
+    Update Type: strengthener
+
+    Paraphrase: Your family is huge.
+    ",social.train.53605,social.train.53605.qcpg.1
+"Paraphrase ID: social.train.52410.qcpg.0
+
+    Premise: 
+    Hypothesis: It can be very rewarding to complete a job on your own.
+    Update: the job is raising walls on a new house.
+    Update Type: weakener
+
+    Paraphrase: Their work raises walls around the new house.
+    ",social.train.52410,social.train.52410.qcpg.0
+"Paraphrase ID: social.train.52410.qcpg.1
+
+    Premise: 
+    Hypothesis: It can be very rewarding to complete a job on your own.
+    Update: the job is raising walls on a new house.
+    Update Type: weakener
+
+    Paraphrase: Work raises walls around the new house.
+    ",social.train.52410,social.train.52410.qcpg.1
+"Paraphrase ID: social.train.2270.qcpg.0
+
+    Premise: 
+    Hypothesis: It is understandable to be concerned about family.
+    Update: you're being too sensitive.
+    Update Type: weakener
+
+    Paraphrase: You're too sensitive.
+    ",social.train.2270,social.train.2270.qcpg.0
+"Paraphrase ID: social.train.2270.qcpg.1
+
+    Premise: 
+    Hypothesis: It is understandable to be concerned about family.
+    Update: you're being too sensitive.
+    Update Type: weakener
+
+    Paraphrase: Your sensitiveness is too great.
+    ",social.train.2270,social.train.2270.qcpg.1
+"Paraphrase ID: social.train.56894.qcpg.0
+
+    Premise: 
+    Hypothesis: Not everything you do deserves a prize.
+    Update: You are competing against someone.
+    Update Type: weakener
+
+    Paraphrase: You fight against someone.
+    ",social.train.56894,social.train.56894.qcpg.0
+"Paraphrase ID: social.train.56894.qcpg.1
+
+    Premise: 
+    Hypothesis: Not everything you do deserves a prize.
+    Update: You are competing against someone.
+    Update Type: weakener
+
+    Paraphrase: You fight against somebody.
+    ",social.train.56894,social.train.56894.qcpg.1
+"Paraphrase ID: social.train.61327.qcpg.0
+
+    Premise: 
+    Hypothesis: You should be more concerned about your health.
+    Update: You have a family.
+    Update Type: strengthener
+
+    Paraphrase: You've got family.
+    ",social.train.61327,social.train.61327.qcpg.0
+"Paraphrase ID: social.train.71144.qcpg.0
+
+    Premise: 
+    Hypothesis: It's impolite not to help roll when smoking with friends.
+    Update: you are using a pipe.
+    Update Type: weakener
+
+    Paraphrase: You use a pipe.
+    ",social.train.71144,social.train.71144.qcpg.0
+"Paraphrase ID: social.train.75410.qcpg.0
+
+    Premise: 
+    Hypothesis: You should explain to someone you do not want their attention if yo do not.
+    Update: You are famous and you have told that this would just encourage a deranged person.
+    Update Type: weakener
+
+    Paraphrase: You're well-known, and you're saying you're going to encourage
+    ",social.train.75410,social.train.75410.qcpg.0
+"Paraphrase ID: social.train.75410.qcpg.1
+
+    Premise: 
+    Hypothesis: You should explain to someone you do not want their attention if yo do not.
+    Update: You are famous and you have told that this would just encourage a deranged person.
+    Update Type: weakener
+
+    Paraphrase: You're famous and you're saying you're going to be able to stimulate
+    ",social.train.75410,social.train.75410.qcpg.1
+"Paraphrase ID: social.train.75410.qcpg.2
+
+    Premise: 
+    Hypothesis: You should explain to someone you do not want their attention if yo do not.
+    Update: You are famous and you have told that this would just encourage a deranged person.
+    Update Type: weakener
+
+    Paraphrase: You're well-known, and you said you'd be able to stimulate
+    ",social.train.75410,social.train.75410.qcpg.2
+"Paraphrase ID: social.train.75410.qcpg.3
+
+    Premise: 
+    Hypothesis: You should explain to someone you do not want their attention if yo do not.
+    Update: You are famous and you have told that this would just encourage a deranged person.
+    Update Type: weakener
+
+    Paraphrase: You're famous, you said, you'd be able to stimulate a de
+    ",social.train.75410,social.train.75410.qcpg.3
+"Paraphrase ID: social.train.59570.qcpg.0
+
+    Premise: 
+    Hypothesis: Its wrong to report someone for something they didn't do.
+    Update: They were supposed to take out the trash and they didn't do it.
+    Update Type: weakener
+
+    Paraphrase: They were supposed to dump trash, not do it.
+    ",social.train.59570,social.train.59570.qcpg.0
+"Paraphrase ID: social.train.59570.qcpg.1
+
+    Premise: 
+    Hypothesis: Its wrong to report someone for something they didn't do.
+    Update: They were supposed to take out the trash and they didn't do it.
+    Update Type: weakener
+
+    Paraphrase: They were supposed to dump trash, nothing.
+    ",social.train.59570,social.train.59570.qcpg.1
+"Paraphrase ID: social.train.59570.qcpg.2
+
+    Premise: 
+    Hypothesis: Its wrong to report someone for something they didn't do.
+    Update: They were supposed to take out the trash and they didn't do it.
+    Update Type: weakener
+
+    Paraphrase: They were supposed to dump trash and never do that.
+    ",social.train.59570,social.train.59570.qcpg.2
+"Paraphrase ID: social.train.34913.qcpg.0
+
+    Premise: 
+    Hypothesis: You should turn off something if someone keeps turning it back on.
+    Update: You live in a quiet neighborhood.
+    Update Type: strengthener
+
+    Paraphrase: Living in a quiet neighborhood.
+    ",social.train.34913,social.train.34913.qcpg.0
+"Paraphrase ID: social.train.34913.qcpg.1
+
+    Premise: 
+    Hypothesis: You should turn off something if someone keeps turning it back on.
+    Update: You live in a quiet neighborhood.
+    Update Type: strengthener
+
+    Paraphrase: Living in a quiet area.
+    ",social.train.34913,social.train.34913.qcpg.1
+"Paraphrase ID: social.train.8596.qcpg.0
+
+    Premise: 
+    Hypothesis: It's expected that you grieve more for the death of a relative than for a pet.
+    Update: Your relative is a distant one and you lived with your pet
+    Update Type: weakener
+
+    Paraphrase: Your relative is distant and you live with your pet.
+    ",social.train.8596,social.train.8596.qcpg.0
+"Paraphrase ID: social.train.8596.qcpg.1
+
+    Premise: 
+    Hypothesis: It's expected that you grieve more for the death of a relative than for a pet.
+    Update: Your relative is a distant one and you lived with your pet
+    Update Type: weakener
+
+    Paraphrase: Your relative is distant and living with your pet.
+    ",social.train.8596,social.train.8596.qcpg.1
+"Paraphrase ID: social.train.8596.qcpg.2
+
+    Premise: 
+    Hypothesis: It's expected that you grieve more for the death of a relative than for a pet.
+    Update: Your relative is a distant one and you lived with your pet
+    Update Type: weakener
+
+    Paraphrase: Your relative is distant, living with your pet.
+    ",social.train.8596,social.train.8596.qcpg.2
+"Paraphrase ID: social.train.5113.qcpg.0
+
+    Premise: 
+    Hypothesis: Avoiding a funeral can leave you with unresolved emotional issues.
+    Update: The funeral is for a close friend you had a falling out with.
+    Update Type: strengthener
+
+    Paraphrase: This funeral is for your closest friend.
+    ",social.train.5113,social.train.5113.qcpg.0
+"Paraphrase ID: social.train.5113.qcpg.1
+
+    Premise: 
+    Hypothesis: Avoiding a funeral can leave you with unresolved emotional issues.
+    Update: The funeral is for a close friend you had a falling out with.
+    Update Type: strengthener
+
+    Paraphrase: This funeral will be for your close friend.
+    ",social.train.5113,social.train.5113.qcpg.1
+"Paraphrase ID: social.train.5113.qcpg.2
+
+    Premise: 
+    Hypothesis: Avoiding a funeral can leave you with unresolved emotional issues.
+    Update: The funeral is for a close friend you had a falling out with.
+    Update Type: strengthener
+
+    Paraphrase: Cemetery for a dear friend of yours.
+    ",social.train.5113,social.train.5113.qcpg.2
+"Paraphrase ID: social.train.5113.qcpg.3
+
+    Premise: 
+    Hypothesis: Avoiding a funeral can leave you with unresolved emotional issues.
+    Update: The funeral is for a close friend you had a falling out with.
+    Update Type: strengthener
+
+    Paraphrase: It's a funeral for your closest friend.
+    ",social.train.5113,social.train.5113.qcpg.3
+"Paraphrase ID: social.train.5113.qcpg.4
+
+    Premise: 
+    Hypothesis: Avoiding a funeral can leave you with unresolved emotional issues.
+    Update: The funeral is for a close friend you had a falling out with.
+    Update Type: strengthener
+
+    Paraphrase: Funerals for a friend of yours.
+    ",social.train.5113,social.train.5113.qcpg.4
+"Paraphrase ID: social.train.5113.qcpg.5
+
+    Premise: 
+    Hypothesis: Avoiding a funeral can leave you with unresolved emotional issues.
+    Update: The funeral is for a close friend you had a falling out with.
+    Update Type: strengthener
+
+    Paraphrase: Cemetery for your closest friend.
+    ",social.train.5113,social.train.5113.qcpg.5
+"Paraphrase ID: social.train.10229.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: They really need an answer from you.
+    Update Type: strengthener
+
+    Paraphrase: They're in need of your reply.
+    ",social.train.10229,social.train.10229.qcpg.0
+"Paraphrase ID: social.train.75414.qcpg.0
+
+    Premise: 
+    Hypothesis: You should explain to someone you do not want their attention if yo do not.
+    Update: they are your boss
+    Update Type: weakener
+
+    Paraphrase: They're your Boss.
+    ",social.train.75414,social.train.75414.qcpg.0
+"Paraphrase ID: social.train.22052.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to not always get along with family members.
+    Update: Your family has a law firm.
+    Update Type: weakener
+
+    Paraphrase: Your family's got a legal firm.
+    ",social.train.22052,social.train.22052.qcpg.0
+"Paraphrase ID: social.train.59395.qcpg.0
+
+    Premise: 
+    Hypothesis: It's expected that you attend a holiday dinner.
+    Update: You are having it at your house.
+    Update Type: strengthener
+
+    Paraphrase: You have it at your home.
+    ",social.train.59395,social.train.59395.qcpg.0
+"Paraphrase ID: social.train.14648.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to like what you like no matter who created it.
+    Update: It was your competition who created it.
+    Update Type: weakener
+
+    Paraphrase: Your competition created it.
+    ",social.train.14648,social.train.14648.qcpg.0
+"Paraphrase ID: social.train.14648.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to like what you like no matter who created it.
+    Update: It was your competition who created it.
+    Update Type: weakener
+
+    Paraphrase: Your competitor created it.
+    ",social.train.14648,social.train.14648.qcpg.1
+"Paraphrase ID: social.train.60969.qcpg.0
+
+    Premise: 
+    Hypothesis: Neighbors might find it rude if you ask them leash their dog.
+    Update: they're selfish and unruly.
+    Update Type: strengthener
+
+    Paraphrase: They're egotistical and ruthless.
+    ",social.train.60969,social.train.60969.qcpg.0
+"Paraphrase ID: social.train.60969.qcpg.1
+
+    Premise: 
+    Hypothesis: Neighbors might find it rude if you ask them leash their dog.
+    Update: they're selfish and unruly.
+    Update Type: strengthener
+
+    Paraphrase: They're being egotistical and ruleful.
+    ",social.train.60969,social.train.60969.qcpg.1
+"Paraphrase ID: social.train.60969.qcpg.2
+
+    Premise: 
+    Hypothesis: Neighbors might find it rude if you ask them leash their dog.
+    Update: they're selfish and unruly.
+    Update Type: strengthener
+
+    Paraphrase: They're egotistical and ruleful.
+    ",social.train.60969,social.train.60969.qcpg.2
+"Paraphrase ID: social.train.60969.qcpg.3
+
+    Premise: 
+    Hypothesis: Neighbors might find it rude if you ask them leash their dog.
+    Update: they're selfish and unruly.
+    Update Type: strengthener
+
+    Paraphrase: They're being self-centred and unruleful.
+    ",social.train.60969,social.train.60969.qcpg.3
+"Paraphrase ID: social.train.60969.qcpg.4
+
+    Premise: 
+    Hypothesis: Neighbors might find it rude if you ask them leash their dog.
+    Update: they're selfish and unruly.
+    Update Type: strengthener
+
+    Paraphrase: They're being egotistical and unruleful.
+    ",social.train.60969,social.train.60969.qcpg.4
+"Paraphrase ID: social.train.7300.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to expect to stay over at your friend's place for the night.
+    Update: You and your friend have hooked up several times before and you're both feeling horny.
+    Update Type: weakener
+
+    Paraphrase: Your friend and you are a few times horny.
+    ",social.train.7300,social.train.7300.qcpg.0
+"Paraphrase ID: social.train.7300.qcpg.1
+
+    Premise: 
+    Hypothesis: It's wrong to expect to stay over at your friend's place for the night.
+    Update: You and your friend have hooked up several times before and you're both feeling horny.
+    Update Type: weakener
+
+    Paraphrase: Your friend and you are horny a few times.
+    ",social.train.7300,social.train.7300.qcpg.1
+"Paraphrase ID: social.train.4612.qcpg.0
+
+    Premise: 
+    Hypothesis: It is acceptable to not want to see some family members
+    Update: You're looking at pictures of them.
+    Update Type: weakener
+
+    Paraphrase: You see their photos.
+    ",social.train.4612,social.train.4612.qcpg.0
+"Paraphrase ID: social.train.72496.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with ex's.
+    Update: They have come back to you.
+    Update Type: weakener
+
+    Paraphrase: They're back to you.
+    ",social.train.72496,social.train.72496.qcpg.0
+"Paraphrase ID: social.train.72496.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with ex's.
+    Update: They have come back to you.
+    Update Type: weakener
+
+    Paraphrase: They returned to you.
+    ",social.train.72496,social.train.72496.qcpg.1
+"Paraphrase ID: social.train.10228.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: You are sleeping.
+    Update Type: weakener
+
+    Paraphrase: You sleep.
+    ",social.train.10228,social.train.10228.qcpg.0
+"Paraphrase ID: social.train.10228.qcpg.1
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: You are sleeping.
+    Update Type: weakener
+
+    Paraphrase: Are you sleeping.
+    ",social.train.10228,social.train.10228.qcpg.1
+"Paraphrase ID: social.train.305.qcpg.0
+
+    Premise: 
+    Hypothesis: It is good and neccesary for everyone to have some alone time.
+    Update: It is a retired couple who are always home together.
+    Update Type: strengthener
+
+    Paraphrase: A retired couple is always in the house.
+    ",social.train.305,social.train.305.qcpg.0
+"Paraphrase ID: social.train.305.qcpg.1
+
+    Premise: 
+    Hypothesis: It is good and neccesary for everyone to have some alone time.
+    Update: It is a retired couple who are always home together.
+    Update Type: strengthener
+
+    Paraphrase: The old couple is always in the house.
+    ",social.train.305,social.train.305.qcpg.1
+"Paraphrase ID: social.train.52752.qcpg.0
+
+    Premise: 
+    Hypothesis: It's good to get excited about your plans.
+    Update: you can't keep your mind on your work.
+    Update Type: weakener
+
+    Paraphrase: Don't forget your job.
+    ",social.train.52752,social.train.52752.qcpg.0
+"Paraphrase ID: social.train.70058.qcpg.0
+
+    Premise: 
+    Hypothesis: You may lose out on not saying what you need to say.
+    Update: Unless you speak up.
+    Update Type: weakener
+
+    Paraphrase: Without speaking.
+    ",social.train.70058,social.train.70058.qcpg.0
+"Paraphrase ID: social.train.26724.qcpg.0
+
+    Premise: 
+    Hypothesis: It is OK to give your niece a fish and take it back if she can't care for it.
+    Update: You want to teach her the hard lesson of responsibility by letting it die.
+    Update Type: weakener
+
+    Paraphrase: You want to teach her to be responsible for her death.
+    ",social.train.26724,social.train.26724.qcpg.0
+"Paraphrase ID: social.train.26724.qcpg.1
+
+    Premise: 
+    Hypothesis: It is OK to give your niece a fish and take it back if she can't care for it.
+    Update: You want to teach her the hard lesson of responsibility by letting it die.
+    Update Type: weakener
+
+    Paraphrase: You're going to teach her to be responsible for her dying.
+    ",social.train.26724,social.train.26724.qcpg.1
+"Paraphrase ID: social.train.26724.qcpg.2
+
+    Premise: 
+    Hypothesis: It is OK to give your niece a fish and take it back if she can't care for it.
+    Update: You want to teach her the hard lesson of responsibility by letting it die.
+    Update Type: weakener
+
+    Paraphrase: You want her to learn to be responsible for dying.
+    ",social.train.26724,social.train.26724.qcpg.2
+"Paraphrase ID: social.train.26724.qcpg.3
+
+    Premise: 
+    Hypothesis: It is OK to give your niece a fish and take it back if she can't care for it.
+    Update: You want to teach her the hard lesson of responsibility by letting it die.
+    Update Type: weakener
+
+    Paraphrase: You're going to teach her to be responsible. You want to learn to learn to kill
+    ",social.train.26724,social.train.26724.qcpg.3
+"Paraphrase ID: social.train.63713.qcpg.0
+
+    Premise: 
+    Hypothesis: Leading someone on is wrong
+    Update: You don't want to be with that person and others know it.
+    Update Type: strengthener
+
+    Paraphrase: You don't want to be with him, and somebody knows him.
+    ",social.train.63713,social.train.63713.qcpg.0
+"Paraphrase ID: social.train.63713.qcpg.1
+
+    Premise: 
+    Hypothesis: Leading someone on is wrong
+    Update: You don't want to be with that person and others know it.
+    Update Type: strengthener
+
+    Paraphrase: You don't wanna be with him, and somebody else knows him.
+    ",social.train.63713,social.train.63713.qcpg.1
+"Paraphrase ID: social.train.46755.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to want to spend special time with someone you care about.
+    Update: You want some alone time
+    Update Type: strengthener
+
+    Paraphrase: You want to be left alone.
+    ",social.train.46755,social.train.46755.qcpg.0
+"Paraphrase ID: social.train.46755.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to want to spend special time with someone you care about.
+    Update: You want some alone time
+    Update Type: strengthener
+
+    Paraphrase: You'd like to have a time on your own.
+    ",social.train.46755,social.train.46755.qcpg.1
+"Paraphrase ID: social.train.46755.qcpg.2
+
+    Premise: 
+    Hypothesis: It's okay to want to spend special time with someone you care about.
+    Update: You want some alone time
+    Update Type: strengthener
+
+    Paraphrase: You want time on your own.
+    ",social.train.46755,social.train.46755.qcpg.2
+"Paraphrase ID: social.train.46755.qcpg.3
+
+    Premise: 
+    Hypothesis: It's okay to want to spend special time with someone you care about.
+    Update: You want some alone time
+    Update Type: strengthener
+
+    Paraphrase: You want a lone time.
+    ",social.train.46755,social.train.46755.qcpg.3
+"Paraphrase ID: social.train.46755.qcpg.4
+
+    Premise: 
+    Hypothesis: It's okay to want to spend special time with someone you care about.
+    Update: You want some alone time
+    Update Type: strengthener
+
+    Paraphrase: You'd like to have time to alone.
+    ",social.train.46755,social.train.46755.qcpg.4
+"Paraphrase ID: social.train.26354.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't be a parent if you're terminally ill.
+    Update: You have a plan in place for the care of your kids.
+    Update Type: weakener
+
+    Paraphrase: You've got a plan to look after your kids.
+    ",social.train.26354,social.train.26354.qcpg.0
+"Paraphrase ID: social.train.41573.qcpg.0
+
+    Premise: 
+    Hypothesis: You should be more intimate with your partner.
+    Update: You're interested in exploring sexuality.
+    Update Type: strengthener
+
+    Paraphrase: You want to explore sexuality.
+    ",social.train.41573,social.train.41573.qcpg.0
+"Paraphrase ID: social.train.48794.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to use people for your own purposes.
+    Update: they are aware you are doing so.
+    Update Type: weakener
+
+    Paraphrase: They know what you're doing.
+    ",social.train.48794,social.train.48794.qcpg.0
+"Paraphrase ID: social.train.48794.qcpg.1
+
+    Premise: 
+    Hypothesis: It's wrong to use people for your own purposes.
+    Update: they are aware you are doing so.
+    Update Type: weakener
+
+    Paraphrase: They know what you do.
+    ",social.train.48794,social.train.48794.qcpg.1
+"Paraphrase ID: social.train.10226.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: you phone's battery is dead.
+    Update Type: weakener
+
+    Paraphrase: Your cell phone's dead.
+    ",social.train.10226,social.train.10226.qcpg.0
+"Paraphrase ID: social.train.55226.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to not allow someone to move in with you.
+    Update: They own the building you want to live in
+    Update Type: weakener
+
+    Paraphrase: They're building what you want to live in.
+    ",social.train.55226,social.train.55226.qcpg.0
+"Paraphrase ID: social.train.55226.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to not allow someone to move in with you.
+    Update: They own the building you want to live in
+    Update Type: weakener
+
+    Paraphrase: They're building you want to live in.
+    ",social.train.55226,social.train.55226.qcpg.1
+"Paraphrase ID: social.train.55226.qcpg.2
+
+    Premise: 
+    Hypothesis: It's okay to not allow someone to move in with you.
+    Update: They own the building you want to live in
+    Update Type: weakener
+
+    Paraphrase: They're going to be living at the house you want to live in.
+    ",social.train.55226,social.train.55226.qcpg.2
+"Paraphrase ID: social.train.55226.qcpg.3
+
+    Premise: 
+    Hypothesis: It's okay to not allow someone to move in with you.
+    Update: They own the building you want to live in
+    Update Type: weakener
+
+    Paraphrase: They're building your home.
+    ",social.train.55226,social.train.55226.qcpg.3
+"Paraphrase ID: social.train.6221.qcpg.0
+
+    Premise: 
+    Hypothesis: Parents will ask you about your well being because they care, it is rude to argue with them about it.
+    Update: they generally respect your privacy.
+    Update Type: strengthener
+
+    Paraphrase: Most of all respects your privacy.
+    ",social.train.6221,social.train.6221.qcpg.0
+"Paraphrase ID: social.train.6221.qcpg.1
+
+    Premise: 
+    Hypothesis: Parents will ask you about your well being because they care, it is rude to argue with them about it.
+    Update: they generally respect your privacy.
+    Update Type: strengthener
+
+    Paraphrase: Most of all respect your privacy.
+    ",social.train.6221,social.train.6221.qcpg.1
+"Paraphrase ID: social.train.6221.qcpg.2
+
+    Premise: 
+    Hypothesis: Parents will ask you about your well being because they care, it is rude to argue with them about it.
+    Update: they generally respect your privacy.
+    Update Type: strengthener
+
+    Paraphrase: Most of them respect your privacy.
+    ",social.train.6221,social.train.6221.qcpg.2
+"Paraphrase ID: social.train.6221.qcpg.3
+
+    Premise: 
+    Hypothesis: Parents will ask you about your well being because they care, it is rude to argue with them about it.
+    Update: they generally respect your privacy.
+    Update Type: strengthener
+
+    Paraphrase: Generally respecting your privacy.
+    ",social.train.6221,social.train.6221.qcpg.3
+"Paraphrase ID: social.train.63438.qcpg.0
+
+    Premise: 
+    Hypothesis: It is sad to pretend you care for someone.
+    Update: you are trying to manipulate yourself out of a life threatening situation.
+    Update Type: weakener
+
+    Paraphrase: You try to avoid life-threatening.
+    ",social.train.63438,social.train.63438.qcpg.0
+"Paraphrase ID: social.train.43128.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to not think someone is attractive even if you formerly did.
+    Update: You are just mad at them.
+    Update Type: weakener
+
+    Paraphrase: You're crazy about them.
+    ",social.train.43128,social.train.43128.qcpg.0
+"Paraphrase ID: social.train.43128.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to not think someone is attractive even if you formerly did.
+    Update: You are just mad at them.
+    Update Type: weakener
+
+    Paraphrase: You're crazy.
+    ",social.train.43128,social.train.43128.qcpg.1
+"Paraphrase ID: social.train.24584.qcpg.0
+
+    Premise: 
+    Hypothesis: It's good to cover for a coworker if they have to leave work.
+    Update: They have been drinking alcohol and are going to drive to their destination.
+    Update Type: weakener
+
+    Paraphrase: They drink alcohol and go to their destination.
+    ",social.train.24584,social.train.24584.qcpg.0
+"Paraphrase ID: social.train.24584.qcpg.1
+
+    Premise: 
+    Hypothesis: It's good to cover for a coworker if they have to leave work.
+    Update: They have been drinking alcohol and are going to drive to their destination.
+    Update Type: weakener
+
+    Paraphrase: They drink alcohol and drive to their destinations.
+    ",social.train.24584,social.train.24584.qcpg.1
+"Paraphrase ID: social.train.24584.qcpg.2
+
+    Premise: 
+    Hypothesis: It's good to cover for a coworker if they have to leave work.
+    Update: They have been drinking alcohol and are going to drive to their destination.
+    Update Type: weakener
+
+    Paraphrase: They drink alcohol and drive to their destination.
+    ",social.train.24584,social.train.24584.qcpg.2
+"Paraphrase ID: social.train.73246.qcpg.0
+
+    Premise: 
+    Hypothesis: It is acceptable to tell someone they are wrong in a group chat.
+    Update: You want to avoid an argument.
+    Update Type: weakener
+
+    Paraphrase: You're trying to stay off the argument.
+    ",social.train.73246,social.train.73246.qcpg.0
+"Paraphrase ID: social.train.73246.qcpg.1
+
+    Premise: 
+    Hypothesis: It is acceptable to tell someone they are wrong in a group chat.
+    Update: You want to avoid an argument.
+    Update Type: weakener
+
+    Paraphrase: You'd like to avoid this.
+    ",social.train.73246,social.train.73246.qcpg.1
+"Paraphrase ID: social.train.26352.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't be a parent if you're terminally ill.
+    Update: You already had the child before you became ill.
+    Update Type: weakener
+
+    Paraphrase: You had a baby before you were sick.
+    ",social.train.26352,social.train.26352.qcpg.0
+"Paraphrase ID: social.train.26352.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't be a parent if you're terminally ill.
+    Update: You already had the child before you became ill.
+    Update Type: weakener
+
+    Paraphrase: You had a baby before you had a disease.
+    ",social.train.26352,social.train.26352.qcpg.1
+"Paraphrase ID: social.train.67239.qcpg.0
+
+    Premise: 
+    Hypothesis: It is bad to ask someone to return a gift back to you
+    Update: you decided that they didnt deserve it
+    Update Type: strengthener
+
+    Paraphrase: You've decided to ignore them.
+    ",social.train.67239,social.train.67239.qcpg.0
+"Paraphrase ID: social.train.67239.qcpg.1
+
+    Premise: 
+    Hypothesis: It is bad to ask someone to return a gift back to you
+    Update: you decided that they didnt deserve it
+    Update Type: strengthener
+
+    Paraphrase: You've decided to make no profit.
+    ",social.train.67239,social.train.67239.qcpg.1
+"Paraphrase ID: social.train.67239.qcpg.2
+
+    Premise: 
+    Hypothesis: It is bad to ask someone to return a gift back to you
+    Update: you decided that they didnt deserve it
+    Update Type: strengthener
+
+    Paraphrase: You've decided to make them not worthy.
+    ",social.train.67239,social.train.67239.qcpg.2
+"Paraphrase ID: social.train.48790.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to use people for your own purposes.
+    Update: They were hired to perform specific tasks like landscaping.
+    Update Type: weakener
+
+    Paraphrase: They hired specific tasks such as gardeners.
+    ",social.train.48790,social.train.48790.qcpg.0
+"Paraphrase ID: social.train.48790.qcpg.1
+
+    Premise: 
+    Hypothesis: It's wrong to use people for your own purposes.
+    Update: They were hired to perform specific tasks like landscaping.
+    Update Type: weakener
+
+    Paraphrase: They hired specific tasks such as gardening.
+    ",social.train.48790,social.train.48790.qcpg.1
+"Paraphrase ID: social.train.10225.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: They are making sure you got home safely last night.
+    Update Type: strengthener
+
+    Paraphrase: They want you to get home safely last night.
+    ",social.train.10225,social.train.10225.qcpg.0
+"Paraphrase ID: social.train.10225.qcpg.1
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: They are making sure you got home safely last night.
+    Update Type: strengthener
+
+    Paraphrase: They want you to be safe at home last night.
+    ",social.train.10225,social.train.10225.qcpg.1
+"Paraphrase ID: social.train.38812.qcpg.0
+
+    Premise: 
+    Hypothesis: People are expected to be supportive of family.
+    Update: they come from an abusive home.
+    Update Type: weakener
+
+    Paraphrase: They're coming out of abusive homes.
+    ",social.train.38812,social.train.38812.qcpg.0
+"Paraphrase ID: social.train.46736.qcpg.0
+
+    Premise: 
+    Hypothesis: It's understandable to want your partner to be considerate of your medical conditions.
+    Update: your medical condition really isn't that serious
+    Update Type: weakener
+
+    Paraphrase: Your health isn't so serious.
+    ",social.train.46736,social.train.46736.qcpg.0
+"Paraphrase ID: social.train.23906.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't avoid people.
+    Update: A deadly disease is spreading in the community.
+    Update Type: weakener
+
+    Paraphrase: The death disease spreads into the community.
+    ",social.train.23906,social.train.23906.qcpg.0
+"Paraphrase ID: social.train.23906.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't avoid people.
+    Update: A deadly disease is spreading in the community.
+    Update Type: weakener
+
+    Paraphrase: Death-stricken disease spreads into the community.
+    ",social.train.23906,social.train.23906.qcpg.1
+"Paraphrase ID: social.train.23906.qcpg.2
+
+    Premise: 
+    Hypothesis: You shouldn't avoid people.
+    Update: A deadly disease is spreading in the community.
+    Update Type: weakener
+
+    Paraphrase: Death's spreading in the community.
+    ",social.train.23906,social.train.23906.qcpg.2
+"Paraphrase ID: social.train.23906.qcpg.3
+
+    Premise: 
+    Hypothesis: You shouldn't avoid people.
+    Update: A deadly disease is spreading in the community.
+    Update Type: weakener
+
+    Paraphrase: The death disease spreads across the community.
+    ",social.train.23906,social.train.23906.qcpg.3
+"Paraphrase ID: social.train.43127.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to not think someone is attractive even if you formerly did.
+    Update: They have become elderly.
+    Update Type: strengthener
+
+    Paraphrase: They became older.
+    ",social.train.43127,social.train.43127.qcpg.0
+"Paraphrase ID: social.train.21135.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay if things don't work out between you and a partner even if it might seem like something little to the other person.
+    Update: You both understand that it may be something small to them but it's a dealbreaker for you.
+    Update Type: strengthener
+
+    Paraphrase: You know it's small for them, but it's a big deal for you
+    ",social.train.21135,social.train.21135.qcpg.0
+"Paraphrase ID: social.train.21135.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay if things don't work out between you and a partner even if it might seem like something little to the other person.
+    Update: You both understand that it may be something small to them but it's a dealbreaker for you.
+    Update Type: strengthener
+
+    Paraphrase: Both of you know it's small, but it's a problem for them.
+    ",social.train.21135,social.train.21135.qcpg.1
+"Paraphrase ID: social.train.21135.qcpg.2
+
+    Premise: 
+    Hypothesis: It's okay if things don't work out between you and a partner even if it might seem like something little to the other person.
+    Update: You both understand that it may be something small to them but it's a dealbreaker for you.
+    Update Type: strengthener
+
+    Paraphrase: Both of you know it's small, but it's a deal with you.
+    ",social.train.21135,social.train.21135.qcpg.2
+"Paraphrase ID: social.train.44368.qcpg.0
+
+    Premise: 
+    Hypothesis: It's expected that friends should do things together.
+    Update: You are out of town for a long time
+    Update Type: weakener
+
+    Paraphrase: You're leaving town long time
+    ",social.train.44368,social.train.44368.qcpg.0
+"Paraphrase ID: social.train.44368.qcpg.1
+
+    Premise: 
+    Hypothesis: It's expected that friends should do things together.
+    Update: You are out of town for a long time
+    Update Type: weakener
+
+    Paraphrase: You're long out of town.
+    ",social.train.44368,social.train.44368.qcpg.1
+"Paraphrase ID: social.train.6404.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't do things that cause your parents to become so angry that they behave irrationally
+    Update: You are trying to get them out of a funk.
+    Update Type: weakener
+
+    Paraphrase: You want to get rid of them. Funk.
+    ",social.train.6404,social.train.6404.qcpg.0
+"Paraphrase ID: social.train.6404.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't do things that cause your parents to become so angry that they behave irrationally
+    Update: You are trying to get them out of a funk.
+    Update Type: weakener
+
+    Paraphrase: You try to get rid of them. Funk.
+    ",social.train.6404,social.train.6404.qcpg.1
+"Paraphrase ID: social.train.6404.qcpg.2
+
+    Premise: 
+    Hypothesis: You shouldn't do things that cause your parents to become so angry that they behave irrationally
+    Update: You are trying to get them out of a funk.
+    Update Type: weakener
+
+    Paraphrase: You want to get rid of them.
+    ",social.train.6404,social.train.6404.qcpg.2
+"Paraphrase ID: social.train.70056.qcpg.0
+
+    Premise: 
+    Hypothesis: You may lose out on not saying what you need to say.
+    Update: You are a suspect being interrogated
+    Update Type: weakener
+
+    Paraphrase: You're suspected of being under arrest.
+    ",social.train.70056,social.train.70056.qcpg.0
+"Paraphrase ID: social.train.70056.qcpg.1
+
+    Premise: 
+    Hypothesis: You may lose out on not saying what you need to say.
+    Update: You are a suspect being interrogated
+    Update Type: weakener
+
+    Paraphrase: Your suspect is investigated.
+    ",social.train.70056,social.train.70056.qcpg.1
+"Paraphrase ID: social.train.70056.qcpg.2
+
+    Premise: 
+    Hypothesis: You may lose out on not saying what you need to say.
+    Update: You are a suspect being interrogated
+    Update Type: weakener
+
+    Paraphrase: You're being investigated.
+    ",social.train.70056,social.train.70056.qcpg.2
+"Paraphrase ID: social.train.70056.qcpg.3
+
+    Premise: 
+    Hypothesis: You may lose out on not saying what you need to say.
+    Update: You are a suspect being interrogated
+    Update Type: weakener
+
+    Paraphrase: You're suspected of interrogating
+    ",social.train.70056,social.train.70056.qcpg.3
+"Paraphrase ID: social.train.70056.qcpg.4
+
+    Premise: 
+    Hypothesis: You may lose out on not saying what you need to say.
+    Update: You are a suspect being interrogated
+    Update Type: weakener
+
+    Paraphrase: Your suspect is interrogated.
+    ",social.train.70056,social.train.70056.qcpg.4
+"Paraphrase ID: social.train.6408.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't do things that cause your parents to become so angry that they behave irrationally
+    Update: They are normal things everyone does and your parents are just hyper strict.
+    Update Type: weakener
+
+    Paraphrase: It's the normal stuff, and your parents are very strict.
+    ",social.train.6408,social.train.6408.qcpg.0
+"Paraphrase ID: social.train.6408.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't do things that cause your parents to become so angry that they behave irrationally
+    Update: They are normal things everyone does and your parents are just hyper strict.
+    Update Type: weakener
+
+    Paraphrase: It's all normal, and your parents are very strict.
+    ",social.train.6408,social.train.6408.qcpg.1
+"Paraphrase ID: social.train.6408.qcpg.2
+
+    Premise: 
+    Hypothesis: You shouldn't do things that cause your parents to become so angry that they behave irrationally
+    Update: They are normal things everyone does and your parents are just hyper strict.
+    Update Type: weakener
+
+    Paraphrase: It's normal, all of your parents, but they're hardheaded.
+    ",social.train.6408,social.train.6408.qcpg.2
+"Paraphrase ID: social.train.6408.qcpg.3
+
+    Premise: 
+    Hypothesis: You shouldn't do things that cause your parents to become so angry that they behave irrationally
+    Update: They are normal things everyone does and your parents are just hyper strict.
+    Update Type: weakener
+
+    Paraphrase: It's normal, all of your parents, but all of your parents are hyper-s
+    ",social.train.6408,social.train.6408.qcpg.3
+"Paraphrase ID: social.train.6408.qcpg.4
+
+    Premise: 
+    Hypothesis: You shouldn't do things that cause your parents to become so angry that they behave irrationally
+    Update: They are normal things everyone does and your parents are just hyper strict.
+    Update Type: weakener
+
+    Paraphrase: It's normal, all of your parents, but they're hyper-strict
+    ",social.train.6408,social.train.6408.qcpg.4
+"Paraphrase ID: social.train.10223.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: The friend needs help with an emergency.
+    Update Type: strengthener
+
+    Paraphrase: My friend needs some assistance in the event of an emergency.
+    ",social.train.10223,social.train.10223.qcpg.0
+"Paraphrase ID: social.train.10223.qcpg.1
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: The friend needs help with an emergency.
+    Update Type: strengthener
+
+    Paraphrase: Friends need help in emergencies.
+    ",social.train.10223,social.train.10223.qcpg.1
+"Paraphrase ID: social.train.14498.qcpg.0
+
+    Premise: 
+    Hypothesis: You need to understand and back off if someone refuses your sexual advances.
+    Update: The person is interacting in a roleplay.
+    Update Type: weakener
+
+    Paraphrase: Person has interaction in a roleplay.
+    ",social.train.14498,social.train.14498.qcpg.0
+"Paraphrase ID: social.train.14498.qcpg.1
+
+    Premise: 
+    Hypothesis: You need to understand and back off if someone refuses your sexual advances.
+    Update: The person is interacting in a roleplay.
+    Update Type: weakener
+
+    Paraphrase: Person has interaction in roleplay.
+    ",social.train.14498,social.train.14498.qcpg.1
+"Paraphrase ID: social.train.14498.qcpg.2
+
+    Premise: 
+    Hypothesis: You need to understand and back off if someone refuses your sexual advances.
+    Update: The person is interacting in a roleplay.
+    Update Type: weakener
+
+    Paraphrase: Person has an interaction in a roleplay.
+    ",social.train.14498,social.train.14498.qcpg.2
+"Paraphrase ID: social.train.14498.qcpg.3
+
+    Premise: 
+    Hypothesis: You need to understand and back off if someone refuses your sexual advances.
+    Update: The person is interacting in a roleplay.
+    Update Type: weakener
+
+    Paraphrase: Person's interaction is a roleplay.
+    ",social.train.14498,social.train.14498.qcpg.3
+"Paraphrase ID: social.train.63436.qcpg.0
+
+    Premise: 
+    Hypothesis: It is sad to pretend you care for someone.
+    Update: You are trying to negotiate a better salary.
+    Update Type: weakener
+
+    Paraphrase: You try to negotiate a higher pay.
+    ",social.train.63436,social.train.63436.qcpg.0
+"Paraphrase ID: social.train.63436.qcpg.1
+
+    Premise: 
+    Hypothesis: It is sad to pretend you care for someone.
+    Update: You are trying to negotiate a better salary.
+    Update Type: weakener
+
+    Paraphrase: You try and negotiate a better pay.
+    ",social.train.63436,social.train.63436.qcpg.1
+"Paraphrase ID: social.train.63436.qcpg.2
+
+    Premise: 
+    Hypothesis: It is sad to pretend you care for someone.
+    Update: You are trying to negotiate a better salary.
+    Update Type: weakener
+
+    Paraphrase: You want to negotiate a better pay.
+    ",social.train.63436,social.train.63436.qcpg.2
+"Paraphrase ID: social.train.24101.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to post possibly offensive jokes on Facebook.
+    Update: you are trying to be offensive.
+    Update Type: strengthener
+
+    Paraphrase: You want to be violent.
+    ",social.train.24101,social.train.24101.qcpg.0
+"Paraphrase ID: social.train.24101.qcpg.1
+
+    Premise: 
+    Hypothesis: It's wrong to post possibly offensive jokes on Facebook.
+    Update: you are trying to be offensive.
+    Update Type: strengthener
+
+    Paraphrase: You want to be offensive.
+    ",social.train.24101,social.train.24101.qcpg.1
+"Paraphrase ID: social.train.5866.qcpg.0
+
+    Premise: 
+    Hypothesis: It is good to call people out for cheating.
+    Update: They are trying to win a reality show.
+    Update Type: weakener
+
+    Paraphrase: They want to win the real world.
+    ",social.train.5866,social.train.5866.qcpg.0
+"Paraphrase ID: social.train.20670.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to cancel an job interview.
+    Update: A friend set up the interview.
+    Update Type: weakener
+
+    Paraphrase: A friend invited an interview.
+    ",social.train.20670,social.train.20670.qcpg.0
+"Paraphrase ID: social.train.20670.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to cancel an job interview.
+    Update: A friend set up the interview.
+    Update Type: weakener
+
+    Paraphrase: A friend has initiated an interview.
+    ",social.train.20670,social.train.20670.qcpg.1
+"Paraphrase ID: social.train.20670.qcpg.2
+
+    Premise: 
+    Hypothesis: It's okay to cancel an job interview.
+    Update: A friend set up the interview.
+    Update Type: weakener
+
+    Paraphrase: A friend has initiated a consultation.
+    ",social.train.20670,social.train.20670.qcpg.2
+"Paraphrase ID: social.train.19957.qcpg.0
+
+    Premise: 
+    Hypothesis: It is unprofessional to call your partners job for personal matters.
+    Update: you're only calling to chat.
+    Update Type: strengthener
+
+    Paraphrase: You only call for chat.
+    ",social.train.19957,social.train.19957.qcpg.0
+"Paraphrase ID: social.train.19957.qcpg.1
+
+    Premise: 
+    Hypothesis: It is unprofessional to call your partners job for personal matters.
+    Update: you're only calling to chat.
+    Update Type: strengthener
+
+    Paraphrase: You only call chat.
+    ",social.train.19957,social.train.19957.qcpg.1
+"Paraphrase ID: social.train.19957.qcpg.2
+
+    Premise: 
+    Hypothesis: It is unprofessional to call your partners job for personal matters.
+    Update: you're only calling to chat.
+    Update Type: strengthener
+
+    Paraphrase: You only want to talk.
+    ",social.train.19957,social.train.19957.qcpg.2
+"Paraphrase ID: social.train.34740.qcpg.0
+
+    Premise: 
+    Hypothesis: It's important to give proper notice when you are leaving your job.
+    Update: Your employer stole your retirement funds.
+    Update Type: weakener
+
+    Paraphrase: Your employer has slain your pension funds.
+    ",social.train.34740,social.train.34740.qcpg.0
+"Paraphrase ID: social.train.34740.qcpg.1
+
+    Premise: 
+    Hypothesis: It's important to give proper notice when you are leaving your job.
+    Update: Your employer stole your retirement funds.
+    Update Type: weakener
+
+    Paraphrase: Your employer has extorted your pension funds.
+    ",social.train.34740,social.train.34740.qcpg.1
+"Paraphrase ID: social.train.34740.qcpg.2
+
+    Premise: 
+    Hypothesis: It's important to give proper notice when you are leaving your job.
+    Update: Your employer stole your retirement funds.
+    Update Type: weakener
+
+    Paraphrase: Your employer has snuck your retirement funds.
+    ",social.train.34740,social.train.34740.qcpg.2
+"Paraphrase ID: social.train.72498.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with ex's.
+    Update: You are still in love with them.
+    Update Type: weakener
+
+    Paraphrase: You still love them.
+    ",social.train.72498,social.train.72498.qcpg.0
+"Paraphrase ID: social.train.34742.qcpg.0
+
+    Premise: 
+    Hypothesis: It's important to give proper notice when you are leaving your job.
+    Update: You found out that your employer was acting unethically.
+    Update Type: weakener
+
+    Paraphrase: You knew your employer was unethical.
+    ",social.train.34742,social.train.34742.qcpg.0
+"Paraphrase ID: social.train.10222.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: When you are able to your friend is unavailable.
+    Update Type: weakener
+
+    Paraphrase: When your friend is unavailable.
+    ",social.train.10222,social.train.10222.qcpg.0
+"Paraphrase ID: social.train.69714.qcpg.0
+
+    Premise: 
+    Hypothesis: It's rude to be gross when you are living with someone.
+    Update: They are gross too
+    Update Type: weakener
+
+    Paraphrase: It's gross too.
+    ",social.train.69714,social.train.69714.qcpg.0
+"Paraphrase ID: social.train.24586.qcpg.0
+
+    Premise: 
+    Hypothesis: It's good to cover for a coworker if they have to leave work.
+    Update: They are leaving work for a bad reason
+    Update Type: weakener
+
+    Paraphrase: They want to go away from work for the wrong reason.
+    ",social.train.24586,social.train.24586.qcpg.0
+"Paraphrase ID: social.train.24586.qcpg.1
+
+    Premise: 
+    Hypothesis: It's good to cover for a coworker if they have to leave work.
+    Update: They are leaving work for a bad reason
+    Update Type: weakener
+
+    Paraphrase: They want to get out of work for bad reasons.
+    ",social.train.24586,social.train.24586.qcpg.1
+"Paraphrase ID: social.train.2934.qcpg.0
+
+    Premise: 
+    Hypothesis: It's inconsiderate to dismiss a person's neurological illness.
+    Update: You can tell the charts they're using to prove they have the illness don't belong to them.
+    Update Type: weakener
+
+    Paraphrase: You know the charts that they use to show that they have no disease.
+    ",social.train.2934,social.train.2934.qcpg.0
+"Paraphrase ID: social.train.2934.qcpg.1
+
+    Premise: 
+    Hypothesis: It's inconsiderate to dismiss a person's neurological illness.
+    Update: You can tell the charts they're using to prove they have the illness don't belong to them.
+    Update Type: weakener
+
+    Paraphrase: You know, they have a chart that shows they've got no disease.
+    ",social.train.2934,social.train.2934.qcpg.1
+"Paraphrase ID: social.train.2934.qcpg.2
+
+    Premise: 
+    Hypothesis: It's inconsiderate to dismiss a person's neurological illness.
+    Update: You can tell the charts they're using to prove they have the illness don't belong to them.
+    Update Type: weakener
+
+    Paraphrase: You know the charts that they use to show that they are sick.
+    ",social.train.2934,social.train.2934.qcpg.2
+"Paraphrase ID: social.train.79603.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with your ex's friends.
+    Update: You and your ex just broke up a few days ago.
+    Update Type: strengthener
+
+    Paraphrase: You and your exterminated a few days ago.
+    ",social.train.79603,social.train.79603.qcpg.0
+"Paraphrase ID: social.train.79603.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with your ex's friends.
+    Update: You and your ex just broke up a few days ago.
+    Update Type: strengthener
+
+    Paraphrase: You and your extermination a few days ago.
+    ",social.train.79603,social.train.79603.qcpg.1
+"Paraphrase ID: social.train.51214.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to object to your partner's work commitments if they interfere with your life.
+    Update: He is the sole support of your family.
+    Update Type: weakener
+
+    Paraphrase: He's your family's only support.
+    ",social.train.51214,social.train.51214.qcpg.0
+"Paraphrase ID: social.train.55910.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to expect money out of people.
+    Update: You let them borrow from you before
+    Update Type: weakener
+
+    Paraphrase: You borrowed from you before.
+    ",social.train.55910,social.train.55910.qcpg.0
+"Paraphrase ID: social.train.55910.qcpg.1
+
+    Premise: 
+    Hypothesis: It's wrong to expect money out of people.
+    Update: You let them borrow from you before
+    Update Type: weakener
+
+    Paraphrase: They could borrow from you before.
+    ",social.train.55910,social.train.55910.qcpg.1
+"Paraphrase ID: social.train.55910.qcpg.2
+
+    Premise: 
+    Hypothesis: It's wrong to expect money out of people.
+    Update: You let them borrow from you before
+    Update Type: weakener
+
+    Paraphrase: You borrowed from you.
+    ",social.train.55910,social.train.55910.qcpg.2
+"Paraphrase ID: social.train.61522.qcpg.0
+
+    Premise: 
+    Hypothesis: Always believing a partner will lead to disappointment.
+    Update: Your partner never lies to you.
+    Update Type: weakener
+
+    Paraphrase: Your partner isn't going to ever be your partner.
+    ",social.train.61522,social.train.61522.qcpg.0
+"Paraphrase ID: social.train.61522.qcpg.1
+
+    Premise: 
+    Hypothesis: Always believing a partner will lead to disappointment.
+    Update: Your partner never lies to you.
+    Update Type: weakener
+
+    Paraphrase: Your partner will never be your partner.
+    ",social.train.61522,social.train.61522.qcpg.1
+"Paraphrase ID: social.train.79607.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with your ex's friends.
+    Update: You ended your relationship on good terms.
+    Update Type: strengthener
+
+    Paraphrase: You've ended the good relationship.
+    ",social.train.79607,social.train.79607.qcpg.0
+"Paraphrase ID: social.train.79607.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with your ex's friends.
+    Update: You ended your relationship on good terms.
+    Update Type: strengthener
+
+    Paraphrase: Your relationship has ended on a good terms.
+    ",social.train.79607,social.train.79607.qcpg.1
+"Paraphrase ID: social.train.79607.qcpg.2
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with your ex's friends.
+    Update: You ended your relationship on good terms.
+    Update Type: strengthener
+
+    Paraphrase: You've come to an end to your relationship. Good terms.
+    ",social.train.79607,social.train.79607.qcpg.2
+"Paraphrase ID: social.train.79607.qcpg.3
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with your ex's friends.
+    Update: You ended your relationship on good terms.
+    Update Type: strengthener
+
+    Paraphrase: Your relationship has come to an end on good terms.
+    ",social.train.79607,social.train.79607.qcpg.3
+"Paraphrase ID: social.train.79607.qcpg.4
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with your ex's friends.
+    Update: You ended your relationship on good terms.
+    Update Type: strengthener
+
+    Paraphrase: You've come to an end of your relationship. Good terms.
+    ",social.train.79607,social.train.79607.qcpg.4
+"Paraphrase ID: social.train.79607.qcpg.5
+
+    Premise: 
+    Hypothesis: You shouldn't have sex with your ex's friends.
+    Update: You ended your relationship on good terms.
+    Update Type: strengthener
+
+    Paraphrase: Your relationship has been under good terms.
+    ",social.train.79607,social.train.79607.qcpg.5
+"Paraphrase ID: social.train.10221.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: They asked you an important question.
+    Update Type: strengthener
+
+    Paraphrase: They've been asking you a very important question.
+    ",social.train.10221,social.train.10221.qcpg.0
+"Paraphrase ID: social.train.10221.qcpg.1
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: They asked you an important question.
+    Update Type: strengthener
+
+    Paraphrase: They've been asking you an important question.
+    ",social.train.10221,social.train.10221.qcpg.1
+"Paraphrase ID: social.train.56471.qcpg.0
+
+    Premise: 
+    Hypothesis: It is okay to confront others you see doing wrong
+    Update: They are your underage children.
+    Update Type: strengthener
+
+    Paraphrase: These are your children who are young.
+    ",social.train.56471,social.train.56471.qcpg.0
+"Paraphrase ID: social.train.56471.qcpg.1
+
+    Premise: 
+    Hypothesis: It is okay to confront others you see doing wrong
+    Update: They are your underage children.
+    Update Type: strengthener
+
+    Paraphrase: These children of yours are your children.
+    ",social.train.56471,social.train.56471.qcpg.1
+"Paraphrase ID: social.train.56471.qcpg.2
+
+    Premise: 
+    Hypothesis: It is okay to confront others you see doing wrong
+    Update: They are your underage children.
+    Update Type: strengthener
+
+    Paraphrase: These are your children who are under the age of yours.
+    ",social.train.56471,social.train.56471.qcpg.2
+"Paraphrase ID: social.train.56471.qcpg.3
+
+    Premise: 
+    Hypothesis: It is okay to confront others you see doing wrong
+    Update: They are your underage children.
+    Update Type: strengthener
+
+    Paraphrase: These are your children of the underage.
+    ",social.train.56471,social.train.56471.qcpg.3
+"Paraphrase ID: social.train.56471.qcpg.4
+
+    Premise: 
+    Hypothesis: It is okay to confront others you see doing wrong
+    Update: They are your underage children.
+    Update Type: strengthener
+
+    Paraphrase: These are your children who are under the age of your children.
+    ",social.train.56471,social.train.56471.qcpg.4
+"Paraphrase ID: social.train.65291.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to not want your partner to stay at an event you don't agree with.
+    Update: You were disinvited because the host is dramatic
+    Update Type: strengthener
+
+    Paraphrase: You've been disarmed by the Host is dramatic.
+    ",social.train.65291,social.train.65291.qcpg.0
+"Paraphrase ID: social.train.72017.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to do things separately from your partner.
+    Update: You trust each other.
+    Update Type: strengthener
+
+    Paraphrase: You have faith in each other.
+    ",social.train.72017,social.train.72017.qcpg.0
+"Paraphrase ID: social.train.72017.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to do things separately from your partner.
+    Update: You trust each other.
+    Update Type: strengthener
+
+    Paraphrase: You believe in each other.
+    ",social.train.72017,social.train.72017.qcpg.1
+"Paraphrase ID: social.train.48804.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to want privacy.
+    Update: you are doing something on stage.
+    Update Type: weakener
+
+    Paraphrase: You do something at the moment.
+    ",social.train.48804,social.train.48804.qcpg.0
+"Paraphrase ID: social.train.48804.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to want privacy.
+    Update: you are doing something on stage.
+    Update Type: weakener
+
+    Paraphrase: You do something at the stage.
+    ",social.train.48804,social.train.48804.qcpg.1
+"Paraphrase ID: social.train.64959.qcpg.0
+
+    Premise: 
+    Hypothesis: It is okay to express your frustrations with situations.
+    Update: You express frustration by talking about it.
+    Update Type: strengthener
+
+    Paraphrase: You're expressing disappointment in the way you speak.
+    ",social.train.64959,social.train.64959.qcpg.0
+"Paraphrase ID: social.train.64959.qcpg.1
+
+    Premise: 
+    Hypothesis: It is okay to express your frustrations with situations.
+    Update: You express frustration by talking about it.
+    Update Type: strengthener
+
+    Paraphrase: You're saying frustration.
+    ",social.train.64959,social.train.64959.qcpg.1
+"Paraphrase ID: social.train.64959.qcpg.2
+
+    Premise: 
+    Hypothesis: It is okay to express your frustrations with situations.
+    Update: You express frustration by talking about it.
+    Update Type: strengthener
+
+    Paraphrase: You're expressing disappointment.
+    ",social.train.64959,social.train.64959.qcpg.2
+"Paraphrase ID: social.train.38895.qcpg.0
+
+    Premise: 
+    Hypothesis: You should respect rules.
+    Update: You are gambling in a casino.
+    Update Type: strengthener
+
+    Paraphrase: You gamble in the casino.
+    ",social.train.38895,social.train.38895.qcpg.0
+"Paraphrase ID: social.train.9406.qcpg.0
+
+    Premise: 
+    Hypothesis: If you want to talk to someone, you should start the conversation.
+    Update: They are busy talking to someone else.
+    Update Type: weakener
+
+    Paraphrase: They have no time to speak with somebody else.
+    ",social.train.9406,social.train.9406.qcpg.0
+"Paraphrase ID: social.train.9406.qcpg.1
+
+    Premise: 
+    Hypothesis: If you want to talk to someone, you should start the conversation.
+    Update: They are busy talking to someone else.
+    Update Type: weakener
+
+    Paraphrase: They need to speak with somebody else.
+    ",social.train.9406,social.train.9406.qcpg.1
+"Paraphrase ID: social.train.34746.qcpg.0
+
+    Premise: 
+    Hypothesis: It's important to give proper notice when you are leaving your job.
+    Update: the job is making you do illegal things.
+    Update Type: weakener
+
+    Paraphrase: Your work aims to do something illegal.
+    ",social.train.34746,social.train.34746.qcpg.0
+"Paraphrase ID: social.train.34746.qcpg.1
+
+    Premise: 
+    Hypothesis: It's important to give proper notice when you are leaving your job.
+    Update: the job is making you do illegal things.
+    Update Type: weakener
+
+    Paraphrase: Your work aims at doing something illegal.
+    ",social.train.34746,social.train.34746.qcpg.1
+"Paraphrase ID: social.train.34746.qcpg.2
+
+    Premise: 
+    Hypothesis: It's important to give proper notice when you are leaving your job.
+    Update: the job is making you do illegal things.
+    Update Type: weakener
+
+    Paraphrase: Your work iSn't do anything illegal.
+    ",social.train.34746,social.train.34746.qcpg.2
+"Paraphrase ID: social.train.25295.qcpg.0
+
+    Premise: 
+    Hypothesis: It's not polite to push your wishes on your partner.
+    Update: Your partner respects your wishes
+    Update Type: strengthener
+
+    Paraphrase: Your partner is observing your wishes.
+    ",social.train.25295,social.train.25295.qcpg.0
+"Paraphrase ID: social.train.25295.qcpg.1
+
+    Premise: 
+    Hypothesis: It's not polite to push your wishes on your partner.
+    Update: Your partner respects your wishes
+    Update Type: strengthener
+
+    Paraphrase: Your partner is respectful of your wishes.
+    ",social.train.25295,social.train.25295.qcpg.1
+"Paraphrase ID: social.train.25295.qcpg.2
+
+    Premise: 
+    Hypothesis: It's not polite to push your wishes on your partner.
+    Update: Your partner respects your wishes
+    Update Type: strengthener
+
+    Paraphrase: Your partner's observing your wishes.
+    ",social.train.25295,social.train.25295.qcpg.2
+"Paraphrase ID: social.train.59439.qcpg.0
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: The parents have money to use toward their care.
+    Update Type: strengthener
+
+    Paraphrase: Parents want to spend money on their health.
+    ",social.train.59439,social.train.59439.qcpg.0
+"Paraphrase ID: social.train.59439.qcpg.1
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: The parents have money to use toward their care.
+    Update Type: strengthener
+
+    Paraphrase: Parents must spend their money to help them.
+    ",social.train.59439,social.train.59439.qcpg.1
+"Paraphrase ID: social.train.59439.qcpg.2
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: The parents have money to use toward their care.
+    Update Type: strengthener
+
+    Paraphrase: Parents want their money to help them.
+    ",social.train.59439,social.train.59439.qcpg.2
+"Paraphrase ID: social.train.19010.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay to want privacy.
+    Update: Your health is at risk.
+    Update Type: weakener
+
+    Paraphrase: Your health's on the line.
+    ",social.train.19010,social.train.19010.qcpg.0
+"Paraphrase ID: social.train.19010.qcpg.1
+
+    Premise: 
+    Hypothesis: It's okay to want privacy.
+    Update: Your health is at risk.
+    Update Type: weakener
+
+    Paraphrase: You're in danger, your health.
+    ",social.train.19010,social.train.19010.qcpg.1
+"Paraphrase ID: social.train.41750.qcpg.0
+
+    Premise: 
+    Hypothesis: It's ok to not want a loved one to get a tattoo.
+    Update: You have one.
+    Update Type: weakener
+
+    Paraphrase: You've got one.
+    ",social.train.41750,social.train.41750.qcpg.0
+"Paraphrase ID: social.train.9407.qcpg.0
+
+    Premise: 
+    Hypothesis: If you want to talk to someone, you should start the conversation.
+    Update: They are an introvert.
+    Update Type: strengthener
+
+    Paraphrase: They're rapist.
+    ",social.train.9407,social.train.9407.qcpg.0
+"Paraphrase ID: social.train.9407.qcpg.1
+
+    Premise: 
+    Hypothesis: If you want to talk to someone, you should start the conversation.
+    Update: They are an introvert.
+    Update Type: strengthener
+
+    Paraphrase: They're extortion.
+    ",social.train.9407,social.train.9407.qcpg.1
+"Paraphrase ID: social.train.61528.qcpg.0
+
+    Premise: 
+    Hypothesis: Always believing a partner will lead to disappointment.
+    Update: your partner is not lying about anything.
+    Update Type: weakener
+
+    Paraphrase: Your partner doesn't lie.
+    ",social.train.61528,social.train.61528.qcpg.0
+"Paraphrase ID: social.train.61528.qcpg.1
+
+    Premise: 
+    Hypothesis: Always believing a partner will lead to disappointment.
+    Update: your partner is not lying about anything.
+    Update Type: weakener
+
+    Paraphrase: Your partner's no liar.
+    ",social.train.61528,social.train.61528.qcpg.1
+"Paraphrase ID: social.train.61528.qcpg.2
+
+    Premise: 
+    Hypothesis: Always believing a partner will lead to disappointment.
+    Update: your partner is not lying about anything.
+    Update Type: weakener
+
+    Paraphrase: Your partner never lied.
+    ",social.train.61528,social.train.61528.qcpg.2
+"Paraphrase ID: social.train.75673.qcpg.0
+
+    Premise: 
+    Hypothesis: It's good to want to better your life.
+    Update: You have a family to support.
+    Update Type: strengthener
+
+    Paraphrase: You've got family support.
+    ",social.train.75673,social.train.75673.qcpg.0
+"Paraphrase ID: social.train.75673.qcpg.1
+
+    Premise: 
+    Hypothesis: It's good to want to better your life.
+    Update: You have a family to support.
+    Update Type: strengthener
+
+    Paraphrase: You've got family to support.
+    ",social.train.75673,social.train.75673.qcpg.1
+"Paraphrase ID: social.train.39960.qcpg.0
+
+    Premise: 
+    Hypothesis: It is okay to chose who to interact with.
+    Update: You live in a small town made up entirely of criminals.
+    Update Type: weakener
+
+    Paraphrase: You're living in a little town where criminals are a lot of criminals
+    ",social.train.39960,social.train.39960.qcpg.0
+"Paraphrase ID: social.train.39960.qcpg.1
+
+    Premise: 
+    Hypothesis: It is okay to chose who to interact with.
+    Update: You live in a small town made up entirely of criminals.
+    Update Type: weakener
+
+    Paraphrase: Your life in a small town crowded with criminals.
+    ",social.train.39960,social.train.39960.qcpg.1
+"Paraphrase ID: social.train.39960.qcpg.2
+
+    Premise: 
+    Hypothesis: It is okay to chose who to interact with.
+    Update: You live in a small town made up entirely of criminals.
+    Update Type: weakener
+
+    Paraphrase: Living in a small town dominated by criminals.
+    ",social.train.39960,social.train.39960.qcpg.2
+"Paraphrase ID: social.train.39960.qcpg.3
+
+    Premise: 
+    Hypothesis: It is okay to chose who to interact with.
+    Update: You live in a small town made up entirely of criminals.
+    Update Type: weakener
+
+    Paraphrase: Your life is a small town populated by criminals.
+    ",social.train.39960,social.train.39960.qcpg.3
+"Paraphrase ID: social.train.39960.qcpg.4
+
+    Premise: 
+    Hypothesis: It is okay to chose who to interact with.
+    Update: You live in a small town made up entirely of criminals.
+    Update Type: weakener
+
+    Paraphrase: Your life is a small town crowded with criminals.
+    ",social.train.39960,social.train.39960.qcpg.4
+"Paraphrase ID: social.train.38586.qcpg.0
+
+    Premise: 
+    Hypothesis: It's wrong to be sexist.
+    Update: You are teaching a sexual harassment class.
+    Update Type: weakener
+
+    Paraphrase: You teach sexual harassment.
+    ",social.train.38586,social.train.38586.qcpg.0
+"Paraphrase ID: social.train.38586.qcpg.1
+
+    Premise: 
+    Hypothesis: It's wrong to be sexist.
+    Update: You are teaching a sexual harassment class.
+    Update Type: weakener
+
+    Paraphrase: You teach the Sexual Harassment Class.
+    ",social.train.38586,social.train.38586.qcpg.1
+"Paraphrase ID: social.train.41352.qcpg.0
+
+    Premise: 
+    Hypothesis: It is okay to be worried about people you care about.
+    Update: it affects you in a negative way.
+    Update Type: weakener
+
+    Paraphrase: It negatively affects you.
+    ",social.train.41352,social.train.41352.qcpg.0
+"Paraphrase ID: social.train.25291.qcpg.0
+
+    Premise: 
+    Hypothesis: It's not polite to push your wishes on your partner.
+    Update: They let you have your own way 95% of the time.
+    Update Type: strengthener
+
+    Paraphrase: You have 95% of your time.
+    ",social.train.25291,social.train.25291.qcpg.0
+"Paraphrase ID: social.train.25291.qcpg.1
+
+    Premise: 
+    Hypothesis: It's not polite to push your wishes on your partner.
+    Update: They let you have your own way 95% of the time.
+    Update Type: strengthener
+
+    Paraphrase: You have 95% of time.
+    ",social.train.25291,social.train.25291.qcpg.1
+"Paraphrase ID: social.train.25291.qcpg.2
+
+    Premise: 
+    Hypothesis: It's not polite to push your wishes on your partner.
+    Update: They let you have your own way 95% of the time.
+    Update Type: strengthener
+
+    Paraphrase: You can have 95% of time.
+    ",social.train.25291,social.train.25291.qcpg.2
+"Paraphrase ID: social.train.59437.qcpg.0
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: they have a retirement fund.
+    Update Type: strengthener
+
+    Paraphrase: They've got retirement funds.
+    ",social.train.59437,social.train.59437.qcpg.0
+"Paraphrase ID: social.train.59437.qcpg.1
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: they have a retirement fund.
+    Update Type: strengthener
+
+    Paraphrase: They've got a retirement fund.
+    ",social.train.59437,social.train.59437.qcpg.1
+"Paraphrase ID: social.train.32485.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't use your bright lights when other cars are around.
+    Update: the road is extremely dark and windy.
+    Update Type: strengthener
+
+    Paraphrase: The roads are black and windy.
+    ",social.train.32485,social.train.32485.qcpg.0
+"Paraphrase ID: social.train.32485.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't use your bright lights when other cars are around.
+    Update: the road is extremely dark and windy.
+    Update Type: strengthener
+
+    Paraphrase: It's a dark and windy road.
+    ",social.train.32485,social.train.32485.qcpg.1
+"Paraphrase ID: social.train.32485.qcpg.2
+
+    Premise: 
+    Hypothesis: You shouldn't use your bright lights when other cars are around.
+    Update: the road is extremely dark and windy.
+    Update Type: strengthener
+
+    Paraphrase: Roads are dark and windy.
+    ",social.train.32485,social.train.32485.qcpg.2
+"Paraphrase ID: social.train.26689.qcpg.0
+
+    Premise: 
+    Hypothesis: It's OK to expect the schools in your neighborhood to be quiet when open.
+    Update: you live in an retirement community.
+    Update Type: strengthener
+
+    Paraphrase: Living in a retirement community.
+    ",social.train.26689,social.train.26689.qcpg.0
+"Paraphrase ID: social.train.26689.qcpg.1
+
+    Premise: 
+    Hypothesis: It's OK to expect the schools in your neighborhood to be quiet when open.
+    Update: you live in an retirement community.
+    Update Type: strengthener
+
+    Paraphrase: You're living in retirement communities.
+    ",social.train.26689,social.train.26689.qcpg.1
+"Paraphrase ID: social.train.71236.qcpg.0
+
+    Premise: 
+    Hypothesis: Partners should keep their hands to themselves.
+    Update: they are making out.
+    Update Type: weakener
+
+    Paraphrase: They want to be out.
+    ",social.train.71236,social.train.71236.qcpg.0
+"Paraphrase ID: social.train.71236.qcpg.1
+
+    Premise: 
+    Hypothesis: Partners should keep their hands to themselves.
+    Update: they are making out.
+    Update Type: weakener
+
+    Paraphrase: They want to disappear.
+    ",social.train.71236,social.train.71236.qcpg.1
+"Paraphrase ID: social.train.71236.qcpg.2
+
+    Premise: 
+    Hypothesis: Partners should keep their hands to themselves.
+    Update: they are making out.
+    Update Type: weakener
+
+    Paraphrase: They want to go.
+    ",social.train.71236,social.train.71236.qcpg.2
+"Paraphrase ID: social.train.8925.qcpg.0
+
+    Premise: 
+    Hypothesis: It is not okay to shame someone's mental health issues.
+    Update: you have never had to deal with anxiety or depression.
+    Update Type: strengthener
+
+    Paraphrase: You've never been able to cope with anxiety and depression.
+    ",social.train.8925,social.train.8925.qcpg.0
+"Paraphrase ID: social.train.8925.qcpg.1
+
+    Premise: 
+    Hypothesis: It is not okay to shame someone's mental health issues.
+    Update: you have never had to deal with anxiety or depression.
+    Update Type: strengthener
+
+    Paraphrase: You never had anxiety or depression.
+    ",social.train.8925,social.train.8925.qcpg.1
+"Paraphrase ID: social.train.8925.qcpg.2
+
+    Premise: 
+    Hypothesis: It is not okay to shame someone's mental health issues.
+    Update: you have never had to deal with anxiety or depression.
+    Update Type: strengthener
+
+    Paraphrase: You've never been able to deal with anxiety and depression.
+    ",social.train.8925,social.train.8925.qcpg.2
+"Paraphrase ID: social.train.2419.qcpg.0
+
+    Premise: 
+    Hypothesis: People are expected to take punishment seriously.
+    Update: it will keep you out of trouble later.
+    Update Type: strengthener
+
+    Paraphrase: You're going to be troubled later.
+    ",social.train.2419,social.train.2419.qcpg.0
+"Paraphrase ID: social.train.2419.qcpg.1
+
+    Premise: 
+    Hypothesis: People are expected to take punishment seriously.
+    Update: it will keep you out of trouble later.
+    Update Type: strengthener
+
+    Paraphrase: You're going to be pushed into a later time.
+    ",social.train.2419,social.train.2419.qcpg.1
+"Paraphrase ID: social.train.21131.qcpg.0
+
+    Premise: 
+    Hypothesis: It's okay if things don't work out between you and a partner even if it might seem like something little to the other person.
+    Update: You are sensitive
+    Update Type: strengthener
+
+    Paraphrase: You're sensitive.
+    ",social.train.21131,social.train.21131.qcpg.0
+"Paraphrase ID: social.train.7967.qcpg.0
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: The complaints are the same and coming from people who never complained before.
+    Update Type: strengthener
+
+    Paraphrase: Complainments are similar and never complained about people.
+    ",social.train.7967,social.train.7967.qcpg.0
+"Paraphrase ID: social.train.7967.qcpg.1
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: The complaints are the same and coming from people who never complained before.
+    Update Type: strengthener
+
+    Paraphrase: Complainments are alike and people never complain.
+    ",social.train.7967,social.train.7967.qcpg.1
+"Paraphrase ID: social.train.7967.qcpg.2
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: The complaints are the same and coming from people who never complained before.
+    Update Type: strengthener
+
+    Paraphrase: Complainments are identical and never complained about anything.
+    ",social.train.7967,social.train.7967.qcpg.2
+"Paraphrase ID: social.train.7967.qcpg.3
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: The complaints are the same and coming from people who never complained before.
+    Update Type: strengthener
+
+    Paraphrase: Complainments are identical and people never complain.
+    ",social.train.7967,social.train.7967.qcpg.3
+"Paraphrase ID: social.train.63012.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't put up with a partner that forces you to choose between two people.
+    Update: Those two people are your partner and another lover.
+    Update Type: weakener
+
+    Paraphrase: They're your partner and your lover.
+    ",social.train.63012,social.train.63012.qcpg.0
+"Paraphrase ID: social.train.19804.qcpg.0
+
+    Premise: 
+    Hypothesis: It's good for the environment to reuse towels.
+    Update: Your washing machine is inefficient.
+    Update Type: weakener
+
+    Paraphrase: Your washing machine's ineffectual.
+    ",social.train.19804,social.train.19804.qcpg.0
+"Paraphrase ID: social.train.19804.qcpg.1
+
+    Premise: 
+    Hypothesis: It's good for the environment to reuse towels.
+    Update: Your washing machine is inefficient.
+    Update Type: weakener
+
+    Paraphrase: Your washing machine's inefficient.
+    ",social.train.19804,social.train.19804.qcpg.1
+"Paraphrase ID: social.train.19804.qcpg.2
+
+    Premise: 
+    Hypothesis: It's good for the environment to reuse towels.
+    Update: Your washing machine is inefficient.
+    Update Type: weakener
+
+    Paraphrase: Your washing machine has been ineffectual.
+    ",social.train.19804,social.train.19804.qcpg.2
+"Paraphrase ID: social.train.59436.qcpg.0
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: they can't help it.
+    Update Type: weakener
+
+    Paraphrase: They're not going to help.
+    ",social.train.59436,social.train.59436.qcpg.0
+"Paraphrase ID: social.train.59436.qcpg.1
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: they can't help it.
+    Update Type: weakener
+
+    Paraphrase: No one's going to help.
+    ",social.train.59436,social.train.59436.qcpg.1
+"Paraphrase ID: social.train.59436.qcpg.2
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: they can't help it.
+    Update Type: weakener
+
+    Paraphrase: No one can help.
+    ",social.train.59436,social.train.59436.qcpg.2
+"Paraphrase ID: social.train.26358.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't be a parent if you're terminally ill.
+    Update: You had your child before your diagnosis was made.
+    Update Type: weakener
+
+    Paraphrase: You had your baby before you were diagnomized.
+    ",social.train.26358,social.train.26358.qcpg.0
+"Paraphrase ID: social.train.26687.qcpg.0
+
+    Premise: 
+    Hypothesis: It's OK to expect the schools in your neighborhood to be quiet when open.
+    Update: It's a testing day.
+    Update Type: strengthener
+
+    Paraphrase: It's going to be a test day.
+    ",social.train.26687,social.train.26687.qcpg.0
+"Paraphrase ID: social.train.25296.qcpg.0
+
+    Premise: 
+    Hypothesis: It's not polite to push your wishes on your partner.
+    Update: You're strongly hinting for something like a birthday gift.
+    Update Type: weakener
+
+    Paraphrase: You strongly suggest a birthday gift.
+    ",social.train.25296,social.train.25296.qcpg.0
+"Paraphrase ID: social.train.66632.qcpg.0
+
+    Premise: 
+    Hypothesis: If a relationship isn't working out for you, it's okay to cut things off
+    Update: There are trivial issues that can be fixed.
+    Update Type: weakener
+
+    Paraphrase: Some trivial problems can be solved.
+    ",social.train.66632,social.train.66632.qcpg.0
+"Paraphrase ID: social.train.66632.qcpg.1
+
+    Premise: 
+    Hypothesis: If a relationship isn't working out for you, it's okay to cut things off
+    Update: There are trivial issues that can be fixed.
+    Update Type: weakener
+
+    Paraphrase: We can solve trivial problems.
+    ",social.train.66632,social.train.66632.qcpg.1
+"Paraphrase ID: social.train.66632.qcpg.2
+
+    Premise: 
+    Hypothesis: If a relationship isn't working out for you, it's okay to cut things off
+    Update: There are trivial issues that can be fixed.
+    Update Type: weakener
+
+    Paraphrase: Some trivial issues can be solved.
+    ",social.train.66632,social.train.66632.qcpg.2
+"Paraphrase ID: social.train.66632.qcpg.3
+
+    Premise: 
+    Hypothesis: If a relationship isn't working out for you, it's okay to cut things off
+    Update: There are trivial issues that can be fixed.
+    Update Type: weakener
+
+    Paraphrase: We can resolve trivial problems.
+    ",social.train.66632,social.train.66632.qcpg.3
+"Paraphrase ID: social.train.8629.qcpg.0
+
+    Premise: 
+    Hypothesis: You should support your significant other no matter what.
+    Update: Your significant other comes from a family that would not let girls get an education and she wants to go to school as an adult. to
+    Update Type: strengthener
+
+    Paraphrase: Your other major comes from a family of parents who refuses to educate, wants to learn
+    ",social.train.8629,social.train.8629.qcpg.0
+"Paraphrase ID: social.train.8629.qcpg.1
+
+    Premise: 
+    Hypothesis: You should support your significant other no matter what.
+    Update: Your significant other comes from a family that would not let girls get an education and she wants to go to school as an adult. to
+    Update Type: strengthener
+
+    Paraphrase: Your big-minded family doesn't have to teach girls. And she wants to learn to
+    ",social.train.8629,social.train.8629.qcpg.1
+"Paraphrase ID: social.train.8629.qcpg.2
+
+    Premise: 
+    Hypothesis: You should support your significant other no matter what.
+    Update: Your significant other comes from a family that would not let girls get an education and she wants to go to school as an adult. to
+    Update Type: strengthener
+
+    Paraphrase: Your big-minded family is from a family of who refuses to learn to teach.
+    ",social.train.8629,social.train.8629.qcpg.2
+"Paraphrase ID: social.train.8629.qcpg.3
+
+    Premise: 
+    Hypothesis: You should support your significant other no matter what.
+    Update: Your significant other comes from a family that would not let girls get an education and she wants to go to school as an adult. to
+    Update Type: strengthener
+
+    Paraphrase: Your other majority comes from a family that wouldn't let the girls learn, and
+    ",social.train.8629,social.train.8629.qcpg.3
+"Paraphrase ID: social.train.7963.qcpg.0
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: Many people are complaining about the same thing
+    Update Type: strengthener
+
+    Paraphrase: Lots of people complain of the same.
+    ",social.train.7963,social.train.7963.qcpg.0
+"Paraphrase ID: social.train.7963.qcpg.1
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: Many people are complaining about the same thing
+    Update Type: strengthener
+
+    Paraphrase: A lot of people complain of that.
+    ",social.train.7963,social.train.7963.qcpg.1
+"Paraphrase ID: social.train.7963.qcpg.2
+
+    Premise: 
+    Hypothesis: Don't brush off complaints as something that isn't serious.
+    Update: Many people are complaining about the same thing
+    Update Type: strengthener
+
+    Paraphrase: Many people complain alike.
+    ",social.train.7963,social.train.7963.qcpg.2
+"Paraphrase ID: social.train.69052.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't pry into your friend's business.
+    Update: You're looking to be an investor.
+    Update Type: weakener
+
+    Paraphrase: You want to be an investor.
+    ",social.train.69052,social.train.69052.qcpg.0
+"Paraphrase ID: social.train.69052.qcpg.1
+
+    Premise: 
+    Hypothesis: You shouldn't pry into your friend's business.
+    Update: You're looking to be an investor.
+    Update Type: weakener
+
+    Paraphrase: You want to be a investor.
+    ",social.train.69052,social.train.69052.qcpg.1
+"Paraphrase ID: social.train.63010.qcpg.0
+
+    Premise: 
+    Hypothesis: You shouldn't put up with a partner that forces you to choose between two people.
+    Update: Those two people are their drug dealer and themselves
+    Update Type: weakener
+
+    Paraphrase: Both of them are their drug-runners and their own.
+    ",social.train.63010,social.train.63010.qcpg.0
+"Paraphrase ID: social.train.10227.qcpg.0
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: they are having car trouble.
+    Update Type: strengthener
+
+    Paraphrase: They have a car problem.
+    ",social.train.10227,social.train.10227.qcpg.0
+"Paraphrase ID: social.train.10227.qcpg.1
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: they are having car trouble.
+    Update Type: strengthener
+
+    Paraphrase: They got a car problem.
+    ",social.train.10227,social.train.10227.qcpg.1
+"Paraphrase ID: social.train.59432.qcpg.0
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: They are elderly and in need of hospice care
+    Update Type: weakener
+
+    Paraphrase: They're older and they need hospitable care.
+    ",social.train.59432,social.train.59432.qcpg.0
+"Paraphrase ID: social.train.59432.qcpg.1
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: They are elderly and in need of hospice care
+    Update Type: weakener
+
+    Paraphrase: They're older and need hospice care.
+    ",social.train.59432,social.train.59432.qcpg.1

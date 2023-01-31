@@ -9,7 +9,7 @@ import pickle
 #export TRANSFORMERS_CACHE='/fs/clip-scratch/nehasrik/paraphrase-nlu/paraphrase-nlu/experiments/hf-cache'
 #python -m experiments.auto_vs_human.qcpg run from top directory
 
-class QualityControlPipeline:
+class QCPGModel:
     
     def __init__(self, type):
         assert type in ['captions', 'questions', 'sentences']
@@ -32,12 +32,21 @@ class QualityControlPipeline:
         return self.pipe(text, **kwargs)
 
 
+class QCPGParaphraser():
+
+    def __init__(self):
+        self.qcpg_model = QCPGModel('sentences')
+
+    def paraphrase(self, text, lexical, syntactic, semantic):
+        return self.qcpg_model(text, lexical=lexical, syntactic=syntactic, semantic=semantic)[0]['generated_text'].strip()
+
 
 
 if __name__ == '__main__':
 
-    model = QualityControlPipeline('sentences')
-    print(model('Is this going to work or what are we doing here?', lexical=0.3, syntactic=0.5, semantic=0.8))
+    model = QCPGParaphraser()
+    print('Loaded model!')
+    print(model.paraphrase('Is this going to work or what are we doing here?', lexical=0.3, syntactic=0.5, semantic=0.8))
 
 
 
