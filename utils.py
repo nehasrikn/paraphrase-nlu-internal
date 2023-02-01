@@ -91,4 +91,4 @@ def write_strings_to_file(strings, path):
 
     with open(path, 'w') as f:
         for string in strings:
-            f.write(string + '\n')
+            f.write(str(string) + '\n')

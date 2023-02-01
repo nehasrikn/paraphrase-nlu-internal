@@ -12,8 +12,8 @@ cd /fs/clip-scratch/nehasrik/paraphrase-nlu/modeling/lstm
 
 python train_nli.py \
     --word_emb_path 'dataset/GloVe/glove.840B.300d.txt' \
-    --nlipath 'dataset/d-social/' \
-    --outputdir 'dataset/d-social/infersent/' \
-    --outputmodelname 'infersent_social.pth' \
-    --optimizer 'adam' \
+    --nlipath 'dataset/anli/' \
+    --outputdir 'dataset/anli/infersent/' \
+    --outputmodelname 'infersent.pth' \
+    --optimizer 'sgd' \
     --nonlinear_fc 0 \

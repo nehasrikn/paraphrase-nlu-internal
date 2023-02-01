@@ -55,17 +55,17 @@ def form_abductive_example(ex: Union[AbductiveNLIExample, ParaphrasedAbductiveNL
         obs1=tokenize(obs1), hyp1=tokenize(hyp1), obs2=tokenize(obs2)
     )
     s2 = ABDUCTIVE_S2_EXAMPLE_TEMPLATE.format(
-        obs1=tokenize(obs1), hyp2=tokenize(hyp2), obs2=tokenize(hyp2)
+        obs1=tokenize(obs1), hyp2=tokenize(hyp2), obs2=tokenize(obs2)
     )
     if return_label:
-        return s1, s2, ex.label
+        return s1, s2, ex.modeling_label
 
     return s1, s2
 
-def examples_to_data_lists(examples, dataset_name: str, split: str):
+def examples_to_data_lists(examples, dataset_name: str, split: str, form_func=form_defeasible_example):
     s1_data, s2_data, labels = [], [], []
     for example in tqdm(examples):
-        s1, s2, label = form_defeasible_example(example)
+        s1, s2, label = form_func(example)
         s1_data.append(s1)
         s2_data.append(s2)
         labels.append(label)
@@ -83,6 +83,12 @@ def write_training_data_defeasible():
         examples_to_data_lists(dataset.dev_examples, f'd-{dataset_name}', 'dev')
         examples_to_data_lists(dataset.test_examples, f'd-{dataset_name}', 'test')
 
+def write_training_data_abductive():
+    examples_to_data_lists(anli_dataset.train_examples, f'anli', 'train', form_func=form_abductive_example)
+    examples_to_data_lists(anli_dataset.dev_examples, f'anli', 'dev', form_func=form_abductive_example)
+    examples_to_data_lists(anli_dataset.test_examples, f'anli', 'test', form_func=form_abductive_example)
+
 
 if __name__ == '__main__':
-    write_training_data_defeasible()
+    # write_training_data_defeasible()
+    write_training_data_abductive()

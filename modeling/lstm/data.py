@@ -61,7 +61,8 @@ def get_nli(data_path):
     s2 = {}
     target = {}
 
-    dico_label = {'weakener': 0, 'strengthener': 1}  #{'entailment': 0,  'neutral': 1, 'contradiction': 2}
+    #dico_label = {'weakener': 0, 'strengthener': 1}  #{'entailment': 0,  'neutral': 1, 'contradiction': 2}
+    dico_label = {'0':0, '1': 1}
 
     for data_type in ['train', 'dev', 'test']:
         s1[data_type], s2[data_type], target[data_type] = {}, {}, {}
