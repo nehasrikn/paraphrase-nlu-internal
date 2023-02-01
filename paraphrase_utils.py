@@ -29,12 +29,25 @@ def _syntactic_diversity_score(predictions, references):
 
 def get_syntactic_diversity_score(paraphrase):
     if isinstance(paraphrase, ParaphrasedAbductiveNLIExample):
+        references = [
+            clean_paraphrase(paraphrase.original_example['hyp1']), 
+            clean_paraphrase(paraphrase.original_example['hyp2'])
+        ] if isinstance(paraphrase.original_example, dict) else [
+            clean_paraphrase(paraphrase.original_example.hyp1), 
+            clean_paraphrase(paraphrase.original_example.hyp2)
+        ]
         scores = _syntactic_diversity_score(
             predictions=[clean_paraphrase(paraphrase.hyp1_paraphrase), clean_paraphrase(paraphrase.hyp2_paraphrase)],
-            references=[clean_paraphrase(paraphrase.original_example.hyp1), clean_paraphrase(paraphrase.original_example.hyp2)]
+            references=references
         )
         return (scores[0] + scores[1]) / 2
     elif isinstance(paraphrase, ParaphrasedDefeasibleNLIExample):
+
+        if isinstance(paraphrase.original_example, dict):
+            return _syntactic_diversity_score(
+                predictions=[clean_paraphrase(paraphrase.update_paraphrase)],
+                references=[clean_paraphrase(paraphrase.original_example['update'])]
+            )[0]
         return _syntactic_diversity_score(
             predictions=[clean_paraphrase(paraphrase.update_paraphrase)],
             references=[clean_paraphrase(paraphrase.original_example.update)]
@@ -44,10 +57,16 @@ def get_syntactic_diversity_score(paraphrase):
 
 def get_lexical_diversity_score(paraphrase):
     if isinstance(paraphrase, ParaphrasedAbductiveNLIExample):
-        h1 = _lexical_diversity_score(clean_paraphrase(paraphrase.hyp1_paraphrase), clean_paraphrase(paraphrase.original_example.hyp1))
-        h2 = _lexical_diversity_score(clean_paraphrase(paraphrase.hyp2_paraphrase), clean_paraphrase(paraphrase.original_example.hyp2))
+        if isinstance(paraphrase.original_example, dict):
+            h1 = _lexical_diversity_score(clean_paraphrase(paraphrase.hyp1_paraphrase), clean_paraphrase(paraphrase.original_example["hyp1"]))
+            h2 = _lexical_diversity_score(clean_paraphrase(paraphrase.hyp2_paraphrase), clean_paraphrase(paraphrase.original_example["hyp2"]))
+        else:
+            h1 = _lexical_diversity_score(clean_paraphrase(paraphrase.hyp1_paraphrase), clean_paraphrase(paraphrase.original_example.hyp1))
+            h2 = _lexical_diversity_score(clean_paraphrase(paraphrase.hyp2_paraphrase), clean_paraphrase(paraphrase.original_example.hyp2))
         return (h1 + h2) / 2
     elif isinstance(paraphrase, ParaphrasedDefeasibleNLIExample):
+        if isinstance(paraphrase.original_example, dict):
+            return _lexical_diversity_score(clean_paraphrase(paraphrase.update_paraphrase), clean_paraphrase(paraphrase.original_example["update"]))
         return _lexical_diversity_score(clean_paraphrase(paraphrase.update_paraphrase), clean_paraphrase(paraphrase.original_example.update))
     else:
         raise ValueError("Paraphrase is not of type ParaphrasedAbductiveNLIExample or ParaphrasedDefeasibleNLIExample")
