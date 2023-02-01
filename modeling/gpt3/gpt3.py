@@ -19,7 +19,7 @@ class GPT3Model:
         openai.api_key = OPENAI_KEY
         self.model = model
 
-    def generate(self, prompt, top_p=1, temperature=0, max_tokens=50, logprobs=5):
+    def generate(self, prompt, top_p=1, temperature=0, max_tokens=10, logprobs=5):
         prediction = openai.Completion.create(
             model=self.model,
             prompt=prompt,
@@ -42,26 +42,25 @@ def calculate_example_cost(text: str, model='davinci'):
     }
 
 
-def extract_confidences(api_response: Dict):
+def extract_confidences(api_response: Dict, classes=[' W', ' S']):
 
     if isinstance(api_response, list):
         api_response = api_response[0]
 
     top_logprobs = api_response['choices'][0]['logprobs']['top_logprobs'][0]
 
-    if not (' W' in top_logprobs.keys() and ' S' in top_logprobs.keys()):
+    if not (classes[0] in top_logprobs.keys() and classes[1] in top_logprobs.keys()):
         print('Both class tokens not in top 5 likely tokens.')
         return None
         
-    weakener_conf = np.exp(top_logprobs[' W'])
-    strengthener_conf = np.exp(top_logprobs[' S'])
+    class_1_conf = np.exp(top_logprobs[classes[0]])
+    class_2_conf = np.exp(top_logprobs[classes[1]])
     
-    return [weakener_conf, strengthener_conf]
+    return [class_1_conf, class_2_conf]
     
-def extract_answer(api_response: Dict):
-    label_dict = {'W': 0, 'S': 1}
+def extract_answer(api_response: Dict, label_dict:dict={'W': 0, 'S': 1}):
     if isinstance(api_response, list):
         api_response = api_response[0]
-
+    
     return label_dict[api_response['choices'][0]['text'].strip()]
     

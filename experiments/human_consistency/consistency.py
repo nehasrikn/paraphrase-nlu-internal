@@ -34,6 +34,7 @@ anli_human_bucket_predictions = {
     'specialized_roberta': load_json('modeling/roberta/abductive/results/anli_human_anli_roberta-large.json'),
     'specialized_full_input_lexical': load_json('modeling/fasttext/abductive/results/anli_human_full_input_lexical.json'),
     'bilstm': load_json('modeling/lstm/abductive/results/anli_human_bilstm.json'),
+    'gpt3-curie': load_json('modeling/gpt3/abductive/results/anli_human_gpt3-text-curie-001_processed.json'),
 }
 
 dnli_test_set_predictions = {k: {
@@ -65,8 +66,12 @@ def get_consistencies(model_name):
         print()
     print(f'####### anli #######')
     
-    if model_name in anli_human_bucket_predictions.keys() and anli_test_set_predictions.keys():
-        print('anli', calculate_weighted_consistency(anli_human_bucket_predictions[model_name], anli_test_set_predictions[model_name], show_test_distribution=False))
+    if model_name in anli_human_bucket_predictions.keys():
+        use_modeling_label = True if 'gpt3' in model_name else False
+        if model_name in anli_test_set_predictions.keys():
+            print('anli', calculate_weighted_consistency(anli_human_bucket_predictions[model_name], anli_test_set_predictions[model_name], show_test_distribution=False, use_modeling_label=use_modeling_label))
+        else:
+            print('anli', calculate_weighted_consistency(anli_human_bucket_predictions[model_name], None, show_test_distribution=False, use_modeling_label=use_modeling_label))
 
 
 def get_all_pairs_jensen_shannon_mean_distance(bucket_confidences):
@@ -78,12 +83,15 @@ def get_mean_js_distance_from_original(bucket_confidences, original_confidence):
     confidences = [c['confidence'] for c in bucket_confidences]
     return np.mean([distance.jensenshannon(original_confidence, c) for c in confidences])
 
-def calculate_bucket_metadata(buckets):
+def calculate_bucket_metadata(buckets, use_modeling_label=False):
     metadata = {}
 
     for ex_id, bucket in buckets.items():
+        
+        gold_label = bucket['gold_label'] - 1 if use_modeling_label else bucket['gold_label'] 
+
         confidences_in_correct_label = [
-            c['confidence'][bucket['gold_label']] for c in bucket['bucket_confidences']
+            c['confidence'][gold_label] for c in bucket['bucket_confidences']
         ]
         bucket_predictions = [c['prediction'] for c in bucket['bucket_confidences']]
         bucket_consistency = len([x for x in bucket_predictions if x == bucket['original_prediction']])/len(bucket_predictions)
@@ -92,17 +100,17 @@ def calculate_bucket_metadata(buckets):
             'bucket_confidence_mean': np.mean(confidences_in_correct_label),
             'bucket_confidence_var': np.var(confidences_in_correct_label),
             'bucket_confidence_std': np.std(confidences_in_correct_label),
-            'original_confidence': bucket['original_confidence'][bucket['gold_label']],
+            'original_confidence': bucket['original_confidence'][gold_label],
             'bucket_consistency': bucket_consistency,
-            'conf_shift': np.mean(confidences_in_correct_label) - bucket['original_confidence'][bucket['gold_label']],
-            'orig_pred_shift': abs(bucket['original_confidence'][bucket['gold_label']] - 0.5),
+            'conf_shift': np.mean(confidences_in_correct_label) - bucket['original_confidence'][gold_label],
+            'orig_pred_shift': abs(bucket['original_confidence'][gold_label] - 0.5),
             'example_id': ex_id,
         }
     
     return metadata
 
-def construct_bucket_metadata(buckets):
-    metadata = calculate_bucket_metadata(buckets)
+def construct_bucket_metadata(buckets, use_modeling_label=False):
+    metadata = calculate_bucket_metadata(buckets, use_modeling_label=use_modeling_label)
     df = list(metadata.values())
     return pd.DataFrame(df)
 
@@ -230,8 +238,8 @@ def plot_consistency_cdf(df, plot_title):
     fig.show()
 
 
-def calculate_weighted_consistency(paraphrase_predictions, test_set_predictions=None, show_test_distribution=False):
-    metadata = construct_bucket_metadata(paraphrase_predictions)
+def calculate_weighted_consistency(paraphrase_predictions, test_set_predictions=None, show_test_distribution=False, use_modeling_label=False):
+    metadata = construct_bucket_metadata(paraphrase_predictions, use_modeling_label=use_modeling_label)
     accuracy = get_original_example_prediction_accuracy(paraphrase_predictions)
     
     if not test_set_predictions:
@@ -275,4 +283,4 @@ def plot_buckets(name: str, bucket_preds: Dict[str, List[str]]):
 
 if __name__ == '__main__':
     #get_consistencies('specialized_full_input_lexical')
-    get_consistencies('bilstm')
+    get_consistencies('gpt3-curie')
