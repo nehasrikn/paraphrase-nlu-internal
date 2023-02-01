@@ -14,7 +14,7 @@ from utils import load_json
 from paraphrase_utils import get_lexical_diversity_score, get_syntactic_diversity_score
 from abductive_data import ParaphrasedAbductiveNLIExample
 from defeasible_data import ParaphrasedDefeasibleNLIExample
-
+from utils import PROJECT_ROOT_DIR, load_json, write_json
 
 from tqdm import tqdm
 
@@ -67,3 +67,15 @@ def calculate_abductive_consistency():
         b=construct_bucket_metadata(anli_human_bucket_predictions['specialized_roberta']).bucket_consistency, 
         equal_var=True
     ))
+
+if __name__ == '__main__':
+    para_bucket_preds = construct_paraphrase_metadata(
+        load_json(
+            f'modeling/roberta/abductive/results/anli_human_anli_roberta-large.json',
+        ),
+        nli_example_type=ParaphrasedAbductiveNLIExample
+    )
+
+    write_json(para_bucket_preds, 
+        'experiments/auto_vs_human/results/bucket_preds_with_paraphrase_metadata/human/anli_bucket_preds.json'
+    )
