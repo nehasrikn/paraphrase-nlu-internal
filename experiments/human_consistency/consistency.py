@@ -33,7 +33,6 @@ dnli_human_bucket_predictions = {k: {
 anli_human_bucket_predictions = {
     'specialized_roberta': load_json('modeling/roberta/abductive/results/anli_human_anli_roberta-large.json'),
     'specialized_full_input_lexical': load_json('modeling/fasttext/abductive/results/anli_human_full_input_lexical.json'),
-    'specialized_partial_input_lexical': load_json('modeling/fasttext/abductive/results/anli_human_partial_input_lexical.json'),
 }
 
 dnli_test_set_predictions = {k: {
@@ -48,6 +47,25 @@ anli_test_set_predictions = {
     'specialized_roberta': load_json('modeling/roberta/abductive/results/anli_test_set_anli_roberta-large.json'),
     'specialized_full_input_lexical': load_json('modeling/fasttext/abductive/results/anli_test_set_full_input_lexical.json'),
 }
+
+
+def get_consistencies(model_name):
+    for dataname in dnli_human_bucket_predictions.keys():
+        test_set_preds = dnli_test_set_predictions[dataname][model_name] if model_name in dnli_test_set_predictions[dataname].keys() else None
+        human_preds = dnli_human_bucket_predictions[dataname][model_name] if model_name in dnli_human_bucket_predictions[dataname].keys() else None
+        
+        print(dataname, calculate_weighted_consistency(
+                paraphrase_predictions=human_preds,
+                test_set_predictions=test_set_preds,
+                show_test_distribution=False
+            )
+        )
+        print()
+    print(f'####### anli #######')
+    
+    if model_name in anli_human_bucket_predictions.keys() and anli_test_set_predictions.keys():
+        print('anli', calculate_weighted_consistency(anli_human_bucket_predictions[model_name], anli_test_set_predictions[model_name],show_test_distribution=False))
+
 
 def get_all_pairs_jensen_shannon_mean_distance(bucket_confidences):
     confidences = [c['confidence'] for c in bucket_confidences]
@@ -252,3 +270,7 @@ def plot_buckets(name: str, bucket_preds: Dict[str, List[str]]):
     metadata = construct_bucket_metadata(bucket_preds)
     plot = plot_orig_v_bucket_conf(metadata, name)
     return plot
+
+if __name__ == '__main__':
+    #get_consistencies('specialized_full_input_lexical')
+    get_consistencies('specialized_roberta')
