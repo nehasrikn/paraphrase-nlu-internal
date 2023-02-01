@@ -3,7 +3,7 @@ Driver file for the automatic paraphrase portion of ParaNlu
 """
 
 from experiments.auto_vs_human.defeasible.results.process_validation import get_valid_paraphrases as get_valid_paraphrases_defeasible
-from experiments.auto_vs_human.defeasible.results.process_validation import get_valid_examples
+from experiments.auto_vs_human.abductive.results.process_validation import get_valid_examples
 
 
 para_nlu_automatic = {

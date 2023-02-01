@@ -15,7 +15,7 @@ def process_label_studio_validations(label_studio_validated_paraphrases: str) ->
     """
     valid = set()
     validation_annotation = pd.read_csv(label_studio_validated_paraphrases)
-    print(validation_annotation.paraphrase_valid.value_counts(dropna=False, normalize=True))
+    # print(validation_annotation.paraphrase_valid.value_counts(dropna=False, normalize=True))
     
     for _, a in validation_annotation.iterrows():
         if a.paraphrase_valid == 'invalid':
