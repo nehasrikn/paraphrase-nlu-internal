@@ -4,7 +4,7 @@ from annotated_data.paraphrase_validation.process_validation_defeasible import f
 from utils import PROJECT_ROOT_DIR, load_json, write_json
 import os
 from collections import defaultdict
-from defeasible_data import ParaphrasedDefeasibleNLIExample
+from defeasible_data import ParaphrasedDefeasibleNLIExample, DefeasibleNLIExample, dnli_datasets
 
 def process_label_studio_validations(label_studio_validated_paraphrases: str) -> Dict[str, Any]:
     """
@@ -41,7 +41,7 @@ def get_valid_paraphrases(dataset_name: str, model_name: str='gpt3'):
         gold_set[paraphrase_example['original_example_id']].append(ParaphrasedDefeasibleNLIExample(
             paraphrase_id=paraphrase_id,
             original_example_id=paraphrase_example['original_example_id'],
-            original_example=paraphrase_example['original_example'],
+            original_example=DefeasibleNLIExample(**paraphrase_example['original_example']),
             update_paraphrase=paraphrase_example['update_paraphrase'],
             worker_id=paraphrase_example['worker_id'],
             premise_paraphrase=paraphrase_example['premise_paraphrase'],

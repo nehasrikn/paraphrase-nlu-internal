@@ -34,8 +34,8 @@ class QCPGModel:
 
 class QCPGParaphraser():
 
-    def __init__(self):
-        self.qcpg_model = QCPGModel('sentences')
+    def __init__(self, model_type='sentences'):
+        self.qcpg_model = QCPGModel(type=model_type)
 
     def paraphrase(self, text, lexical, syntactic, semantic):
         return self.qcpg_model(text, lexical=lexical, syntactic=syntactic, semantic=semantic)[0]['generated_text'].strip()
@@ -47,21 +47,3 @@ if __name__ == '__main__':
     model = QCPGParaphraser()
     print('Loaded model!')
     print(model.paraphrase('Is this going to work or what are we doing here?', lexical=0.3, syntactic=0.5, semantic=0.8))
-
-
-
-    # print(len(pilot_annotated_abductive_set.original_examples))
-
-    # qcpg_examples = generate_paraphrases(
-    #     model,
-    #     pilot_annotated_abductive_set.original_examples,
-    #     (0.2, 0.6),
-    #     (0.2, 0.6),
-    #     (0.7, 1.0)
-    # )
-
-    # with open("qcpg_sweep.dat", "wb") as f:
-    #     pickle.dump(qcpg_examples, f)
-
-
-    #print(model('Molly got into an accident.', lexical=0.5, syntactic=0.5, semantic=0.9))

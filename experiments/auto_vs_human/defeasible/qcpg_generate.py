@@ -58,15 +58,15 @@ def generate_paraphrases(
 
 
 if __name__== '__main__':
-    # qcpg = QCPGParaphraser()
+    qcpg = QCPGParaphraser('sentences')
     
-    # paraphrases = generate_paraphrases(qcpg, [
-    #     dnli_datasets['snli'].get_example_by_id(i) for i in dnli_human_dataset_by_name['snli'].keys()
-    # ])
+    paraphrases = generate_paraphrases(qcpg, [
+        dnli_datasets['snli'].get_example_by_id(i) for i in dnli_human_dataset_by_name['snli'].keys()
+    ])
 
-    # write_json(paraphrases, 'experiments/auto_vs_human/defeasible/results/unvalidated_generation_results/qcpg_snli_paraphrases.json')
+    write_json(paraphrases, 'experiments/auto_vs_human/defeasible/results/unvalidated_generation_results/qcpg_snli_paraphrases.json')
 
     export_paraphrases_to_label_studio_format(
-        {k: [ParaphrasedDefeasibleNLIExample(**d) for d in v] for k,v in load_json(os.path.join(PROJECT_ROOT_DIR, 'experiments/auto_vs_human/defeasible/results/unvalidated_generation_results/qcpg_social_paraphrases.json')).items()},
-        os.path.join(PROJECT_ROOT_DIR, 'experiments/auto_vs_human/defeasible/results/validation_annotation_files/qcpg_social_paraphrases.csv')
+        {k: [ParaphrasedDefeasibleNLIExample(**d) for d in v] for k,v in load_json(os.path.join(PROJECT_ROOT_DIR, 'experiments/auto_vs_human/defeasible/results/unvalidated_generation_results/qcpg_snli_paraphrases.json')).items()},
+        os.path.join(PROJECT_ROOT_DIR, 'experiments/auto_vs_human/defeasible/results/validation_annotation_files/qcpg_snli_paraphrases.csv')
     )
