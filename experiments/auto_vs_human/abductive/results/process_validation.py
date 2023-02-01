@@ -34,10 +34,10 @@ def process_label_studio_validations(label_studio_validated_paraphrases: str) ->
 
     return valid
 
-def get_valid_paraphrases():
+def get_valid_hypotheses_from_label_studio():
 
     all_paraphrases = load_json(f'experiments/auto_vs_human/abductive/results/unvalidated_generation_results/gpt3_paraphrases_2.json')
-    
+
     valid_hyp1_paraphrases = process_label_studio_validations(
         os.path.join(PROJECT_ROOT_DIR, 
         f'experiments/auto_vs_human/abductive/results/validation_annotation_files/gpt3_anli_paraphrases_2_hyp1_validated.csv')
@@ -58,13 +58,29 @@ def get_valid_paraphrases():
     return gold_set
 
 def get_valid_examples():
+    anli_auto_paraphrases = {}
+
+
+    valid_hypotheses_files = ['gpt3_paraphrases_1', 'gpt3_paraphrases_2', 'qcpg_paraphrases_1']
+    for file in valid_hypotheses_files:
+        valid_hypotheses = load_json(f'experiments/auto_vs_human/abductive/results/validated_paraphrases/{file}.json')
+        for example_id, hyps in valid_hypotheses.items():
+            if example_id not in anli_auto_paraphrases:
+                anli_auto_paraphrases[example_id] = hyps
+            else:
+                for hyp, paraphrases in hyps.items():
+                    anli_auto_paraphrases[example_id][hyp].extend(paraphrases)
+
+
     gold_set = get_valid_paraphrases()
     validate_examples = []
     for example_id, hyps in gold_set.items():
-        validate_examples.append(ParaphrasedAbductiveNLIExample.from_json(anli_dataset[example_id], hyps))
+        print(len(hyps['hyp1']), len(hyps['hyp2']))
+        # validate_examples.append(ParaphrasedAbductiveNLIExample.from_json(anli_dataset[example_id], hyps))
     return validate_examples
 
 
 if __name__ == '__main__':
-    gold_set = get_valid_paraphrases()
-    write_json(gold_set, os.path.join(PROJECT_ROOT_DIR, 'experiments/auto_vs_human/abductive/results/validated_paraphrases/gpt3_paraphrases_2.json'))
+    #gold_set = get_valid_paraphrases()
+    #write_json(gold_set, os.path.join(PROJECT_ROOT_DIR, 'experiments/auto_vs_human/abductive/results/validated_paraphrases/gpt3_paraphrases_2.json'))
+    get_valid_examples()
