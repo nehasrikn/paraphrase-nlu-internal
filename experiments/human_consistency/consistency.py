@@ -94,8 +94,9 @@ def plot_orig_v_bucket_conf(df, plot_title):
         y="conf_shift", 
         #title=plot_title,
         trendline="ols",
+        trendline_color_override="blue",
         color='bucket_consistency',
-        width=800, 
+        width=600, 
         height=400,
         color_continuous_scale='Burg',
         hover_data=['example_id', 'bucket_confidence_std'],
@@ -105,6 +106,21 @@ def plot_orig_v_bucket_conf(df, plot_title):
          "bucket_consistency": "consistency",
         }
     )
+
+    fig.update_layout(
+        plot_bgcolor='white'
+    )
+    fig.update_xaxes(
+        mirror=True,
+        showline=True,
+        gridcolor='lightgrey'
+    )
+    fig.update_yaxes(
+        mirror=True,
+        showline=True,
+        gridcolor='lightgrey'
+    )
+
     
     max_size=5
     size_col = df["bucket_confidence_std"]*2
@@ -121,8 +137,10 @@ def plot_orig_v_bucket_conf(df, plot_title):
         selector=dict(type='scatter')
     )
 
-    fig.add_trace(go.Scatter(x=[0,1], y=[1,0], name=None, line=dict(color='green', width=1, dash='dot')))
-    fig.add_trace(go.Scatter(x=[0,1], y=[0,-1], name=None, line=dict(color='green', width=1, dash='dot')))
+    fig.add_trace(go.Scatter(x=[0,1], y=[1,0], mode='lines', name=None, line=dict(color='green', width=1, dash='dot')))
+    fig.add_trace(go.Scatter(x=[0,1], y=[0,-1], mode='lines', name=None, line=dict(color='green', width=1, dash='dot')))
+    fig.add_hline(y=0, line_dash="dash")
+
     fig.update(layout_showlegend=False)
     fig.update_layout(legend=dict(orientation="h"))
     fig.update_xaxes(range=[-0.025, 1.025])
@@ -134,14 +152,14 @@ def plot_orig_v_bucket_conf(df, plot_title):
         coloraxis_colorbar_thickness=10,
         coloraxis_colorbar_x=0.2,
         coloraxis_colorbar_y=0.05,
-        coloraxis_colorbar_title_side='top'
+        coloraxis_colorbar_title_side='top',
     )
 
 
     stat, pvalue = pearsonr(df['original_confidence'], df['conf_shift'])
     a = px.get_trendline_results(fig).px_fit_results.iloc[0].rsquared
     
-    fig.add_annotation(x=0.53, y=1.0,
+    fig.add_annotation(x=0.5, y=1.1,
             text=plot_title,
             showarrow=False,
             arrowhead=0,

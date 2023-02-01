@@ -1,0 +1,951 @@
+paraphrase_id,paraphrase_example,original_example_id,paraphrase_valid,validation_valid,,
+snli.train.20774.3W2LOLRXLBFEM5W1NGUQABSE2LOKRN.1,"Paraphrase ID: snli.train.20774.3W2LOLRXLBFEM5W1NGUQABSE2LOKRN.1
+
+    Premise: A young man on his hands and knees painting a colorful sign on a parking lot.
+    Hypothesis: a man making a shop sign
+    Update: The sign is green.
+    Update Type: weakener
+
+    Paraphrase: The sign would be sustainable.
+    ",snli.train.20774,invalid,invalid,,TRUE
+snli.train.27140.308Q0PEVB8DHCAARTW9S6AD73TM9I2.0,"Paraphrase ID: snli.train.27140.308Q0PEVB8DHCAARTW9S6AD73TM9I2.0
+
+    Premise: Two dogs running in a field.
+    Hypothesis: Two black dogs are running in a field.
+    Update: They blended in with the snow.
+    Update Type: weakener
+
+    Paraphrase: They camouflaged themselves with the snow.
+    ",snli.train.27140,valid,valid,,TRUE
+snli.train.67888.3NGI5ARFTT5R4RU02EKJ01W0RVBP13.0,"Paraphrase ID: snli.train.67888.3NGI5ARFTT5R4RU02EKJ01W0RVBP13.0
+
+    Premise: A young girl with goggles is floating in the pool.
+    Hypothesis: The young girl is outside in the pool.
+    Update: It is raining outside
+    Update Type: weakener
+
+    Paraphrase: Throughout the school day, they are all out for recess.
+    ",snli.train.67888,invalid,invalid,,TRUE
+snli.train.42847.3RYC5T2D73TFXWTH08ZY6SEDVUMPRI.2,"Paraphrase ID: snli.train.42847.3RYC5T2D73TFXWTH08ZY6SEDVUMPRI.2
+
+    Premise: Young girl wearing two piece black bathing suit running in the water with a smile on her face.
+    Hypothesis: She is happy because she enjoys spending time with her friends.
+    Update: She is surrounded by three other girls the same age.
+    Update Type: strengthener
+
+    Paraphrase:  She is in the midst of three other girls of the same age.
+    ",snli.train.42847,valid,valid,,TRUE
+snli.train.18329.3L4PIM1GQTG96ALIRVVHJJ7PZYPYRJ.1,"Paraphrase ID: snli.train.18329.3L4PIM1GQTG96ALIRVVHJJ7PZYPYRJ.1
+
+    Premise: A child carrying a large object on his head while looking at the camera.
+    Hypothesis: The child is carrying a water jug on his head.
+    Update: The object the child is carrying is clear.
+    Update Type: strengthener
+
+    Paraphrase: The child's carrying object is obvious
+    ",snli.train.18329,invalid,invalid,,TRUE
+snli.train.76297.31LM9EDVOLSYWNYRCODX0CNRLYXJNU.1,"Paraphrase ID: snli.train.76297.31LM9EDVOLSYWNYRCODX0CNRLYXJNU.1
+
+    Premise: A team prepares to play football.
+    Hypothesis: A team is running laps to warm up to play ball.
+    Update: The team is on the field
+    Update Type: strengthener
+
+    Paraphrase: The players are on the pitch.
+    ",snli.train.76297,invalid,valid,,FALSE
+snli.train.57381.32EYX73OY09SP11DHUYSGY1C4CNRUS.2,"Paraphrase ID: snli.train.57381.32EYX73OY09SP11DHUYSGY1C4CNRUS.2
+
+    Premise: Guys on the roof doing their work.
+    Hypothesis: 30 guys are on the roof working.
+    Update: The roof is 200 feet by 200 feet.
+    Update Type: strengthener
+
+    Paraphrase: The ceiling is 200 feet whilst also 200 feet.
+    ",snli.train.57381,valid,invalid,,FALSE
+snli.train.76297.3MB8LZR5BFT3J71OIWXUOZJFVSSLKO.1,"Paraphrase ID: snli.train.76297.3MB8LZR5BFT3J71OIWXUOZJFVSSLKO.1
+
+    Premise: A team prepares to play football.
+    Hypothesis: A team is running laps to warm up to play ball.
+    Update: The team is on the field
+    Update Type: strengthener
+
+    Paraphrase: The players are out there competing.
+    ",snli.train.76297,invalid,invalid,,TRUE
+snli.train.51613.3STRJBFXOWRR2K9TR5ZLAQTWP5DKTP.1,"Paraphrase ID: snli.train.51613.3STRJBFXOWRR2K9TR5ZLAQTWP5DKTP.1
+
+    Premise: A man plugs his nose while trying something with an obvious pungent odor as his female friends laughs it on.
+    Hypothesis: The mans friend loves that he's eating gross things.
+    Update: The man's friend is laughing at him.
+    Update Type: strengthener
+
+    Paraphrase: His friend is making fun of him.
+    ",snli.train.51613,valid,valid,,TRUE
+snli.train.18329.38F71OA9GTWC93RVHX7C8Z6ZN0JMF5.2,"Paraphrase ID: snli.train.18329.38F71OA9GTWC93RVHX7C8Z6ZN0JMF5.2
+
+    Premise: A child carrying a large object on his head while looking at the camera.
+    Hypothesis: The child is carrying a water jug on his head.
+    Update: The object the child is carrying is clear.
+    Update Type: strengthener
+
+    Paraphrase: It is easy to tell what the child has in their hands.
+    ",snli.train.18329,invalid,invalid,,TRUE
+snli.train.48326.3MYYFCXHJ372JDYKMDDY4QPB2OPG4U.1,"Paraphrase ID: snli.train.48326.3MYYFCXHJ372JDYKMDDY4QPB2OPG4U.1
+
+    Premise: Two girls are raising another girl in the air.
+    Hypothesis: a lesbian couple raises their daughter in the air
+    Update: The two girls are not much older than the girl they are raising.
+    Update Type: weakener
+
+    Paraphrase: The two caregivers are not by much senior to the girl in their care.
+    ",snli.train.48326,invalid,invalid,,TRUE
+snli.train.41597.37FMASSAYCR003PORGNOXG8XRT3IBZ.0,"Paraphrase ID: snli.train.41597.37FMASSAYCR003PORGNOXG8XRT3IBZ.0
+
+    Premise: A woman cyclist in a shirt wearing a bike helmet waits with a child passenger at a stop with another woman cyclist wearing a blue shirt and black pants.
+    Hypothesis: A woman and her daughter are waiting.
+    Update: The tow women look alike
+    Update Type: strengthener
+
+    Paraphrase:  The two ladies bear a resemblance to each other
+    ",snli.train.41597,valid,valid,,TRUE
+snli.train.43439.34V1S5K3GS11JQFQRV0397N2U2V96C.0,"Paraphrase ID: snli.train.43439.34V1S5K3GS11JQFQRV0397N2U2V96C.0
+
+    Premise: Two little boys ride in a toy truck.
+    Hypothesis: The boys are brothers.
+    Update: One boy is slightly older than the other.
+    Update Type: strengthener
+
+    Paraphrase: One of the boys is slightly more advanced in age than the other
+    ",snli.train.43439,valid,valid,,TRUE
+snli.train.48931.3L6L49WXW0X43G905HU70TYMCF254S.1,"Paraphrase ID: snli.train.48931.3L6L49WXW0X43G905HU70TYMCF254S.1
+
+    Premise: A group of people stand with their hands raised while standing on a wooden floor and in front of a blue backdrop.
+    Hypothesis: A group of people about to start a dance.
+    Update: They people are on a stage.
+    Update Type: strengthener
+
+    Paraphrase: They are in the centre of attention.
+    ",snli.train.48931,invalid,invalid,,TRUE
+snli.train.76297.3FQ5JJ512LOT7749U9D91RN40NRNKR.1,"Paraphrase ID: snli.train.76297.3FQ5JJ512LOT7749U9D91RN40NRNKR.1
+
+    Premise: A team prepares to play football.
+    Hypothesis: A team is running laps to warm up to play ball.
+    Update: The team is on the field
+    Update Type: strengthener
+
+    Paraphrase: The group is out there playing.
+    ",snli.train.76297,invalid,invalid,,TRUE
+snli.train.3543.3T111IHZ5EQU59DAJJ31K2EYQPE9RF.1,"Paraphrase ID: snli.train.3543.3T111IHZ5EQU59DAJJ31K2EYQPE9RF.1
+
+    Premise: A girl in a gray hoodie smiles at the camera in front of a lush green garden of trees and bushes.
+    Hypothesis: A girl stands in front of a garden in Central Park.
+    Update: There are a lot of tourists near the girl.
+    Update Type: strengthener
+
+    Paraphrase: Tourists are in abundance around the girl.
+    ",snli.train.3543,valid,valid,,TRUE
+snli.train.17406.3LRLIPTPEQ9MNOAKL584FL341FTAKT.2,"Paraphrase ID: snli.train.17406.3LRLIPTPEQ9MNOAKL584FL341FTAKT.2
+
+    Premise: This man is wearing a red helmet and flip-flops and driving a Spyder.
+    Hypothesis: A man driving a car to a dealer to have it tuned up.
+    Update: The Spyder is brand new.
+    Update Type: weakener
+
+    Paraphrase: New on the market is the Spyder.
+    ",snli.train.17406,valid,invalid,,FALSE
+snli.train.39766.30ZX6P7VF8V2719YQ5FD8OKTB48J28.1,"Paraphrase ID: snli.train.39766.30ZX6P7VF8V2719YQ5FD8OKTB48J28.1
+
+    Premise: Construction workers are currently at work.
+    Hypothesis: The men are outside
+    Update: The men are building the frame of a house.
+    Update Type: weakener
+
+    Paraphrase: The workers are putting together the basic structure of a home.
+    ",snli.train.39766,valid,valid,,TRUE
+snli.train.3544.37FMASSAYCR003PORGNOXG8XSVWIBX.2,"Paraphrase ID: snli.train.3544.37FMASSAYCR003PORGNOXG8XSVWIBX.2
+
+    Premise: A girl in a gray hoodie smiles at the camera in front of a lush green garden of trees and bushes.
+    Hypothesis: A girl stands in front of a garden in Central Park.
+    Update: The girl is surrounded by water.
+    Update Type: weakener
+
+    Paraphrase: Water is covering the area around the young woman.
+    ",snli.train.3544,valid,valid,,TRUE
+snli.train.43554.3RU7GD8VPOTRYBTUFXZ3W2J9HW5PS6.0,"Paraphrase ID: snli.train.43554.3RU7GD8VPOTRYBTUFXZ3W2J9HW5PS6.0
+
+    Premise: The man wearing padded clothing is fending off an attack by a dog.
+    Hypothesis: The man is teaching a defense class.
+    Update: The man is thankful for his wardrobe choices that day.
+    Update Type: weakener
+
+    Paraphrase: He was appreciative of the clothes he had picked out for that day
+    ",snli.train.43554,valid,valid,,TRUE
+snli.train.82602.3KAKFY4PGU2VX8LBCN8IFXAL32BI3V.1,"Paraphrase ID: snli.train.82602.3KAKFY4PGU2VX8LBCN8IFXAL32BI3V.1
+
+    Premise: A boat turns right in an open river.
+    Hypothesis: A green boat turns right in an open river.
+    Update: The bare metal boat gleams in the sunlight.
+    Update Type: weakener
+
+    Paraphrase: Gleaming in the beams of the sun, the exposed boat dazzles.
+    ",snli.train.82602,invalid,invalid,,TRUE
+snli.train.40604.3AZHRG4CU4KKQD4V8XJC9TAPH8Z03N.2,"Paraphrase ID: snli.train.40604.3AZHRG4CU4KKQD4V8XJC9TAPH8Z03N.2
+
+    Premise: A man in a blue shirt is standing at a bar.
+    Hypothesis: The man is waitng for the drink he just ordered.
+    Update: The man has not paid yet.
+    Update Type: weakener
+
+    Paraphrase: Still unpaid is the man. 
+    ",snli.train.40604,invalid,valid,,FALSE
+snli.train.80921.3WSELTNVR32LQ707FEMWGCQ0LURTAU.0,"Paraphrase ID: snli.train.80921.3WSELTNVR32LQ707FEMWGCQ0LURTAU.0
+
+    Premise: Some people of far eastern ethnicity are sitting around white tents.
+    Hypothesis: The tents are yurts
+    Update: The tents have a domed roof.
+    Update Type: strengthener
+
+    Paraphrase: the tents got a domed roof
+    ",snli.train.80921,valid,valid,,TRUE
+snli.train.16410.36V4Q8R5ZK090SH4VDI6KYADV4HQMX.0,"Paraphrase ID: snli.train.16410.36V4Q8R5ZK090SH4VDI6KYADV4HQMX.0
+
+    Premise: A dog holds a stick in its mouth in the water.
+    Hypothesis: A dog has a stick that its owner threw.
+    Update: The dog brings the stick to the other dogs.
+    Update Type: weakener
+
+    Paraphrase: The canine delivers the stick to the other canines
+    ",snli.train.16410,valid,valid,,TRUE
+snli.train.48931.3P529IW9KYLS3L9AHL6X8MRANVBFLE.0,"Paraphrase ID: snli.train.48931.3P529IW9KYLS3L9AHL6X8MRANVBFLE.0
+
+    Premise: A group of people stand with their hands raised while standing on a wooden floor and in front of a blue backdrop.
+    Hypothesis: A group of people about to start a dance.
+    Update: They people are on a stage.
+    Update Type: strengthener
+
+    Paraphrase: They are seated on a platform.
+    ",snli.train.48931,invalid,invalid,,TRUE
+atomic.train.18615.3XLBSAQ9Z4CZTHB8E3ZUS9PR5I87ZY.2,"Paraphrase ID: atomic.train.18615.3XLBSAQ9Z4CZTHB8E3ZUS9PR5I87ZY.2
+
+    Premise: PersonX breaks the fourth wall
+    Hypothesis: As a result, PersonX wants to eat
+    Update: PersonX is talking about food.
+    Update Type: strengthener
+
+    Paraphrase: PersonX is exchanging thoughts on sustenance
+    ",atomic.train.18615,invalid,valid,,FALSE
+atomic.train.24956.3KXIR214I4GC4JQDNYS92MVA0DU24V.0,"Paraphrase ID: atomic.train.24956.3KXIR214I4GC4JQDNYS92MVA0DU24V.0
+
+    Premise: PersonX has to take PersonY to the doctor
+    Hypothesis: As a result, PersonX wants to meet the doctor
+    Update: They have an emergency
+    Update Type: weakener
+
+    Paraphrase: There is a crisis.
+    ",atomic.train.24956,valid,invalid,,FALSE
+atomic.train.32770.354GIDR5ZB6O9L5YPA1T7VCIM3U00T.0,"Paraphrase ID: atomic.train.32770.354GIDR5ZB6O9L5YPA1T7VCIM3U00T.0
+
+    Premise: PersonX stops my car
+    Hypothesis: As a result, PersonX wants to get out of the car
+    Update: They want to drive
+    Update Type: weakener
+
+    Paraphrase: They have a desire to go on a drive.
+    ",atomic.train.32770,invalid,valid,,FALSE
+atomic.train.29531.3XUHV3NRVKYYFSXVKOEQUI7QIMGH5N.0,"Paraphrase ID: atomic.train.29531.3XUHV3NRVKYYFSXVKOEQUI7QIMGH5N.0
+
+    Premise: PersonX works so much
+    Hypothesis: As a result, PersonX wants buy something nice
+    Update: They have tons of recreational income
+    Update Type: strengthener
+
+    Paraphrase: They possess an abundance of leisurely earnings.
+    ",atomic.train.29531,valid,valid,,TRUE
+atomic.train.9188.39N5ACM9HEN9TWXV6RZCF7EJPYFP9A.0,"Paraphrase ID: atomic.train.9188.39N5ACM9HEN9TWXV6RZCF7EJPYFP9A.0
+
+    Premise: PersonX furthers PersonY's understanding
+    Hypothesis: As a result, PersonX wants to impart knowledge
+    Update: PersonX teaches illegal things to PersonY.
+    Update Type: weakener
+
+    Paraphrase: PersonX improves PersonY's comprehension of emotions
+    ",atomic.train.9188,invalid,invalid,,TRUE
+atomic.train.10936.3NOKK93PR18MR1ZM5OZND9GQ3ZAEES.2,"Paraphrase ID: atomic.train.10936.3NOKK93PR18MR1ZM5OZND9GQ3ZAEES.2
+
+    Premise: PersonX wears the shirt
+    Hypothesis: As a result, PersonX wants looks in mirror
+    Update: PersonX is very fat and ashamed
+    Update Type: weakener
+
+    Paraphrase: PersonX should do a diet is very fat
+    ",atomic.train.10936,invalid,invalid,,TRUE
+atomic.train.25230.3DBQWDE4Y6YQPOJ6NM93Z24M3N75NF.0,"Paraphrase ID: atomic.train.25230.3DBQWDE4Y6YQPOJ6NM93Z24M3N75NF.0
+
+    Premise: PersonX escapes from PersonX's cage
+    Hypothesis: As a result, PersonX feels free
+    Update: PersonX is in a locked room with no key.
+    Update Type: weakener
+
+    Paraphrase: There is no key to the room PersonX is locked in.
+    ",atomic.train.25230,valid,valid,,TRUE
+atomic.train.17743.3TXD01ZLD4HLOVZF6I2F85Q2CY34UM.2,"Paraphrase ID: atomic.train.17743.3TXD01ZLD4HLOVZF6I2F85Q2CY34UM.2
+
+    Premise: PersonX spares PersonY life
+    Hypothesis: PersonX then forgives
+    Update: PersonY is sorry
+    Update Type: strengthener
+
+    Paraphrase: Sorry was asked for personY
+    ",atomic.train.17743,invalid,invalid,,TRUE
+atomic.train.34863.39ASUFLU6X7VX1Q30TPF1Y1XJ5JEXZ.0,"Paraphrase ID: atomic.train.34863.39ASUFLU6X7VX1Q30TPF1Y1XJ5JEXZ.0
+
+    Premise: PersonX confronts PersonY
+    Hypothesis: PersonX is seen as unburdened
+    Update: PersonX wants nothing to do with them anymore
+    Update Type: strengthener
+
+    Paraphrase: PersonX no longer wishes to interact with them.
+    ",atomic.train.34863,valid,valid,,TRUE
+atomic.train.12435.3CCZ6YKWR7J50MFCMCQYH1926FZ59V.1,"Paraphrase ID: atomic.train.12435.3CCZ6YKWR7J50MFCMCQYH1926FZ59V.1
+
+    Premise: PersonX loses in the woods
+    Hypothesis: PersonX is seen as nervous.
+    Update: They have anxiety meds
+    Update Type: strengthener
+
+    Paraphrase: the person has anxiety meds after getting lost in the woods 
+    ",atomic.train.12435,invalid,valid,,FALSE
+atomic.train.7336.3SPJ0334213S8M25JQM8HSLYP85JY4.1,"Paraphrase ID: atomic.train.7336.3SPJ0334213S8M25JQM8HSLYP85JY4.1
+
+    Premise: PersonX anxiously awaited
+    Hypothesis: PersonX then gets sweaty
+    Update: PersonX likes the feeling of a big day.
+    Update Type: weakener
+
+    Paraphrase: Person X loves the opportunity to a great day.
+    ",atomic.train.7336,invalid,invalid,,TRUE
+atomic.train.31864.3E1QT0TDFP9HY5RHO43E6EIWJEA8I0.0,"Paraphrase ID: atomic.train.31864.3E1QT0TDFP9HY5RHO43E6EIWJEA8I0.0
+
+    Premise: PersonX ties a narrative bow on something
+    Hypothesis: As a result, PersonX feels brave
+    Update: PersonX is just passing the time
+    Update Type: weakener
+
+    Paraphrase: the time is jus going by for person x
+    ",atomic.train.31864,valid,valid,,TRUE
+atomic.train.18303.3A4TN5196KIJED6AZY1Y8OD0H9TCH0.2,"Paraphrase ID: atomic.train.18303.3A4TN5196KIJED6AZY1Y8OD0H9TCH0.2
+
+    Premise: PersonX talks to PersonY's neighbor
+    Hypothesis: Before, PersonX needed to visit person Y's home
+    Update: PersonX needed to return PersonY's lawn mowner.
+    Update Type: strengthener
+
+    Paraphrase: PersonX had to restore PersonY's lawn mower to them
+",atomic.train.18303,valid,valid,,TRUE
+atomic.train.17638.37C0GNLMHF3DMGS73B55V36SMPED66.2,"Paraphrase ID: atomic.train.17638.37C0GNLMHF3DMGS73B55V36SMPED66.2
+
+    Premise: PersonX tries to return it
+    Hypothesis: PersonX is seen as desperate
+    Update: They have an old library book
+    Update Type: weakener
+
+    Paraphrase: They used to have an library book
+    ",atomic.train.17638,invalid,invalid,,TRUE
+atomic.train.16617.3PPTZCWALQK9ZZGNA280S06M9X0ZQ1.1,"Paraphrase ID: atomic.train.16617.3PPTZCWALQK9ZZGNA280S06M9X0ZQ1.1
+
+    Premise: PersonX goes check on PersonY
+    Hypothesis: PersonX is seen as concerned
+    Update: They just passed out
+    Update Type: strengthener
+
+    Paraphrase: People just lost it.
+    ",atomic.train.16617,invalid,invalid,,TRUE
+atomic.train.2846.38F5OAUN5NCD2WBE8HTNS2LMGY57H5.2,"Paraphrase ID: atomic.train.2846.38F5OAUN5NCD2WBE8HTNS2LMGY57H5.2
+
+    Premise: PersonX gains muscle
+    Hypothesis: PersonX then gets stronger
+    Update: PersonX is building a model of human anatomy.
+    Update Type: weakener
+
+    Paraphrase: PersonX is crafting a representation of the human form.
+    ",atomic.train.2846,valid,valid,,TRUE
+atomic.train.29301.30BUDKLTXDVMVI6TUN6K9FADPV65EQ.2,"Paraphrase ID: atomic.train.29301.30BUDKLTXDVMVI6TUN6K9FADPV65EQ.2
+
+    Premise: PersonX moves into a new apartment
+    Hypothesis: As a result, PersonX feels hungry
+    Update: PersonX spent all their money on the apartment
+    Update Type: strengthener
+
+    Paraphrase: PersonX used all of the money on the new place.
+    ",atomic.train.29301,valid,valid,,TRUE
+atomic.train.15705.36WLNQG78ZAOKYN2VXXXC1A5784EBI.1,"Paraphrase ID: atomic.train.15705.36WLNQG78ZAOKYN2VXXXC1A5784EBI.1
+
+    Premise: PersonX strokes PersonX's beard
+    Hypothesis: PersonX then braided the beard
+    Update: PersonX is holding their beard with one hand.
+    Update Type: strengthener
+
+    Paraphrase: A beard is being held in one hand by PersonX.
+    ",atomic.train.15705,valid,valid,,TRUE
+atomic.train.9820.3CN4LGXD5XO254JKGJZ4BQWFFSP4YE.1,"Paraphrase ID: atomic.train.9820.3CN4LGXD5XO254JKGJZ4BQWFFSP4YE.1
+
+    Premise: PersonX reaches for PersonY's phone
+    Hypothesis: As a result, PersonX wants to pass Y his phone.
+    Update: PersonX is PersonY's teacher.
+    Update Type: weakener
+
+    Paraphrase: PersonX serves in a teaching capacity to PersonY.
+    ",atomic.train.9820,valid,valid,,TRUE
+atomic.train.21957.3YW4XOSQKQL4WW2WJ0JDA7JZ0ESU1Y.0,"Paraphrase ID: atomic.train.21957.3YW4XOSQKQL4WW2WJ0JDA7JZ0ESU1Y.0
+
+    Premise: PersonX pushes the car
+    Hypothesis: PersonX then gets tired
+    Update: PersonX is skinny
+    Update Type: strengthener
+
+    Paraphrase: The person X is thin.
+    ",atomic.train.21957,valid,valid,,TRUE
+atomic.train.37384.3HFNH7HEMHE98ILIKAKB7TQGZILGQV.2,"Paraphrase ID: atomic.train.37384.3HFNH7HEMHE98ILIKAKB7TQGZILGQV.2
+
+    Premise: PersonX wants to see PersonY
+    Hypothesis: PersonX is seen as may be he achieved something
+    Update: PersonX has missed PersonY for weeks.
+    Update Type: weakener
+
+    Paraphrase: PERSONX NOT MEET PERSONY FOR SEVERAL DAYS
+    ",atomic.train.37384,invalid,invalid,,TRUE
+atomic.train.31865.3N4BPTXIO8S62XOIRAPVFMFY9KSUK1.0,"Paraphrase ID: atomic.train.31865.3N4BPTXIO8S62XOIRAPVFMFY9KSUK1.0
+
+    Premise: PersonX ties a narrative bow on something
+    Hypothesis: As a result, PersonX feels brave
+    Update: PersonX shouldn't even be there
+    Update Type: strengthener
+
+    Paraphrase: Why is PersonX even there?
+    ",atomic.train.31865,invalid,invalid,,TRUE
+atomic.train.1007.3VW6495TLJ0I3BX45QNBRF0M3NCYYY.0,"Paraphrase ID: atomic.train.1007.3VW6495TLJ0I3BX45QNBRF0M3NCYYY.0
+
+    Premise: PersonX gets PersonX's way
+    Hypothesis: Because they are aggressive, go getters
+    Update: Person X started their own business from scratch.
+    Update Type: strengthener
+
+    Paraphrase: Person X began their own company from the ground up.
+    ",atomic.train.1007,valid,valid,,TRUE
+atomic.train.19106.3N4BPTXIO8S62XOIRAPVFMFYGQ3UKV.2,"Paraphrase ID: atomic.train.19106.3N4BPTXIO8S62XOIRAPVFMFYGQ3UKV.2
+
+    Premise: PersonX plays old harry
+    Hypothesis: As a result, PersonX wants to apologize
+    Update: Old Harry bullied PersonX
+    Update Type: weakener
+
+    Paraphrase: PersonX was incessantly pestered by Old Harry.
+    ",atomic.train.19106,valid,valid,,TRUE
+atomic.train.8190.3WYP994K17RGKRNYZ7SJ8OGTBJV6Y1.2,"Paraphrase ID: atomic.train.8190.3WYP994K17RGKRNYZ7SJ8OGTBJV6Y1.2
+
+    Premise: PersonX waits to go
+    Hypothesis: As a result, PersonX feels patient
+    Update: PersonX is tapping their foot aggressively and looking at their watch.
+    Update Type: weakener
+
+    Paraphrase: PERSON X LOOKING AT WATCH FOR LONG TIME
+    ",atomic.train.8190,invalid,invalid,,TRUE
+anli.train.easy.258890.3K772S5NP8BYBBQOVP7TYCD340PEHA.0,"Paraphrase ID: anli.train.easy.258890.3K772S5NP8BYBBQOVP7TYCD340PEHA.0
+
+    Obs1: Ron and his wife buy a house that needs a lot of work.
+    Obs2: Ron makes lots of money on the house.
+    Hypothesis 1: Ron and his wife fix it then sell it.
+    Hypothesis 2: Ron and his wife flip it to sell.
+    Label: 1
+
+    Hyp 1 Paraphrase: ron worked with his wife
+    Hyp 2 Paraphrase: ron flip it
+    ",anli.train.easy.258890,invalid,invalid,,TRUE
+anli.test.131.326O153BMIYHZVLM9TO37RY40L8EDP.2,"Paraphrase ID: anli.test.131.326O153BMIYHZVLM9TO37RY40L8EDP.2
+
+    Obs1: The rodeo came to town.
+    Obs2: It was a great time for all.
+    Hypothesis 1: We all went to the rodeo.
+    Hypothesis 2: They went to the doctor.
+    Label: 1
+
+    Hyp 1 Paraphrase: We made preparations to make it to the Rodeo
+    Hyp 2 Paraphrase: They needed to see the doctor
+    ",anli.test.131,valid,valid,,TRUE
+anli.test.419.354P56DE9K32S5PUJB5MWGSNFZUS7N.0,"Paraphrase ID: anli.test.419.354P56DE9K32S5PUJB5MWGSNFZUS7N.0
+
+    Obs1: Larry bought a new cat carrier.
+    Obs2: Larry was frustrated but impressed.
+    Hypothesis 1: The cat figured out a way to stay in the carrier and sleep.
+    Hypothesis 2: The cat always got out of it.
+    Label: 2
+
+    Hyp 1 Paraphrase: the cat will get rest 
+    Hyp 2 Paraphrase: larry's pet  came out regularly to stole fish
+    ",anli.test.419,invalid,invalid,,TRUE
+anli.train.easy.45580.3W2LOLRXLBFEM5W1NGUQABSEBRVKRF.1,"Paraphrase ID: anli.train.easy.45580.3W2LOLRXLBFEM5W1NGUQABSEBRVKRF.1
+
+    Obs1: Reggie was proud of having 12 years without a car accident.
+    Obs2: A vehicle with a turn signal did not turn and crashed into Reggie.
+    Hypothesis 1: Reggie abruptly remembered Murphy Brown.
+    Hypothesis 2: Reggie abruptly remembered Murphy's Law.
+    Label: 2
+
+
+    Hyp 1 Paraphrase: Reggie suddenly thought of Murphy Brown.
+    Hyp 2 Paraphrase: Murphy's Law suddenly sprang to Reggie's mind.",anli.train.easy.45580,valid,valid,,TRUE
+anli.test.1556.3II4UPYCOJ76WYBRIKJ318NIJNOQD3.1,"Paraphrase ID: anli.test.1556.3II4UPYCOJ76WYBRIKJ318NIJNOQD3.1
+
+    Obs1: Amy loved to write short stories.
+    Obs2: Her boss loved the story and gave her a bonus for her work.
+    Hypothesis 1: She submitted one to her company newsletter.
+    Hypothesis 2: She showed her boss her stories who wanted re-writes.
+    Label: 1
+
+    Hyp 1 Paraphrase: She submitted on that reached her company newsletter.
+    Hyp 2 Paraphrase: She showed her boss stories that needed to be re-written. 
+    ",anli.test.1556,invalid,valid,,FALSE
+anli.test.1408.34YB12FSQYOIN3NQSHDUQK6AMDBMGO.0,"Paraphrase ID: anli.test.1408.34YB12FSQYOIN3NQSHDUQK6AMDBMGO.0
+
+    Obs1: A singer wanted to make the next great country song.
+    Obs2: The people there loved his song so far.
+    Hypothesis 1: He wrote a book where he poured out his heart.
+    Hypothesis 2: The singer played the song for the record execs.
+    Label: 2
+
+    Hyp 1 Paraphrase: More hard situation to consider the better way
+    Hyp 2 Paraphrase: So all people to love and support.
+    ",anli.test.1408,invalid,invalid,,TRUE
+anli.test.2214.3IFS6Q0HJIJZHP6Q229JN5IX5PIISJ.0,"Paraphrase ID: anli.test.2214.3IFS6Q0HJIJZHP6Q229JN5IX5PIISJ.0
+
+    Obs1: Tori refused to eat broccoli.
+    Obs2: She realized she loved it!
+    Hypothesis 1: Tori threw her broccoli on the floor.
+    Hypothesis 2: Tori's mom made her at least try it.
+    Label: 2
+
+    Hyp 1 Paraphrase: Tori flung her broccoli on the ground.
+    Hyp 2 Paraphrase: Tori's mother insisted that she at least give it a shot.
+    ",anli.test.2214,valid,valid,,TRUE
+anli.test.2661.3ZV9H2YQQD7DY35G14CXGOJSGA23W6.0,"Paraphrase ID: anli.test.2661.3ZV9H2YQQD7DY35G14CXGOJSGA23W6.0
+
+    Obs1: Greg loved to play in the dirt pit behind his grandpa's house.
+    Obs2: Greg's grandpa let him keep the quarter.
+    Hypothesis 1: Greg found a quarter.
+    Hypothesis 2: Once, Greg found an antique dresser in the dirt.
+    Label: 1
+
+    Hyp 1 Paraphrase: Hot days are many in the summer at Grandpa's.
+    Hyp 2 Paraphrase:  I could not tell what it was at first.
+    ",anli.test.2661,invalid,invalid,,TRUE
+anli.test.1408.3LOZAJ85YDD32LEN79UEZXS7JYWX26.1,"Paraphrase ID: anli.test.1408.3LOZAJ85YDD32LEN79UEZXS7JYWX26.1
+
+    Obs1: A singer wanted to make the next great country song.
+    Obs2: The people there loved his song so far.
+    Hypothesis 1: He wrote a book where he poured out his heart.
+    Hypothesis 2: The singer played the song for the record execs.
+    Label: 2
+
+
+    Hyp 1 Paraphrase: A great country singer wrote a heartfelt book
+    Hyp 2 Paraphrase: A great country singer wrote a song that record execs would love &amp; they did.",anli.test.1408,valid,invalid,,FALSE
+anli.test.3016.37C0GNLMHF3DMGS73B55V36RJM1D6I.1,"Paraphrase ID: anli.test.3016.37C0GNLMHF3DMGS73B55V36RJM1D6I.1
+
+    Obs1: Throughout my day in school, I was completely tired.
+    Obs2: I decided to watch movies all night.
+    Hypothesis 1: I drank too much caffeine.
+    Hypothesis 2: I didn't drink any caffeine.
+    Label: 1
+
+    Hyp 1 Paraphrase: I had too much caffeine.
+    Hyp 2 Paraphrase: i do not use caffeine.
+    ",anli.test.3016,invalid,valid,,FALSE
+anli.test.1881.3LOZAJ85YDD32LEN79UEZXS7JY9X2J.2,"Paraphrase ID: anli.test.1881.3LOZAJ85YDD32LEN79UEZXS7JY9X2J.2
+
+    Obs1: Heather and Audrey friends from the time they were in first grade.
+    Obs2: Now the girls reconnected and talk on a daily basis.
+    Hypothesis 1: They kept in touch throughout middle school.
+    Hypothesis 2: As they grew older they grew apart but after college they moved to the same neighborhood.
+    Label: 2
+
+    Hyp 1 Paraphrase: They continue their friendship
+    Hyp 2 Paraphrase: Heather and Audrey friends from their childhood
+    ",anli.test.1881,invalid,invalid,,TRUE
+anli.train.easy.130111.3R6BYFZZP7CN3FQZV49LJGMX5VXFX5.1,"Paraphrase ID: anli.train.easy.130111.3R6BYFZZP7CN3FQZV49LJGMX5VXFX5.1
+
+    Obs1: One day jim found a phone number in a book.
+    Obs2: He hung up because nobody answered the phone.
+    Hypothesis 1: Hoping to return the book, Jim visited the number's address.
+    Hypothesis 2: Hoping to return the book Jim called the number.
+    Label: 2
+
+
+    Hyp 1 Paraphrase: Jim went to the address listed on the book in an attempt to return it.
+    Hyp 2 Paraphrase: Desiring to give the book back, Jim dialed the number.",anli.train.easy.130111,valid,valid,,TRUE
+anli.test.102.39OWYR0EPKRC3KG900VN2UT5U8XFYG.2,"Paraphrase ID: anli.test.102.39OWYR0EPKRC3KG900VN2UT5U8XFYG.2
+
+    Obs1: Tish liked gardening in her yard.
+    Obs2: Tish's garden started to recover and look bright and green again.
+    Hypothesis 1: Animals began to eat her plants, so Tish observed their behavior.
+    Hypothesis 2: There was a bad storm by Trish's garden.
+    Label: 2
+
+    Hyp 1 Paraphrase: Wild animals got into her garden and started eating her plants.
+    Hyp 2 Paraphrase: There was a big thunderstorm.
+    ",anli.test.102,valid,valid,,TRUE
+anli.test.636.31LVTDXBL7AP6BEJ8G6RPB5SOIHRLA.0,"Paraphrase ID: anli.test.636.31LVTDXBL7AP6BEJ8G6RPB5SOIHRLA.0
+
+    Obs1: Bryan wondered why his arms itched.
+    Obs2: Bryan went home in pain.
+    Hypothesis 1: Bryan scratched at his itchy arms.
+    Hypothesis 2: he wanted to sleep.
+    Label: 1
+
+    Hyp 1 Paraphrase: Bryan went house in pain.
+    Hyp 2 Paraphrase: Bryan went domestic in pain.
+    ",anli.test.636,invalid,invalid,,TRUE
+anli.train.easy.147721.3GGAI1SQEVY56R7LQVHB0TLW1FHCM5.2,"Paraphrase ID: anli.train.easy.147721.3GGAI1SQEVY56R7LQVHB0TLW1FHCM5.2
+
+    Obs1: Linda fell in love with a tall dark stranger in town.
+    Obs2: She didn't know that the dark stranger couldn't read.
+    Hypothesis 1: On one of their dates, Linda asked him to recite a poem for her. She handed him a book of poetry.
+    Hypothesis 2: On one of their dates, Linda asked him to recite a poem for her. She handed him a book of poetry, which he did.
+    Label: 1
+
+    Hyp 1 Paraphrase: During one of their rendezvous, Linda requested him to recite a poem and passed him a book of poetry.
+    Hyp 2 Paraphrase: During one of their dates, Linda asked him to share a poem with her and provided him with a book of poetry for him to read from.
+    ",anli.train.easy.147721,invalid,invalid,,TRUE
+anli.test.1448.3CTOC39K37Q9T264WHW84F11WAWJ7G.0,"Paraphrase ID: anli.test.1448.3CTOC39K37Q9T264WHW84F11WAWJ7G.0
+
+    Obs1: Jim was a talented flute player.
+    Obs2: Jim became world renown because of his performance.
+    Hypothesis 1: Jim practiced for days.
+    Hypothesis 2: Jim played a live performance on TV.
+    Label: 2
+
+    Hyp 1 Paraphrase: Over the course of several days, Jim devoted his time to preparing.
+    Hyp 2 Paraphrase: Jim's performance was shown live on TV.
+    ",anli.test.1448,valid,valid,,TRUE
+anli.test.2041.3K772S5NP8BYBBQOVP7TYCD34LUHEO.2,"Paraphrase ID: anli.test.2041.3K772S5NP8BYBBQOVP7TYCD34LUHEO.2
+
+    Obs1: I went to las vegas.
+    Obs2: I was glad I hadn't spent much money on the slot machines.
+    Hypothesis 1: I decided to bet a little.
+    Hypothesis 2: I saw someone spend one thousand dollars on the slot machine next to me and win nothing.
+    Label: 2
+
+
+    Hyp 1 Paraphrase: So I made a small wager.
+    Hyp 2 Paraphrase: Somebody next to me won nothing even though they spent an obscene amount of money.",anli.test.2041,valid,valid,,TRUE
+anli.train.easy.154677.3EICBYG644WF5J10NY4JK1TFW9CJC9.1,"Paraphrase ID: anli.train.easy.154677.3EICBYG644WF5J10NY4JK1TFW9CJC9.1
+
+    Obs1: My coworker Frank is 45 years old.
+    Obs2: I think of Frank as a cute teddy bear.
+    Hypothesis 1: Frank is overweight and has a lot of hair.
+    Hypothesis 2: Frank is thin and bald.
+    Label: 1
+
+    Hyp 1 Paraphrase: Frank has an abundance of locks and is more than what is considered healthy weight.
+    Hyp 2 Paraphrase: Frank is slim and devoid of hair.
+    ",anli.train.easy.154677,valid,valid,,TRUE
+anli.test.2654.3STRJBFXOWRR2K9TR5ZLAQTVN25TKG.0,"Paraphrase ID: anli.test.2654.3STRJBFXOWRR2K9TR5ZLAQTVN25TKG.0
+
+    Obs1: Timmy told a lie.
+    Obs2: Now he is grounded for a week.
+    Hypothesis 1: Timmy's mom never knew it was a lie.
+    Hypothesis 2: Timmy's mom found out.
+    Label: 2
+
+    Hyp 1 Paraphrase: Timmy successfully avoided his mother's detection. 
+    Hyp 2 Paraphrase: Timmy's mom saw through it.
+    ",anli.test.2654,valid,valid,,TRUE
+anli.test.952.3FTOP5WARFOVBR6KBIBZP0RDB200J4.1,"Paraphrase ID: anli.test.952.3FTOP5WARFOVBR6KBIBZP0RDB200J4.1
+
+    Obs1: Lenny worked at a museum.
+    Obs2: Lenny found another job in a better museum and is even happier.
+    Hypothesis 1: Lenny decided to make museum work his main career.
+    Hypothesis 2: Another museum that was located nearby Lenny's placed refused Lenny a job.
+    Label: 1
+
+    Hyp 1 Paraphrase: Lenny chose museum work as his career choice. 
+    Hyp 2 Paraphrase: A museum near Lenny's refused to hire him. 
+    ",anli.test.952,valid,valid,seems like wrong original label,TRUE
+anli.train.easy.92826.36PW28KO4ZWJ1OIAPJX1HQQZSARAEY.1,"Paraphrase ID: anli.train.easy.92826.36PW28KO4ZWJ1OIAPJX1HQQZSARAEY.1
+
+    Obs1: Jazmine decided to try online dating.
+    Obs2: Now, they're best friends.
+    Hypothesis 1: She met a girl who shared many of her interests.
+    Hypothesis 2: She met a man who shared many of her interests.
+    Label: 1
+
+    Hyp 1 Paraphrase: She met a girl who had a lot of the same interests as her.
+    Hyp 2 Paraphrase: She met a man who had a lot of the same interests as her.
+    ",anli.train.easy.92826,invalid,valid,sigh.,FALSE
+anli.train.easy.212900.39LOEL67OS52829Y31WR28G7ASF834.0,"Paraphrase ID: anli.train.easy.212900.39LOEL67OS52829Y31WR28G7ASF834.0
+
+    Obs1: Terry went on a wilderness trip for his vacation in South America.
+    Obs2: When he thought all hope was lost, Terry's tour guide showed up.
+    Hypothesis 1: Terry split up from his tour guide in the wild.
+    Hypothesis 2: Terry got separated from his tour guide in the wild.
+    Label: 2
+
+    Hyp 1 Paraphrase: The guide and Terry disconnected while they were in the untamed environment
+    Hyp 2 Paraphrase: The tour guide and Terry became disassociated while they were in the wilds
+    ",anli.train.easy.212900,invalid,invalid,,TRUE
+anli.test.2149.3EG49X351UCRKMXOUB6HPA9KBDPX6C.2,"Paraphrase ID: anli.test.2149.3EG49X351UCRKMXOUB6HPA9KBDPX6C.2
+
+    Obs1: A French girl named Cassie was supposed to visit Stanley.
+    Obs2: Stanley decided to never deal with French girls again.
+    Hypothesis 1: Cassie decided to go to the bar instead.
+    Hypothesis 2: Stanley waited for her for several hours, then she finally decided to show up.
+    Label: 1
+
+    Hyp 1 Paraphrase: Cassie altered her plan and headed to a bar
+    Hyp 2 Paraphrase: After waiting for several hours, Cassie finally decided to appear in front of Stanley
+    ",anli.test.2149,valid,valid,,TRUE
+anli.test.1670.3XM0HYN6NKZQOSOCE2FY7LFURW6PE8.1,"Paraphrase ID: anli.test.1670.3XM0HYN6NKZQOSOCE2FY7LFURW6PE8.1
+
+    Obs1: Doug was sad it was Christmas Eve and there was no snow.
+    Obs2: Doug found no snow and was instantly thrilled.
+    Hypothesis 1: Grandma called and said she was driving over if the weather held.
+    Hypothesis 2: Doug had really been hoping for a white Christmas.
+    Label: 1
+
+
+    Hyp 1 Paraphrase: Doug's mom said Grandma wouldn't come if there was snow.
+    Hyp 2 Paraphrase: Doug dreamed of a white Christmas.",anli.test.1670,valid,valid,,TRUE
+anli.train.easy.151049.3YDGXNSEOZUNQYS23F1ACD8DOS148B.1,"Paraphrase ID: anli.train.easy.151049.3YDGXNSEOZUNQYS23F1ACD8DOS148B.1
+
+    Obs1: The train traveled through the Pole City Station without stopping.
+    Obs2: The man defied the attendant and remained standing.
+    Hypothesis 1: The man's legs were tired so her stood up. The attendant asked him give her the seat.
+    Hypothesis 2: The man's legs were tired so her stood up. The attendant asked him to sit down.
+    Label: 2
+
+    Hyp 1 Paraphrase: The man's legs were tired, so he gave her the seat.
+    Hyp 2 Paraphrase: The man stood up because he was tired of walking.
+    ",anli.train.easy.151049,invalid,invalid,,TRUE
+social.train.59741.3I33IC7ZWF2R686UWZ20FPHASTM2AE.1,"Paraphrase ID: social.train.59741.3I33IC7ZWF2R686UWZ20FPHASTM2AE.1
+
+    Premise: 
+    Hypothesis: A child should respect what their parents want to do in their home.
+    Update: Their child is a grown adult.
+    Update Type: strengthener
+
+    Paraphrase: ther=ir child is a of age
+    ",social.train.59741,invalid,invalid,,TRUE
+social.train.69052.3LWJHTCVCCM3UIPN9QETP8Q45AZFQU.2,"Paraphrase ID: social.train.69052.3LWJHTCVCCM3UIPN9QETP8Q45AZFQU.2
+
+    Premise: 
+    Hypothesis: You shouldn't pry into your friend's business.
+    Update: You're looking to be an investor.
+    Update Type: weakener
+
+    Paraphrase: You desire to take on the role of an investor
+    ",social.train.69052,valid,valid,,TRUE
+social.train.50366.3AAPLD8UCCH00U8LLKWOXYD457BHTU.0,"Paraphrase ID: social.train.50366.3AAPLD8UCCH00U8LLKWOXYD457BHTU.0
+
+    Premise: 
+    Hypothesis: It's good to respect and celebrate loved ones' individual life choices.
+    Update: they are poor ones
+    Update Type: weakener
+
+    Paraphrase: They are the impoverished.
+    ",social.train.50366,invalid,invalid,,TRUE
+social.train.14467.33NF62TLXJ2XOHDOFBLH8K6NZMOKJW.2,"Paraphrase ID: social.train.14467.33NF62TLXJ2XOHDOFBLH8K6NZMOKJW.2
+
+    Premise: 
+    Hypothesis: It's good to tell someone to slow down if they are going too fast.
+    Update: They are in a speed trap.
+    Update Type: strengthener
+
+    Paraphrase: It's a speed trap that you all are going through.
+",social.train.14467,valid,valid,,TRUE
+social.train.64959.3ZPBJO59KP1TJ5COZUW9SUVI2FUDH2.2,"Paraphrase ID: social.train.64959.3ZPBJO59KP1TJ5COZUW9SUVI2FUDH2.2
+
+    Premise: 
+    Hypothesis: It is okay to express your frustrations with situations.
+    Update: You express frustration by talking about it.
+    Update Type: strengthener
+
+    Paraphrase: You express foiling by talking about it.
+    ",social.train.64959,invalid,invalid,,TRUE
+social.train.71486.38F5OAUN5NCD2WBE8HTNS2LMG4SH7E.0,"Paraphrase ID: social.train.71486.38F5OAUN5NCD2WBE8HTNS2LMG4SH7E.0
+
+    Premise: 
+    Hypothesis: You shouldn't hang up on people.
+    Update: there is an emergency.
+    Update Type: weakener
+
+    Paraphrase: emergency in there
+    ",social.train.71486,invalid,invalid,,TRUE
+social.train.20674.3EICBYG644WF5J10NY4JK1TFUDFCJB.2,"Paraphrase ID: social.train.20674.3EICBYG644WF5J10NY4JK1TFUDFCJB.2
+
+    Premise: 
+    Hypothesis: It's okay to cancel an job interview.
+    Update: You are too lazy to get out of bed.
+    Update Type: weakener
+
+    Paraphrase: You are sluggish in leaving the comfort of your bed.
+    ",social.train.20674,valid,valid,,TRUE
+social.train.34744.3BQU611VFPKO19HOP23FTHE4SIE990.2,"Paraphrase ID: social.train.34744.3BQU611VFPKO19HOP23FTHE4SIE990.2
+
+    Premise: 
+    Hypothesis: It's important to give proper notice when you are leaving your job.
+    Update: Your position is being eliminated.
+    Update Type: weakener
+
+    Paraphrase: They are getting rid of your place
+    ",social.train.34744,invalid,invalid,,TRUE
+social.train.10223.35K3O9HUABDEXFZI0ZJTVR1QMB0FEF.0,"Paraphrase ID: social.train.10223.35K3O9HUABDEXFZI0ZJTVR1QMB0FEF.0
+
+    Premise: 
+    Hypothesis: It is rude to not respond to a friend when you are able to
+    Update: The friend needs help with an emergency.
+    Update Type: strengthener
+
+    Paraphrase: The friend is in urgent need of assisstance
+    ",social.train.10223,valid,valid,,TRUE
+social.train.68686.39JEC7537U1OWE1U4NI2NP49P0MCVW.1,"Paraphrase ID: social.train.68686.39JEC7537U1OWE1U4NI2NP49P0MCVW.1
+
+    Premise: 
+    Hypothesis: It's not okay to do something that could hurt people that depend on you.
+    Update: it was by accident.
+    Update Type: weakener
+
+    Paraphrase: it was byclamaity
+    ",social.train.68686,invalid,invalid,,TRUE
+social.train.36765.30H4UDGLT2IO0GGPV03HKTK3XJEPMH.0,"Paraphrase ID: social.train.36765.30H4UDGLT2IO0GGPV03HKTK3XJEPMH.0
+
+    Premise: 
+    Hypothesis: You should be nice to everyone.
+    Update: Under the care of a team of doctors.
+    Update Type: strengthener
+
+    Paraphrase: Doctors should strive for mutual respect.
+    ",social.train.36765,invalid,invalid,,TRUE
+social.train.2415.3L4D84MILZS6MRCG9QIKVSQV7ZSJHN.2,"Paraphrase ID: social.train.2415.3L4D84MILZS6MRCG9QIKVSQV7ZSJHN.2
+
+    Premise: 
+    Hypothesis: People are expected to take punishment seriously.
+    Update: The punishment was meant to be harsh because of aggravating circumstances.
+    Update Type: strengthener
+
+    Paraphrase: The aggravating circumstances led to a harsher penalty.
+    ",social.train.2415,valid,valid,,TRUE
+social.train.57436.3CTOC39K37Q9T264WHW84F11TWD7JQ.1,"Paraphrase ID: social.train.57436.3CTOC39K37Q9T264WHW84F11TWD7JQ.1
+
+    Premise: 
+    Hypothesis: Businesses pay people for their time and can't flourish when employees leave early and ask for too much time off.
+    Update: The businesses are staffed well enough to ensure that one person missing time doesn't impact the workflow.
+    Update Type: weakener
+
+    Paraphrase: The number of employees is adequate to guarantee that the lack of one individual does not impede the process
+    ",social.train.57436,valid,valid,,TRUE
+social.train.2919.3GD6L00D3SXLJOXNAYSRJX25U4RM1V.0,"Paraphrase ID: social.train.2919.3GD6L00D3SXLJOXNAYSRJX25U4RM1V.0
+
+    Premise: 
+    Hypothesis: You shouldn't shelter your mentally disabled child.
+    Update: you are not able to effectively take care of them.
+    Update Type: strengthener
+
+    Paraphrase: If you do not manage them properly, it will be difficult for you to look after them effectively.
+    ",social.train.2919,invalid,invalid,,TRUE
+social.train.24584.3STRJBFXOWRR2K9TR5ZLAQTWXH4KTC.2,"Paraphrase ID: social.train.24584.3STRJBFXOWRR2K9TR5ZLAQTWXH4KTC.2
+
+    Premise: 
+    Hypothesis: It's good to cover for a coworker if they have to leave work.
+    Update: They have been drinking alcohol and are going to drive to their destination.
+    Update Type: weakener
+
+    Paraphrase: If a coworker has to leave for work, it's a good idea to step in.
+    ",social.train.24584,invalid,invalid,,TRUE
+social.train.59437.33PPUNGG3859B0VNNHX0XQGRD1VRZV.2,"Paraphrase ID: social.train.59437.33PPUNGG3859B0VNNHX0XQGRD1VRZV.2
+
+    Premise: 
+    Hypothesis: Parents shouldn't be a financial burden on their children.
+    Update: they have a retirement fund.
+    Update Type: strengthener
+
+    Paraphrase: They are financially planning for retirement.
+    ",social.train.59437,valid,valid,,TRUE
+social.train.57436.3ZOTGHDK5IB9DBHT0XMO72EJF56OSL.1,"Paraphrase ID: social.train.57436.3ZOTGHDK5IB9DBHT0XMO72EJF56OSL.1
+
+    Premise: 
+    Hypothesis: Businesses pay people for their time and can't flourish when employees leave early and ask for too much time off.
+    Update: The businesses are staffed well enough to ensure that one person missing time doesn't impact the workflow.
+    Update Type: weakener
+
+    Paraphrase: The companies have enough employees to guarantee that the absence of one individual doesn't affect the productivity.
+    ",social.train.57436,valid,valid,,TRUE
+social.train.21135.3NAPMVF0ZWF9N68WPWQG5YFKRKS27X.1,"Paraphrase ID: social.train.21135.3NAPMVF0ZWF9N68WPWQG5YFKRKS27X.1
+
+    Premise: 
+    Hypothesis: It's okay if things don't work out between you and a partner even if it might seem like something little to the other person.
+    Update: You both understand that it may be something small to them but it's a dealbreaker for you.
+    Update Type: strengthener
+
+    Paraphrase: It's normal if you and a partner don't get along, even though it might seem unimportant to the other person.
+    ",social.train.21135,valid,invalid,,FALSE
+social.train.20263.3IO1LGZLK9X15LWGM3UP9BSRIBH86S.2,"Paraphrase ID: social.train.20263.3IO1LGZLK9X15LWGM3UP9BSRIBH86S.2
+
+    Premise: 
+    Hypothesis: It is mean to kick someone out of a friend group.
+    Update: You are doing it because you are jealous.
+    Update Type: strengthener
+
+    Paraphrase: Your actions are a result of your covetousness
+    ",social.train.20263,valid,valid,,TRUE
+social.train.24101.3CP1TO84PT1U02UD13BJ7E1O0F152R.2,"Paraphrase ID: social.train.24101.3CP1TO84PT1U02UD13BJ7E1O0F152R.2
+
+    Premise: 
+    Hypothesis: It's wrong to post possibly offensive jokes on Facebook.
+    Update: you are trying to be offensive.
+    Update Type: strengthener
+
+    Paraphrase: Your intention is to be rude.
+    ",social.train.24101,valid,valid,,TRUE
+social.train.21119.3AAJC4I4FGSSDCCAFCORVZU03P9JZD.1,"Paraphrase ID: social.train.21119.3AAJC4I4FGSSDCCAFCORVZU03P9JZD.1
+
+    Premise: 
+    Hypothesis: You shouldn't tell your classmate what to do.
+    Update: It is time to take a test.
+    Update Type: strengthener
+
+    Paraphrase: Now is the moment to prove yourself.
+    ",social.train.21119,invalid,invalid,,TRUE
+social.train.30758.3SKRO2GZ71RQT0XKPMFB4KA15ZWK1O.2,"Paraphrase ID: social.train.30758.3SKRO2GZ71RQT0XKPMFB4KA15ZWK1O.2
+
+    Premise: 
+    Hypothesis: It is rude to plan an event on someone else's special day.
+    Update: The event is for their own special day.
+    Update Type: weakener
+
+    Paraphrase: This is a day to celebrate them
+    ",social.train.30758,invalid,invalid,,TRUE
+social.train.52410.3AAPLD8UCCH00U8LLKWOXYD451JTH2.1,"Paraphrase ID: social.train.52410.3AAPLD8UCCH00U8LLKWOXYD451JTH2.1
+
+    Premise: 
+    Hypothesis: It can be very rewarding to complete a job on your own.
+    Update: the job is raising walls on a new house.
+    Update Type: weakener
+
+    Paraphrase: Putting up walls on a recently constructed home is the job
+    ",social.train.52410,valid,valid,,TRUE
+social.train.69053.33OOO72IVHL9JMX5ZSINM7GOS9ETCT.1,"Paraphrase ID: social.train.69053.33OOO72IVHL9JMX5ZSINM7GOS9ETCT.1
+
+    Premise: 
+    Hypothesis: You shouldn't pry into your friend's business.
+    Update: They are a private investigator.
+    Update Type: strengthener
+
+    Paraphrase: They specialize in conducting private investigations.
+    ",social.train.69053,valid,valid,,TRUE
+social.train.32480.3DZQRBDBSLFKRMO7HZ2WJZG8KJFS39.2,"Paraphrase ID: social.train.32480.3DZQRBDBSLFKRMO7HZ2WJZG8KJFS39.2
+
+    Premise: 
+    Hypothesis: You shouldn't use your bright lights when other cars are around.
+    Update: it is very foggy and you can't see.
+    Update Type: weakener
+
+    Paraphrase: The evidence for social inference is not very clear because of the fog.
+    ",social.train.32480,invalid,invalid,,TRUE
