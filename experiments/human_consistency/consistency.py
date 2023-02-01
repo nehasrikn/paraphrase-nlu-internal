@@ -32,6 +32,8 @@ dnli_human_bucket_predictions = {k: {
 
 anli_human_bucket_predictions = {
     'specialized_roberta': load_json('modeling/roberta/abductive/results/anli_human_anli_roberta-large.json'),
+    'specialized_full_input_lexical': load_json('modeling/fasttext/abductive/results/anli_human_full_input_lexical.json'),
+    'specialized_partial_input_lexical': load_json('modeling/fasttext/abductive/results/anli_human_partial_input_lexical.json'),
 }
 
 dnli_test_set_predictions = {k: {
@@ -44,6 +46,7 @@ dnli_test_set_predictions = {k: {
 
 anli_test_set_predictions = {
     'specialized_roberta': load_json('modeling/roberta/abductive/results/anli_test_set_anli_roberta-large.json'),
+    'specialized_full_input_lexical': load_json('modeling/fasttext/abductive/results/anli_test_set_full_input_lexical.json'),
 }
 
 def get_all_pairs_jensen_shannon_mean_distance(bucket_confidences):
