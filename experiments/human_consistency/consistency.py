@@ -33,6 +33,7 @@ dnli_human_bucket_predictions = {k: {
 anli_human_bucket_predictions = {
     'specialized_roberta': load_json('modeling/roberta/abductive/results/anli_human_anli_roberta-large.json'),
     'specialized_full_input_lexical': load_json('modeling/fasttext/abductive/results/anli_human_full_input_lexical.json'),
+    'bilstm': load_json('modeling/lstm/abductive/results/anli_human_bilstm.json'),
 }
 
 dnli_test_set_predictions = {k: {
@@ -46,6 +47,7 @@ dnli_test_set_predictions = {k: {
 anli_test_set_predictions = {
     'specialized_roberta': load_json('modeling/roberta/abductive/results/anli_test_set_anli_roberta-large.json'),
     'specialized_full_input_lexical': load_json('modeling/fasttext/abductive/results/anli_test_set_full_input_lexical.json'),
+    'bilstm': load_json('modeling/lstm/abductive/results/anli_test_set_bilstm.json'),
 }
 
 
@@ -64,7 +66,7 @@ def get_consistencies(model_name):
     print(f'####### anli #######')
     
     if model_name in anli_human_bucket_predictions.keys() and anli_test_set_predictions.keys():
-        print('anli', calculate_weighted_consistency(anli_human_bucket_predictions[model_name], anli_test_set_predictions[model_name],show_test_distribution=False))
+        print('anli', calculate_weighted_consistency(anli_human_bucket_predictions[model_name], anli_test_set_predictions[model_name], show_test_distribution=False))
 
 
 def get_all_pairs_jensen_shannon_mean_distance(bucket_confidences):
@@ -273,4 +275,4 @@ def plot_buckets(name: str, bucket_preds: Dict[str, List[str]]):
 
 if __name__ == '__main__':
     #get_consistencies('specialized_full_input_lexical')
-    get_consistencies('specialized_roberta')
+    get_consistencies('bilstm')

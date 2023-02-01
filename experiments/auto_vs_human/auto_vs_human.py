@@ -69,13 +69,15 @@ def calculate_abductive_consistency():
     ))
 
 if __name__ == '__main__':
+    dataset = 'snli'
+
     para_bucket_preds = construct_paraphrase_metadata(
         load_json(
-            f'modeling/roberta/abductive/results/anli_human_anli_roberta-large.json',
+            f'modeling/roberta/defeasible/results/{dataset}/{dataset}_human_d-{dataset}-roberta-large.json',
         ),
-        nli_example_type=ParaphrasedAbductiveNLIExample
+        nli_example_type=ParaphrasedDefeasibleNLIExample
     )
 
     write_json(para_bucket_preds, 
-        'experiments/auto_vs_human/results/bucket_preds_with_paraphrase_metadata/human/anli_bucket_preds.json'
+        f'experiments/auto_vs_human/results/bucket_preds_with_paraphrase_metadata/human/{dataset}_bucket_preds.json'
     )
