@@ -29,7 +29,7 @@ class FastTextClassifier():
                 e = self.preprocess_example(example)
                 outfile.write("%s\n" % e)
 
-        self.model = fasttext.train_supervised(input=train_fname, wordNgrams=1, epoch=5)
+        self.model = fasttext.train_supervised(input=train_fname, wordNgrams=4, epoch=5)
 
     def infer(self, example: Union[DefeasibleNLIExample, AbductiveNLIExample]):
         """
