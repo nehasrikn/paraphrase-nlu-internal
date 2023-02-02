@@ -78,6 +78,6 @@ para_nlu = {
     'social': dnli_social_human,
 }
 
-para_nlu_pretty_names = {'anli': 'α-NLI', 'social': 'δ-SOCIAL', 'snli': 'δ-SOCIAL', 'atomic': 'δ-ATOMIC'}
+para_nlu_pretty_names = {'anli': 'α-NLI', 'social': 'δ-SOCIAL', 'snli': 'δ-SNLI', 'atomic': 'δ-ATOMIC'}
 
 

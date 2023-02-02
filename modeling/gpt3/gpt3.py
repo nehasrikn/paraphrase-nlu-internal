@@ -61,6 +61,10 @@ def extract_confidences(api_response: Dict, classes=[' W', ' S']):
 def extract_answer(api_response: Dict, label_dict:dict={'W': 0, 'S': 1}):
     if isinstance(api_response, list):
         api_response = api_response[0]
+
+    if api_response['choices'][0]['text'].strip() not in label_dict.keys():
+        print('Answer not in label dict.')
+        return None
     
     return label_dict[api_response['choices'][0]['text'].strip()]
     
