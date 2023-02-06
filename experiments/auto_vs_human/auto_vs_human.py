@@ -18,6 +18,28 @@ from utils import PROJECT_ROOT_DIR, load_json, write_json
 
 from tqdm import tqdm
 
+paranlu_auto_v_human = {
+    'anli': {
+        'auto': load_json('experiments/auto_vs_human/results/bucket_preds_with_paraphrase_metadata/automatic/anli_bucket_preds.json'),
+        'human': load_json('experiments/auto_vs_human/results/bucket_preds_with_paraphrase_metadata/human/anli_bucket_preds.json')
+    },
+    'snli': {
+        'auto': load_json('experiments/auto_vs_human/results/bucket_preds_with_paraphrase_metadata/automatic/snli_bucket_preds.json'),
+        'human': load_json('experiments/auto_vs_human/results/bucket_preds_with_paraphrase_metadata/human/snli_bucket_preds.json')
+    },
+    'atomic': {
+        'auto': load_json('experiments/auto_vs_human/results/bucket_preds_with_paraphrase_metadata/automatic/atomic_bucket_preds.json'),
+        'human': load_json('experiments/auto_vs_human/results/bucket_preds_with_paraphrase_metadata/human/atomic_bucket_preds.json')
+    },
+    'social': {
+        'auto': load_json('experiments/auto_vs_human/results/bucket_preds_with_paraphrase_metadata/automatic/social_bucket_preds.json'),
+        'human': load_json('experiments/auto_vs_human/results/bucket_preds_with_paraphrase_metadata/human/social_bucket_preds.json')
+    }
+
+}
+
+
+
 def construct_paraphrase_metadata(bucket_preds, nli_example_type=ParaphrasedAbductiveNLIExample):
     for example_id, bucket in tqdm(bucket_preds.items()):
         for p in range(len(bucket['bucket_confidences'])):
