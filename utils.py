@@ -12,7 +12,7 @@ import socket
 
 ON_CLUSTER = 'clip' in socket.gethostname()
 
-PROJECT_ROOT_DIR = '/fs/clip-scratch/nehasrik/paraphrase-nlu' if ON_CLUSTER else '/Users/nehasrikanth/Documents/paraphrase-nlu/'
+PROJECT_ROOT_DIR = '/fs/clip-projects/rlab/nehasrik/paraphrase-nlu' if ON_CLUSTER else '/Users/nehasrikanth/Documents/paraphrase-nlu/'
 
 def plot_and_save_countplot(values: List[Any], fig_file: str) -> None:
     sns.set_theme()
