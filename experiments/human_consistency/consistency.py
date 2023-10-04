@@ -82,7 +82,8 @@ def calculate_bucket_metadata(buckets, use_modeling_label=False, model_name=None
             'bucket_confidence_mean': np.mean(confidences_in_correct_label),
             'bucket_confidence_var': np.var(confidences_in_correct_label),
             'bucket_confidence_std': np.std(confidences_in_correct_label),
-            'original_confidence': bucket['original_confidence'][gold_label],
+            'original_confidence_in_gold_label': bucket['original_confidence'][gold_label],
+            'original_confidence': bucket['original_confidence'],
             'bucket_consistency': bucket_consistency,
             'conf_shift': np.mean(confidences_in_correct_label) - bucket['original_confidence'][gold_label],
             'orig_pred_shift': abs(bucket['original_confidence'][gold_label] - 0.5),
@@ -129,7 +130,7 @@ def calculate_weighted_consistency(paraphrase_predictions, test_set_predictions=
     ranges = defaultdict(list)
     
     for _, row in metadata.iterrows():
-        ranges[float_floor(row.original_confidence)].append(row.bucket_consistency)
+        ranges[float_floor(row.original_confidence_in_gold_label)].append(row.bucket_consistency)
         
     weighted_bucket_consistences = []
     for decile, decile_consistences in ranges.items():
