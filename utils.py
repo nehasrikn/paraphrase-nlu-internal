@@ -10,7 +10,7 @@ import termplotlib as tpl
 import socket
 
 
-ON_CLUSTER = 'clip' in socket.gethostname()
+ON_CLUSTER = 'clip' in socket.gethostname() or 'umiacs.umd.edu' in socket.gethostname()
 
 PROJECT_ROOT_DIR = '/fs/clip-projects/rlab/nehasrik/paraphrase-nlu' if ON_CLUSTER else '/Users/nehasrikanth/Documents/paraphrase-nlu/'
 
