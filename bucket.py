@@ -1,6 +1,6 @@
 import pandas as pd
 from dataclasses import dataclass
-from typing import List, Optional, Dict, Any, Union
+from typing import List, Optional, Dict, Any, Union, Tuple
 from dataclasses import dataclass, asdict
 from abductive_data import ParaphrasedAbductiveNLIExample, AbductiveNLIExample
 from defeasible_data import ParaphrasedDefeasibleNLIExample, DefeasibleNLIExample 
@@ -9,6 +9,8 @@ import json
 import numpy as np
 from tqdm import tqdm
 from utils import PROJECT_ROOT_DIR, load_json
+
+
 
 @dataclass
 class ExamplePrediction:
@@ -60,8 +62,7 @@ class Bucket:
     def bucket_discrete_consistency(self) -> float:
         return len([p for p in self.paraphrase_predictions if p.prediction  == self.original_example_prediction.prediction])/len(self.paraphrase_predictions)
 
-        
-    
+
     
 def inference_to_buckets(file: str) -> List[Bucket]:
     # get file with inference predictions and convert to List of buckets
