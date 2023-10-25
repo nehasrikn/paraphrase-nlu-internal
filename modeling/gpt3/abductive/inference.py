@@ -95,10 +95,21 @@ if __name__ == '__main__':
     # buckets = bucket_predictions(anli_human, gpt3_model, num_icl_examples=25)
     # write_json(buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/gpt3/abductive/results/anli_human_gpt3-{gpt3_model.model}.json'))
 
-    buckets = load_json(f'modeling/gpt3/abductive/results/anli_human_gpt3-text-curie-001.json')
-    buckets_with_confidences_processed = extract_confidences_from_bucket_predictions(buckets)
-    write_json(buckets_with_confidences_processed, os.path.join(PROJECT_ROOT_DIR, f'modeling/gpt3/abductive/results/anli_human_gpt3-{gpt3_model.model}_processed.json'))
+    #buckets = load_json(f'modeling/gpt3/abductive/results/anli_human_gpt3-text-curie-001.json')
+    #buckets_with_confidences_processed = extract_confidences_from_bucket_predictions(buckets)
+    #write_json(buckets_with_confidences_processed, os.path.join(PROJECT_ROOT_DIR, f'modeling/gpt3/abductive/results/anli_human_gpt3-{gpt3_model.model}_processed.json'))
     
     # test_sample = random.sample(anli_dataset.test_examples, 1000)
     # test_set_predictions = test_set_evaluation(test_sample, gpt3_model, num_icl_examples=25)
+    # write_json(test_set_predictions, os.path.join(PROJECT_ROOT_DIR, f'modeling/gpt3/abductive/results/anli_test_set_gpt3-{gpt3_model.model}_processed.json'))
+
+    # ### Fix the normalization of the confidences for test set ###
+
+    # test_set_predictions = load_json(f'modeling/gpt3/abductive/results/anli_test_set_gpt3-{gpt3_model.model}_processed.json')
+    # for prediction in test_set_predictions:
+    #     confidence = np.array(prediction['confidence'])
+    #     prediction['confidence'] = confidence / sum(confidence)
+    #     # to list
+    #     prediction['confidence'] = prediction['confidence'].tolist()
+    
     # write_json(test_set_predictions, os.path.join(PROJECT_ROOT_DIR, f'modeling/gpt3/abductive/results/anli_test_set_gpt3-{gpt3_model.model}_processed.json'))
