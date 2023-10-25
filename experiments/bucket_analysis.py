@@ -3,7 +3,32 @@ from bucket import Bucket, ExamplePrediction
 import numpy as np
 from netcal.presentation import ReliabilityDiagram
 from netcal.metrics import ECE
+from utils import load_json
+from sklearn.metrics import accuracy_score
 
+class TestSetResult:
+    def __init__(self, test_set_results: str):
+        self.test_set = load_json(test_set_results) # list of dicts: keys = {'confidence', 'prediction', 'label', 'example_id'}
+    
+    @property
+    def accuracy(self) -> float:
+        """
+        Accuracy of model on test set.
+        """
+        predictions = [t['prediction'] for t in self.test_set]
+        ground_truth = [t['label'] for t in self.test_set]
+        
+        assert len(predictions) == len(ground_truth)
+        return accuracy_score(ground_truth, predictions)
+    
+    @property
+    def confidences(self) -> np.array:
+        return np.array([t['confidence'][t['label']] for t in self.test_set])
+    
+    @property
+    def variance_of_confidences(self) -> float:
+        return np.var(self.confidences)
+ 
 
 class BucketDatasetResult:
     """
@@ -18,6 +43,13 @@ class BucketDatasetResult:
     def __init__(self, buckets: List[Bucket], model_name: str) -> None:
         self.buckets = buckets
         self.model_name = model_name
+    
+    @property
+    def mean_unweighted_consistency(self) -> float:
+        """
+        Mean consistency across all buckets.
+        """
+        return np.mean([b.bucket_discrete_consistency for b in self.buckets])
         
     def law_of_total_variance_breakdown(self) -> Dict[str, float]:
         """
@@ -38,7 +70,7 @@ class BucketDatasetResult:
             'total_var_y': np.var([p.confidence_in_gold_label for b in self.buckets for p in b.paraphrase_predictions])
         }
     
-    def original_model_reliability_diagram(self, num_bins=100) -> None:
+    def original_example_reliability_diagram(self, num_bins=100) -> None:
         """
         Computes calibration error and plots reliability diagram for original model's prediction.
         """
@@ -51,3 +83,31 @@ class BucketDatasetResult:
         ece = ECE(num_bins)
         uncalibrated_score = ece.measure(confidences_in_prediction, gold_label)
         return uncalibrated_score
+    
+    def original_example_accuracy(self) -> float:
+        """
+        Accuracy of original model's predictions.
+        """
+        predictions = [b.original_example_prediction.prediction for b in self.buckets]
+        ground_truth = [b.original_example_prediction.gold_label for b in self.buckets]
+        
+        assert len(predictions) == len(ground_truth)
+        return accuracy_score(ground_truth, predictions)
+    
+    def paraphrase_accuracy(self) -> float:
+        """Accuracy on paraphrased examples.
+        """
+        predictions = []
+        ground_truth = []
+        for bucket in self.buckets:
+            for paraphrase in bucket.paraphrase_predictions:
+                predictions.append(paraphrase.prediction)
+                ground_truth.append(paraphrase.gold_label)
+       
+        return accuracy_score(ground_truth, predictions)
+    
+    def weighted_discrete_consistency(self, test_set_predictions: str) -> float:
+        """Weighted discrete consistency.
+        """
+        raise NotImplementedError()
+        
