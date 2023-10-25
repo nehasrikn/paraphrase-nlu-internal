@@ -32,7 +32,7 @@ class ExamplePrediction:
 
     @property
     def confidence_in_prediction(self) -> float:
-        return np.argmax(self.confidence)
+        return np.max(self.confidence)
 
 @dataclass
 class Bucket:
@@ -74,12 +74,15 @@ def inference_to_buckets(file: str) -> List[Bucket]:
     predictions = load_json(file)
     buckets = []
     for ex_id, ex in tqdm(predictions.items()):
+        
+        label_key = 'modeling_label' if 'abductive' in file else 'label'
+        
         bucket_paraphrases = [
             ExamplePrediction(
                 example_id=p['paraphrased_example']['paraphrase_id'],
                 confidence=p['confidence'],
                 prediction=p['prediction'],
-                gold_label=p['paraphrased_example']['original_example']['modeling_label'],
+                gold_label=p['paraphrased_example']['original_example'][label_key],
                 example=example_paraphrased_type(**p['paraphrased_example'])
             )
             for p in ex['bucket_confidences']

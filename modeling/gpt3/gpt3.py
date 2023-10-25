@@ -56,6 +56,10 @@ def extract_confidences(api_response: Dict, classes=[' W', ' S']):
     class_1_conf = np.exp(top_logprobs[classes[0]])
     class_2_conf = np.exp(top_logprobs[classes[1]])
     
+    # make sure to normalize:
+    class_1_conf = class_1_conf / (class_1_conf + class_2_conf)
+    class_2_conf = class_2_conf / (class_1_conf + class_2_conf)
+    
     return [class_1_conf, class_2_conf]
     
 def extract_answer(api_response: Dict, label_dict:dict={'W': 0, 'S': 1}):
