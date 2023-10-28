@@ -127,7 +127,9 @@ class BucketDatasetResult:
         return accuracy_score(ground_truth, predictions)
     
     def calculate_weighted_consistency(self, test_set: TestSetResult):
-        
+        """
+        This is the metric we used in the first submission of the paper.
+        """
         test_set_confidences = test_set.confidences
         histogram = np.histogram(test_set_confidences, bins=10, density=False, range=[0, 1])
         confidence_densities = [x / len(test_set_confidences) for x in histogram[0]]
