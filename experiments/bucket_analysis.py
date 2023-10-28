@@ -5,6 +5,9 @@ from netcal.presentation import ReliabilityDiagram
 from netcal.metrics import ECE
 from utils import load_json
 from sklearn.metrics import accuracy_score
+from abductive_data import ParaphrasedAbductiveNLIExample, AbductiveNLIExample
+from defeasible_data import ParaphrasedDefeasibleNLIExample, DefeasibleNLIExample
+from tqdm import tqdm
 
 class TestSetResult:
     def __init__(self, test_set_results: str):
@@ -40,7 +43,7 @@ class BucketDatasetResult:
     model_name: str -- name of the model that produced these buckets
     """
     
-    def __init__(self, buckets: List[Bucket], model_name: str) -> None:
+    def __init__(self, buckets: List[Bucket], model_name: str=None) -> None:
         self.buckets = buckets
         self.model_name = model_name
     
@@ -51,7 +54,7 @@ class BucketDatasetResult:
         """
         return np.mean([b.bucket_discrete_consistency for b in self.buckets])
         
-    def law_of_total_variance_breakdown(self) -> Dict[str, float]:
+    def law_of_total_variance_breakdown(self, measured_y='correctness') -> Dict[str, float]:
         """
         Var(Y) = E[ Var(Y|X) ]  +  Var( E[Y|X] )
         
@@ -64,10 +67,24 @@ class BucketDatasetResult:
         i.e. some questions are harder than others but it doesn't matter how they are phrased.
         """
         
+        if measured_y == 'confidence':
+            measure = lambda x: x.confidence_in_gold_label
+        elif measured_y == 'correctness':
+            measure = lambda x: x.correct
+        
+            
+        bucket_expectations = [np.mean([measure(p) for p in b.paraphrase_predictions]) for b in self.buckets]
+        bucket_variances = [np.var([measure(p) for p in b.paraphrase_predictions]) for b in self.buckets]
+        
+        e_var_y_x = np.mean(bucket_variances)
+        var_e_y_x = np.var(bucket_expectations)
+        total_var_y =  np.var([measure(p) for b in self.buckets for p in b.paraphrase_predictions])
+
         return {
-            'e_var_y_x': np.mean([b.bucket_confidence_variance for b in self.buckets]),
-            'var_e_y_x': np.var([b.bucket_confidence_mean for b in self.buckets]),
-            'total_var_y': np.var([p.confidence_in_gold_label for b in self.buckets for p in b.paraphrase_predictions])
+            'e_var_y_x': e_var_y_x,
+            'var_e_y_x': var_e_y_x,
+            'total_var_y': total_var_y,
+            'prop_explained': var_e_y_x / total_var_y
         }
     
     def original_example_reliability_diagram(self, num_bins=100) -> None:
@@ -106,8 +123,53 @@ class BucketDatasetResult:
        
         return accuracy_score(ground_truth, predictions)
     
-    def weighted_discrete_consistency(self, test_set_predictions: str) -> float:
-        """Weighted discrete consistency.
-        """
-        raise NotImplementedError()
+    
+    
+    
+def inference_to_buckets(file: str, compile_into_bucket_analysis_class: bool=True) -> List[Bucket]:
+    # get file with inference predictions and convert to List of buckets
+    # file: path to json file with inference predictions
+    # compile_into_bucket_analysis_class: if True, will compile into BucketDatasetResult class
+    # returns: List[Bucket]
+    
+    example_original_type = AbductiveNLIExample if 'abductive' in file else DefeasibleNLIExample
+    example_paraphrased_type = ParaphrasedAbductiveNLIExample if 'abductive' in file else ParaphrasedDefeasibleNLIExample
+    
+    predictions = load_json(file)
+    buckets = []
+    for ex_id, ex in tqdm(predictions.items()):
         
+        label_key = 'modeling_label' if 'abductive' in file else 'label'
+        
+        bucket_paraphrases = [
+            ExamplePrediction(
+                example_id=p['paraphrased_example']['paraphrase_id'],
+                confidence=p['confidence'],
+                prediction=p['prediction'],
+                gold_label=p['paraphrased_example']['original_example'][label_key],
+                example=example_paraphrased_type(**p['paraphrased_example'])
+            )
+            for p in ex['bucket_confidences']
+        ]
+        
+        original_example = ExamplePrediction(
+            example_id=ex_id,
+            confidence=ex['original_confidence'],
+            prediction=ex['original_prediction'],
+            gold_label=ex['gold_label'],
+            example=example_original_type(**ex['bucket_confidences'][0]['paraphrased_example']['original_example'])
+        )
+        
+        buckets.append(
+            Bucket(
+                original_example_id=ex_id,
+                original_example_prediction=original_example,
+                paraphrase_predictions=bucket_paraphrases
+            )
+        )
+    
+    if compile_into_bucket_analysis_class:
+        return BucketDatasetResult(buckets)
+    
+    return buckets
+ 

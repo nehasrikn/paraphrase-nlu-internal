@@ -1,7 +1,7 @@
-from bucket import Bucket, ExamplePrediction, inference_to_buckets
+from bucket import Bucket, ExamplePrediction
 from abductive_data import AbductiveNLIExample, ParaphrasedAbductiveNLIExample
 from defeasible_data import DefeasibleNLIExample, ParaphrasedDefeasibleNLIExample
-from experiments.bucket_analysis import TestSetResult
+from experiments.bucket_analysis import TestSetResult, inference_to_buckets
 
 from utils import PROJECT_ROOT_DIR, load_json
 import os

@@ -11,7 +11,6 @@ from tqdm import tqdm
 from utils import PROJECT_ROOT_DIR, load_json
 
 
-
 @dataclass
 class ExamplePrediction:
     """
@@ -35,6 +34,11 @@ class ExamplePrediction:
     @property
     def confidence_in_prediction(self) -> float:
         return np.max(self.confidence)
+    
+    @property
+    def correct(self) -> int:
+        assert self.gold_label in (0, 1) and self.prediction in (0, 1)
+        return int(self.prediction == self.gold_label)
 
 @dataclass
 class Bucket:
@@ -59,50 +63,5 @@ class Bucket:
         return np.std([p.confidence_in_gold_label for p in self.paraphrase_predictions])
     
     @property
-    def bucket_discrete_consistency(self) -> float:
+    def bucket_discrete_agreement(self) -> float:
         return len([p for p in self.paraphrase_predictions if p.prediction  == self.original_example_prediction.prediction])/len(self.paraphrase_predictions)
-
-
-    
-def inference_to_buckets(file: str) -> List[Bucket]:
-    # get file with inference predictions and convert to List of buckets
-    # file: path to json file with inference predictions
-    # returns: List[Bucket]
-    
-    example_original_type = AbductiveNLIExample if 'abductive' in file else DefeasibleNLIExample
-    example_paraphrased_type = ParaphrasedAbductiveNLIExample if 'abductive' in file else ParaphrasedDefeasibleNLIExample
-    
-    predictions = load_json(file)
-    buckets = []
-    for ex_id, ex in tqdm(predictions.items()):
-        
-        label_key = 'modeling_label' if 'abductive' in file else 'label'
-        
-        bucket_paraphrases = [
-            ExamplePrediction(
-                example_id=p['paraphrased_example']['paraphrase_id'],
-                confidence=p['confidence'],
-                prediction=p['prediction'],
-                gold_label=p['paraphrased_example']['original_example'][label_key],
-                example=example_paraphrased_type(**p['paraphrased_example'])
-            )
-            for p in ex['bucket_confidences']
-        ]
-        
-        original_example = ExamplePrediction(
-            example_id=ex_id,
-            confidence=ex['original_confidence'],
-            prediction=ex['original_prediction'],
-            gold_label=ex['gold_label'],
-            example=example_original_type(**ex['bucket_confidences'][0]['paraphrased_example']['original_example'])
-        )
-        
-        buckets.append(
-            Bucket(
-                original_example_id=ex_id,
-                original_example_prediction=original_example,
-                paraphrase_predictions=bucket_paraphrases
-            )
-        )
-    
-    return buckets
