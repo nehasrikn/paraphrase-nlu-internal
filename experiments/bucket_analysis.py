@@ -8,6 +8,9 @@ from sklearn.metrics import accuracy_score
 from abductive_data import ParaphrasedAbductiveNLIExample, AbductiveNLIExample
 from defeasible_data import ParaphrasedDefeasibleNLIExample, DefeasibleNLIExample
 from tqdm import tqdm
+from collections import defaultdict
+from data_selection.data_selection_utils import float_floor
+
 
 class TestSetResult:
     def __init__(self, test_set_results: str):
@@ -52,7 +55,7 @@ class BucketDatasetResult:
         """
         Mean consistency across all buckets.
         """
-        return np.mean([b.bucket_discrete_consistency for b in self.buckets])
+        return np.mean([b.bucket_discrete_agreement for b in self.buckets])
         
     def law_of_total_variance_breakdown(self, measured_y='correctness') -> Dict[str, float]:
         """
@@ -122,6 +125,25 @@ class BucketDatasetResult:
                 ground_truth.append(paraphrase.gold_label)
        
         return accuracy_score(ground_truth, predictions)
+    
+    def calculate_weighted_consistency(self, test_set: TestSetResult):
+        
+        test_set_confidences = test_set.confidences
+        histogram = np.histogram(test_set_confidences, bins=10, density=False, range=[0, 1])
+        confidence_densities = [x / len(test_set_confidences) for x in histogram[0]]
+        
+        ranges = defaultdict(list)
+        
+        for bucket in self.buckets:
+            ranges[float_floor(bucket.original_example_prediction.confidence_in_gold_label)].append(bucket.bucket_discrete_agreement)
+            
+        weighted_bucket_consistences = []
+        for decile, decile_consistences in ranges.items():
+            weighted_bucket_consistences.append(
+                confidence_densities[int(10*decile)] * np.mean(decile_consistences)
+            )
+        return sum(weighted_bucket_consistences)
+        
     
     
     
