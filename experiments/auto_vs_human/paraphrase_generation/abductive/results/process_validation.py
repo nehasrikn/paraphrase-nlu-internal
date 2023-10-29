@@ -61,16 +61,16 @@ def get_valid_hypotheses_from_label_studio():
     This only gets the valid hypotheses from label studio that were annotated postpilot (round 2 vs round 1)
     """
 
-    all_paraphrases = load_json(f'experiments/auto_vs_human/abductive/results/unvalidated_generation_results/gpt3_paraphrases_2.json')
+    all_paraphrases = load_json(f'experiments/auto_vs_human/paraphrase_generation/abductive/results/unvalidated_generation_results/gpt3_paraphrases_2.json')
 
     valid_hyp1_paraphrases = process_label_studio_validations(
         os.path.join(PROJECT_ROOT_DIR, 
-        f'experiments/auto_vs_human/abductive/results/validation_annotation_files/gpt3_anli_paraphrases_2_hyp1_validated.csv')
+        f'experiments/auto_vs_human/paraphrase_generation/abductive/results/validation_annotation_files/gpt3_anli_paraphrases_2_hyp1_validated.csv')
     )
 
     valid_hyp2_paraphrases = process_label_studio_validations(
         os.path.join(PROJECT_ROOT_DIR, 
-        f'experiments/auto_vs_human/abductive/results/validation_annotation_files/gpt3_anli_paraphrases_2_hyp2_validated.csv')
+        f'experiments/auto_vs_human/paraphrase_generation/abductive/results/validation_annotation_files/gpt3_anli_paraphrases_2_hyp2_validated.csv')
     )
     
     gold_set = defaultdict(lambda: defaultdict(list))
@@ -88,7 +88,7 @@ def get_valid_examples():
     valid_hypotheses_files = ['gpt3_paraphrases_1', 'gpt3_paraphrases_2', 'qcpg_paraphrases_1']
     for file in valid_hypotheses_files:
         model = file.split('_')[0]
-        valid_hypotheses = load_json(f'experiments/auto_vs_human/abductive/results/validated_paraphrases/{file}.json')
+        valid_hypotheses = load_json(f'experiments/auto_vs_human/paraphrase_generation/abductive/results/validated_paraphrases/{file}.json')
         
         for example_id, hyps in valid_hypotheses.items():
             paired = pair_hypotheses(hyps['hyp1'], hyps['hyp2'])

@@ -140,13 +140,18 @@ class DefeasibleTrainedModel(TrainedModel):
 
 class PretrainedNLIModel:
 
-    def __init__(self, trained_model_dir: str, cache_dir: str = 'checkpoints/hf_cache') -> None:
+    def __init__(self, trained_model_dir: str, cache_dir: str = 'checkpoints/hf_cache', label_map = ['E', 'N', 'C']) -> None:
         self.device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
         self.tokenizer = PretrainedNLIModel.get_tokenizer(trained_model_dir, cache_dir)
         self.trained_model = self.get_model(trained_model_dir, cache_dir)
+        self.label_map = label_map
         
     def predict(self, premise: str, hypothesis: str) -> np.ndarray:
         return self._get_prediction((premise, hypothesis))
+
+    def predict_label(self, premise: str, hypothesis: str) -> str:
+        prediction = self.predict(premise, hypothesis)
+        return self.label_map[np.argmax(prediction)]
 
     def _get_prediction(self, inp: Union[str, Tuple[str, str]]) -> np.ndarray:
         """

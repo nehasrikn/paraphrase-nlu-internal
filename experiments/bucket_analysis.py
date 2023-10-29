@@ -147,9 +147,6 @@ class BucketDatasetResult:
         return sum(weighted_bucket_consistences)
         
     
-    
-    
-    
 def inference_to_buckets(file: str, compile_into_bucket_analysis_class: bool=True) -> List[Bucket]:
     # get file with inference predictions and convert to List of buckets
     # file: path to json file with inference predictions

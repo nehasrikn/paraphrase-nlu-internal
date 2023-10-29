@@ -26,11 +26,11 @@ def process_label_studio_validations(label_studio_validated_paraphrases: str) ->
 
 def get_valid_paraphrases(dataset_name: str, model_name: str='gpt3'):
     
-    all_paraphrases = load_json(f'experiments/auto_vs_human/defeasible/results/unvalidated_generation_results/{model_name}_{dataset_name}_paraphrases.json')
+    all_paraphrases = load_json(f'experiments/auto_vs_human/paraphrase_generation/defeasible/results/unvalidated_generation_results/{model_name}_{dataset_name}_paraphrases.json')
     
     valid_paraphrases = process_label_studio_validations(
         os.path.join(PROJECT_ROOT_DIR, 
-        f'experiments/auto_vs_human/defeasible/results/validation_annotation_files/{model_name}_{dataset_name}_paraphrases_validated.csv')
+        f'experiments/auto_vs_human/paraphrase_generation/defeasible/results/validation_annotation_files/{model_name}_{dataset_name}_paraphrases_validated.csv')
     )
     
     gold_set = defaultdict(list)
