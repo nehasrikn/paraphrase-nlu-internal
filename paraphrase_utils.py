@@ -69,12 +69,12 @@ def get_semantic_similarity_score(paraphrase):
     
     if isinstance(paraphrase, ParaphrasedAbductiveNLIExample):
         original_example = AbductiveNLIExample(**paraphrase.original_example) if isinstance(paraphrase.original_example, dict) else paraphrase.original_example
-        h1 = _bleurt_score(clean_paraphrase(paraphrase.hyp1_paraphrase), clean_paraphrase(original_example.hyp1))
-        h2 = _bleurt_score(clean_paraphrase(paraphrase.hyp2_paraphrase), clean_paraphrase(original_example.hyp2))
+        h1 = _bleurt_score([clean_paraphrase(paraphrase.hyp1_paraphrase)], [clean_paraphrase(original_example.hyp1)])[0]
+        h2 = _bleurt_score([clean_paraphrase(paraphrase.hyp2_paraphrase)], [clean_paraphrase(original_example.hyp2)])[0]
         return (h1 + h2) / 2
     elif isinstance(paraphrase, ParaphrasedDefeasibleNLIExample):
         original_example = DefeasibleNLIExample(**paraphrase.original_example) if isinstance(paraphrase.original_example, dict) else paraphrase.original_example
         return _bleurt_score(
-            clean_paraphrase(paraphrase.update_paraphrase), 
-            clean_paraphrase(original_example.update)
-        )
+            [clean_paraphrase(paraphrase.update_paraphrase)], 
+            [clean_paraphrase(original_example.update)]
+        )[0]
