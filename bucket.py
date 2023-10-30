@@ -65,3 +65,7 @@ class Bucket:
     @property
     def bucket_discrete_agreement(self) -> float:
         return len([p for p in self.paraphrase_predictions if p.prediction  == self.original_example_prediction.prediction])/len(self.paraphrase_predictions)
+    
+    @property
+    def bucket_correctness_variance(self) -> float:
+        return np.var([p.correct for p in self.paraphrase_predictions])
