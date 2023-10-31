@@ -76,25 +76,27 @@ def test_set_evaluation(examples, nli_model: DefeasibleTrainedModel):
     
 
 if __name__ == '__main__':
-
+    
+    model_chkpt = 'modeling/roberta/defeasible/chkpts/analysis_models/d-{dataset_name}-roberta-large'
+    
     for dataset_name, dataset in dnli_human_dataset_by_name.items():
         dataset_specific_dnli_model = DefeasibleTrainedModel(
-            os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/chkpts/analysis_models/d-{dataset_name}-roberta-large'), 
-            'experiments/hf-cache', 
+            os.path.join(PROJECT_ROOT_DIR, model_chkpt.format(dataset_name=dataset_name)), 
+            '/fs/clip-projects/rlab/nehasrik/cache', 
             multiple_choice=False
         )
         
         buckets = bucket_predictions(dataset, dataset_specific_dnli_model)
         write_json(buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{dataset_name}/{dataset_name}_human_d-{dataset_name}-roberta-large.json'))
 
-        #test_set_predictions_specialized = test_set_evaluation(dnli_datasets[dataset_name].test_examples, dataset_specific_dnli_model)
-        #write_json(test_set_predictions_specialized, f'modeling/roberta/defeasible/results/{dataset_name}/{dataset_name}_test_set_d-{dataset_name}-roberta-large.json')
+        test_set_predictions_specialized = test_set_evaluation(dnli_datasets[dataset_name].test_examples, dataset_specific_dnli_model)
+        write_json(test_set_predictions_specialized, f'modeling/roberta/defeasible/results/{dataset_name}/{dataset_name}_test_set_d-{dataset_name}-roberta-large.json')
 
-        general_dnli_model = DefeasibleTrainedModel(
-            os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/chkpts/roberta-large-dnli'), 
-            'experiments/hf-cache', 
-            multiple_choice=False
-        )
+        # general_dnli_model = DefeasibleTrainedModel(
+        #     os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/chkpts/roberta-large-dnli'), 
+        #     'experiments/hf-cache', 
+        #     multiple_choice=False
+        # )
 
         general_dnli_buckets = bucket_predictions(dataset, general_dnli_model)
         write_json(general_dnli_buckets, os.path.join(PROJECT_ROOT_DIR, f'modeling/roberta/defeasible/results/{dataset_name}/{dataset_name}_human_dnli-roberta-large.json'))

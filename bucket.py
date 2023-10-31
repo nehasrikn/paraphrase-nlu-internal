@@ -36,6 +36,10 @@ class ExamplePrediction:
         return np.max(self.confidence)
     
     @property
+    def confidence_deviation(self) -> float:
+        return abs(self.confidence_in_gold_label - 0.5)
+    
+    @property
     def correct(self) -> int:
         assert self.gold_label in (0, 1) and self.prediction in (0, 1)
         return int(self.prediction == self.gold_label)
@@ -69,3 +73,11 @@ class Bucket:
     @property
     def bucket_correctness_variance(self) -> float:
         return np.var([p.correct for p in self.paraphrase_predictions])
+
+    @property
+    def bucket_correctness_mean(self) -> float:
+        return np.mean([p.correct for p in self.paraphrase_predictions])
+
+    @property
+    def bucket_confidence_shift(self) -> float:
+        return self.bucket_confidence_mean - self.original_example_prediction.confidence_in_gold_label

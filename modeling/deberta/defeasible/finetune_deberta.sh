@@ -1,21 +1,23 @@
 #!/bin/bash
 #SBATCH --time=06:00:00
-#SBATCH --partition=clip
-#SBATCH --account=clip
-#SBATCH --qos=huge-long
-#SBATCH --gres=gpu:1
-#SBATCH --mem=80gb
-#SBATCH --nodelist=clip02
+#SBATCH --qos=high
+#SBATCH --gres=gpu:rtxa5000
+#SBATCH --mem=32g
 
 module load cuda
 source /fs/clip-projects/rlab/nehasrik/init_conda.sh
-conda activate para-nlu
-cd /fs/clip-projects/rlab/nehasrik/paraphrase-nlu/modeling/roberta/defeasible
+conda activate a6000
+
+# cd /fs/clip-projects/rlab/nehasrik/miniconda3/envs/a6000/lib/python3.8/site-packages/torch/lib
+# ln -s libnvrtc-672ee683.so.11.2 libnvrtc.so
+
+
+# cd /fs/clip-projects/rlab/nehasrik/paraphrase-nlu/modeling/roberta/defeasible
 export TASK_NAME="mrpc"
-export CACHE_DIR='/fs/clip-projects/rlab/nehasrik/cache'
-python run_glue.py \
-	--model_name_or_path roberta-large \
-	--tokenizer_name roberta-large \
+export CACHE_DIR='/fs/clip-scratch/nehasrik/paraphrase-nlu/cache'
+python /fs/clip-projects/rlab/nehasrik/paraphrase-nlu/modeling/roberta/defeasible/run_glue.py \
+	--model_name_or_path microsoft/deberta-v3-large \
+	--tokenizer_name microsoft/deberta-v3-large \
 	--use_fast_tokenizer false \
 	--cache_dir $CACHE_DIR \
 	--do_train \
@@ -29,8 +31,9 @@ python run_glue.py \
 	--save_strategy epoch \
 	--learning_rate 5e-6 \
 	--num_train_epochs 2 \
+	--warmup_steps 50 \
 	--overwrite_output_dir \
-	--output_dir chkpts/analysis_models/d-snli-roberta-large
+	--output_dir /fs/clip-scratch/nehasrik/paraphrase-nlu/deberta-models/d-snli-deberta-v3-large
 
 # TRAINING LARGE MODELS: lr=5e-6, seed=42, batch_size=16, epochs=2
 # Base Models: lr=5e-6, seed=42, batch_size=64, epochs=2
