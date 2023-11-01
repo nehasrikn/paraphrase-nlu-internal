@@ -52,6 +52,17 @@ roberta_unified = {
     'atomic-test': TestSetResult('modeling/roberta/defeasible/results/atomic/atomic_test_set_dnli-roberta-large.json'),
 }
 
+deberta_v3 = {
+    'snli-human': inference_to_buckets('modeling/deberta/defeasible/results/snli/snli_human_d-snli-deberta-v3-large.json'),
+    'social-human': inference_to_buckets('modeling/deberta/defeasible/results/social/social_human_d-social-deberta-v3-large.json'),
+    #'anli-human': inference_to_buckets('modeling/deberta/abductive/results/anli_human_anli_deberta-v3-large.json'),
+    'atomic-human': inference_to_buckets('modeling/deberta/defeasible/results/atomic/atomic_human_d-atomic-deberta-v3-large.json'),
+    'snli-test': TestSetResult('modeling/deberta/defeasible/results/snli/snli_test_set_d-snli-deberta-v3-large.json'),
+    'social-test': TestSetResult('modeling/deberta/defeasible/results/social/social_test_set_d-social-deberta-v3-large.json'),
+    #'anli-test': TestSetResult('modeling/deberta/abductive/results/anli_test_set_anli_deberta-v3-large.json'),
+    'atomic-test': TestSetResult('modeling/deberta/defeasible/results/atomic/atomic_test_set_d-atomic-deberta-v3-large.json'),
+}
+
 bilstm = {
     'snli-human': inference_to_buckets('modeling/lstm/defeasible/results/snli/snli_human_d-snli-bilstm.json'),
     'social-human': inference_to_buckets('modeling/lstm/defeasible/results/social/social_human_d-social-bilstm.json'),
@@ -74,4 +85,12 @@ specialized_full_input_lexical = {
     'atomic-test': TestSetResult('modeling/fasttext/defeasible/results/atomic/atomic_test_set_d-atomic-full_input_lexical.json'),
 }
 
+human_results = {
+    'bow': specialized_full_input_lexical,
+    'bilstm': bilstm, 
+    'roberta': roberta_specialized, 
+    'deberta_v3': deberta_v3,
+    'unified_roberta': roberta_unified,
+    'gpt3_curie': gpt3_curie, 
+}
 
