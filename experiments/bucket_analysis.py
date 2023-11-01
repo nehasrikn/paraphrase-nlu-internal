@@ -145,6 +145,39 @@ class BucketDatasetResult:
                 confidence_densities[int(10*decile)] * np.mean(decile_consistences)
             )
         return sum(weighted_bucket_consistences)
+    
+    def calculate_weighted_proportion_explained(self, test_set: TestSetResult):
+        test_set_confidences = test_set.confidences
+        histogram = np.histogram(test_set_confidences, bins=10, density=False, range=[0, 1])
+        weights = [x / len(test_set_confidences) for x in histogram[0]]
+        
+        #### First term of law of total variance breakdown: E[f(X)] = sum(f(X) * p(x)) where p(X) is the probability of an interval of confidences
+        binned_variances = defaultdict(list)
+        
+        for bucket in self.buckets:
+            binned_variances[float_floor(bucket.original_example_prediction.confidence_in_gold_label)].append(bucket.bucket_correctness_variance)
+            
+        # sanity check: instead of w -> len(y) / len(buckets)
+        first_term = sum([w * np.mean(y) for w, y in zip(weights, binned_variances.values())])
+        
+        #### second term of law of total variance breakdown: Var(g(X)) = E[g(X)^2] - E[g(X)]^2
+        binned_expectations = defaultdict(list)
+        for bucket in self.buckets:
+            binned_expectations[float_floor(bucket.original_example_prediction.confidence_in_gold_label)].append(bucket.bucket_correctness_mean)
+    
+        # E[g(X)^2]
+        binned_expectations_squared = {bin_: [x**2 for x in bucket_expectations] for bin_, bucket_expectations in binned_expectations.items()}
+        
+        # sanity check: len(y) / len(self.buckets)
+        e_g_x_squared = sum([w * np.mean(y) for w, y in zip(weights, binned_expectations_squared.values())])
+       
+        # E[g(X)]^2
+        e_g_x_whole_squared = (sum([w * np.mean(y) for w, y in zip(weights, binned_expectations.values())]))**2
+        
+        second_term = e_g_x_squared - e_g_x_whole_squared
+        
+        return second_term / (first_term + second_term)
+        
         
     
 def inference_to_buckets(file: str, compile_into_bucket_analysis_class: bool=True) -> List[Bucket]:
