@@ -1,0 +1,644 @@
+sentence1,sentence2,label
+ You should be supportive of friends.,they are making bad choices.,0
+ You should be supportive of friends.,they are trying to make a better life for themselves.,1
+ You should be supportive of friends.,They have never been supportive of you.,0
+ You should be supportive of friends.,They have been very supportive of you.,1
+ You should be supportive of friends.,they are doing something harmful.,0
+ You should be supportive of friends.,they have asked for your support.,1
+ You should be supportive of friends.,Your friends are career criminals.,0
+ You should be supportive of friends.,They are supportive of you.,1
+ You should be supportive of friends.,Your friend is doing something to risk their life.,0
+ You should be supportive of friends.,Your friend is going through a terminal illness.,1
+ You should pay what you owe.,You have no more money.,0
+ You should pay what you owe.,You have money.,1
+ You should pay what you owe.,The product or service you owe money for is being disputed.,0
+ You should pay what you owe.,You want your  credit score to remain high.,1
+ You should pay what you owe.,You owe a lot,1
+ You should pay what you owe.,you can't afford to pay your debts,0
+ You should pay what you owe.,the person you owe to is in dire need,1
+ You should pay what you owe.,You feel certain that you were charged way too much to begin with.,0
+ You should pay what you owe.,You agreed to do so earlier in a contract and it is reasonable.,1
+ It's important to talk about disagreements with your loved ones so that they don't cause bigger problems in the future.,You don’t want to be in a relationship any more,0
+ It's important to talk about disagreements with your loved ones so that they don't cause bigger problems in the future.,You want to marry your partner,1
+ It's important to talk about disagreements with your loved ones so that they don't cause bigger problems in the future.,they stole a large amount of money from you to buy drugs.,0
+ It's important to talk about disagreements with your loved ones so that they don't cause bigger problems in the future.,they don't know you are mad at them.,1
+ It's important to talk about disagreements with your loved ones so that they don't cause bigger problems in the future.,they will to force you into a program because they don't agree with your lifestyle.,0
+ It's important to talk about disagreements with your loved ones so that they don't cause bigger problems in the future.,you are living in the same house together.,1
+ It's important to talk about disagreements with your loved ones so that they don't cause bigger problems in the future.,you don't plan on continuing your relationship with them.,0
+ It's important to talk about disagreements with your loved ones so that they don't cause bigger problems in the future.,if you don't want the incident to happen again.,1
+ It's important to talk about disagreements with your loved ones so that they don't cause bigger problems in the future.,Your loved ones are so sick and illogical that they can't even talk calmly with you.,0
+ It's important to talk about disagreements with your loved ones so that they don't cause bigger problems in the future.,You can find easy ways to compromise on those disagreements and put them in the past.,1
+ It's good to get up early.,You have the flu.,0
+ It's good to get up early.,You have to get to work early that day.,1
+ It's good to get up early.,You work at night.,0
+ It's good to get up early.,You have to catch the bus.,1
+ It's good to get up early.,It is the weekend,0
+ It's good to get up early.,You need to go to school,1
+ It's good to get up early.,it is the weekend.,0
+ It's good to get up early.,you have a meeting to get to.,1
+ It's good to get up early.,You worked all night,0
+ It's good to get up early.,You have a lot of work to done,1
+ It's understandable that you don't want your pet to die.,your pet is suffering immensely being alive,0
+ It's understandable that you don't want your pet to die.,they're still young,1
+ It's understandable that you don't want your pet to die.,You have known your pet all your life,1
+ It's understandable that you don't want your pet to die.,They are suffering due to old age.,0
+ It's understandable that you don't want your pet to die.,You've had them since childhood.,1
+ It's understandable that you don't want your pet to die.,You're sacrificing the pet towards the lord of death.,0
+ It's understandable that you don't want your pet to die.,It's a kitten.,1
+ It's understandable that you don't want your pet to die.,They are suffering,0
+ It's understandable that you don't want your pet to die.,You just got it from the shelter,1
+ It's good to give your friends gifts.,They specifically asked for donations to a charity rather than personal gifts this year.,0
+ It's good to give your friends gifts.,You are attending a birthday party of theirs.,1
+ It's good to give your friends gifts.,They have very little money and would feel obligated to give you something in return.,0
+ It's good to give your friends gifts.,You want to express your appreciation for their friendship.,1
+ It's good to give your friends gifts.,It is Christmastime,1
+ It's good to give your friends gifts.,You are considering ending the friendship.,0
+ It's good to give your friends gifts.,Your friends gave you a gift recently.,1
+ It's good to give your friends gifts.,It is forbidden by their religion to accept gifts.,0
+ It's good to give your friends gifts.,They just graduated from a prestigious university.,1
+ It is rude to insult another persons children.,the child is sensitive.,1
+ It is rude to insult another persons children.,they are being unreasonable and out of control.,0
+ It is rude to insult another persons children.,they are family and you're trying to help.,1
+ It is rude to insult another persons children.,Their children intentionally hurt your child.,0
+ It is rude to insult another persons children.,The child is just learning how to speak.,1
+ It is rude to insult another persons children.,You are friends with the children's parents.,1
+ It is rude to insult another persons children.,The children are adults.,0
+ It is rude to insult another persons children.,They are present,1
+" It's assumed that if you mess with someone, you mess with their whole family.",Their whole family lives in a different country.,0
+" It's assumed that if you mess with someone, you mess with their whole family.",You are in the mafia.,1
+" It's assumed that if you mess with someone, you mess with their whole family.",The person is an orphan.,0
+" It's assumed that if you mess with someone, you mess with their whole family.",The person has a lot of siblings.,1
+" It's assumed that if you mess with someone, you mess with their whole family.",They were taken by CPS and are currently in foster care.,0
+" It's assumed that if you mess with someone, you mess with their whole family.",Their family is close-knit and all lives in the same area.,1
+" It's assumed that if you mess with someone, you mess with their whole family.",They've been disowned by their family.,0
+" It's assumed that if you mess with someone, you mess with their whole family.",They have a very close knit family.,1
+" It's assumed that if you mess with someone, you mess with their whole family.",You are the Godfather.,0
+" It's assumed that if you mess with someone, you mess with their whole family.",You are up against the mob.,1
+ Ending a friendship can be hurtful.,The friendship was very new.,0
+ Ending a friendship can be hurtful.,You were extremely close to each other.,1
+ Ending a friendship can be hurtful.,You are the one ending it and it has been an abusive friendship.,0
+ Ending a friendship can be hurtful.,You don't want it to end but the other person does.,1
+ Ending a friendship can be hurtful.,They cheated on you with your spouse.,0
+ Ending a friendship can be hurtful.,You're graduating college and moving on.,1
+ Ending a friendship can be hurtful.,Your friend is very toxic,0
+ Ending a friendship can be hurtful.,You have been friends wing them for years,1
+ Ending a friendship can be hurtful.,you do so respectfully.,0
+ Ending a friendship can be hurtful.,one person doesn't want to move on.,1
+ It is rude to not follow the rules of a business while you are in it.,you are the CEO.,0
+ It is rude to not follow the rules of a business while you are in it.,you intend to keep you job.,1
+ It is rude to not follow the rules of a business while you are in it.,the business has no rules.,0
+ It is rude to not follow the rules of a business while you are in it.,you want to keep your job.,1
+ It is rude to not follow the rules of a business while you are in it.,You own the business.,0
+ It is rude to not follow the rules of a business while you are in it.,You want to keep going back there.,1
+ It is rude to not follow the rules of a business while you are in it.,You are the owner of the business.,0
+ It is rude to not follow the rules of a business while you are in it.,You are a visitor there.,1
+ It is rude to not follow the rules of a business while you are in it.,You want to be allowed back.,1
+ You should respect the works created with your old band and not perform them in your new band.,You have their blessings.,0
+ You should respect the works created with your old band and not perform them in your new band.,The other band members are not getting paid for it.,1
+ You should respect the works created with your old band and not perform them in your new band.,You have permission.,0
+ You should respect the works created with your old band and not perform them in your new band.,You got kicked out of that band.,1
+ You should respect the works created with your old band and not perform them in your new band.,you have the old band's blessing,0
+ You should respect the works created with your old band and not perform them in your new band.,the old band owns the rights to the old material,1
+ You should respect the works created with your old band and not perform them in your new band.,you have a signed release from your old band.,0
+ You should respect the works created with your old band and not perform them in your new band.,the old band owns the copyright.,1
+ You should respect the works created with your old band and not perform them in your new band.,You get permission.,0
+ You should respect the works created with your old band and not perform them in your new band.,They are copyrighted.,1
+ It is wrong to be rude.,someone is rude to you first,0
+ It is wrong to be rude.,you don't want to offend people,1
+ It is wrong to be rude.,You're talking to a friend.,1
+ It is wrong to be rude.,The person was rude to you first.,0
+ It is wrong to be rude.,You are working in customer service.,1
+ It is wrong to be rude.,You need to put someone in their place,0
+ It is wrong to be rude.,They didn’t deserve it,1
+ It is wrong to be rude.,you are telling off a bully,0
+ It is wrong to be rude.,you are at a crowded church,1
+" When you are working, it is accepted that you will do whatever you can for the customers.",The customer is stealing from the store,0
+" When you are working, it is accepted that you will do whatever you can for the customers.",The customer is a regular at the store,1
+" When you are working, it is accepted that you will do whatever you can for the customers.",You have to neglect your work responsibilities in order to help.,0
+" When you are working, it is accepted that you will do whatever you can for the customers.",You are quilified in what they need help in.,1
+" When you are working, it is accepted that you will do whatever you can for the customers.",You are in Human Resources and deal with the employees and not customers.,0
+" When you are working, it is accepted that you will do whatever you can for the customers.",You work in retail.,1
+" When you are working, it is accepted that you will do whatever you can for the customers.",The customer wants you to break the law.,0
+" When you are working, it is accepted that you will do whatever you can for the customers.",You want to remain employed at your current job.,1
+" When you are working, it is accepted that you will do whatever you can for the customers.",They make a completely unreasonable demand that's beyond the scope of what you can do.,0
+" When you are working, it is accepted that you will do whatever you can for the customers.",You want them to become a repeat customer.,1
+ It's expected that you use specific items to hold up curtains.,You prefer blinds instead.,0
+ It's expected that you use specific items to hold up curtains.,Your apartment came with curtain rods built in.,1
+ It's expected that you use specific items to hold up curtains.,You have no money.,0
+ It's expected that you use specific items to hold up curtains.,You work at a home goods store.,1
+ It's expected that you use specific items to hold up curtains.,You want to do something original and creative.,0
+ It's expected that you use specific items to hold up curtains.,You are a landlord.,1
+ It's expected that you use specific items to hold up curtains.,something else does it just fine.,0
+ It's expected that you use specific items to hold up curtains.,it will not hold with something else.,1
+ It's expected that you use specific items to hold up curtains.,There are no windows in the house at all,0
+ It's expected that you use specific items to hold up curtains.,You have a very nice house and use an interior decorator,1
+ It's okay to want a new laptop.,You just bought one.,0
+ It's okay to want a new laptop.,Yours is ten years old.,1
+ It's okay to want a new laptop.,You just bought a brand new one that works perfectly.,0
+ It's okay to want a new laptop.,Your laptop is extremely slow.,1
+ It's okay to want a new laptop.,You don't have a lot of money and your current laptop still works.,0
+ It's okay to want a new laptop.,Your current laptop is broken.,1
+ It's okay to want a new laptop.,the one you have is just fine.,0
+ It's okay to want a new laptop.,the old one you had stopped functioning.,1
+ It's okay to want a new laptop.,Unless your old laptop isn't that old.,0
+ It's okay to want a new laptop.,Especially if your old laptop is quite outdated.,1
+ You should never make fun of someone for their appearance.,You are one of the judges in the 'Ugliest Dog' Contest.,0
+ You should never make fun of someone for their appearance.,You yourself could look a lot better too.,1
+ You should never make fun of someone for their appearance.,They are a clown trying to make people laugh.,0
+ You should never make fun of someone for their appearance.,They have been badly burned in a fire.,1
+ You should never make fun of someone for their appearance.,They have a physical or mental handicap.,1
+ You should never make fun of someone for their appearance.,You are a professional comedian and it is part of your routine.,0
+ You should never make fun of someone for their appearance.,The person's feelings will be hurt by your comments.,1
+ You should never make fun of someone for their appearance.,They're a professional clown.,0
+ You should never make fun of someone for their appearance.,They can't afford better clothing.,1
+ You shouldn't make unreasonable demands of your care giver.,that is the job that they are getting paid to do.,0
+ You shouldn't make unreasonable demands of your care giver.,you want them to keep working for you.,1
+ You shouldn't make unreasonable demands of your care giver.,your caregiver thinks that all demands are unreasonable,0
+ You shouldn't make unreasonable demands of your care giver.,your caregiver is a close loved one.,1
+ You shouldn't make unreasonable demands of your care giver.,They don't have time for your demands.,1
+ You shouldn't make unreasonable demands of your care giver.,You only have several days to live,0
+ You shouldn't make unreasonable demands of your care giver.,The demands are very expensive,1
+ You shouldn't make unreasonable demands of your care giver.,they are never doing their job as described.,0
+ You shouldn't make unreasonable demands of your care giver.,they always do a great job caring for you.,1
+ It's expected that people in a club treat each other politely.,they are getting violent with you.,0
+ It's expected that people in a club treat each other politely.,you're all there for the same event.,1
+ It's expected that people in a club treat each other politely.,it's a mosh pit.,0
+ It's expected that people in a club treat each other politely.,they are adults.,1
+ It's expected that people in a club treat each other politely.,Someone in the club breaks the rules and hurts the others and has to go.,0
+ It's expected that people in a club treat each other politely.,You want there to be harmony and cohesiveness in  the club.,1
+ It's expected that people in a club treat each other politely.,there is no need to act aggressively.,1
+ It's expected that people in a club treat each other politely.,Someone has been spreading rumors of you behind your back.,0
+ It's expected that people in a club treat each other politely.,You want to stay a part of the club for a long time to come.,1
+ It's OK to tell people no.,you are capable and willing to help them.,0
+ It's OK to tell people no.,you are in the hospital and not able to help.,1
+ It's OK to tell people no.,You are denying them their rights,0
+ It's OK to tell people no.,You are not comfortable with the situation,1
+ It's OK to tell people no.,Your young child is asking for help getting buckled into their seatbelt.,0
+ It's OK to tell people no.,You don't have time to help them out.,1
+ It's OK to tell people no.,they are a paying customer wanting service,0
+ It's OK to tell people no.,they are refusing to pay for service,1
+ It's OK to tell people no.,Your job is to say yes.,0
+ It's OK to tell people no.,You're a parent talking to your child.,1
+ It's OK to joke with friends.,It is an inappropriate joke.,0
+ It's OK to joke with friends.,They have the same sense of humor as you.,1
+ It's OK to joke with friends.,You are disguising aggression.,0
+ It's OK to joke with friends.,They joke back.,1
+ It's OK to joke with friends.,they don't find it funny.,0
+ It's OK to joke with friends.,you are at a party and everybody is having a good time.,1
+ It's OK to joke with friends.,They are facing criminal charges.,0
+ It's OK to joke with friends.,You're watching a comedy on television.,1
+ It's OK to joke with friends.,they are super sensitive.,0
+ It's OK to joke with friends.,you want to share a laugh.,1
+ It's wrong to create a false positive attitude.,You are trying to avoid being abused,0
+ It's wrong to create a false positive attitude.,A psychologist is trying to help you,1
+ It's wrong to create a false positive attitude.,You are putting on a brave face for your kids.,0
+ It's wrong to create a false positive attitude.,Your therapist can't help you while you lie to yourself.,1
+ It's wrong to create a false positive attitude.,You're at a job you don't like and must be courteous to difficult customers anyway.,0
+ It's wrong to create a false positive attitude.,You value honest and integrity in your relationship.,1
+ It's wrong to create a false positive attitude.,You're trying to brighten up a child.,0
+ It's wrong to create a false positive attitude.,Everyone knows it's fake.,1
+ It's wrong to create a false positive attitude.,It makes you feel better about yourself.,0
+ It's wrong to create a false positive attitude.,It covers up the truth of the matter.,1
+ You should talk things over with your partner about their child.,Their child is an adult.,0
+ You should talk things over with your partner about their child.,Their is a fixable problem.,1
+ You should talk things over with your partner about their child.,The child lives with you,1
+ You should talk things over with your partner about their child.,Your partner has run off with another woman and you have no idea where he is.,0
+ You should talk things over with your partner about their child.,You and your partner have a joint custody agreement.,1
+ You should talk things over with your partner about their child.,The child is a grown adult who lives on their own.,0
+ You should talk things over with your partner about their child.,The child tears things up at home.,1
+ It's understandable if you don't want to go to a holiday dinner.,You're hosting the dinner.,0
+ It's understandable if you don't want to go to a holiday dinner.,The dinner is being hosted by family that you don't like.,1
+ It's understandable if you don't want to go to a holiday dinner.,You are the one who planned the holiday dinner.,0
+ It's understandable if you don't want to go to a holiday dinner.,You don't get along with your family.,1
+ It's understandable if you don't want to go to a holiday dinner.,You are the guest of honor.,0
+ It's understandable if you don't want to go to a holiday dinner.,There is a blizzard that makes it dangerous.,1
+ It's understandable if you don't want to go to a holiday dinner.,You are in charge of preparing the dinner.,0
+ It's understandable if you don't want to go to a holiday dinner.,Your family is toxic and abusive.,1
+ It's understandable if you don't want to go to a holiday dinner.,You are the one hosting the holiday dinner.,0
+ It's understandable if you don't want to go to a holiday dinner.,You are sick with the flu.,1
+ You shouldn't cheat on your husband.,you don't care about his feelings.,0
+ You shouldn't cheat on your husband.,you want the relationship to last.,1
+ You shouldn't cheat on your husband.,he's cheating on you.,0
+ You shouldn't cheat on your husband.,you don't want him to cheat on you.,1
+ You shouldn't cheat on your husband.,You love your husband and value your relationship.,1
+ You shouldn't cheat on your husband.,Your husband is abusive,0
+ You shouldn't cheat on your husband.,Your husband is a loving man and father,1
+ You shouldn't cheat on your husband.,Its an open relationship and everyone understands,0
+ You shouldn't cheat on your husband.,You want to maintain faithfulness,1
+ It is unacceptable to send your nudes to your ex-boyfriend.,You still have feelings for him,0
+ It is unacceptable to send your nudes to your ex-boyfriend.,You are in a new relationship,1
+ It is unacceptable to send your nudes to your ex-boyfriend.,You're trying to flirt with him.,0
+ It is unacceptable to send your nudes to your ex-boyfriend.,He's in a monogamous relationship with someone else.,1
+ It is unacceptable to send your nudes to your ex-boyfriend.,They have asked for them and you are not in a relationship,0
+ It is unacceptable to send your nudes to your ex-boyfriend.,You have a new boyfriend,1
+ It is rude to ignore someone when they expect a reply.,They are asking inappropriate questions.,0
+ It is rude to ignore someone when they expect a reply.,There is a deadline they need the answer by.,1
+ It is rude to ignore someone when they expect a reply.,You're not sure how to respond yet.,0
+ It is rude to ignore someone when they expect a reply.,You know they're waiting for your reply before they can leave.,1
+ It is rude to ignore someone when they expect a reply.,You are in the middle of giving birth.,0
+ It is rude to ignore someone when they expect a reply.,They asked you to reply right away.,1
+ It is rude to ignore someone when they expect a reply.,you are busy.,0
+ It is rude to ignore someone when they expect a reply.,it involves an important matter.,1
+ It is rude to ignore someone when they expect a reply.,You are at a loss for words.,0
+ It is rude to ignore someone when they expect a reply.,The doctor is asking about your medical history.,1
+ It is OK to ask someone to stop signing if they are being annoying.,Deaf people who require sign language to communicate are present.,0
+ It is OK to ask someone to stop signing if they are being annoying.,They are just gesturing inaccurately because they don't actually know sign language.,1
+ It is OK to ask someone to stop signing if they are being annoying.,there are other people benefiting.,0
+ It is OK to ask someone to stop signing if they are being annoying.,other's are complaining.,1
+ It is OK to ask someone to stop signing if they are being annoying.,They are trying to tell you something important.,0
+ It is OK to ask someone to stop signing if they are being annoying.,you can't understand what they are signing.,1
+ It is OK to ask someone to stop signing if they are being annoying.,they have something important to say,0
+ It is OK to ask someone to stop signing if they are being annoying.,they are cursing,1
+ It is OK to ask someone to stop signing if they are being annoying.,A deaf person needs them to keep signing,0
+ It is OK to ask someone to stop signing if they are being annoying.,They are waving their hands in your face,1
+ It is offensive to tell your mother you don't like her decorating ideas.,She is trying to decorate your wedding.,0
+ It is offensive to tell your mother you don't like her decorating ideas.,You move in with her as an adult.,1
+ It is offensive to tell your mother you don't like her decorating ideas.,The decor she chooses is offensive to you.,0
+ It is offensive to tell your mother you don't like her decorating ideas.,She takes great pride in her decorating instincts.,1
+ It is offensive to tell your mother you don't like her decorating ideas.,She asked for your honest opinion.,0
+ It is offensive to tell your mother you don't like her decorating ideas.,She is excited to share her ideas with you.,1
+ It is offensive to tell your mother you don't like her decorating ideas.,She values your opinion and takes advice.,0
+ It is offensive to tell your mother you don't like her decorating ideas.,She is very proud of her ideas.,1
+ It is offensive to tell your mother you don't like her decorating ideas.,She is decorating your house,0
+ It is offensive to tell your mother you don't like her decorating ideas.,You won't live in the decorated place,1
+ It's rude to tell others what do with their property.,the have weeds in their yard that are a foot high and causing you allergies.,0
+ It's rude to tell others what do with their property.,it doesn't hurt you in any way.,1
+ It's rude to tell others what do with their property.,Their property is blocking your driveway.,0
+ It's rude to tell others what do with their property.,You are trying to be friendly neighbors.,1
+ It's rude to tell others what do with their property.,They are trespassing on your property.,0
+ It's rude to tell others what do with their property.,They aren't hurting anyone else.,1
+ It's rude to tell others what do with their property.,Their property is on your property and needs to be moved.,0
+ It's rude to tell others what do with their property.,You have no qualifications to advise them.,1
+ It's rude to tell others what do with their property.,They asked you for advice,0
+ It's rude to tell others what do with their property.,You don't have experience with that property,1
+ You shouldn't lie about productivity at work.,You're only making a joke about it with a co-worker.,0
+ You shouldn't lie about productivity at work.,You're being paid by each piece that you produce.,1
+ You shouldn't lie about productivity at work.,The reports the supervisor pulls will reveal the true numbers.,1
+ You shouldn't lie about productivity at work.,It's your boss you're speaking to.,1
+ You shouldn't lie about productivity at work.,You need to to keep your job.,0
+ You shouldn't lie about productivity at work.,You're being lazier than you should.,1
+ You shouldn't lie about productivity at work.,You can meet the productivity within a couple of minutes.,0
+ You shouldn't lie about productivity at work.,You are lying to get a promotion over more qualified people.,1
+ You shouldn't ruin your teacher's job.,You caught your teacher having an affair with a student.,0
+ You shouldn't ruin your teacher's job.,"The teacher won the ""Teacher of the Year"" award.",1
+ You shouldn't ruin your teacher's job.,The teacher abused you.,0
+ You shouldn't ruin your teacher's job.,The teacher has always had your best interest in mind.,1
+ You shouldn't ruin your teacher's job.,Your teacher is not ethical,0
+ You shouldn't ruin your teacher's job.,Your teacher tries hard for you,1
+ You shouldn't ruin your teacher's job.,The teacher has done something disrespectful to another student.,0
+ You shouldn't ruin your teacher's job.,They are a great teacher and help the kids out.,1
+ You shouldn't ruin your teacher's job.,they are abusing their power.,0
+ You shouldn't ruin your teacher's job.,they are tutoring you.,1
+ It's expected that spouses support each other in their life journey.,You are cheating on your spouse,0
+ It's expected that spouses support each other in their life journey.,They want to be happy,1
+ It's expected that spouses support each other in their life journey.,Their spouse drastically changes and is heading down a path you can't support.,0
+ It's expected that spouses support each other in their life journey.,You don't want to get divorced.,1
+ It's expected that spouses support each other in their life journey.,The spouse has strong hopes and dreams.,1
+ It's expected that spouses support each other in their life journey.,They are planning to divorce.,0
+ It's expected that spouses support each other in their life journey.,One of them is ill.,1
+ It's expected that spouses support each other in their life journey.,One spouse always takes advantage.,0
+ It's expected that spouses support each other in their life journey.,You have mutual goals.,1
+ It is wrong to use drugs.,You are an addict and going through bad withdrawals.,0
+ It is wrong to use drugs.,You live with two children.,1
+ It is wrong to use drugs.,They are for medicinal purposes.,0
+ It is wrong to use drugs.,They are illegal and potentially harmful to you or others.,1
+ It is wrong to use drugs.,A doctor prescribed your drugs.,0
+ It is wrong to use drugs.,You have kids in the car with you.,1
+ It is wrong to use drugs.,The drugs were prescribed.,0
+ It is wrong to use drugs.,The drugs are illegal and dangerous.,1
+ It is wrong to use drugs.,You're recovering from an injury which causes pain.,0
+ It is wrong to use drugs.,You're operating any type of machinery.,1
+ You should be careful what you say around people of different races.,You are politically correct,0
+ You should be careful what you say around people of different races.,You are a recovering racist,1
+ You should be careful what you say around people of different races.,you are a white supremacist.,0
+ You should be careful what you say around people of different races.,you care about not being racist.,1
+ You should be careful what you say around people of different races.,You don't care about what people think of you.,0
+ You should be careful what you say around people of different races.,You don't want to be racist.,1
+ You should be careful what you say around people of different races.,They make jokes about their race,0
+ You should be careful what you say around people of different races.,You can offend someone,1
+ You should be careful what you say around people of different races.,you are letting them know that someone is planning to hurt them.,0
+ You should be careful what you say around people of different races.,you want to become friends with them.,1
+ It is wrong to use drugs.,you have a perscription.,0
+ It is wrong to use drugs.,you are a recovering addict.,1
+ It is wrong to use drugs.,the drugs are for medicinal purposes.,0
+ It is wrong to use drugs.,they are street drugs.,1
+ It is wrong to use drugs.,You're an adult on vacation.,0
+ It is wrong to use drugs.,There are kids around.,1
+ It is wrong to use drugs.,It is prescribed by a doctor.,0
+ It is wrong to use drugs.,You have a history of drug abuse.,1
+ It is wrong to use drugs.,The drugs are prescription from your doctor.,0
+ It is wrong to use drugs.,You have an addiction.,1
+ It's OK to want intimacy in a relationship.,You are just using people for sex and nothing emotional,0
+ It's OK to want intimacy in a relationship.,You are a loving person who wants the best for someone else,1
+ It's OK to want intimacy in a relationship.,you two are living separately.,0
+ It's OK to want intimacy in a relationship.,you are a married couple.,1
+ It's OK to want intimacy in a relationship.,All you want is sex.,0
+ It's OK to want intimacy in a relationship.,You are married.,1
+ It's OK to want intimacy in a relationship.,The relationship is a professional one.,0
+ It's OK to want intimacy in a relationship.,The relationship is a sexual one.,1
+ It's OK to want intimacy in a relationship.,the relationship is casual.,0
+ It's OK to want intimacy in a relationship.,you are in a committed relationship.,1
+ It's wrong to be controlling when in a relationship.,The other person feels trapped in the relationship.,1
+ It's wrong to be controlling when in a relationship.,Your partner wants you to tell them what you want.,0
+ It's wrong to be controlling when in a relationship.,Your partner likes their own space.,1
+ It's wrong to be controlling when in a relationship.,YOur partner is a submissive.,0
+ It's wrong to be controlling when in a relationship.,You know your partner doesn't enjoy being told how to live.,1
+ It's wrong to be controlling when in a relationship.,The controlling individual is male and the partner is female,1
+ It's wrong to be controlling when in a relationship.,Your partner is very immature,0
+ It's wrong to be controlling when in a relationship.,Your partner is afraid of you when you are controlling,1
+ People are expected to act kindly towards their siblings.,Their siblings are mean to them.,0
+ People are expected to act kindly towards their siblings.,Their parents have asked them to try to get along.,1
+ People are expected to act kindly towards their siblings.,The siblings are a lot younger.,1
+ People are expected to act kindly towards their siblings.,they're playing video games,0
+ People are expected to act kindly towards their siblings.,they are having formal dinner,1
+ People are expected to act kindly towards their siblings.,Their sibling tried to run them over at the family barbecue.,0
+ People are expected to act kindly towards their siblings.,Their sibling raised them when they were young.,1
+ People are expected to act kindly towards their siblings.,Their sibling is always breaking their belongings.,0
+ People are expected to act kindly towards their siblings.,They all live in the same house.,1
+ You shouldn't leave notes for other drivers on their cars over something that isn't their fault.,You did something to their car.,0
+ You shouldn't leave notes for other drivers on their cars over something that isn't their fault.,You are just trying to freak them out.,1
+ You shouldn't leave notes for other drivers on their cars over something that isn't their fault.,Unless you are warning them about something.,0
+ You shouldn't leave notes for other drivers on their cars over something that isn't their fault.,Especially if you are just being rude.,1
+ You shouldn't leave notes for other drivers on their cars over something that isn't their fault.,You hit their car and are leaving your contact information.,0
+ You shouldn't leave notes for other drivers on their cars over something that isn't their fault.,Drivers will assume they got a parking ticket.,1
+ You shouldn't leave notes for other drivers on their cars over something that isn't their fault.,You want to tell them that you hit there car,0
+ You shouldn't leave notes for other drivers on their cars over something that isn't their fault.,You are going to be littering an innocent car,1
+ You shouldn't leave notes for other drivers on their cars over something that isn't their fault.,It is to remind them to use public transportation.,0
+ You shouldn't leave notes for other drivers on their cars over something that isn't their fault.,The note has tape on it.,1
+ It is okay to stay away from sick people.,You're a nurse,0
+ It is okay to stay away from sick people.,You have a weakened autoimmune system,1
+ It is okay to stay away from sick people.,you need to treat the sick people,0
+ It is okay to stay away from sick people.,your health is on the line,1
+ It is okay to stay away from sick people.,You're a nurse.,0
+ It is okay to stay away from sick people.,You have a compromised immune system.,1
+ It is okay to stay away from sick people.,They aren't contagious.,0
+ It is okay to stay away from sick people.,They have the flu and your immune system is trashed.,1
+ It is okay to stay away from sick people.,You are their doctor.,0
+ It is okay to stay away from sick people.,Your immune system is compromised.,1
+ It's ok to break up with someone when they cheat on you.,You were also cheating on them.,0
+ It's ok to break up with someone when they cheat on you.,You were always faithful to them.,1
+ It's ok to break up with someone when they cheat on you.,You cheated on them first.,0
+ It's ok to break up with someone when they cheat on you.,They cheated on you with your best friend.,1
+ It's ok to break up with someone when they cheat on you.,They got pregnant from the other person,1
+ It's ok to break up with someone when they cheat on you.,they were just kidding.,0
+ It's ok to break up with someone when they cheat on you.,they do not seem to really care.,1
+ It's ok to break up with someone when they cheat on you.,You cheated as well.,0
+ It's ok to break up with someone when they cheat on you.,You specifically asked them not to.,1
+ It is okay to hold people accountable for harm they have caused,They are sorry for what they did to you,0
+ It is okay to hold people accountable for harm they have caused,They have shown no remorse,1
+ It is okay to hold people accountable for harm they have caused,They suffer from mental illness.,0
+ It is okay to hold people accountable for harm they have caused,They were drinking and driving and caused an accident.,1
+ It is okay to hold people accountable for harm they have caused,They harm that they caused is severe and life changing.,1
+ It is okay to hold people accountable for harm they have caused,they are insane.,0
+ It is okay to hold people accountable for harm they have caused,they are in court.,1
+ It is okay to hold people accountable for harm they have caused,it was an accident,0
+ It is okay to hold people accountable for harm they have caused,they did it on purpose,1
+ It is reasonable to expect your parents to follow the rules.,they break the rules when it comes down to safety,0
+ It is reasonable to expect your parents to follow the rules.,they are driving beside a police officer,1
+ It is reasonable to expect your parents to follow the rules.,You are a toddler and don't know any better.,0
+ It is reasonable to expect your parents to follow the rules.,They are adults and living in your home.,1
+ It is reasonable to expect your parents to follow the rules.,the rules are unclear.,0
+ It is reasonable to expect your parents to follow the rules.,they expect you to follow the rules.,1
+ It is reasonable to expect your parents to follow the rules.,They are breaking the rules to protect their child.,0
+ It is reasonable to expect your parents to follow the rules.,The rule is their to keep their children safe.,1
+ It is reasonable to expect your parents to follow the rules.,Your parents are in prison for fraud.,0
+ It is reasonable to expect your parents to follow the rules.,Your parents are upstanding citizens and professionals.,1
+ It is wrong to yell at your spouse.,they are hard of hearing.,0
+ It is wrong to yell at your spouse.,they are right next to you.,1
+ It is wrong to yell at your spouse.,it's a rare fight.,0
+ It is wrong to yell at your spouse.,you're being vicious.,1
+ It is wrong to yell at your spouse.,Unless he wouldn't be able to hear you otherwise.,0
+ It is wrong to yell at your spouse.,Especially if he's right in the same room with you.,1
+ It is wrong to yell at your spouse.,They are crossing a street and a car is coming that they don't see.,0
+ It is wrong to yell at your spouse.,You have children and they are watching the two of you yell.,1
+ It is wrong to yell at your spouse.,They spilled something on the carpet,0
+ It is wrong to yell at your spouse.,They didn’t do anything wrong,1
+ Obsessing on your ex's partner make you look jealous.,You think that partner may legitimately be harming her,0
+ Obsessing on your ex's partner make you look jealous.,You were not a goof boyfriend in the first place,1
+ Obsessing on your ex's partner make you look jealous.,You are always talking about them.,1
+ Obsessing on your ex's partner make you look jealous.,They hit your partner and you are seeking revenge.,0
+ Obsessing on your ex's partner make you look jealous.,You always bring them up at dinner.,1
+ Obsessing on your ex's partner make you look jealous.,You do it in a public way for other people to notice and judge.,1
+ Obsessing on your ex's partner make you look jealous.,"The partner has made repeated, obnoxious, and threatening contact with you.",0
+ Obsessing on your ex's partner make you look jealous.,You cannot think about anything else.,1
+ It's expected that you work with people you don't want to.,you are your own boss.,0
+ It's expected that you work with people you don't want to.,you have a unique personality.,1
+ It's expected that you work with people you don't want to.,they won't agree to work with you.,0
+ It's expected that you work with people you don't want to.,you're on a time constraint.,1
+ It's expected that you work with people you don't want to.,it's not a group activity.,0
+ It's expected that you work with people you don't want to.,you are part of a team,1
+ It's expected that you work with people you don't want to.,You work by yourself.,0
+ It's expected that you work with people you don't want to.,You work for a large corporation.,1
+ It is expected to report child neglect to the authorities.,The child could die,1
+ It is expected to report child neglect to the authorities.,the neglect is due to parents health probems and you are willing to help the child,0
+ It is expected to report child neglect to the authorities.,the child is starving,1
+ It is expected to report child neglect to the authorities.,the child has been injured.,1
+ It is expected to report child neglect to the authorities.,You see the abuse happening.,1
+ It is expected to report child neglect to the authorities.,You are confusing poor with neglect.,0
+ It is expected to report child neglect to the authorities.,They don't have enough to eat.,1
+" If you are the one paying, you can say when the dinners plans are cancelled.",It's your parents visiting you.,0
+" If you are the one paying, you can say when the dinners plans are cancelled.",The business client won't show up.,1
+" If you are the one paying, you can say when the dinners plans are cancelled.",it is really close to the starting time of the dinner event,0
+" If you are the one paying, you can say when the dinners plans are cancelled.",you give people a good amount of notice before the event starts,1
+" If you are the one paying, you can say when the dinners plans are cancelled.",The dinner plans are for someone else's birthday.,0
+" If you are the one paying, you can say when the dinners plans are cancelled.",You bank account has been drained.,1
+" If you are the one paying, you can say when the dinners plans are cancelled.",You are taking someone out for their birthday,0
+" If you are the one paying, you can say when the dinners plans are cancelled.",You always pay and no one ever chips in on the bill,1
+" If you are the one paying, you can say when the dinners plans are cancelled.",you're already at the restaurant.,0
+" If you are the one paying, you can say when the dinners plans are cancelled.",you let people know ahead of time.,1
+ It is okay to set boundaries in a relationship.,You don't care about having a healthy relationship.,0
+ It is okay to set boundaries in a relationship.,You want a healthy relationship.,1
+ It is okay to set boundaries in a relationship.,You are part of a work group and are the new rookie.,0
+ It is okay to set boundaries in a relationship.,You were abused many years ago.,1
+ It is okay to set boundaries in a relationship.,You want a free spirited relationship.,0
+ It is okay to set boundaries in a relationship.,You plan to get married.,1
+ It is okay to set boundaries in a relationship.,Unless it's with your child.,0
+ It is okay to set boundaries in a relationship.,Especially if it's a brand new relationship.,1
+ It is okay to set boundaries in a relationship.,You have been overwhelmed with emotional labor,1
+ It is okay to be protective over your belongings.,they are shared.,0
+ It is okay to be protective over your belongings.,the are easily broken.,1
+ It is okay to be protective over your belongings.,You share those belongings with your spouse and they are just wanting to use them too.,0
+ It is okay to be protective over your belongings.,You are worried about your things being stolen.,1
+ It is okay to be protective over your belongings.,You've offered to share them.,0
+ It is okay to be protective over your belongings.,People misuse them.,1
+ It is okay to be protective over your belongings.,you are too obsessive about the belongings.,0
+ It is okay to be protective over your belongings.,your belongings are valuable.,1
+ It is okay to be protective over your belongings.,you consider other people's stuff yours.,0
+ It is okay to be protective over your belongings.,it is fragile or valuable.,1
+ It's okay to be mad at your family members if they did something wrong.,They made a mistake they are sorry for.,0
+ It's okay to be mad at your family members if they did something wrong.,They did something unforgiveable.,1
+ It's okay to be mad at your family members if they did something wrong.,They are a young child and didn't know better.,0
+ It's okay to be mad at your family members if they did something wrong.,They stole your money.,1
+ It's okay to be mad at your family members if they did something wrong.,they are small children and don't understand.,0
+ It's okay to be mad at your family members if they did something wrong.,they are not at all sorry about what they did.,1
+ It's okay to be mad at your family members if they did something wrong.,They never intended to or are not aware of what they did.,0
+ It's okay to be mad at your family members if they did something wrong.,They knew full well what they were doing and that it would hurt you and did it anyway.,1
+ It's okay to be mad at your family members if they did something wrong.,They did it for you.,0
+ It's okay to be mad at your family members if they did something wrong.,They blamed you for it.,1
+ It's fine to want to give things to your younger relatives.,They are too underage for some items.,0
+ It's fine to want to give things to your younger relatives.,It is family heirlooms.,1
+ It's fine to want to give things to your younger relatives.,You're giving them things that will hurt them.,0
+ It's fine to want to give things to your younger relatives.,You're giving them things that are sentimental.,1
+ It's fine to want to give things to your younger relatives.,your younger relatives already have more than they need and are ungrateful and unappreciative.,0
+ It's fine to want to give things to your younger relatives.,your younger relatives are not as well off as you and could use a helping hand.,1
+ It's fine to want to give things to your younger relatives.,You neglect your own children.,0
+ It's fine to want to give things to your younger relatives.,They don't have much.,1
+ It's fine to want to give things to your younger relatives.,You have a lot of hand me downs,1
+ It's understandable to want your friends to stay together.,You think one of your friends is a jerk.,0
+ It's understandable to want your friends to stay together.,You're really happy with your life as it is and you don't want anything to change.,1
+ It's understandable to want your friends to stay together.,they move to different states.,0
+ It's understandable to want your friends to stay together.,you all still live in the same city.,1
+ It's understandable to want your friends to stay together.,They are no good for each other.,0
+ It's understandable to want your friends to stay together.,You played matchmaker.,1
+ It's understandable to want your friends to stay together.,You move away from each other,0
+ It's understandable to want your friends to stay together.,They are your best friends,1
+ It's understandable to want your friends to stay together.,Your friends are feuding,0
+ It's understandable to want your friends to stay together.,Your friends have been dating for a long time,1
+ You shouldn't expect someone to spend time with you whenever you want them to.,it is their job.,0
+ You shouldn't expect someone to spend time with you whenever you want them to.,they have a life of their own.,1
+ You shouldn't expect someone to spend time with you whenever you want them to.,The other person is your partner.,0
+ You shouldn't expect someone to spend time with you whenever you want them to.,You don't know the other person that well.,1
+ You shouldn't expect someone to spend time with you whenever you want them to.,That person is your parent and you are a young child.,0
+ You shouldn't expect someone to spend time with you whenever you want them to.,That person works long hours and has a family of their own to tend to.,1
+ You shouldn't expect someone to spend time with you whenever you want them to.,they want to spend all their time with you too.,0
+ You shouldn't expect someone to spend time with you whenever you want them to.,they indicate that they don't want to spend so much time with you.,1
+ You shouldn't expect someone to spend time with you whenever you want them to.,That person promised to spend all their time together.,0
+ You shouldn't expect someone to spend time with you whenever you want them to.,You know they enjoy activities you don't like.,1
+ It is understandable to want your children to be realistic.,Your idea of 'realistic' is living a life that looks exactly like yours.,0
+ It is understandable to want your children to be realistic.,Their only professional ambitions are rock star or sports star.,1
+ It is understandable to want your children to be realistic.,They are very young.,0
+ It is understandable to want your children to be realistic.,They are teens.,1
+ It is understandable to want your children to be realistic.,They are using their imaginations during playtime.,0
+ It is understandable to want your children to be realistic.,They are doing homework.,1
+ It is understandable to want your children to be realistic.,You want to encourage them to dream big.,0
+ It is understandable to want your children to be realistic.,They are choosing a college major.,1
+ It is understandable to want your children to be realistic.,They're very young.,0
+ It is understandable to want your children to be realistic.,They're talking about future careers.,1
+ It's rude to steal a cab.,You're an actor on a movie set.,0
+ It's rude to steal a cab.,You use violence to steal the cab.,1
+ It's rude to steal a cab.,You're desperate to get someone who's bleeding out to the hospital.,0
+ It's rude to steal a cab.,You just want to go joyriding.,1
+ It's rude to steal a cab.,You are in an emergency and need to get to the hospital.,0
+ It's rude to steal a cab.,You hurt the driver when you stole the cab.,1
+ It's rude to steal a cab.,You have a medical emergency,0
+ It's rude to steal a cab.,It is raining,1
+ It's rude to steal a cab.,You're a secret agent trying to catch a terrorist.,0
+ It's rude to steal a cab.,You're trying to get to work.,1
+ It's understandable to be uncomfortable with the fact that your significant other has a history before you.,They are in a coma.,0
+ It's understandable to be uncomfortable with the fact that your significant other has a history before you.,You want a healthy relationship.,1
+ It's understandable to be uncomfortable with the fact that your significant other has a history before you.,You dated a lot of people before dating your significant other.,0
+ It's understandable to be uncomfortable with the fact that your significant other has a history before you.,This is your first relationship.,1
+ It's understandable to be uncomfortable with the fact that your significant other has a history before you.,Your own history is truly disreputable.,0
+ It's understandable to be uncomfortable with the fact that your significant other has a history before you.,They dated lots of people.,1
+ It's understandable to be uncomfortable with the fact that your significant other has a history before you.,you have no reason not to trust your partner,0
+ It's understandable to be uncomfortable with the fact that your significant other has a history before you.,your partner has a history of cheating,1
+ It's understandable to be uncomfortable with the fact that your significant other has a history before you.,You are confident and have a healthy self esteem.,0
+ It's understandable to be uncomfortable with the fact that your significant other has a history before you.,You are feeling very insecure about your body.,1
+ you should not insult your parents.,They are bigoted,0
+ you should not insult your parents.,They are paying off your debt for you and are just proceeding at a slower pace,1
+ you should not insult your parents.,you are all joking around.,0
+ you should not insult your parents.,you respect your parents.,1
+ you should not insult your parents.,They beat you and lock you in a closet.,0
+ you should not insult your parents.,They give you an allowance worth thousands of dollars.,1
+ you should not insult your parents.,They have hurt you badly.,0
+ you should not insult your parents.,They have not said anything to you.,1
+ you should not insult your parents.,They have insulted you based on your weight.,0
+ you should not insult your parents.,They are paying your rent.,1
+ Relatives should be willing to help each other for important events like a wedding.,They've been estranged for years.,0
+ Relatives should be willing to help each other for important events like a wedding.,"They have relevant skills, like being a caterer or florist.",1
+ Relatives should be willing to help each other for important events like a wedding.,They no longer talk to that family member.,0
+ Relatives should be willing to help each other for important events like a wedding.,They are a close family.,1
+ Relatives should be willing to help each other for important events like a wedding.,They can't afford it,0
+ Relatives should be willing to help each other for important events like a wedding.,others have helped them,1
+ Relatives should be willing to help each other for important events like a wedding.,They live too far away.,0
+ Relatives should be willing to help each other for important events like a wedding.,They're close by.,1
+ Relatives should be willing to help each other for important events like a wedding.,they are toxic relationships.,0
+ Relatives should be willing to help each other for important events like a wedding.,they are a loving family.,1
+ It's hurtful not to trust those you love.,They have have continuously broke your trust.,0
+ It's hurtful not to trust those you love.,They have been nothing but loyal to you.,1
+ It's hurtful not to trust those you love.,they've done nothing to deserve it.,0
+ It's hurtful not to trust those you love.,they've always been good to you.,1
+ It's hurtful not to trust those you love.,they've given you reason,0
+ It's hurtful not to trust those you love.,you want them to feel close to you,1
+ It's hurtful not to trust those you love.,Your loved ones have abused your trust a lot of times.,0
+ It's hurtful not to trust those you love.,Your loved ones have never lied to you.,1
+ It's hurtful not to trust those you love.,Those you love are abusive.,0
+ It's hurtful not to trust those you love.,Your loved ones are always honest with you.,1
+" It's understandable that sometimes, relatives make unreasonable demands.",They want you to stop leaving the toilet seat up.,0
+" It's understandable that sometimes, relatives make unreasonable demands.",You are contributing your fair share for rent and chores.,1
+" It's understandable that sometimes, relatives make unreasonable demands.",they have a right to because you made them a promise.,0
+" It's understandable that sometimes, relatives make unreasonable demands.",they are known to be selfish.,1
+" It's understandable that sometimes, relatives make unreasonable demands.",They are relatives you have never met.,0
+" It's understandable that sometimes, relatives make unreasonable demands.",They suffer from dementia.,1
+" It's understandable that sometimes, relatives make unreasonable demands.",unless they do it very frequently,0
+" It's understandable that sometimes, relatives make unreasonable demands.",you are the head of the family,1
+" It's understandable that sometimes, relatives make unreasonable demands.",Those relatives are children.,0
+" It's understandable that sometimes, relatives make unreasonable demands.",The relatives are aged family members.,1
+ It's wrong to favor one family member over another.,That family member is the only person who treats you with civility,0
+ It's wrong to favor one family member over another.,You prefer one twin over the other just because you like boys more than girls,1
+ It's wrong to favor one family member over another.,the family member is an infant that needs more care.,0
+ It's wrong to favor one family member over another.,you want your children to be happy.,1
+ It's wrong to favor one family member over another.,One of them is your biological child and the other is your spouse's child from another marriage.,0
+ It's wrong to favor one family member over another.,They are both babies.,1
+ It's wrong to favor one family member over another.,One family member is dead.,0
+ It's wrong to favor one family member over another.,They are twins.,1
+ It's wrong to favor one family member over another.,You grew up with one family member and not the other.,0
+ It's wrong to favor one family member over another.,They are your twin babies.,1
+ You shouldn't curse at your family.,You're roasting them with humor.,0
+ You shouldn't curse at your family.,Children are present.,1
+ You shouldn't curse at your family.,you're doing it as a joke.,0
+ You shouldn't curse at your family.,it alarms them.,1
+ You shouldn't curse at your family.,you are all comfortable using that language.,0
+ You shouldn't curse at your family.,you will offend a family member.,1
+ You shouldn't curse at your family.,They say rude things about you,0
+ You shouldn't curse at your family.,They are very religious,1
+ You shouldn't curse at your family.,they've truly upset you and you don't do it regularly,0
+ You shouldn't curse at your family.,you want them to respect you,1
+ It's wrong to not raise your child in a civilized way.,"After the drone strikes, the extended family took shelter in a hillside cave.",0
+ It's wrong to not raise your child in a civilized way.,The meaning of good manners need not evaporate in the playground slide ladder queue.,1
+ It's wrong to not raise your child in a civilized way.,your children are your puppies.,0
+ It's wrong to not raise your child in a civilized way.,you live in a city.,1
+ It's wrong to not raise your child in a civilized way.,you want your child to be a productive member of society when they grow up.,1
+ It's wrong to not raise your child in a civilized way.,You are part of an African tribe.,0
+ It's wrong to not raise your child in a civilized way.,You want them to be a productive member of society.,1
+ It's wrong to not raise your child in a civilized way.,You live in the jungle in the Amazon.,0
+ It's wrong to not raise your child in a civilized way.,You live in a suburb in the United States.,1
+ It's rude to fall asleep on your significant other all the time.,you have sleeping sickness,0
+ It's rude to fall asleep on your significant other all the time.,you are very heavy,1
+ It's rude to fall asleep on your significant other all the time.,you work a lot during the day,0
+ It's rude to fall asleep on your significant other all the time.,your significant other is planning to have sex with you,1
+ It's rude to fall asleep on your significant other all the time.,it is bedtime and you are in bed.,0
+ It's rude to fall asleep on your significant other all the time.,you are listening to them talk about their day.,1
+ It's rude to fall asleep on your significant other all the time.,They really like it when you touch them and cuddle you back when you do.,0
+ It's rude to fall asleep on your significant other all the time.,They have asked you for more space especially in the bedroom.,1
+ It's rude to fall asleep on your significant other all the time.,you have a sleep disorder.,0
+ It's rude to fall asleep on your significant other all the time.,you are unemployed.,1
+ Families are expected to work out any issues together.,There is abuse involved.,0
+ Families are expected to work out any issues together.,They don't have anyone else but each other.,1
+ Families are expected to work out any issues together.,One family member is abusive and violent.,0
+ Families are expected to work out any issues together.,The issues are small and easily fixed.,1
+ Families are expected to work out any issues together.,Everyone in the family hates each other,0
+ Families are expected to work out any issues together.,They all love each other,1
+ Families are expected to work out any issues together.,the members feel that they should be private with their issues,0
+ Families are expected to work out any issues together.,the issues are causing a rift among them,1
+ Families are expected to work out any issues together.,they did something behind one another's backs,0
+ Families are expected to work out any issues together.,they have a strong bond of loyalty,1
+ It's wrong to let friends down when they really need you.,there was no way to avoid it.,0
+ It's wrong to let friends down when they really need you.,it is something simple for you to do.,1
+ It's wrong to let friends down when they really need you.,Helping them would mean hurting yourself worse.,0
+ It's wrong to let friends down when they really need you.,You want to remain friends.,1
+ It's wrong to let friends down when they really need you.,they are asking you to do something illegal.,0
+ It's wrong to let friends down when they really need you.,they had a family member die and need a shoulder to lean on.,1
+ It's wrong to let friends down when they really need you.,you are too mentally fragile to deal with things.,0
+ It's wrong to let friends down when they really need you.,they are really counting on you for support.,1
+ It's wrong to let friends down when they really need you.,You are deathly ill and simply cannot do so.,0
+ It's wrong to let friends down when they really need you.,They are suicidal.,1
+ It is good to talk to your boyfriend about their health.,Your boyfriend has a hereditary disease and wants family privacy.,0
+ It is good to talk to your boyfriend about their health.,Your boyfriend's health may affect your health.,1
+ It is good to talk to your boyfriend about their health.,They are active and fit.,0
+ It is good to talk to your boyfriend about their health.,They are eating a lot of junk food.,1
+ It is good to talk to your boyfriend about their health.,it is something embarassing,0
+ It is good to talk to your boyfriend about their health.,you just got an important diagnosis done,1
+ It is good to talk to your boyfriend about their health.,They appear as if something is seriously wrong with their health.,1
+ It is good to talk to your boyfriend about their health.,They already got a clean bill of health at this year's physical.,0
+ It is good to talk to your boyfriend about their health.,Your boyfriend is obese or an alcoholic.,1

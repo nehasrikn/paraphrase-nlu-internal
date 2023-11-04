@@ -136,6 +136,23 @@ class DefeasibleTrainedModel(TrainedModel):
         outputs = self.trained_model(**result)
         probs = softmax(outputs.logits.detach().cpu().numpy(), axis=1)
         return probs[0]
+    
+class DefeasibleTrainedPartialInputModel(TrainedModel):
+    
+    def predict(self, update: str) -> numpy.ndarray:
+        return self._get_prediction(update)
+
+    def _get_prediction(self, inp: Union[str, Tuple[str, str]]) -> numpy.ndarray:
+        result = self.tokenizer(
+            [inp],
+            padding="max_length", 
+            max_length=128, 
+            truncation=True, 
+            return_tensors="pt"
+        ).to(device=self.device)
+        outputs = self.trained_model(**result)
+        probs = softmax(outputs.logits.detach().cpu().numpy(), axis=1)
+        return probs[0]
 
 
 class PretrainedNLIModel:

@@ -1,0 +1,285 @@
+sentence1,sentence2,label
+"PersonX contributes to PersonY's understanding As a result, PersonX feels helpful",PersonY took the information and passed their test,0
+"PersonX contributes to PersonY's understanding As a result, PersonX feels helpful",PersonX sabotaged PersonY and told them wrong information,1
+PersonX goes to school today PersonX then gets a good job,PersonX is 6 years old,0
+PersonX goes to school today PersonX then gets a good job,Recruitment events are happening at school,1
+"PersonX gives PersonY advice As a result, PersonX wants to be informed of the outcome",PersonX is a telephone psychic.,0
+"PersonX gives PersonY advice As a result, PersonX wants to be informed of the outcome",PersonX is PersonY's mother.,1
+PersonX lands right PersonX then hAS TO USE AGILITY,X twists and turns.,1
+PersonX loves it so much Because PersonX wanted like it,Even though when his mother gave it to him he despised it.,0
+PersonX loves it so much Because PersonX wanted like it,X is shopping for a second one.,1
+"PersonX breaks PersonY's nose Before, PersonX needed to walk up to PersonY",PersonX has a cannon,0
+"PersonX breaks PersonY's nose Before, PersonX needed to walk up to PersonY",PersonX is in a boxing ring,1
+PersonX wants to surprise PersonX's girlfriend PersonX is seen as pressured to find something nice,He was paying her back for pouring water on his head earlier that day.,0
+PersonX wants to surprise PersonX's girlfriend PersonX is seen as pressured to find something nice,Her friends told her that he might propose.,1
+"PersonX deposits a check Before, PersonX needed to write up a deposit slip",PersonX deposits the check using their mobile phone.,0
+"PersonX deposits a check Before, PersonX needed to write up a deposit slip",PersonX asks the bank teller for a pen.,1
+PersonX performs PersonX's task Because PersonX wanted to do his duty,Person X is in detention doing menial tasks.,0
+PersonX performs PersonX's task Because PersonX wanted to do his duty,Person X is a military man signing important documents.,1
+PersonX sets PersonX's shoulder to the wheel PersonX is seen as glad to have pushed his friend,PersonX made the wrong choice,0
+PersonX sets PersonX's shoulder to the wheel PersonX is seen as glad to have pushed his friend,PersonX achieved great things,1
+"PersonX explains to PersonY As a result, PersonX feels careless",PersonY thanks PersonX for their thorough explanation.,0
+"PersonX explains to PersonY As a result, PersonX feels careless",PersonY points out PersonX's mistakes.,1
+PersonX puts flowers Because PersonX wanted to surprise date,PersonX gives the flowers to his mother.,0
+PersonX puts flowers Because PersonX wanted to surprise date,PersonX is about to go on a first date with someone.,1
+"PersonX makes PersonX's selection Before, PersonX needed to go shopping",PersonX had been interviewing candidates.,0
+"PersonX makes PersonX's selection Before, PersonX needed to go shopping",PersonX needed a new pair of pants.,1
+PersonX writes PersonY's letter Because PersonX wanted to be helpful,PersonY was not aware of what PersonX was doing.,0
+PersonX writes PersonY's letter Because PersonX wanted to be helpful,PersonY couldn't write the letter themself.,1
+PersonX forgets PersonX's problems Because PersonX wanted to forget the problems by being busy.,PersonX has dementia,0
+PersonX forgets PersonX's problems Because PersonX wanted to forget the problems by being busy.,PersonX is in a bar,1
+PersonX gets a hold of PersonY Because PersonX wanted to talk to the person on the phone.,PersonX pushes PersonY after they discuss.,0
+PersonX gets a hold of PersonY Because PersonX wanted to talk to the person on the phone.,PersonX passes the phone to their spouse after talking.,1
+PersonX makes PersonY PersonX's wife PersonX then smiles,PersonX's new wife wants a divorce.,0
+PersonX makes PersonY PersonX's wife PersonX then smiles,PersonX's new wife is happy to be with PersonX.,1
+PersonX sinks to PersonY's knees Because PersonX wanted to no longer be standing,PersonX's sees danger coming,0
+PersonX sinks to PersonY's knees Because PersonX wanted to no longer be standing,PersonX's legs hurt badly,1
+PersonX steals from PersonY PersonX then personX's heart rate accelerates with excitement,PersonX falls asleep in the getaway car.,0
+PersonX steals from PersonY PersonX then personX's heart rate accelerates with excitement,PersonX is being chased by the police.,1
+PersonX walks in the woods PersonX is seen as excited,PersonX does not like walking in the woods at night.,0
+PersonX walks in the woods PersonX is seen as excited,PersonX loves nature.,1
+PersonX calls PersonY mother Because PersonX wanted to socialize,PersonX works in a call center,0
+PersonX calls PersonY mother Because PersonX wanted to socialize,PersonY and PersonX are siblings,1
+"PersonX loses PersonX's identity Before, PersonX needed lack confidence",PersonX has multiple personality disorder,0
+"PersonX talks to PersonY about it As a result, PersonX wants to unlock the office",PersonX walks to the elevator.,0
+"PersonX talks to PersonY about it As a result, PersonX wants to unlock the office",PersonX gets their keys out.,1
+"PersonX flicks PersonY's tongue Before, PersonX needed to open PersonY's mouth.",PersonX took PersonY's yawning as the perfect opportunity.,0
+"PersonX flicks PersonY's tongue Before, PersonX needed to open PersonY's mouth.",PersonX scratched PersonY's lips when PersonX pried them open.,1
+PersonX spills PersonX's seed PersonX is seen as sad.,PersonX wanted to spill the seed,0
+PersonX spills PersonX's seed PersonX is seen as sad.,PersonX did not want to spill the seed,1
+PersonX wins many awards Because PersonX wanted to work hard,PersonX is considered lucky.,0
+PersonX wins many awards Because PersonX wanted to work hard,PersonX is motivated to win a lot of awards.,1
+PersonX crashes to the ground PersonX is seen as pain.,The ground is covered with thick mats for gymnastic games.,0
+PersonX crashes to the ground PersonX is seen as pain.,PersonX's shoulder looks like it is out of place.,1
+PersonX is one year old PersonX is seen as like a toddler.,They cannot crawl,0
+PersonX is one year old PersonX is seen as like a toddler.,They can already walk and talk,1
+"PersonX keeps PersonY up As a result, PersonX feels thoughtless",PersonY and PersonX need to have a discussion,0
+"PersonX keeps PersonY up As a result, PersonX feels thoughtless",PersonY got home at midnight from work,1
+"PersonX beats PersonY's brains out As a result, PersonX feels aggressive",PersonY started the fight,0
+"PersonX beats PersonY's brains out As a result, PersonX feels aggressive",PersonY was innocent,1
+PersonX complies with PersonY request Because PersonX wanted to do something good,PersonY is a lawmaker.,0
+PersonX complies with PersonY request Because PersonX wanted to do something good,PersonX likes to follow the rules.,1
+PersonX changes PersonY's dress PersonX is seen as responsible,PersonX is unhappy about changing PersonY's dress.,0
+PersonX changes PersonY's dress PersonX is seen as responsible,PersonX is PersonY's mother.,1
+PersonX is getting a raise Because PersonX wanted to earn more,PersonX doesn't care about money.,0
+PersonX is getting a raise Because PersonX wanted to earn more,PersonX just started a new family.,1
+"PersonX takes the food Before, PersonX needed to grab the food",The food is left on X's doorstep.,0
+"PersonX takes the food Before, PersonX needed to grab the food",Many people had their hands out.,1
+"PersonX feels uneasy As a result, PersonX wants to see a doctor",PersonX is watching a horror movie,0
+"PersonX feels uneasy As a result, PersonX wants to see a doctor",PersonX's skin is covered in hives,1
+"PersonX admits PersonY was wrong As a result, PersonX feels honest",PersonX is lying.,0
+"PersonX admits PersonY was wrong As a result, PersonX feels honest",PersonX is trying to tell fewer lies.,1
+PersonX enjoys the weather PersonX is seen as healthy,PersonX enjoys the weather through the window of their home office.,0
+PersonX enjoys the weather PersonX is seen as healthy,PersonX enjoys the weather by jogging.,1
+"PersonX asks PersonY's help Before, PersonX needed to have a lot of work",PersonX is just lazy,0
+"PersonX asks PersonY's help Before, PersonX needed to have a lot of work",PersonY is an executive assistant,1
+"PersonX carefully removed Before, PersonX needed to find what needs to be removed",PersonX opened it without reading a manual.,0
+"PersonX carefully removed Before, PersonX needed to find what needs to be removed",PersonX read a manual carefully.,1
+PersonX lands on the floor PersonX is seen as hurt,The floor is a trampoline floor.,0
+PersonX lands on the floor PersonX is seen as hurt,The floor is concrete.,1
+PersonX steadies the ship Because PersonX wanted to follow rules,They are in rough seas,0
+PersonX steadies the ship Because PersonX wanted to follow rules,They are a straight arrow,1
+"PersonX puts PersonY in jail As a result, PersonX feels capable",PersonX thinks they have the wrong suspect,0
+"PersonX puts PersonY in jail As a result, PersonX feels capable",PersonX has been working on this case for a long time,1
+PersonX makes it better PersonX then gets thanked,PersonX messes something else up.,0
+PersonX makes it better PersonX then gets thanked,PersonX saves the life of an innocent.,1
+PersonX finds PersonX's hotel PersonX then checks in at the hotel,The hotel was overbooked and PersonX's reservation was cancelled.,0
+PersonX finds PersonX's hotel PersonX then checks in at the hotel,PersonX has their booking confirmation ready.,1
+PersonX makes a donation to these projects PersonX then is mentioned in the paper,The donation is small,0
+PersonX makes a donation to these projects PersonX then is mentioned in the paper,The donation is the largest,1
+PersonX surprises PersonX's mom PersonX then makes dinner reservations,PersonX's mom is afraid going out due to corona virus.,0
+PersonX surprises PersonX's mom PersonX then makes dinner reservations,This is mother's day.,1
+"PersonX completes PersonY's assignment As a result, PersonX wants to assist y",Y failed to pay X the promised renumeration.,0
+"PersonX completes PersonY's assignment As a result, PersonX wants to assist y",X earned a hefty fee for completing it.,1
+PersonX sits tight PersonX is seen as bored,PersonX is waiting for test results.,0
+PersonX sits tight PersonX is seen as bored,PersonX has been sitting for hours.,1
+PersonX ruffles PersonY's hair Because PersonX wanted to fun,PersonX is a hairdresser.,0
+PersonX ruffles PersonY's hair Because PersonX wanted to fun,PersonX is PersonY's guardian.,1
+PersonX reads PersonY a story Because PersonX wanted to sooth them,PersonX tells a scary story,0
+PersonX reads PersonY a story Because PersonX wanted to sooth them,PersonX tells a nice story,1
+PersonX spots PersonY Because PersonX wanted to find someone,PersonX is crowd watching,0
+PersonX spots PersonY Because PersonX wanted to find someone,Person Y is their lost little brother,1
+PersonX tells PersonX's tale PersonX then personX focus on recounting the tale,PersonX is in front of a group of children.,0
+PersonX tells PersonX's tale PersonX then personX focus on recounting the tale,PersonX is playing a game of telephone.,1
+"PersonX occupies PersonY's attention As a result, PersonX feels attractive",They look like a slob,0
+"PersonX occupies PersonY's attention As a result, PersonX feels attractive",PersonY likes them a lot,1
+"PersonX takes PersonY's girlfriend out to dinner Before, PersonX needed to have a car",PersonX made sure to download Uber app.,0
+"PersonX takes PersonY's girlfriend out to dinner Before, PersonX needed to have a car",PersonX went to pick her up.,1
+PersonX reaches PersonX's climax PersonX then sighs in relief,Person X is in the middle of making love.,0
+PersonX reaches PersonX's climax PersonX then sighs in relief,Person X just had a heart attack.,1
+"PersonX drives to work Before, PersonX needed rent or own a car",PersonX thanks neighbor for the loaned car.,0
+"PersonX drives to work Before, PersonX needed rent or own a car",PersonX's car rental papers are in the dash box.,1
+"PersonX drives deep inside PersonY As a result, PersonX wants to continue the relationship",He throws PersonY out of the house,0
+"PersonX drives deep inside PersonY As a result, PersonX wants to continue the relationship",He's hoping to get her back,1
+"PersonX deletes PersonX's account As a result, PersonX feels anti-social",PersonX heard about a data breach.,0
+"PersonX deletes PersonX's account As a result, PersonX feels anti-social",PersonX got sick of using social media.,1
+"PersonX is proud of PersonY's work As a result, PersonX wants to assign more work",PersonX gives everyone a day off.,0
+"PersonX is proud of PersonY's work As a result, PersonX wants to assign more work",PersonX has a very tight project deadline.,1
+"PersonX dont like PersonY As a result, PersonX wants to try to avoid person Y",PersonX is trying to get into PersonY's favor,0
+"PersonX dont like PersonY As a result, PersonX wants to try to avoid person Y",PersonY smells bad,1
+PersonX gives thanks to god PersonX then sings hymn,PersonX has layrngitis,0
+PersonX gives thanks to god PersonX then sings hymn,PersonX is in church.,1
+"PersonX turns the tv As a result, PersonX feels curious",PersonX already saw everything on television.,0
+"PersonX turns the tv As a result, PersonX feels curious",PersonX makes popcorn.,1
+PersonX fills PersonY's glass Because PersonX wanted to help person y,PersonX slipped the vial back in their pocket.,0
+PersonX fills PersonY's glass Because PersonX wanted to help person y,PersonX considers PersonY a friend.,1
+"PersonX writes the paper Before, PersonX needed to do research",PersonX submits their freeform paper,0
+"PersonX writes the paper Before, PersonX needed to do research",PersonX submits their thesis paper,1
+PersonX sells PersonX's goods PersonX is seen as richer,PersonX wasn't able to get a good commodity price.,0
+PersonX sells PersonX's goods PersonX is seen as richer,PersonX got an excellent commodity price.,1
+"PersonX does n't want to leave As a result, PersonX wants stay and enjoy the event",PersonX hates going home.,0
+"PersonX does n't want to leave As a result, PersonX wants stay and enjoy the event",PersonX is having an amazing time.,1
+PersonX gives PersonY time PersonX then is thanked,PersonX is submerging PersonY in water.,0
+PersonX gives PersonY time PersonX then is thanked,PersonX performs lifesaving CPR on the friend of PersonY.,1
+PersonX sees dolphins PersonX is seen as happy,PersonX has a dolphin phobia,0
+PersonX sees dolphins PersonX is seen as happy,PersonX is a marine biologist,1
+PersonX eats popcorn PersonX is seen as satisfied.,Person X has a grimace on their face,0
+PersonX eats popcorn PersonX is seen as satisfied.,PersonX eats the whole bag,1
+"PersonX takes part in the discussions As a result, PersonX wants provide insight",PersonX wants to be kicked out of class into the hallway.,0
+"PersonX takes part in the discussions As a result, PersonX wants provide insight",PersonX wants to impress the teacher.,1
+"PersonX finds one online As a result, PersonX feels determined",It looks cheaply made.,0
+"PersonX finds one online As a result, PersonX feels determined",It looks like a quality product.,1
+PersonX picks PersonY up from work PersonX is seen as helpful,PersonX is stalking PersonY,0
+PersonX picks PersonY up from work PersonX is seen as helpful,PersonX cannot drive,1
+PersonX lands hard PersonX then bleeds,PersonX fell onto a soft mattress,0
+PersonX lands hard PersonX then bleeds,PersonX wasn't wearing a helmet,1
+PersonX treats PersonY with respect PersonX then gets respect back,PersonY is a diva,0
+PersonX treats PersonY with respect PersonX then gets respect back,PersonY is moral,1
+"PersonX goes elsewhere Before, PersonX needed to pack",X's belongings all went up in smoke last night.,0
+"PersonX goes elsewhere Before, PersonX needed to pack",X pulled his roller case behind him through the lobby.,1
+PersonX goes to PersonY 's PersonX then is told to come in,Person X has the key to the place.,0
+PersonX goes to PersonY 's PersonX then is told to come in,Person X had to knock first.,1
+"PersonX wants to make a cake Before, PersonX needed to think about cake",The ingredients were already placed on the counter.,0
+"PersonX wants to make a cake Before, PersonX needed to think about cake",PersonX had to decide which flavor and frosting to use.,1
+"PersonX takes another example Before, PersonX needed to be able to speak or write",PersonX is crawling in their crib.,0
+"PersonX takes another example Before, PersonX needed to be able to speak or write",PersonX is preparing for the campaign.,1
+PersonX bothers PersonY so much Because PersonX wanted to be annoying,PersonY is easily annoyed,0
+PersonX bothers PersonY so much Because PersonX wanted to be annoying,PersonX is acting crazy,1
+PersonX becomes the best of friends Because PersonX wanted to be loyal to his friend.,PersonY is the supervisor of PersonX.,0
+PersonX becomes the best of friends Because PersonX wanted to be loyal to his friend.,PersonY jumps in front of a car to save PersonX.,1
+PersonX holds the purse strings PersonX is seen as organized,PersonX's purse is filled to the top with trash,0
+PersonX holds the purse strings PersonX is seen as organized,PersonX has their purse sorted,1
+PersonX expresses PersonX's sympathy PersonX then speaks kindly,They actually hated the deceased person,0
+PersonX expresses PersonX's sympathy PersonX then speaks kindly,They loved the one who passed,1
+PersonX goes with the flow Because PersonX wanted to not rock the boat,X is convinced the flow is the correct one.,0
+PersonX goes with the flow Because PersonX wanted to not rock the boat,X prizes cooperation.,1
+"PersonX tells my mom As a result, PersonX wants say goodbye to my mom",PersonX runs away.,0
+"PersonX tells my mom As a result, PersonX wants say goodbye to my mom",PersonX reaches out for a hug toward PersonY's mom as PersonX heads toward the door.,1
+PersonX follows PersonY closely Because PersonX wanted to learn form the best,PersonX is chasing a criminal,0
+PersonX follows PersonY closely Because PersonX wanted to learn form the best,PersonY is training PersonX,1
+PersonX tries to surf Because PersonX wanted to practice,PersonX hates to practice to surf,0
+PersonX tries to surf Because PersonX wanted to practice,Person X has a surf compition coming up,1
+PersonX cooks PersonY dinner Because PersonX wanted to ask person a favor later,PersonX doesn't have a car and needs a ride.,0
+PersonX cooks PersonY dinner Because PersonX wanted to ask person a favor later,PersonX can pay for almost anything they need.,1
+PersonX finds a new friend Because PersonX wanted to have more friends.,PersonX doesn't like socializing.,0
+PersonX finds a new friend Because PersonX wanted to have more friends.,PersonX has a lot of fun with the new friend.,1
+"PersonX rids PersonY's skateboard As a result, PersonX wants to rest",X is exited and doesn't want to stop.,0
+"PersonX rids PersonY's skateboard As a result, PersonX wants to rest",X takes a spill.,1
+"PersonX says nothing As a result, PersonX wants think of what to say",PersonX is shocked.,0
+"PersonX says nothing As a result, PersonX wants think of what to say",PersonX wants to speak with PersonY alone.,1
+PersonX goes back years Because PersonX wanted to remember memory,PersonX has to respond to a subpoena regarding events five years ago.,0
+PersonX goes back years Because PersonX wanted to remember memory,PersonX is currently really missing their dead mom.,1
+"PersonX explains PersonX's meaning As a result, PersonX wants to get this order at any cost",PersonX doesn’t care that much,0
+"PersonX explains PersonX's meaning As a result, PersonX wants to get this order at any cost",PersonX has been eyeing the order for a long time,1
+"PersonX drives from florida As a result, PersonX feels brave",PersonX drove from Florida to southern Alabama.,0
+"PersonX drives from florida As a result, PersonX feels brave",PersonX drove from Florida to Alaska.,1
+PersonX listens to PersonX's favorite song PersonX is seen as positive,They are crying,0
+PersonX listens to PersonX's favorite song PersonX is seen as positive,They are smiling while listening,1
+PersonX goes right away PersonX is seen as relieved he escaped,Person X is in the hospital waiting room.,0
+PersonX goes right away PersonX is seen as relieved he escaped,Person X had a panic attack at a party.,1
+"PersonX sips PersonY's coffee As a result, PersonX feels friendly",PersonX accidentally picked up the wrong coffee from the Starbucks counter,0
+"PersonX sips PersonY's coffee As a result, PersonX feels friendly",PersonX and PersonY are on a date,1
+PersonX enforces PersonY's rights Because PersonX wanted to make the process complete way,PersonX has to make sure the arrest goes smoothly.,1
+"PersonX delivers pizzas As a result, PersonX wants to deliver more pizzas",PersonX drives toward their home afterward,0
+"PersonX delivers pizzas As a result, PersonX wants to deliver more pizzas",PersonX returns to the restaurant after the delivery,1
+PersonX moves PersonY's arms Because PersonX wanted get closer to person,PersonX is PersonY's physical therapist.,0
+PersonX moves PersonY's arms Because PersonX wanted get closer to person,PersonX then put their arm around PersonY.,1
+"PersonX receives PersonY's share As a result, PersonX feels lucky",PersonX is frowning with their head held down.,0
+"PersonX receives PersonY's share As a result, PersonX feels lucky",PersonX is beaming broadly.,1
+PersonX spares PersonY life Because PersonX wanted to be merciful,Someone told them to do it,0
+PersonX spares PersonY life Because PersonX wanted to be merciful,They never killed anyone before,1
+"PersonX finally asked PersonY Before, PersonX needed locate PersonY",They live far away from each other,0
+"PersonX finally asked PersonY Before, PersonX needed locate PersonY",PersonX wants to propose to them,1
+"PersonX hats PersonY's job As a result, PersonX feels opinionated",PersonX keeps his mouth shut out of respect.,0
+"PersonX hats PersonY's job As a result, PersonX feels opinionated",PersonX makes fun of PersonY's work uniform.,1
+PersonX quickly got ready Because PersonX wanted to not be late,They wanted to get there before the boss.,0
+PersonX quickly got ready Because PersonX wanted to not be late,They overslept and missed the alarm.,1
+PersonX reaches PersonX's peak PersonX is seen as happy,PersonX is sore and bloody from the difficult climb.,0
+PersonX reaches PersonX's peak PersonX is seen as happy,PersonX poses at the top of the mountain for a picture and smiles.,1
+"PersonX keeps looking Before, PersonX needed to look something",PersonX won't stop until it is found.,1
+PersonX saves PersonY's souls Because PersonX wanted to help,PersonX was unaware of the impact they made on PersonY at the time.,0
+PersonX saves PersonY's souls Because PersonX wanted to help,PersonX has dedicated their life to saving souls.,1
+PersonX tells PersonY wants PersonX is seen as indifferent.,PersonX bends over backwards,0
+PersonX tells PersonY wants PersonX is seen as indifferent.,PersonX ignores the requests,1
+PersonX immediately fell PersonX then bleeds,X is unscathed.,0
+PersonX immediately fell PersonX then bleeds,X puts on a tourniquet.,1
+"PersonX visits PersonZ's family in PersonY As a result, PersonX wants hug the family",PersonZ murdered PersonX's parents,0
+"PersonX visits PersonZ's family in PersonY As a result, PersonX wants hug the family",PersonX is marrying PersonZ,1
+PersonX starts chasing PersonY Because PersonX wanted to play a game,PersonX wants their money back.,0
+PersonX starts chasing PersonY Because PersonX wanted to play a game,PersonX tags PersonY and runs away.,1
+"PersonX rushes PersonY to the hospital As a result, PersonX wants to find out if they are ok",Person Y is a stranger to Person X.,0
+"PersonX rushes PersonY to the hospital As a result, PersonX wants to find out if they are ok",Person Y is Person X's child.,1
+"PersonX creates PersonY environment Before, PersonX needed to know what they need",PersonX read PersonY's journal.,0
+"PersonX creates PersonY environment Before, PersonX needed to know what they need",PersonX asked PersonY for their likes.,1
+"PersonX meets PersonY's sister Before, PersonX needed to go to the cafe to meet PersonY and PersonY's sister",PersonX is seen standing outside of a movie theater.,0
+"PersonX meets PersonY's sister Before, PersonX needed to go to the cafe to meet PersonY and PersonY's sister",PersonX is drinking coffee sitting across from PersonY's sister.,1
+"PersonX gets creative Before, PersonX needed to get paper",PersonX is a sculptor.,0
+"PersonX gets creative Before, PersonX needed to get paper",PersonX is a sketch artist.,1
+"PersonX writes the book Before, PersonX needed pen",PersonX uses dictation software,0
+"PersonX writes the book Before, PersonX needed pen",PersonX is in a cabin without electricity,1
+PersonX is covered in snow PersonX then enjoying in the winter,PersonX starts to freeze to death.,0
+PersonX is covered in snow PersonX then enjoying in the winter,PersonX makes a snow man.,1
+PersonX pushes the boat out Because PersonX wanted to be nice and helpful,PersonX is trying to steal the watercraft.,0
+PersonX pushes the boat out Because PersonX wanted to be nice and helpful,PersonX saw the old couple needed help.,1
+"PersonX lets PersonX's friends As a result, PersonX feels generous",X allowed them to make their own mistakes.,0
+"PersonX lets PersonX's friends As a result, PersonX feels generous",They really enjoyed using his pool in the summers.,1
+"PersonX drops to PersonY's knees As a result, PersonX wants to ask PersonY for forgiveness",PersonX is holding an engagement ring.,0
+"PersonX drops to PersonY's knees As a result, PersonX wants to ask PersonY for forgiveness",PersonY is angry at PersonX.,1
+PersonX gets a divorce Because PersonX wanted to be free,PersonX was forced to sign the papers.,0
+PersonX gets a divorce Because PersonX wanted to be free,PersonX is already engaged to a new partner and wants to be free to marry them.,1
+"PersonX breaks PersonY's mother 's favorite vase Before, PersonX needed go in the family room",X was on his way from the car into the house.,0
+"PersonX breaks PersonY's mother 's favorite vase Before, PersonX needed go in the family room",X picked up the vase from the fireplace mantle.,1
+"PersonX bends PersonX's elbow As a result, PersonX feels harmful",PersonX accidentally hurt themselves.,0
+"PersonX bends PersonX's elbow As a result, PersonX feels harmful",PersonX is a body builder.,1
+PersonX awaits PersonY's turn Because PersonX wanted persony to come back.,X wants to take Y's turn as it is before his.,0
+PersonX awaits PersonY's turn Because PersonX wanted persony to come back.,X looks around to see if Y is in sight.,1
+"PersonX walks and chew gum at the same time As a result, PersonX wants to relax",Person X is heading to compete in a sporting event.,0
+"PersonX walks and chew gum at the same time As a result, PersonX wants to relax",Person X is walking home.,1
+"PersonX decides to cheat As a result, PersonX wants to win",The stakes are high,1
+PersonX kills PersonX's husband Because PersonX wanted instant relief,PersonX was attacked from behind.,0
+PersonX kills PersonX's husband Because PersonX wanted instant relief,PersonX goes on an unplanned vacation.,1
+PersonX talks PersonX out of it PersonX then person X does not do what they were going to because of being talked out of it,PersonX goes home instead,1
+"PersonX cracks the screen As a result, PersonX feels regretful",PersonX was filming for the youtube testing show.,0
+"PersonX cracks the screen As a result, PersonX feels regretful",PersonX just bought the phone yesterday.,1
+PersonX spends a couple hours Because PersonX wanted to be entertained,PersonX takes a nap.,0
+PersonX spends a couple hours Because PersonX wanted to be entertained,PersonX watches a movie.,1
+"PersonX goes from bad to worse As a result, PersonX feels unsuccessful",PersonX is suffering from an incurable disease.,0
+"PersonX goes from bad to worse As a result, PersonX feels unsuccessful",PersonX was dumped by their significant other the day after they lost their job.,1
+"PersonX moves slowly As a result, PersonX feels sore",PersonX is in bed,0
+"PersonX moves slowly As a result, PersonX feels sore",PersonX's leg is bruised,1
+PersonX keeps PersonY from falling Because PersonX wanted to be helpful.,PersonX is PersonY's trapeze partner,0
+PersonX keeps PersonY from falling Because PersonX wanted to be helpful.,PersonX ran to PersonY when they started to fall.,1
+PersonX gives PersonY the opportunity PersonX then gets thanked,The opportunity is not very good,0
+PersonX gives PersonY the opportunity PersonX then gets thanked,PersonY gives them a hug,1
+PersonX feels sorry for PersonY PersonX then frowns,PersonX isn't very emotive.,0
+PersonX feels sorry for PersonY PersonX then frowns,PersonX want to cry for PersonY.,1
+"PersonX is cleaning PersonX's house Before, PersonX needed to take the scrub",PersonX is dusting the blinds.,0
+"PersonX is cleaning PersonX's house Before, PersonX needed to take the scrub",PersonX is cleaning the grout.,1
+PersonX buys a new dog Because PersonX wanted to spend a time,PersonX is very busy with their job.,0
+PersonX buys a new dog Because PersonX wanted to spend a time,PersonX loves to spend time with animals.,1
+"PersonX sees what 's wrong As a result, PersonX wants make it better",He smirks evilly at the cat that is stuck in a tree.,0
+"PersonX sees what 's wrong As a result, PersonX wants make it better",He searches for a ladder to rescue the kitten from the roof.,1
+PersonX pushes PersonY aside PersonX is seen as busy,PersonX doesn’t have a job,0
+PersonX pushes PersonY aside PersonX is seen as busy,PersonX is the bosses assistant,1
+"PersonX is studying all week As a result, PersonX feels focused",They feel asleep a lot.,0
+"PersonX is studying all week As a result, PersonX feels focused",They drank a lot of Redbull.,1
+PersonX rids PersonX's bikes PersonX is seen as good about themselves,PersonX gets rid of a stolen bike.,0
+PersonX rids PersonX's bikes PersonX is seen as good about themselves,PersonX donates their bike to charity.,1
+PersonX wears it everywhere Because PersonX wanted to have good luck,PersonX really needed to go clothes shopping.,0
+PersonX wears it everywhere Because PersonX wanted to have good luck,It's unusual to wear a feather around your neck.,1
+PersonX gets a picture Because PersonX wanted a picture,X's daughter painted it for him for Father's Day.,0
+PersonX gets a picture Because PersonX wanted a picture,X asked for a hand painted picture from his daughter.,1
+PersonX pats PersonY on the shoulder PersonX then personX consoles PersonY,PersonY is doing good work,0
+PersonX pats PersonY on the shoulder PersonX then personX consoles PersonY,PersonY's shoulders are shaking,1
+"PersonX lands hard As a result, PersonX wants to get back up",They broke their back,0
+"PersonX lands hard As a result, PersonX wants to get back up",They need to try again,1

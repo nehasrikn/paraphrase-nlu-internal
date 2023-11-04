@@ -1,0 +1,789 @@
+sentence1,sentence2,label
+bull rider on the ground The person fell off the bull.,The rider has not mounted the bull yet.,0
+bull rider on the ground The person fell off the bull.,The bull threw the rider halfway across the arena.,1
+bull rider on the ground The person fell off the bull.,The bull rider's shoelaces were untied.,0
+bull rider on the ground The person fell off the bull.,A bull rages nearby.,1
+bull rider on the ground The person fell off the bull.,He is seated outside the arena watching his friend.,0
+bull rider on the ground The person fell off the bull.,He is covered in dirt and has an injured leg.,1
+bull rider on the ground The person fell off the bull.,The person is surrounded by cowboy gear.,0
+bull rider on the ground The person fell off the bull.,A bull can be seen surrounding the person.,1
+bull rider on the ground The person fell off the bull.,The rider is in the on deck pen.,0
+bull rider on the ground The person fell off the bull.,The clock stopped at 2 seconds.,1
+A nurse holding a needle in a hospital. A nurse is getting ready to take someone's blood.,The needle had been dropped and the nurse was picking it up.,0
+A nurse holding a needle in a hospital. A nurse is getting ready to take someone's blood.,The nurse is volunteering for the blood bank.,1
+A nurse holding a needle in a hospital. A nurse is getting ready to take someone's blood.,A nurse is sewing during a break at work.,0
+A nurse holding a needle in a hospital. A nurse is getting ready to take someone's blood.,A nurse holds one hand on a patient's arm and aims the needle at the arm.,1
+A nurse holding a needle in a hospital. A nurse is getting ready to take someone's blood.,The nurse disposes of the needle.,0
+A nurse holding a needle in a hospital. A nurse is getting ready to take someone's blood.,The nurse grabs an antiseptic pad.,1
+A nurse holding a needle in a hospital. A nurse is getting ready to take someone's blood.,The needle is full of a clear liquid.,0
+A nurse holding a needle in a hospital. A nurse is getting ready to take someone's blood.,The needle is empty.,1
+A nurse holding a needle in a hospital. A nurse is getting ready to take someone's blood.,A person nearby needs an injection of insulin.,0
+A nurse holding a needle in a hospital. A nurse is getting ready to take someone's blood.,The doctor has ordered blood tests.,1
+A baby in a highchair. A baby is eating lunch.,The baby's eyes are glued to a TV screen,0
+A baby in a highchair. A baby is eating lunch.,The baby's face is covered in smears,1
+A baby in a highchair. A baby is eating lunch.,The baby is napping on the chair.,0
+A baby in a highchair. A baby is eating lunch.,The baby chews her food slowly.,1
+A baby in a highchair. A baby is eating lunch.,The sun has just risen.,0
+A baby in a highchair. A baby is eating lunch.,The baby eats more than he did during breakfast.,1
+A baby in a highchair. A baby is eating lunch.,There are crayons on the tray of the chair.,0
+A baby in a highchair. A baby is eating lunch.,The tray and the baby's face are smeared with food.,1
+A baby in a highchair. A baby is eating lunch.,A baby is eating breakfast cereal.,0
+A baby in a highchair. A baby is eating lunch.,A baby is eating strained peas while the father drops by during lunch break.,1
+A woman in a hi-viz jacket is smiling at person carrying a stop sign in front of a crane. A woman is helping to direct traffic near a construction site.,The owner is enjoying watching the employees make her money as they work.,0
+A woman in a hi-viz jacket is smiling at person carrying a stop sign in front of a crane. A woman is helping to direct traffic near a construction site.,The woman is wearing an orange vest everyone pays attention to her orders.,1
+A woman in a hi-viz jacket is smiling at person carrying a stop sign in front of a crane. A woman is helping to direct traffic near a construction site.,An advertisement banner is flying from the crane.,0
+A woman in a hi-viz jacket is smiling at person carrying a stop sign in front of a crane. A woman is helping to direct traffic near a construction site.,There are men in hard hats near the woman.,1
+A woman in a hi-viz jacket is smiling at person carrying a stop sign in front of a crane. A woman is helping to direct traffic near a construction site.,The person carrying the stop sign has a beard.,0
+A woman in a hi-viz jacket is smiling at person carrying a stop sign in front of a crane. A woman is helping to direct traffic near a construction site.,The person carrying the stop sign is wearing a pin that says 'she/her pronouns please'.,1
+A woman in a hi-viz jacket is smiling at person carrying a stop sign in front of a crane. A woman is helping to direct traffic near a construction site.,The woman is standing in front of the crane with a protest sign.,0
+A woman in a hi-viz jacket is smiling at person carrying a stop sign in front of a crane. A woman is helping to direct traffic near a construction site.,The woman is wearing a hardhat and has a badge on.,1
+A woman in a hi-viz jacket is smiling at person carrying a stop sign in front of a crane. A woman is helping to direct traffic near a construction site.,the director tells the two actresses to re-do the scene,0
+A woman in a hi-viz jacket is smiling at person carrying a stop sign in front of a crane. A woman is helping to direct traffic near a construction site.,Workers are drilling a hole in the ground near a partially finished building,1
+A bride and a groom are sitting by a tree smiling at one another. The couple just got married,They are discussing how fun it was to renew their vows.,0
+A bride and a groom are sitting by a tree smiling at one another. The couple just got married,The couple watches their friends walk down the isle after them.,1
+A bride and a groom are sitting by a tree smiling at one another. The couple just got married,the couple are in traditional wedding outfits,1
+A bride and a groom are sitting by a tree smiling at one another. The couple just got married,The couple's rings are still with the ring-bearer.,0
+A bride and a groom are sitting by a tree smiling at one another. The couple just got married,The couple have seen all their guests off.,1
+A bride and a groom are sitting by a tree smiling at one another. The couple just got married,The couple stop to take a few pictures before the ceremony.,0
+A bride and a groom are sitting by a tree smiling at one another. The couple just got married,The couple decided to have their reception outdoors.,1
+A bride and a groom are sitting by a tree smiling at one another. The couple just got married,"They were getting ready for their ""first look"" photos.",0
+A bride and a groom are sitting by a tree smiling at one another. The couple just got married,They are taking wedding photos together.,1
+The man with the beard is sitting in a bus staring forward. A man waiting for his stop on the bus.,The man is behind the wheel of the bus.,0
+The man with the beard is sitting in a bus staring forward. A man waiting for his stop on the bus.,The man will get off at the next stop.,1
+The man with the beard is sitting in a bus staring forward. A man waiting for his stop on the bus.,The Bus driver tells the man he needs to get off because he did not pay,0
+The man with the beard is sitting in a bus staring forward. A man waiting for his stop on the bus.,The man keeps checking his google maps on his phone,1
+The man with the beard is sitting in a bus staring forward. A man waiting for his stop on the bus.,The man is a PI assigned to follow one of the other passengers wherever he goes.,0
+The man with the beard is sitting in a bus staring forward. A man waiting for his stop on the bus.,The man frequently checks to see what street the bus is on.,1
+The man with the beard is sitting in a bus staring forward. A man waiting for his stop on the bus.,The bus driver says to the man 'So you take the money from them when they walk up like that',0
+The man with the beard is sitting in a bus staring forward. A man waiting for his stop on the bus.,The bus driver says to the man 'Two more sir',1
+The man with the beard is sitting in a bus staring forward. A man waiting for his stop on the bus.,There is a steering wheel in front of the man.,0
+The man with the beard is sitting in a bus staring forward. A man waiting for his stop on the bus.,The man holds a bus route map in his hands.,1
+The two people wearing green are sitting down and surrounded by empty seats. There are people sitting outdoors,The seats are heavily upholstered.,0
+The two people wearing green are sitting down and surrounded by empty seats. There are people sitting outdoors,The seats are made out of canvas and wood.,1
+The two people wearing green are sitting down and surrounded by empty seats. There are people sitting outdoors,The two people are inside an auditorium.,0
+The two people wearing green are sitting down and surrounded by empty seats. There are people sitting outdoors,The sun is shining on them.,1
+The two people wearing green are sitting down and surrounded by empty seats. There are people sitting outdoors,The two people are waiting for the NBA game to start.,0
+The two people wearing green are sitting down and surrounded by empty seats. There are people sitting outdoors,It is the perfect night for an outdoor concert.,1
+The two people wearing green are sitting down and surrounded by empty seats. There are people sitting outdoors,The movie ended but they just woke up and the usher overlooked them.,0
+The two people wearing green are sitting down and surrounded by empty seats. There are people sitting outdoors,The recall all the good music they've heard at the amphitheater.,1
+The two people wearing green are sitting down and surrounded by empty seats. There are people sitting outdoors,The people are inside a sports arena.,0
+The two people wearing green are sitting down and surrounded by empty seats. There are people sitting outdoors,The stadium is almost empty after the game.,1
+"A man with a blue shirt, SpongeBob shirts, clogs, and white tights stands on the street. The man is waiting for the mail.",The street is in the middle of a shopping district.,0
+"A man with a blue shirt, SpongeBob shirts, clogs, and white tights stands on the street. The man is waiting for the mail.",He is standing next to a mail box.,1
+"A man with a blue shirt, SpongeBob shirts, clogs, and white tights stands on the street. The man is waiting for the mail.",The man's mailbox is attached to his house.,0
+"A man with a blue shirt, SpongeBob shirts, clogs, and white tights stands on the street. The man is waiting for the mail.",The man's mailbox is right off the road.,1
+"A man with a blue shirt, SpongeBob shirts, clogs, and white tights stands on the street. The man is waiting for the mail.",The man doesn't know where he is.,0
+"A man with a blue shirt, SpongeBob shirts, clogs, and white tights stands on the street. The man is waiting for the mail.",The man saw the mailman go by.,1
+"A man with a blue shirt, SpongeBob shirts, clogs, and white tights stands on the street. The man is waiting for the mail.",The man has a tip jar in front of him and is speaking to children,0
+"A man with a blue shirt, SpongeBob shirts, clogs, and white tights stands on the street. The man is waiting for the mail.",The man is next to a mailbox,1
+"A man with a blue shirt, SpongeBob shirts, clogs, and white tights stands on the street. The man is waiting for the mail.",The man is waiting for his Uber to show up.,0
+"A man with a blue shirt, SpongeBob shirts, clogs, and white tights stands on the street. The man is waiting for the mail.",The man's Amazon Prime Clothing order will be in today's mail.,1
+Woman wearing black snow gear walking down a snow covered slope. The woman is going to shovel the sidewalk.,The woman is carrying a pair of skis.,0
+Woman wearing black snow gear walking down a snow covered slope. The woman is going to shovel the sidewalk.,The woman is carrying a shovel.,1
+Woman wearing black snow gear walking down a snow covered slope. The woman is going to shovel the sidewalk.,She is wearing skis.,0
+Woman wearing black snow gear walking down a snow covered slope. The woman is going to shovel the sidewalk.,She is carrying a snow shovel.,1
+Woman wearing black snow gear walking down a snow covered slope. The woman is going to shovel the sidewalk.,The woman is carrying a snowboard.,0
+Woman wearing black snow gear walking down a snow covered slope. The woman is going to shovel the sidewalk.,The woman is wearing skiing gear.,0
+Woman wearing black snow gear walking down a snow covered slope. The woman is going to shovel the sidewalk.,The woman is holding a snow shovel.,1
+Woman wearing black snow gear walking down a snow covered slope. The woman is going to shovel the sidewalk.,The light of the full moon illuminated the path.,0
+Woman wearing black snow gear walking down a snow covered slope. The woman is going to shovel the sidewalk.,The bundled up toddler also carried a miniature shovel.,1
+A person in a hang-glider. A man is preparing to glide,A man is undoing his safety harness.,0
+A person in a hang-glider. A man is preparing to glide,A man stands at the edge of a cliff.,1
+A person in a hang-glider. A man is preparing to glide,The person in the glider is removing the straps and on low ground.,0
+A person in a hang-glider. A man is preparing to glide,The person is high atop a ledge and someone next to him asks 'You ready?',1
+A person in a hang-glider. A man is preparing to glide,The person is in the air.,0
+A person in a hang-glider. A man is preparing to glide,The person is on the edge of a cliff with a hang glider.,1
+A person in a hang-glider. A man is preparing to glide,The man is instructing someone how to hand-glide.,0
+A person in a hang-glider. A man is preparing to glide,The man is getting instructed by someone how to hand-glide.,1
+A person in a hang-glider. A man is preparing to glide,A person is looking to buy a hang glider.,0
+A person in a hang-glider. A man is preparing to glide,A person putting on the equipment needed to jump.,1
+A woman with a straw hat is sitting on steps outdoors. A woman is enjoying the weather.,It is thirty two degrees outside.,0
+A woman with a straw hat is sitting on steps outdoors. A woman is enjoying the weather.,It is seventy two degrees outside.,1
+A woman with a straw hat is sitting on steps outdoors. A woman is enjoying the weather.,There's a tornado a mile away from the woman's house.,0
+A woman with a straw hat is sitting on steps outdoors. A woman is enjoying the weather.,It's the warmest day of winter.,1
+A woman with a straw hat is sitting on steps outdoors. A woman is enjoying the weather.,The woman is fanning her face.,0
+A woman with a straw hat is sitting on steps outdoors. A woman is enjoying the weather.,The woman is relaxed.,1
+A woman with a straw hat is sitting on steps outdoors. A woman is enjoying the weather.,"The woman is waiting to be picked up by her date, who is running a bit late.",0
+A woman with a straw hat is sitting on steps outdoors. A woman is enjoying the weather.,The woman's freckled nose wrinkles under the gorgeous breeze of the day.,1
+A woman with a straw hat is sitting on steps outdoors. A woman is enjoying the weather.,The woman is hiding in shade,0
+A woman with a straw hat is sitting on steps outdoors. A woman is enjoying the weather.,The woman is applying tanning lotion,1
+A German shepherd leaps in midair. A dog leaps to catch a thrown frisbee.,The dog's owner is holding out a treat.,0
+A German shepherd leaps in midair. A dog leaps to catch a thrown frisbee.,The dog's owner is playing with the dog.,1
+A German shepherd leaps in midair. A dog leaps to catch a thrown frisbee.,The German shepherd works for the police department.,0
+A German shepherd leaps in midair. A dog leaps to catch a thrown frisbee.,The dog is playing with his laid-back owner.,1
+A German shepherd leaps in midair. A dog leaps to catch a thrown frisbee.,The German Shepard is leaping in the air to escape a snake that is attacking it.,0
+A German shepherd leaps in midair. A dog leaps to catch a thrown frisbee.,The German Shepard and its owner are practicing for a competition.,1
+A German shepherd leaps in midair. A dog leaps to catch a thrown frisbee.,The dog's owner has a basket of tennis balls beside him.,0
+A German shepherd leaps in midair. A dog leaps to catch a thrown frisbee.,The dog's owner is a professional frisbee player.,1
+A German shepherd leaps in midair. A dog leaps to catch a thrown frisbee.,The German shepherd leaps to get over a small obstacle.,0
+A German shepherd leaps in midair. A dog leaps to catch a thrown frisbee.,The German shepherd jumps and snags a Frisbee in its mouth.,1
+A man asleep on a plane in a dark photo. the man fell asleep on the plane to sweden,The plane was from American Airlines.,0
+A man asleep on a plane in a dark photo. the man fell asleep on the plane to sweden,The plane was from Scandanavian Airlines.,1
+A man asleep on a plane in a dark photo. the man fell asleep on the plane to sweden,The plane lands in a place with lots of cactus.,0
+A man asleep on a plane in a dark photo. the man fell asleep on the plane to sweden,The plane lands in a place with lots of snow.,1
+A man asleep on a plane in a dark photo. the man fell asleep on the plane to sweden,There is a tv with Asian people acting playing in front of him.,0
+A man asleep on a plane in a dark photo. the man fell asleep on the plane to sweden,The flight attendant speaks in Swedish to another person.,1
+A man asleep on a plane in a dark photo. the man fell asleep on the plane to sweden,The plane is flying west over Las Vegas,0
+A man asleep on a plane in a dark photo. the man fell asleep on the plane to sweden,The plane has a Swedish flag on it,1
+A man asleep on a plane in a dark photo. the man fell asleep on the plane to sweden,The plane is an old piece of war memorabilia.,0
+A man asleep on a plane in a dark photo. the man fell asleep on the plane to sweden,The photo was taken by the mans wife.,1
+"A cook is caught in the action of cooking, with steam billowing out from a series of pats. A cook is working in the kitchen preparing some food",The cook is boiling water to clean the kitchen with.,0
+"A cook is caught in the action of cooking, with steam billowing out from a series of pats. A cook is working in the kitchen preparing some food",The cook adds pasta to the pots.,1
+"A cook is caught in the action of cooking, with steam billowing out from a series of pats. A cook is working in the kitchen preparing some food",The pots are over a fire next to a stream.,0
+"A cook is caught in the action of cooking, with steam billowing out from a series of pats. A cook is working in the kitchen preparing some food",The pots are on a commercial stove.,1
+"A cook is caught in the action of cooking, with steam billowing out from a series of pats. A cook is working in the kitchen preparing some food",The cook forgot about the boiling pots of water.,0
+"A cook is caught in the action of cooking, with steam billowing out from a series of pats. A cook is working in the kitchen preparing some food",The pots contain several different types of food.,1
+"A cook is caught in the action of cooking, with steam billowing out from a series of pats. A cook is working in the kitchen preparing some food",The students in the class ask questions.,0
+"A cook is caught in the action of cooking, with steam billowing out from a series of pats. A cook is working in the kitchen preparing some food",Orders from the waitstaff are building up.,1
+"Boy crouched and gesturing with hands, inside of a tire. Boy shoots a middle finger inside the tire.",The boy  is using both hands.,0
+"Boy crouched and gesturing with hands, inside of a tire. Boy shoots a middle finger inside the tire.",The boy took exception to something his friend said.,1
+"Boy crouched and gesturing with hands, inside of a tire. Boy shoots a middle finger inside the tire.",He wants his friend to follow him,0
+"Boy crouched and gesturing with hands, inside of a tire. Boy shoots a middle finger inside the tire.",His teacher begins to yell at him.,1
+"Boy crouched and gesturing with hands, inside of a tire. Boy shoots a middle finger inside the tire.",Several fingers are outstretched.,0
+"Boy crouched and gesturing with hands, inside of a tire. Boy shoots a middle finger inside the tire.",Only one finger is outstretched.,1
+"Boy crouched and gesturing with hands, inside of a tire. Boy shoots a middle finger inside the tire.",His mother looks at him and smiles.,0
+"Boy crouched and gesturing with hands, inside of a tire. Boy shoots a middle finger inside the tire.",His mother looks at him with her mouth wide open in horror.,1
+"Boy crouched and gesturing with hands, inside of a tire. Boy shoots a middle finger inside the tire.",He is laughing and having fun.,0
+"Boy crouched and gesturing with hands, inside of a tire. Boy shoots a middle finger inside the tire.",He is mad at his parents.,1
+Two little girls with no facial expressions stand close to each other in a city. The children are standing close to each other trying to hide the broken window behind them,The two girls are bored and trying to find something to do.,0
+Two little girls with no facial expressions stand close to each other in a city. The children are standing close to each other trying to hide the broken window behind them,The girls are doing their best to not look conspicuous.,1
+Two little girls with no facial expressions stand close to each other in a city. The children are standing close to each other trying to hide the broken window behind them,They have never been to the city and find the cement and tall building intimidating.,0
+Two little girls with no facial expressions stand close to each other in a city. The children are standing close to each other trying to hide the broken window behind them,A woman is asking them what the loud shattering noise she heard was caused by.,1
+Two little girls with no facial expressions stand close to each other in a city. The children are standing close to each other trying to hide the broken window behind them,The girls are just talking about what they did in school that day.,0
+Two little girls with no facial expressions stand close to each other in a city. The children are standing close to each other trying to hide the broken window behind them,There is broken glass around their feet.,1
+Two little girls with no facial expressions stand close to each other in a city. The children are standing close to each other trying to hide the broken window behind them,The children are lost and looking for help.,0
+Two little girls with no facial expressions stand close to each other in a city. The children are standing close to each other trying to hide the broken window behind them,The children try not to step on the broken glass.,1
+Two little girls with no facial expressions stand close to each other in a city. The children are standing close to each other trying to hide the broken window behind them,The little girls are huddling together for warmth.,0
+Two little girls with no facial expressions stand close to each other in a city. The children are standing close to each other trying to hide the broken window behind them,The little girls were throwing a ball in the house.,1
+Children at a library in group waiting. A group of boys sit waiting in a library.,Some of the children have long hair,0
+Children at a library in group waiting. A group of boys sit waiting in a library.,The children have comic books in their hands,1
+Children at a library in group waiting. A group of boys sit waiting in a library.,It will be story time in a few minutes.,0
+Children at a library in group waiting. A group of boys sit waiting in a library.,Sex education seems to work best in small same sex groups the librarian believes and the girls are scheduled for tomorrow.,1
+Children at a library in group waiting. A group of boys sit waiting in a library.,The children all go to an all-girls school.,0
+Children at a library in group waiting. A group of boys sit waiting in a library.,The children are part of an all-boys school.,1
+Children at a library in group waiting. A group of boys sit waiting in a library.,The children belong to the local girl scouts group.,0
+Children at a library in group waiting. A group of boys sit waiting in a library.,The boys belong to the local boy scouts group.,1
+An event in which stands have been erected and large group of people are attracted takes place outside. The outdoor event draws a group of corporate tycoons.,Race cars sit on a track in front of the audience,0
+An event in which stands have been erected and large group of people are attracted takes place outside. The outdoor event draws a group of corporate tycoons.,The people are all wearing suits and ties and most are older men,1
+An event in which stands have been erected and large group of people are attracted takes place outside. The outdoor event draws a group of corporate tycoons.,The audience has casual clothing on.,0
+An event in which stands have been erected and large group of people are attracted takes place outside. The outdoor event draws a group of corporate tycoons.,The audience has formal clothing on.,1
+An event in which stands have been erected and large group of people are attracted takes place outside. The outdoor event draws a group of corporate tycoons.,A rapper is performing on a stage,0
+An event in which stands have been erected and large group of people are attracted takes place outside. The outdoor event draws a group of corporate tycoons.,The stage has Angela Merkel on it,1
+An event in which stands have been erected and large group of people are attracted takes place outside. The outdoor event draws a group of corporate tycoons.,There are people of all ages in the stands.,0
+An event in which stands have been erected and large group of people are attracted takes place outside. The outdoor event draws a group of corporate tycoons.,The people in attendance are mostly men in expensive suits.,1
+An event in which stands have been erected and large group of people are attracted takes place outside. The outdoor event draws a group of corporate tycoons.,The people are all in their bathing suits.,0
+An event in which stands have been erected and large group of people are attracted takes place outside. The outdoor event draws a group of corporate tycoons.,Everyone at the event is wearing suits.,1
+A boys jumps into the water upside down. A boy is at the lake jumping into the water,A diving board vibrates up and down,0
+A boys jumps into the water upside down. A boy is at the lake jumping into the water,A man fishing in the background laughs,1
+A boys jumps into the water upside down. A boy is at the lake jumping into the water,The water has chlorine in it.,0
+A boys jumps into the water upside down. A boy is at the lake jumping into the water,Fish in the water swim away.,1
+A boys jumps into the water upside down. A boy is at the lake jumping into the water,He dives from the board into the indoor pool.,0
+A boys jumps into the water upside down. A boy is at the lake jumping into the water,He is hanging upside down on the rope when he lets go over the water.,1
+A boys jumps into the water upside down. A boy is at the lake jumping into the water,the boy lands and the waves crash into him,0
+A boys jumps into the water upside down. A boy is at the lake jumping into the water,the boy lands and the water shimmers and shakes,1
+A boys jumps into the water upside down. A boy is at the lake jumping into the water,The boy jumps into the clear water of a swimming pool.,0
+A boys jumps into the water upside down. A boy is at the lake jumping into the water,The jumps off the dock into a body of water lined with trees.,1
+woman holding another to take a picture. two women are hugging.,The women are standing side by side.,0
+woman holding another to take a picture. two women are hugging.,The women are facing each other.,1
+woman holding another to take a picture. two women are hugging.,One woman has a hard time standing so the other helps to hold her up.,0
+woman holding another to take a picture. two women are hugging.,The women are friends and want a picture of them together.,1
+woman holding another to take a picture. two women are hugging.,The kidnapper is holding down her victim.,0
+woman holding another to take a picture. two women are hugging.,The sisters haven't seen each other in two years.,1
+woman holding another to take a picture. two women are hugging.,The women are holding hands.,0
+woman holding another to take a picture. two women are hugging.,The person the woman is hugging has a long white beard.,0
+woman holding another to take a picture. two women are hugging.,One woman says to the other person 'I love having you as my sister',1
+"A blond man with a light beard, wearing a dark, short-sleeved shirt, bundles wheat. A bearded man labors on his family farm.",The man's boss is seated nearby.,0
+"A blond man with a light beard, wearing a dark, short-sleeved shirt, bundles wheat. A bearded man labors on his family farm.",The man's son watches to learn how to bundle wheat.,1
+"A blond man with a light beard, wearing a dark, short-sleeved shirt, bundles wheat. A bearded man labors on his family farm.",The mans family grows corn on their farm.,0
+"A blond man with a light beard, wearing a dark, short-sleeved shirt, bundles wheat. A bearded man labors on his family farm.",The man has been bundling wheat for most of his life.,1
+"A blond man with a light beard, wearing a dark, short-sleeved shirt, bundles wheat. A bearded man labors on his family farm.",The man shaved right before getting to work,0
+"A blond man with a light beard, wearing a dark, short-sleeved shirt, bundles wheat. A bearded man labors on his family farm.",The priest is helping with chores,1
+"A blond man with a light beard, wearing a dark, short-sleeved shirt, bundles wheat. A bearded man labors on his family farm.",No one else is with the man,0
+"A blond man with a light beard, wearing a dark, short-sleeved shirt, bundles wheat. A bearded man labors on his family farm.",There are a women and children working with the man,1
+"A blond man with a light beard, wearing a dark, short-sleeved shirt, bundles wheat. A bearded man labors on his family farm.",The man bundles the wheat in a feed store.,0
+"A blond man with a light beard, wearing a dark, short-sleeved shirt, bundles wheat. A bearded man labors on his family farm.",The man bundles the wheat onto a wagon outside a barn.,1
+"Crowd outside at night walking to their destination. People are walking at night, and some are going home.",There is a huge party happening all around the people.,0
+"Crowd outside at night walking to their destination. People are walking at night, and some are going home.",Some people are carrying their work briefcases and look tired.,1
+"Crowd outside at night walking to their destination. People are walking at night, and some are going home.",They walk up to a theater and pull out their concert tickets.,0
+"Crowd outside at night walking to their destination. People are walking at night, and some are going home.",They say good night to each other.,1
+"Crowd outside at night walking to their destination. People are walking at night, and some are going home.",The party is just starting.,0
+"Crowd outside at night walking to their destination. People are walking at night, and some are going home.",The party is just getting over with.,1
+"Crowd outside at night walking to their destination. People are walking at night, and some are going home.","People are walking at night, and some are going to their night shift.",0
+"Crowd outside at night walking to their destination. People are walking at night, and some are going home.","People are walking at night, and some are ready to turn in for the night.",1
+"Crowd outside at night walking to their destination. People are walking at night, and some are going home.",People are screaming while holding signs.,0
+"Crowd outside at night walking to their destination. People are walking at night, and some are going home.",People are tired and ready to sleep.,1
+A blond girl in a black shirt is writing something. a blong girl is dressed,The blonde girl isn't wearing any pants.,0
+A blond girl in a black shirt is writing something. a blong girl is dressed,The blonde girl is wearing slack and high heels.,1
+A blond girl in a black shirt is writing something. a blong girl is dressed,The shirt is the only clothing she has on,0
+A blond girl in a black shirt is writing something. a blong girl is dressed,"She has on a black shirt, pants, and black boots.",1
+A blond girl in a black shirt is writing something. a blong girl is dressed,The woman has to wear a black shirt as a uniform.,1
+The actors wait inside the doors. The actors wait for their costars.,The actors wait for their cues off stage.,0
+The actors wait inside the doors. The actors wait for their costars.,The actors wait for the full cast to begin rehearsal.,1
+The actors wait inside the doors. The actors wait for their costars.,The actors' costars are know for punctuality.,0
+The actors wait inside the doors. The actors wait for their costars.,The actors' costars are known for being very late.,1
+The actors wait inside the doors. The actors wait for their costars.,The actors are looking at the stage manager and waiting for their cue.,0
+The actors wait inside the doors. The actors wait for their costars.,Other actors walk toward the doors.,1
+The actors wait inside the doors. The actors wait for their costars.,The director is running late.,0
+The actors wait inside the doors. The actors wait for their costars.,The costars are running late.,1
+The actors wait inside the doors. The actors wait for their costars.,Fans are waiting for the actors outside the doors,0
+The actors wait inside the doors. The actors wait for their costars.,The actors keep looking at their watches and phones nervously,1
+Lady taking children on a hike through the woods. A family is on a camping trip.,The lady is a school teacher.,0
+Lady taking children on a hike through the woods. A family is on a camping trip.,The children love the lady very much.,1
+Lady taking children on a hike through the woods. A family is on a camping trip.,There are 20 children with backpacks.,0
+Lady taking children on a hike through the woods. A family is on a camping trip.,Both children hold her hands.,1
+Lady taking children on a hike through the woods. A family is on a camping trip.,the lady leads about 20 similarly aged kids,0
+Lady taking children on a hike through the woods. A family is on a camping trip.,the lady leads 2 kids and a man who is her age,1
+Lady taking children on a hike through the woods. A family is on a camping trip.,The woman is a girl scout leader.,0
+Lady taking children on a hike through the woods. A family is on a camping trip.,The children is carrying camping gear on their back.,1
+Lady taking children on a hike through the woods. A family is on a camping trip.,The teacher takes children on a short field trip.,0
+Lady taking children on a hike through the woods. A family is on a camping trip.,They need a good place to pitch their tent.,1
+A windsurfer is balancing on choppy water. There is a windsurfer who fell in choppy water.,The windsurfer is standing on his board.,0
+A windsurfer is balancing on choppy water. There is a windsurfer who fell in choppy water.,The windsurfer is totally dry.,1
+A windsurfer is balancing on choppy water. There is a windsurfer who fell in choppy water.,The Windsurfer has very good balance.,0
+A windsurfer is balancing on choppy water. There is a windsurfer who fell in choppy water.,The Windsurfer took a nasty spill.,1
+A windsurfer is balancing on choppy water. There is a windsurfer who fell in choppy water.,The windsurfer's hair is dry.,0
+A windsurfer is balancing on choppy water. There is a windsurfer who fell in choppy water.,The windsurfer's hair is wet.,1
+A windsurfer is balancing on choppy water. There is a windsurfer who fell in choppy water.,They have great balance.,0
+A windsurfer is balancing on choppy water. There is a windsurfer who fell in choppy water.,They are in the water.,1
+A windsurfer is balancing on choppy water. There is a windsurfer who fell in choppy water.,The windsurfer is still relatively dry.,0
+A windsurfer is balancing on choppy water. There is a windsurfer who fell in choppy water.,The windsurfer is coughing up water.,1
+A man walks into a store in the shopping district. A man walks into a store to buy a present.,"The man says to the store clerk 'My friend has a real thick gold chain and I want one too, do you have one available?'",0
+A man walks into a store in the shopping district. A man walks into a store to buy a present.,The man asks the clerk 'What's a good gift for a woman?',1
+A man walks into a store in the shopping district. A man walks into a store to buy a present.,The man needs groceries,0
+A man walks into a store in the shopping district. A man walks into a store to buy a present.,The man's wife's birthday is tomorrow,1
+A man walks into a store in the shopping district. A man walks into a store to buy a present.,He looks at the ingredients of a recipe while in the store.,0
+A man walks into a store in the shopping district. A man walks into a store to buy a present.,His smartphone pops ups a notification for his wife's upcoming birthday.,1
+A man walks into a store in the shopping district. A man walks into a store to buy a present.,The mans shoes are falling apart,0
+A man walks into a store in the shopping district. A man walks into a store to buy a present.,The man's wifes birthday is coming up.,1
+A man walks into a store in the shopping district. A man walks into a store to buy a present.,It is his anniversary tomorrow.,0
+A man walks into a store in the shopping district. A man walks into a store to buy a present.,He wants to return a shirt.,1
+A dog completing a fitness excercise The dog is overweight.,The dog is a racing greyhound,0
+A dog completing a fitness excercise The dog is overweight.,The dog's belly is large,1
+A dog completing a fitness excercise The dog is overweight.,A judge gives him a score.,0
+A dog completing a fitness excercise The dog is overweight.,A vet is watching them closely.,1
+A dog completing a fitness excercise The dog is overweight.,The dog has been exercising for an hour.,0
+A dog completing a fitness excercise The dog is overweight.,The dog is tired after five minutes.,1
+A dog completing a fitness excercise The dog is overweight.,The dog is a K-9,0
+A dog completing a fitness excercise The dog is overweight.,The owner has put the dog on a diet,1
+A dog completing a fitness excercise The dog is overweight.,the dog is fluffy as it works,0
+A dog completing a fitness excercise The dog is overweight.,the dog is small and light as it runs around continuously,1
+Four people walk down an icy road away from camera Four people walk down an icy road in New York.,There is a Canadian flag outside.,0
+Four people walk down an icy road away from camera Four people walk down an icy road in New York.,There is an Empire State sign outside.,1
+Four people walk down an icy road away from camera Four people walk down an icy road in New York.,People walk past Fenway Park.,0
+Four people walk down an icy road away from camera Four people walk down an icy road in New York.,People walk past Yankee Stadium.,1
+Four people walk down an icy road away from camera Four people walk down an icy road in New York.,The people walk by a sign that says Chicago 100 Miles,0
+Four people walk down an icy road away from camera Four people walk down an icy road in New York.,One person takes a photo of the Empire State Building,1
+Four people walk down an icy road away from camera Four people walk down an icy road in New York.,The people are speaking Russian.,0
+Four people walk down an icy road away from camera Four people walk down an icy road in New York.,The people are speaking English with a Bronx accent.,1
+Four people walk down an icy road away from camera Four people walk down an icy road in New York.,Four people walk toward Lake Michigan.,0
+Four people walk down an icy road away from camera Four people walk down an icy road in New York.,Four people walk toward Time's Square.,1
+The sunshine behind a group of trees on a long rode. This is the first time the sun has shown today.,There are slush puddles around the trees after the snow from the previous night melted.,0
+The sunshine behind a group of trees on a long rode. This is the first time the sun has shown today.,There are birds singing excitedly on the trees.,1
+The sunshine behind a group of trees on a long rode. This is the first time the sun has shown today.,The ground is dry.,0
+The sunshine behind a group of trees on a long rode. This is the first time the sun has shown today.,The ground is wet.,1
+The sunshine behind a group of trees on a long rode. This is the first time the sun has shown today.,The trees are facing west.,0
+The sunshine behind a group of trees on a long rode. This is the first time the sun has shown today.,The trees are facing east.,1
+The sunshine behind a group of trees on a long rode. This is the first time the sun has shown today.,The sun has been shining all day long.,0
+The sunshine behind a group of trees on a long rode. This is the first time the sun has shown today.,The clouds finally cleared and the sunlight is drying the leaves on the trees.,1
+The sunshine behind a group of trees on a long rode. This is the first time the sun has shown today.,The pavement is very hot.,0
+The sunshine behind a group of trees on a long rode. This is the first time the sun has shown today.,Everything is wet from rain storms.,1
+Three men in overalls walk down a sidewalk in the midst of pedestrian traffic. Three men from a farm are visiting the city.,They're about to perform in a country and western concert in the park.,0
+Three men in overalls walk down a sidewalk in the midst of pedestrian traffic. Three men from a farm are visiting the city.,They can't wait to get away from all the hustle and bustle of the big city.,1
+Three men in overalls walk down a sidewalk in the midst of pedestrian traffic. Three men from a farm are visiting the city.,They are carrying banjos.,0
+Three men in overalls walk down a sidewalk in the midst of pedestrian traffic. Three men from a farm are visiting the city.,One man is leading a cow by a rope.,1
+Three men in overalls walk down a sidewalk in the midst of pedestrian traffic. Three men from a farm are visiting the city.,The men's overalls are meant to help protect them as they complete construction work.,0
+Three men in overalls walk down a sidewalk in the midst of pedestrian traffic. Three men from a farm are visiting the city.,The men have southern accents.,1
+Three men in overalls walk down a sidewalk in the midst of pedestrian traffic. Three men from a farm are visiting the city.,The men have window washing products in their hands.,0
+Three men in overalls walk down a sidewalk in the midst of pedestrian traffic. Three men from a farm are visiting the city.,The men gaze in awe at the tall buildings.,1
+Three men in overalls walk down a sidewalk in the midst of pedestrian traffic. Three men from a farm are visiting the city.,The back of their overalls say 'City Sanitation'.T,0
+Three men in overalls walk down a sidewalk in the midst of pedestrian traffic. Three men from a farm are visiting the city.,They head to the Convention Center where the sign reads 'Welcome Dairy Farmers'.,1
+Three hockey players look on as the game continues. Three hockey players are cheering on other players.,They are poor sports and boo when the other team scores.,0
+Three hockey players look on as the game continues. Three hockey players are cheering on other players.,They jump and shout when their team mates have the puck.,1
+Three hockey players look on as the game continues. Three hockey players are cheering on other players.,Their mouths are closed.,0
+Three hockey players look on as the game continues. Three hockey players are cheering on other players.,They are sitting on the bench.,1
+Three hockey players look on as the game continues. Three hockey players are cheering on other players.,The angry hockey players can only watch from the penalty box as the team loses.,0
+Three hockey players look on as the game continues. Three hockey players are cheering on other players.,The hockey players cheer from the bench as the coach guides them to another victory.,1
+Three hockey players look on as the game continues. Three hockey players are cheering on other players.,The three players sit silent as they watch the game.,0
+Three hockey players look on as the game continues. Three hockey players are cheering on other players.,The player clap and bark out encouragement to players on the ice.,1
+Three hockey players look on as the game continues. Three hockey players are cheering on other players.,The players are angry about being in the box,0
+Three hockey players look on as the game continues. Three hockey players are cheering on other players.,The hockey players all have injuries,1
+Shirtless guy staring off in the distance while three woman are walking past a crowd sitting outside a cafe. Three woman look at a shirtless man.,The women are trying not to make eye contact with the shirtless man.,0
+Shirtless guy staring off in the distance while three woman are walking past a crowd sitting outside a cafe. Three woman look at a shirtless man.,The three women are trying to figure out what happened to the shirtless man.,1
+Shirtless guy staring off in the distance while three woman are walking past a crowd sitting outside a cafe. Three woman look at a shirtless man.,The women laugh and wave at their friends in the cafe while the man watches from the opposite rooftop.,0
+Shirtless guy staring off in the distance while three woman are walking past a crowd sitting outside a cafe. Three woman look at a shirtless man.,The women stare across the street and make catcalls while passing the cafe.,1
+Shirtless guy staring off in the distance while three woman are walking past a crowd sitting outside a cafe. Three woman look at a shirtless man.,"The heads of the two women on the sides are bent towards the middle, where the middle woman is holding out her phone",0
+Shirtless guy staring off in the distance while three woman are walking past a crowd sitting outside a cafe. Three woman look at a shirtless man.,The man is a model,1
+Shirtless guy staring off in the distance while three woman are walking past a crowd sitting outside a cafe. Three woman look at a shirtless man.,The women are lesbians,0
+Shirtless guy staring off in the distance while three woman are walking past a crowd sitting outside a cafe. Three woman look at a shirtless man.,The women’s jaws drop because the man is handsome,1
+Shirtless guy staring off in the distance while three woman are walking past a crowd sitting outside a cafe. Three woman look at a shirtless man.,The women avert their eyes because the man is underdressed.,0
+Shirtless guy staring off in the distance while three woman are walking past a crowd sitting outside a cafe. Three woman look at a shirtless man.,The women wish the man would put on his clothes.,1
+Barber cutting hear of gentleman with lots of hair. Barber shaving a man's hair off,"After the haircut, the man braids his hair.",0
+Barber cutting hear of gentleman with lots of hair. Barber shaving a man's hair off,The clippers the barber uses are noisy.,1
+Barber cutting hear of gentleman with lots of hair. Barber shaving a man's hair off,The barber is using scissors instead of an electric razor.,0
+Barber cutting hear of gentleman with lots of hair. Barber shaving a man's hair off,"The man is reading a book called ""Cancer and You.""",1
+Barber cutting hear of gentleman with lots of hair. Barber shaving a man's hair off,The barber is holding scissors and a comb.,0
+Barber cutting hear of gentleman with lots of hair. Barber shaving a man's hair off,The barber sharpened a straight edge razor.,1
+Barber cutting hear of gentleman with lots of hair. Barber shaving a man's hair off,The barber is holding a pair of scissors.,0
+Barber cutting hear of gentleman with lots of hair. Barber shaving a man's hair off,The barber is holding a razor.,1
+Barber cutting hear of gentleman with lots of hair. Barber shaving a man's hair off,"""Just a little bit off the top and sides,"" says the man.",0
+Barber cutting hear of gentleman with lots of hair. Barber shaving a man's hair off,Large amounts of hair fall to the barbershop floor.,1
+A young child wearing a yellow striped t-shirt and blue shorts is playing along side the lake and rocks. The child plays here often.,Everything was new and exciting.,0
+A young child wearing a yellow striped t-shirt and blue shorts is playing along side the lake and rocks. The child plays here often.,The child walked over to his favorite tree.,1
+A young child wearing a yellow striped t-shirt and blue shorts is playing along side the lake and rocks. The child plays here often.,The child is getting to know its new surroundings since moving to the area.,0
+A young child wearing a yellow striped t-shirt and blue shorts is playing along side the lake and rocks. The child plays here often.,The child's favorite past time is skipping rocks on the lake.,1
+A young child wearing a yellow striped t-shirt and blue shorts is playing along side the lake and rocks. The child plays here often.,He got lost while walking along the lake,0
+A young child wearing a yellow striped t-shirt and blue shorts is playing along side the lake and rocks. The child plays here often.,He sat at his favorite rock,1
+A young child wearing a yellow striped t-shirt and blue shorts is playing along side the lake and rocks. The child plays here often.,The lake is far from the child's home.,0
+A young child wearing a yellow striped t-shirt and blue shorts is playing along side the lake and rocks. The child plays here often.,The child's home overlooks the lake.,1
+A young child wearing a yellow striped t-shirt and blue shorts is playing along side the lake and rocks. The child plays here often.,This is the child's first visit to the lake.,0
+A young child wearing a yellow striped t-shirt and blue shorts is playing along side the lake and rocks. The child plays here often.,The child is playing in his favorite spot.,1
+Skateboarder in the air. A person is doing tricks.,The skateboarder hit a rock and went flying.,0
+Skateboarder in the air. A person is doing tricks.,"The skateboarder is in an empty pool, showing off to his friends.",1
+Skateboarder in the air. A person is doing tricks.,The person looks scared.,0
+Skateboarder in the air. A person is doing tricks.,The person is confidently rotating theirself.,1
+Skateboarder in the air. A person is doing tricks.,He has been hit by a car.,0
+Skateboarder in the air. A person is doing tricks.,A large crowd is watching.,1
+Skateboarder in the air. A person is doing tricks.,They are falling off the edge of the ramp,0
+Skateboarder in the air. A person is doing tricks.,The skateboarder grabs the and flips in the air.,1
+Skateboarder in the air. A person is doing tricks.,He is falling head first.,0
+Skateboarder in the air. A person is doing tricks.,There is a crowd gathering to watch him.,1
+Young girl in pink T-shirt and black leggings tosses blue football in grassy open area. The girl is playing with the ball at the park.,The girl is a princess on her own land,0
+Young girl in pink T-shirt and black leggings tosses blue football in grassy open area. The girl is playing with the ball at the park.,The girl is playing with others,1
+Young girl in pink T-shirt and black leggings tosses blue football in grassy open area. The girl is playing with the ball at the park.,Above her is a large sign that reads 'Super Bowl',0
+Young girl in pink T-shirt and black leggings tosses blue football in grassy open area. The girl is playing with the ball at the park.,In the distance are kids on swings and people walking their dogs.,1
+Young girl in pink T-shirt and black leggings tosses blue football in grassy open area. The girl is playing with the ball at the park.,The girl tosses the ball in some grass behind a small house.,0
+Young girl in pink T-shirt and black leggings tosses blue football in grassy open area. The girl is playing with the ball at the park.,The girl tosses the ball in the grassy area with picnic tables and ball fields nearby.,1
+Young girl in pink T-shirt and black leggings tosses blue football in grassy open area. The girl is playing with the ball at the park.,The girl is playing with the ball alone in her large backyard.,0
+Young girl in pink T-shirt and black leggings tosses blue football in grassy open area. The girl is playing with the ball at the park.,The girl is playing with the ball at the park with her teammates.,1
+Young girl in pink T-shirt and black leggings tosses blue football in grassy open area. The girl is playing with the ball at the park.,The young girl was blessed to grow up in a house with a big backyard.,0
+Young girl in pink T-shirt and black leggings tosses blue football in grassy open area. The girl is playing with the ball at the park.,The girl isn't the only person in the area throwing a ball around.,1
+A woman is helping another woman put a stack of hay on her head. Two women work together to pay for their family.,One woman says to the other 'We single gals got to stick together',0
+A woman is helping another woman put a stack of hay on her head. Two women work together to pay for their family.,One woman says to an onlooking boy 'You see what we do to put food on your table?',1
+A woman is helping another woman put a stack of hay on her head. Two women work together to pay for their family.,The two women are feeding the horses.,0
+A woman is helping another woman put a stack of hay on her head. Two women work together to pay for their family.,The women's husbands are out of work.,1
+A woman is helping another woman put a stack of hay on her head. Two women work together to pay for their family.,the women then jump up and throw the hay off then laugh,0
+A woman is helping another woman put a stack of hay on her head. Two women work together to pay for their family.,the women the carry the hay to a man who waits,1
+A woman is helping another woman put a stack of hay on her head. Two women work together to pay for their family.,The two women isn't taking this too seriously.,0
+A woman is helping another woman put a stack of hay on her head. Two women work together to pay for their family.,The two women is very serious and hardworking.,1
+A woman is helping another woman put a stack of hay on her head. Two women work together to pay for their family.,They are laughing and giggling.,0
+A woman is helping another woman put a stack of hay on her head. Two women work together to pay for their family.,They are headed towards a farmer's market.,1
+A man plays an organ grinder with a toy bird in a cage. A man is doing a street performance with a organ grinder for money.,The man is on a stage.,0
+A man plays an organ grinder with a toy bird in a cage. A man is doing a street performance with a organ grinder for money.,The man has a tip jar in front of him.,1
+A man plays an organ grinder with a toy bird in a cage. A man is doing a street performance with a organ grinder for money.,No one is watching the man.,0
+A man plays an organ grinder with a toy bird in a cage. A man is doing a street performance with a organ grinder for money.,A crowd has gathered around the man.,1
+A man plays an organ grinder with a toy bird in a cage. A man is doing a street performance with a organ grinder for money.,The man is performing at a circus.,0
+A man plays an organ grinder with a toy bird in a cage. A man is doing a street performance with a organ grinder for money.,The man is performing on a street corner.,1
+A man plays an organ grinder with a toy bird in a cage. A man is doing a street performance with a organ grinder for money.,He hands it to a small child sitting on the sofa.,0
+A man plays an organ grinder with a toy bird in a cage. A man is doing a street performance with a organ grinder for money.,Passersby toss money into his cap.,1
+A man plays an organ grinder with a toy bird in a cage. A man is doing a street performance with a organ grinder for money.,There is a man with a movie camera nearby,0
+A man plays an organ grinder with a toy bird in a cage. A man is doing a street performance with a organ grinder for money.,There is an upturned hat on the ground,1
+Three people are sitting on a barrier outside a building with their yellow bucket. Three people are talking while they are sitting.,They are facing away from each other.,0
+Three people are sitting on a barrier outside a building with their yellow bucket. Three people are talking while they are sitting.,They are facing each other and gesturing.,1
+Three people are sitting on a barrier outside a building with their yellow bucket. Three people are talking while they are sitting.,They are staying quiet.,0
+Three people are sitting on a barrier outside a building with their yellow bucket. Three people are talking while they are sitting.,They are laughing and smiling.,1
+Three people are sitting on a barrier outside a building with their yellow bucket. Three people are talking while they are sitting.,Singing is heard from three people.,0
+Three people are sitting on a barrier outside a building with their yellow bucket. Three people are talking while they are sitting.,Three people enjoy their lunch hour.,1
+Three people are sitting on a barrier outside a building with their yellow bucket. Three people are talking while they are sitting.,The are headphones in the people's ears.,0
+Three people are sitting on a barrier outside a building with their yellow bucket. Three people are talking while they are sitting.,The people are laughing.,1
+Three people are sitting on a barrier outside a building with their yellow bucket. Three people are talking while they are sitting.,The people are still half-asleep.,0
+Three people are sitting on a barrier outside a building with their yellow bucket. Three people are talking while they are sitting.,The people are bored and don't have any electronic devices.,1
+A man with short blond-hair wearing a blue shirt chopping wood. There is a man out there chopping wood for his grandmother,There is a swingset and pool in the yard.,0
+A man with short blond-hair wearing a blue shirt chopping wood. There is a man out there chopping wood for his grandmother,An old woman watches from afar.,1
+A man with short blond-hair wearing a blue shirt chopping wood. There is a man out there chopping wood for his grandmother,The man is alone in the woods.,0
+A man with short blond-hair wearing a blue shirt chopping wood. There is a man out there chopping wood for his grandmother,An older lady looks on from the door of the house.,1
+A man with short blond-hair wearing a blue shirt chopping wood. There is a man out there chopping wood for his grandmother,Grandmother uses solar thermal energy.,0
+A man with short blond-hair wearing a blue shirt chopping wood. There is a man out there chopping wood for his grandmother,"Grandmother uses a large, stone fireplace.",1
+A man with short blond-hair wearing a blue shirt chopping wood. There is a man out there chopping wood for his grandmother,"The man is in front of a pickup that has a sign on it saying ""Tree Removal"".",0
+A man with short blond-hair wearing a blue shirt chopping wood. There is a man out there chopping wood for his grandmother,"The man is in front of a very old, small cottage that has an elderly woman in front of it.",1
+A man with short blond-hair wearing a blue shirt chopping wood. There is a man out there chopping wood for his grandmother,The man's grandmother has electric heating.,0
+A man with short blond-hair wearing a blue shirt chopping wood. There is a man out there chopping wood for his grandmother,The man's grandmother lives in a house with a wood-burning stove.,1
+Two men in a crowd are turned around taking a picture together while a concert is going on in the background. Two men on their first date to a concert take a selfie.,The men wear matching rings on their ring fingers.,0
+Two men in a crowd are turned around taking a picture together while a concert is going on in the background. Two men on their first date to a concert take a selfie.,The men met on Tinder one week prior.,1
+Two men in a crowd are turned around taking a picture together while a concert is going on in the background. Two men on their first date to a concert take a selfie.,The men are related to each other.,0
+Two men in a crowd are turned around taking a picture together while a concert is going on in the background. Two men on their first date to a concert take a selfie.,The men are pointing the camera right at themselves.,1
+Two men in a crowd are turned around taking a picture together while a concert is going on in the background. Two men on their first date to a concert take a selfie.,Afterward the two men shake hands and introduce themselves to one another,0
+Two men in a crowd are turned around taking a picture together while a concert is going on in the background. Two men on their first date to a concert take a selfie.,The two men share a kiss afterward,1
+Two men in a crowd are turned around taking a picture together while a concert is going on in the background. Two men on their first date to a concert take a selfie.,The brothers can finally cross this event off of their bucket list.,0
+Two men in a crowd are turned around taking a picture together while a concert is going on in the background. Two men on their first date to a concert take a selfie.,The two men bonded over their love of music and it didn't take long before one asked the other out.,1
+Two men in a crowd are turned around taking a picture together while a concert is going on in the background. Two men on their first date to a concert take a selfie.,The men have pens and pads of paper with them,0
+Two men in a crowd are turned around taking a picture together while a concert is going on in the background. Two men on their first date to a concert take a selfie.,The men hold hands,1
+A woman in a green dress is walking on a sidewalk while a man in a red shirt is standing beside a white car with the hood up. A woman is walking towards a man.,The woman is facing the ocean.,0
+A woman in a green dress is walking on a sidewalk while a man in a red shirt is standing beside a white car with the hood up. A woman is walking towards a man.,The woman is facing the man.,1
+A woman in a green dress is walking on a sidewalk while a man in a red shirt is standing beside a white car with the hood up. A woman is walking towards a man.,The woman gets farther away from the man as she walks.,0
+A woman in a green dress is walking on a sidewalk while a man in a red shirt is standing beside a white car with the hood up. A woman is walking towards a man.,The woman approaches the man ans says something to him.,1
+A woman in a green dress is walking on a sidewalk while a man in a red shirt is standing beside a white car with the hood up. A woman is walking towards a man.,The woman and man do not know each other.,0
+A woman in a green dress is walking on a sidewalk while a man in a red shirt is standing beside a white car with the hood up. A woman is walking towards a man.,The woman and man are good friends.,1
+A woman in a green dress is walking on a sidewalk while a man in a red shirt is standing beside a white car with the hood up. A woman is walking towards a man.,She is very late to her job.,0
+A woman in a green dress is walking on a sidewalk while a man in a red shirt is standing beside a white car with the hood up. A woman is walking towards a man.,The car belongs to her.,1
+A woman in a green dress is walking on a sidewalk while a man in a red shirt is standing beside a white car with the hood up. A woman is walking towards a man.,The man stares at the back of the woman as she disappears down the street.,0
+A woman in a green dress is walking on a sidewalk while a man in a red shirt is standing beside a white car with the hood up. A woman is walking towards a man.,The woman waves at the man when she notices him and then kisses him on the cheek.,1
+The man stands in a body of water near a waterfall. The man is shivering because the water is so cold.,the man laughs and cheers while he swims,0
+The man stands in a body of water near a waterfall. The man is shivering because the water is so cold.,the man rubs his shoulders while he swims,1
+The man stands in a body of water near a waterfall. The man is shivering because the water is so cold.,Water lilies float in the pool it pours into.,0
+The man stands in a body of water near a waterfall. The man is shivering because the water is so cold.,His lips are blue.,1
+The man stands in a body of water near a waterfall. The man is shivering because the water is so cold.,He is splashing his face.,0
+The man stands in a body of water near a waterfall. The man is shivering because the water is so cold.,Only his feet are in the water.,1
+The man stands in a body of water near a waterfall. The man is shivering because the water is so cold.,The man is comfortable because the water is so warm.,0
+The man stands in a body of water near a waterfall. The man is shivering because the water is so cold.,He is ready to climb out and get warm.,1
+The man stands in a body of water near a waterfall. The man is shivering because the water is so cold.,He laughs as the warmth of the sun hits his body.,0
+The man stands in a body of water near a waterfall. The man is shivering because the water is so cold.,It is the middle of winter.,1
+The dog is carrying a toy through the grass. A dog carrying a squeaky toy through grass.,The toy is made of rigid material.,0
+The dog is carrying a toy through the grass. A dog carrying a squeaky toy through grass.,The toy is a rubber duck.,1
+The dog is carrying a toy through the grass. A dog carrying a squeaky toy through grass.,The toy is a large solid ball,0
+The dog is carrying a toy through the grass. A dog carrying a squeaky toy through grass.,A loud noise is coming from the toy,1
+The dog is carrying a toy through the grass. A dog carrying a squeaky toy through grass.,The dog carries a solid wooden toy.,0
+The dog is carrying a toy through the grass. A dog carrying a squeaky toy through grass.,The dog has a small rubber toy in its mouth.,1
+The dog is carrying a toy through the grass. A dog carrying a squeaky toy through grass.,A dog carrying a chewy rubber toy with hollow center.,0
+The dog is carrying a toy through the grass. A dog carrying a squeaky toy through grass.,A dog carrying a plush toy which makes a high-pitched sound.,1
+The dog is carrying a toy through the grass. A dog carrying a squeaky toy through grass.,Who could imagine a dog having so much fun with a knotted piece of rope.,0
+The dog is carrying a toy through the grass. A dog carrying a squeaky toy through grass.,"He proudly announces his progress with a bite squeak, bite squeak.",1
+A group pf people and their pets walk down a train track The group of people see a train.,The group are in an abandoned area,0
+A group pf people and their pets walk down a train track The group of people see a train.,The group are under a flashing sign,1
+A group pf people and their pets walk down a train track The group of people see a train.,The pets are service animals.,0
+A group pf people and their pets walk down a train track The group of people see a train.,The people hear a large noise.,1
+A group pf people and their pets walk down a train track The group of people see a train.,It is nearly silent around the people.,0
+A group pf people and their pets walk down a train track The group of people see a train.,The people can feel the tracks vibrating.,1
+A group pf people and their pets walk down a train track The group of people see a train.,The train track is old and broken.,0
+A group pf people and their pets walk down a train track The group of people see a train.,A crossing barrier lowers in front of them.,1
+A group pf people and their pets walk down a train track The group of people see a train.,The train tracks come to an end at the street.,0
+A group pf people and their pets walk down a train track The group of people see a train.,A big light is coming from one end of the tracks.,1
+A man singing into a microphone. A man sings into a microphone down in the subway.,Even the people in the balconies can hear him clearly.,0
+A man singing into a microphone. A man sings into a microphone down in the subway.,The arrival of a train interrupts him.,1
+A man singing into a microphone. A man sings into a microphone down in the subway.,There is a lot of background noise.,0
+A man singing into a microphone. A man sings into a microphone down in the subway.,"There is a large, seated audience.",1
+A man singing into a microphone. A man sings into a microphone down in the subway.,A waitress is delivering a beer to a nearby table.,0
+A man singing into a microphone. A man sings into a microphone down in the subway.,The sound of a horn can be heard from the tunnel.,1
+A man singing into a microphone. A man sings into a microphone down in the subway.,the chirping birds fly past him.,0
+A man singing into a microphone. A man sings into a microphone down in the subway.,the train drowns him out.,1
+A man singing into a microphone. A man sings into a microphone down in the subway.,There is a curtain behind the man and rows of seats in front of him.,0
+A man singing into a microphone. A man sings into a microphone down in the subway.,A train comes and drowns out the man's singing.,1
+A woman in blue wearing flip-flops touches a passing car while walking beside a young man in a green striped shirt. Two lovers enjoying a walk full of leisure and conversation.,The young man studies in a class the woman teaches.,0
+A woman in blue wearing flip-flops touches a passing car while walking beside a young man in a green striped shirt. Two lovers enjoying a walk full of leisure and conversation.,The woman and man woke up together that morning.,1
+A woman in blue wearing flip-flops touches a passing car while walking beside a young man in a green striped shirt. Two lovers enjoying a walk full of leisure and conversation.,The woman is yelling at the man,0
+A woman in blue wearing flip-flops touches a passing car while walking beside a young man in a green striped shirt. Two lovers enjoying a walk full of leisure and conversation.,The people are wearing wedding rings and holding hands,1
+A woman in blue wearing flip-flops touches a passing car while walking beside a young man in a green striped shirt. Two lovers enjoying a walk full of leisure and conversation.,The brother and sister are on their way to the mall.,0
+A woman in blue wearing flip-flops touches a passing car while walking beside a young man in a green striped shirt. Two lovers enjoying a walk full of leisure and conversation.,The couple hold hands and smile at each other.,1
+A woman in blue wearing flip-flops touches a passing car while walking beside a young man in a green striped shirt. Two lovers enjoying a walk full of leisure and conversation.,The two people are both on their phones.,0
+A woman in blue wearing flip-flops touches a passing car while walking beside a young man in a green striped shirt. Two lovers enjoying a walk full of leisure and conversation.,They are holding hands.,1
+A woman in blue wearing flip-flops touches a passing car while walking beside a young man in a green striped shirt. Two lovers enjoying a walk full of leisure and conversation.,The streets are so crowded people are packed.,0
+A woman in blue wearing flip-flops touches a passing car while walking beside a young man in a green striped shirt. Two lovers enjoying a walk full of leisure and conversation.,The woman and man are holding hands and talking.,1
+Four similarly styled brightly dressed women with long skirts dancing in the sunlight with trees framing their movements in the background. Four dancers are putting on a show.,Four dancers move in some trees as they rehearse with no one around.,0
+Four similarly styled brightly dressed women with long skirts dancing in the sunlight with trees framing their movements in the background. Four dancers are putting on a show.,Four dancers move in the trees on a stage as an audience watches.,1
+Four similarly styled brightly dressed women with long skirts dancing in the sunlight with trees framing their movements in the background. Four dancers are putting on a show.,The women are dancing with their husbands at the company picnic.,0
+Four similarly styled brightly dressed women with long skirts dancing in the sunlight with trees framing their movements in the background. Four dancers are putting on a show.,The CD player suddenly stops playing in the middle of the song and the women freeze onstage.,1
+Four similarly styled brightly dressed women with long skirts dancing in the sunlight with trees framing their movements in the background. Four dancers are putting on a show.,The women are paintings in an art gallery.,0
+Four similarly styled brightly dressed women with long skirts dancing in the sunlight with trees framing their movements in the background. Four dancers are putting on a show.,A crowd has bought tickets and gathered to watch the women dance.,1
+Four similarly styled brightly dressed women with long skirts dancing in the sunlight with trees framing their movements in the background. Four dancers are putting on a show.,There is a concert going on surrounded by a field with trees,0
+Four similarly styled brightly dressed women with long skirts dancing in the sunlight with trees framing their movements in the background. Four dancers are putting on a show.,A large audience is applauding their dancing,1
+A brown dog holding a really big stick. some dog is guarding a place holding a stick,The dog is on an open beach,0
+A brown dog holding a really big stick. some dog is guarding a place holding a stick,There is a house behind the dog,1
+A brown dog holding a really big stick. some dog is guarding a place holding a stick,The dog is lying in a hospital bed,0
+A brown dog holding a really big stick. some dog is guarding a place holding a stick,The dog is barking at anyone that approaches the building,1
+A brown dog holding a really big stick. some dog is guarding a place holding a stick,The dog is walking down a street.,0
+A brown dog holding a really big stick. some dog is guarding a place holding a stick,The dog is in a yard.,1
+A brown dog holding a really big stick. some dog is guarding a place holding a stick,A man is trying to get the dog to bring him the stick,0
+A brown dog holding a really big stick. some dog is guarding a place holding a stick,The dog sits in front of a locked door,1
+A brown dog holding a really big stick. some dog is guarding a place holding a stick,The dog holds the stick out in a large field.,0
+A brown dog holding a really big stick. some dog is guarding a place holding a stick,The dog stands in front of a door holding the stick.,1
+A brown dogs licks its black nose. The brown dog just ate something.,The irritating fly flies away.,0
+A brown dogs licks its black nose. The brown dog just ate something.,Now the dog's bowl and nose are both clean.,1
+A brown dogs licks its black nose. The brown dog just ate something.,Dogs sometimes lick their noses in response to an itch.,0
+A brown dogs licks its black nose. The brown dog just ate something.,The dog was able to get the last of the peanut butter off.,1
+A brown dogs licks its black nose. The brown dog just ate something.,The dog looks hungry.,0
+A brown dogs licks its black nose. The brown dog just ate something.,There is an open jar of peanut butter on the floor next to the dog.,1
+A brown dogs licks its black nose. The brown dog just ate something.,The dog's nose is runny.,0
+A brown dogs licks its black nose. The brown dog just ate something.,The dog is standing in front of it's food dish.,1
+A brown dogs licks its black nose. The brown dog just ate something.,The brown dog is very hungry.,0
+A brown dogs licks its black nose. The brown dog just ate something.,The brown dog has some ketchup on its nose.,1
+Men in orange vests are laying train track down. The men are correcting the broken track.,The men are working on extending the railroad to a new station.,0
+Men in orange vests are laying train track down. The men are correcting the broken track.,Next to the men is a pile of twisted and broken steel.,1
+Men in orange vests are laying train track down. The men are correcting the broken track.,It is a brand new train line.,0
+Men in orange vests are laying train track down. The men are correcting the broken track.,There are discarded rails to the side.,1
+Men in orange vests are laying train track down. The men are correcting the broken track.,This area was previously part of a nature preserve.,0
+Men in orange vests are laying train track down. The men are correcting the broken track.,There are several broken and twisted railway ties nearby.,1
+Men in orange vests are laying train track down. The men are correcting the broken track.,It's for a new route through the mountain pass.,0
+Men in orange vests are laying train track down. The men are correcting the broken track.,A train derailed yesterday before the damaged track was noticed.,1
+Men in orange vests are laying train track down. The men are correcting the broken track.,"The track ends just in front of them, showing it is incomplete.",0
+Men in orange vests are laying train track down. The men are correcting the broken track.,The track goes on to the horizon.,1
+Two young girls are talking to each other. Two girls gossip about boys at school.,One girl is pointing at a calculator.,0
+Two young girls are talking to each other. Two girls gossip about boys at school.,The girls are looking at a group of boys.,1
+Two young girls are talking to each other. Two girls gossip about boys at school.,The girls are pointing to their English books.,0
+Two young girls are talking to each other. Two girls gossip about boys at school.,The girls look at a boy and giggle.,1
+Two young girls are talking to each other. Two girls gossip about boys at school.,The two girls are standing in front of the class giving a presentation.,0
+Two young girls are talking to each other. Two girls gossip about boys at school.,One of the girls giggles as she points to a boy.,1
+Two young girls are talking to each other. Two girls gossip about boys at school.,The girls are each holding math tests and occasionally look down at them.,0
+Two young girls are talking to each other. Two girls gossip about boys at school.,The girls keep looking over at one of their male classmates.,1
+Two young girls are talking to each other. Two girls gossip about boys at school.,a nun stands between them.,0
+Two young girls are talking to each other. Two girls gossip about boys at school.,they point to a young boy and giggle.,1
+An oriental couple walks by a hallway in a museum of art. The couple looks at some sculptures.,The woman guides the man who is holding a stick and wearing dark glasses.,0
+An oriental couple walks by a hallway in a museum of art. The couple looks at some sculptures.,The woman point to a statue and the man looks that way.,1
+An oriental couple walks by a hallway in a museum of art. The couple looks at some sculptures.,The couple is lost,0
+An oriental couple walks by a hallway in a museum of art. The couple looks at some sculptures.,The couple love Michelangelo's artwork,1
+An oriental couple walks by a hallway in a museum of art. The couple looks at some sculptures.,They discussed famous painters as they looked at their work.,0
+An oriental couple walks by a hallway in a museum of art. The couple looks at some sculptures.,"The art was made of marble, some of wood some and some of stone.",1
+An oriental couple walks by a hallway in a museum of art. The couple looks at some sculptures.,The couple stopped and asked for directions to the museum cafeteria.,0
+An oriental couple walks by a hallway in a museum of art. The couple looks at some sculptures.,Right before the hallway was a sign indicating that it leads to the sculpture gallery.,1
+An oriental couple walks by a hallway in a museum of art. The couple looks at some sculptures.,The hall holds an Impressionist painting exhibit this month.,0
+An oriental couple walks by a hallway in a museum of art. The couple looks at some sculptures.,The room is filled with wire and metal kinetic sculptures.,1
+Two African-American people walking at an outdoor festival. Two men are at a music festival,They are surrounded by food trucks.,0
+Two African-American people walking at an outdoor festival. Two men are at a music festival,There is loud music coming from multiple areas near them.,1
+Two African-American people walking at an outdoor festival. Two men are at a music festival,Both people have high-pitched voices and ponytails.,0
+Two African-American people walking at an outdoor festival. Two men are at a music festival,Both people have mustaches and goatees.,1
+Two African-American people walking at an outdoor festival. Two men are at a music festival,They are wearing dresses.,0
+Two African-American people walking at an outdoor festival. Two men are at a music festival,They are both bald.,1
+Two African-American people walking at an outdoor festival. Two men are at a music festival,The wind can be heard rustling the leavs.,0
+Two African-American people walking at an outdoor festival. Two men are at a music festival,The osund of music drowns out the talking.,1
+A woman is holding a crying baby on the floor of a busy ice rink. A mother and her injured baby.,The baby is crying and reaching for a toy the mother is holding.,0
+A woman is holding a crying baby on the floor of a busy ice rink. A mother and her injured baby.,The mother kisses the baby's bruised hand.,1
+A woman is holding a crying baby on the floor of a busy ice rink. A mother and her injured baby.,The woman remarks 'I ought to get paid more for babysitting',0
+A woman is holding a crying baby on the floor of a busy ice rink. A mother and her injured baby.,"A man comes to help and says 'Hey dear, how's our Isabella doing?'",1
+A woman is holding a crying baby on the floor of a busy ice rink. A mother and her injured baby.,The baby's diaper is wet.,0
+A woman is holding a crying baby on the floor of a busy ice rink. A mother and her injured baby.,The baby is bleeding.,1
+A woman is holding a crying baby on the floor of a busy ice rink. A mother and her injured baby.,A mother and her baby are physically fine.,0
+A woman is holding a crying baby on the floor of a busy ice rink. A mother and her injured baby.,A mother is fine but her baby is bruised.,1
+A woman is holding a crying baby on the floor of a busy ice rink. A mother and her injured baby.,The loud music was upsetting the baby.,0
+A woman is holding a crying baby on the floor of a busy ice rink. A mother and her injured baby.,The baby had a little cut from the ice skate.,1
+A woman in a white shirt straining to lift some weights. A woman is exercising.,The weights are blocking a doorway.,0
+A woman in a white shirt straining to lift some weights. A woman is exercising.,The woman is wearing workout clothes.,1
+A woman in a white shirt straining to lift some weights. A woman is exercising.,The woman is cleaning out the garage.,0
+A woman in a white shirt straining to lift some weights. A woman is exercising.,The woman is wearing a sweatband on her forehead.,1
+A woman in a white shirt straining to lift some weights. A woman is exercising.,The woman asked her wife to move the weights multiple times.,0
+A woman in a white shirt straining to lift some weights. A woman is exercising.,The woman was inexperienced at weightlifting.,1
+A woman in a white shirt straining to lift some weights. A woman is exercising.,The woman eventually gets the weights into a crate and moves them somewhere,0
+A woman in a white shirt straining to lift some weights. A woman is exercising.,The woman eventually gets the weights above her and places it on a bar then takes a breather,1
+A woman in a white shirt straining to lift some weights. A woman is exercising.,The woman is a equipment manager.,0
+A woman in a white shirt straining to lift some weights. A woman is exercising.,There is a guy right next to her yelling.,1
+A person touches a dog's tooth. A tall human touching,The dog is as tall as the person's waist.,0
+A person touches a dog's tooth. A tall human touching,The person has to lean very far down.,1
+A person touches a dog's tooth. A tall human touching,The person touching the dog tooth is a toddler.,0
+A person touches a dog's tooth. A tall human touching,The person has to bend over really far to reach down to the dog.,1
+A person touches a dog's tooth. A tall human touching,The person is a basketball player,0
+A person touches a dog's tooth. A tall human touching,The person is 2 years old,1
+A person touches a dog's tooth. A tall human touching,The person is a dwarf.,0
+A person touches a dog's tooth. A tall human touching,The person is a Masai warrior.,1
+A person touches a dog's tooth. A tall human touching,the person is barely any taller than the dog,0
+A person touches a dog's tooth. A tall human touching,the person towers over the dog,1
+A young toddler is playing with a dinosaur toy and a yellow block while sitting in the bathtub. A little boy enjoys his bath.,The soap gets in his eye and burns.,0
+A young toddler is playing with a dinosaur toy and a yellow block while sitting in the bathtub. A little boy enjoys his bath.,The toddler splashes  in the bubbles laughing.,1
+A young toddler is playing with a dinosaur toy and a yellow block while sitting in the bathtub. A little boy enjoys his bath.,The boy has soap in his eyes.,0
+A young toddler is playing with a dinosaur toy and a yellow block while sitting in the bathtub. A little boy enjoys his bath.,The boy is laughing and splashing.,1
+A young toddler is playing with a dinosaur toy and a yellow block while sitting in the bathtub. A little boy enjoys his bath.,There's no water in the bath,0
+A young toddler is playing with a dinosaur toy and a yellow block while sitting in the bathtub. A little boy enjoys his bath.,The toddler is laughing,1
+A young toddler is playing with a dinosaur toy and a yellow block while sitting in the bathtub. A little boy enjoys his bath.,The bathtub sits at the edge of a junkyard.,0
+A young toddler is playing with a dinosaur toy and a yellow block while sitting in the bathtub. A little boy enjoys his bath.,The boy's mother uses a sponge to wash the child's back.,1
+A young toddler is playing with a dinosaur toy and a yellow block while sitting in the bathtub. A little boy enjoys his bath.,He begins to cry when his mother washes his hair.,0
+A young toddler is playing with a dinosaur toy and a yellow block while sitting in the bathtub. A little boy enjoys his bath.,He starts to laugh and play with the bubbles.,1
+Three little girls are sitting on the grass. Three girls are having a picnic.,The girls are reading school books and taking notes.,0
+Three little girls are sitting on the grass. Three girls are having a picnic.,The girls are eating sandwiches.,1
+Three little girls are sitting on the grass. Three girls are having a picnic.,The girls have bathing suits on next to a slip n slide,0
+Three little girls are sitting on the grass. Three girls are having a picnic.,The girls are eating sandwiches,1
+Three little girls are sitting on the grass. Three girls are having a picnic.,Three girls are stretching.,0
+Three little girls are sitting on the grass. Three girls are having a picnic.,Three girls are laying out food.,1
+Three little girls are sitting on the grass. Three girls are having a picnic.,They are playing with puppies.,0
+Three little girls are sitting on the grass. Three girls are having a picnic.,They are eating sandwiches.,1
+Three little girls are sitting on the grass. Three girls are having a picnic.,They are surrounded by farm animals.,0
+Three little girls are sitting on the grass. Three girls are having a picnic.,They are sitting on a blanket and eating sandwiches.,1
+Three girls are standing in front of a music stand with trumpets. The girls are in junior high.,They are in an elementary school auditorium.,0
+Three girls are standing in front of a music stand with trumpets. The girls are in junior high.,They are in an junior high auditorium.,1
+Three girls are standing in front of a music stand with trumpets. The girls are in junior high.,The girls are fifteen years old.,0
+Three girls are standing in front of a music stand with trumpets. The girls are in junior high.,The girls are thirteen years old.,1
+Three girls are standing in front of a music stand with trumpets. The girls are in junior high.,The girls are practicing for a music college scholarship,0
+Three girls are standing in front of a music stand with trumpets. The girls are in junior high.,The girls have to walk to school instead of driving,1
+Three girls are standing in front of a music stand with trumpets. The girls are in junior high.,They are wearing lots of makeup.,0
+Three girls are standing in front of a music stand with trumpets. The girls are in junior high.,The girls are all thirteen years old.,1
+Three girls are standing in front of a music stand with trumpets. The girls are in junior high.,They are all wearing military uniforms.,0
+Three girls are standing in front of a music stand with trumpets. The girls are in junior high.,They are all middle school age.,1
+"A woman with a headband wearing a blue, yellow and red hooded jacket. This lady is about to go to a fashion show",She does a cartwheel on the mat.,0
+"A woman with a headband wearing a blue, yellow and red hooded jacket. This lady is about to go to a fashion show",Her clothes all bear fashionable labels.,1
+"A woman with a headband wearing a blue, yellow and red hooded jacket. This lady is about to go to a fashion show",She turns on her music and begins jogging down the path.,0
+"A woman with a headband wearing a blue, yellow and red hooded jacket. This lady is about to go to a fashion show",She checks her ticket to see where she should sit for the show.,1
+"A woman with a headband wearing a blue, yellow and red hooded jacket. This lady is about to go to a fashion show",The woman has Nike running shoes on and holds a music player,0
+"A woman with a headband wearing a blue, yellow and red hooded jacket. This lady is about to go to a fashion show",The woman has an expensive Gucci bag on her shoulder and high heels,1
+"A woman with a headband wearing a blue, yellow and red hooded jacket. This lady is about to go to a fashion show",The lady really dislike fashion shows.,0
+"A woman with a headband wearing a blue, yellow and red hooded jacket. This lady is about to go to a fashion show",The lady love fashion shows.,1
+"A woman with a headband wearing a blue, yellow and red hooded jacket. This lady is about to go to a fashion show",She is laying in bed.,0
+"A woman with a headband wearing a blue, yellow and red hooded jacket. This lady is about to go to a fashion show",She is a fashion journalist.,1
+A girl is playing in the mud near a car. A girl is making mud pies.,The car has an image drawn in mud on the side of it.,0
+A girl is playing in the mud near a car. A girl is making mud pies.,There are small clumps of mud piled up near the car.,1
+A girl is playing in the mud near a car. A girl is making mud pies.,The girl's hands are clean,0
+A girl is playing in the mud near a car. A girl is making mud pies.,The girl's hands are very muddy,1
+A girl is playing in the mud near a car. A girl is making mud pies.,The girl is covered in mud,0
+A girl is playing in the mud near a car. A girl is making mud pies.,Piles of mud sit next to the girl,1
+A girl is playing in the mud near a car. A girl is making mud pies.,The girl is trying to build a castle made out of mud.,0
+A girl is playing in the mud near a car. A girl is making mud pies.,The girl has successfully used up most of the mud for the pies.,1
+A girl is playing in the mud near a car. A girl is making mud pies.,Two girls are wrestling each other.,0
+A girl is playing in the mud near a car. A girl is making mud pies.,The girl is creating something.,1
+A man in a costume gazes up into the sky while he is around horses. A man dressed up rides horses.,The man enjoys grooming the horses.,0
+A man in a costume gazes up into the sky while he is around horses. A man dressed up rides horses.,The man enjoys riding in his jockey costume.,1
+A man in a costume gazes up into the sky while he is around horses. A man dressed up rides horses.,The rodeo clown is looking up at the stars.,0
+A man in a costume gazes up into the sky while he is around horses. A man dressed up rides horses.,The performer wears spurs to control the horse.,1
+A man in a costume gazes up into the sky while he is around horses. A man dressed up rides horses.,The man walks near the horses and gives them friendly pats.,0
+A man in a costume gazes up into the sky while he is around horses. A man dressed up rides horses.,The costumed man gets up on one of the horses.,1
+A man in a costume gazes up into the sky while he is around horses. A man dressed up rides horses.,The man does a cartwheel.,0
+A man in a costume gazes up into the sky while he is around horses. A man dressed up rides horses.,The man walks toward a horse with a saddle.,1
+A man in a costume gazes up into the sky while he is around horses. A man dressed up rides horses.,The horses do not have saddles attached.,0
+A man in a costume gazes up into the sky while he is around horses. A man dressed up rides horses.,The man is holding a saddle.,1
+"A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence. A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence waiting for the rest of his friends to arrive.",The man is in a prison jumpsuit,0
+"A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence. A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence waiting for the rest of his friends to arrive.",The man looks at his watch repeatedly,1
+"A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence. A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence waiting for the rest of his friends to arrive.",It is nighttime and a bus is approaching the busstop right beside him.,0
+"A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence. A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence waiting for the rest of his friends to arrive.",It's light out and he was heard saying on his phone 'Where are you guys?'re are,1
+"A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence. A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence waiting for the rest of his friends to arrive.",The man has severe social anxiety.,0
+"A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence. A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence waiting for the rest of his friends to arrive.",The man is very extroverted.,1
+"A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence. A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence waiting for the rest of his friends to arrive.",The man is trying to escape the police.,0
+"A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence. A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence waiting for the rest of his friends to arrive.",The man is going to exchange some drugs for money with people he knows.,1
+"A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence. A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence waiting for the rest of his friends to arrive.",The man is using the stick to pick up trash in the area.,0
+"A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence. A man with a beard and mustache, wearing a baseball cap and sunglasses, and holding a stick is standing near a chain link fence waiting for the rest of his friends to arrive.",the man is sports attire.,1
+Houston Astros pitcher number 22 prepares to throw home. The pitcher is going to throw a strike.,The batter is in the 'walk' position.,0
+Houston Astros pitcher number 22 prepares to throw home. The pitcher is going to throw a strike.,"The batter is trying to be in the 'walk' position, but is missing it.",1
+Houston Astros pitcher number 22 prepares to throw home. The pitcher is going to throw a strike.,"Josh Reddick isn't a pitcher, so the ball is a wild pitch.",0
+Houston Astros pitcher number 22 prepares to throw home. The pitcher is going to throw a strike.,The pitcher is doctoring the ball with a foreign substance.,1
+Houston Astros pitcher number 22 prepares to throw home. The pitcher is going to throw a strike.,The catcher is pointing outside the batter's box and standing,0
+Houston Astros pitcher number 22 prepares to throw home. The pitcher is going to throw a strike.,The count is 3-2.,1
+Houston Astros pitcher number 22 prepares to throw home. The pitcher is going to throw a strike.,The pitcher is notorious for hitting the batter with the ball.,0
+Houston Astros pitcher number 22 prepares to throw home. The pitcher is going to throw a strike.,The pitcher has been pitching a great game today.,1
+Houston Astros pitcher number 22 prepares to throw home. The pitcher is going to throw a strike.,the pitcher has been out of form lately,0
+Houston Astros pitcher number 22 prepares to throw home. The pitcher is going to throw a strike.,the pitcher appear confident and the form guide favors them,1
+"A man in a superman costume, cowboy boots, cowboy hat selling designer bags for$ 10.00 on a busy street. A man sells bags for charity.",A man sells bags because he needs to personally profit from the largest markup.,0
+"A man in a superman costume, cowboy boots, cowboy hat selling designer bags for$ 10.00 on a busy street. A man sells bags for charity.",A man sells bags to personally help the needy with his donated profits.,1
+"A man in a superman costume, cowboy boots, cowboy hat selling designer bags for$ 10.00 on a busy street. A man sells bags for charity.",The man includes the revenue from the bags on his income tax statement.,0
+"A man in a superman costume, cowboy boots, cowboy hat selling designer bags for$ 10.00 on a busy street. A man sells bags for charity.",The man doesn't have to pay tax on the profits from the bag sales.,1
+"A man in a superman costume, cowboy boots, cowboy hat selling designer bags for$ 10.00 on a busy street. A man sells bags for charity.",The man is working for a MLM scheme,0
+"A man in a superman costume, cowboy boots, cowboy hat selling designer bags for$ 10.00 on a busy street. A man sells bags for charity.",The man is wearing a shirt with a charity logo on it,1
+"A man in a superman costume, cowboy boots, cowboy hat selling designer bags for$ 10.00 on a busy street. A man sells bags for charity.",The man's unique way of selling counterfeit bags causes the police to notice him.,0
+"A man in a superman costume, cowboy boots, cowboy hat selling designer bags for$ 10.00 on a busy street. A man sells bags for charity.",The charity is sponsored by an entertainment group that hosts parties for children.,1
+"A man in a superman costume, cowboy boots, cowboy hat selling designer bags for$ 10.00 on a busy street. A man sells bags for charity.",No money is being exchanged.,0
+"A man in a superman costume, cowboy boots, cowboy hat selling designer bags for$ 10.00 on a busy street. A man sells bags for charity.",The bags have price tags on them.,1
+Several adults wearing yellow helmets and life vests are white water rafting. The people are excited,The people were rescued from a boating accident upstream.,0
+Several adults wearing yellow helmets and life vests are white water rafting. The people are excited,The people have been saving for this rafting trip for a long time.,1
+Several adults wearing yellow helmets and life vests are white water rafting. The people are excited,The raft was swept up in fast moving water.,0
+Several adults wearing yellow helmets and life vests are white water rafting. The people are excited,Everyone is smiling and laughing.,1
+Several adults wearing yellow helmets and life vests are white water rafting. The people are excited,A person is in the water and others in the boat are trying frantically to reach for him.,0
+Several adults wearing yellow helmets and life vests are white water rafting. The people are excited,The boat is going quickly and under control through the rapids.,1
+Several adults wearing yellow helmets and life vests are white water rafting. The people are excited,It's high summer and the river has slowed to a trickle.,0
+Several adults wearing yellow helmets and life vests are white water rafting. The people are excited,The people are inveterate adrenaline junkies.,1
+Several adults wearing yellow helmets and life vests are white water rafting. The people are excited,A nearby park ranger rushes to the banks of the river when he hears the group call out for help.,0
+Several adults wearing yellow helmets and life vests are white water rafting. The people are excited,The adults slap each other on the back and laugh loudly when they manage to remain in their raft after riding over a waterfall.,1
+Two people look on in the nighttime at the lights in a city. They are outside.,The window in front of them is foggy.,0
+Two people look on in the nighttime at the lights in a city. They are outside.,One person shivers from the  cold.,1
+Two people look on in the nighttime at the lights in a city. They are outside.,The people are warm even though it's January.,0
+Two people look on in the nighttime at the lights in a city. They are outside.,The people are looking up at the stars.,1
+Two people look on in the nighttime at the lights in a city. They are outside.,The two people are enjoying the view while also staying warm.,0
+Two people look on in the nighttime at the lights in a city. They are outside.,The two people are wearing heavy jackets.,1
+Two people look on in the nighttime at the lights in a city. They are outside.,There is carpet under their feet,0
+Two people look on in the nighttime at the lights in a city. They are outside.,One of them holds a telescope,1
+Two people look on in the nighttime at the lights in a city. They are outside.,The two people are on the top floor of a very tall building with glass windows.,0
+Two people look on in the nighttime at the lights in a city. They are outside.,The night time air is cool and brisk.,1
+several martial artists are practicing in a forest while a large group of onlookers watches. They are masters at their artform.,The martial artists are young children who do the martial moves awkwardly.,0
+several martial artists are practicing in a forest while a large group of onlookers watches. They are masters at their artform.,The martial artists wear black belts and execute their moves perfectly.,1
+several martial artists are practicing in a forest while a large group of onlookers watches. They are masters at their artform.,They do basic kicks and moves.,0
+several martial artists are practicing in a forest while a large group of onlookers watches. They are masters at their artform.,They jump from tree to tree like ninjas.,1
+several martial artists are practicing in a forest while a large group of onlookers watches. They are masters at their artform.,They are clumsy and uncoordinated.,0
+several martial artists are practicing in a forest while a large group of onlookers watches. They are masters at their artform.,They are making precise movements.,1
+several martial artists are practicing in a forest while a large group of onlookers watches. They are masters at their artform.,They keeping overbalancing and falling down.,0
+several martial artists are practicing in a forest while a large group of onlookers watches. They are masters at their artform.,They are executing extremely complex kicks.,1
+several martial artists are practicing in a forest while a large group of onlookers watches. They are masters at their artform.,They are will master their artform with years of practice.,0
+several martial artists are practicing in a forest while a large group of onlookers watches. They are masters at their artform.,They are masters at their artform with their sharp moves and calm attitudes.,1
+"Two women stand at a microphone, and one has a guitar. Two ladies are inside.",The breeze is ruffling the trees behind them.,0
+"Two women stand at a microphone, and one has a guitar. Two ladies are inside.",Light shines in through the window behind them.,1
+"Two women stand at a microphone, and one has a guitar. Two ladies are inside.",The ladies are soaked from heavy rainfall,0
+"Two women stand at a microphone, and one has a guitar. Two ladies are inside.",The ladies have a spotlight shining on them,1
+"Two women stand at a microphone, and one has a guitar. Two ladies are inside.",The sun is shining down on the woman.,0
+"Two women stand at a microphone, and one has a guitar. Two ladies are inside.",There are fluorescent lights above the women.,1
+"Two women stand at a microphone, and one has a guitar. Two ladies are inside.",The women are performing at a festival.,0
+"Two women stand at a microphone, and one has a guitar. Two ladies are inside.",There are people looking in windows to see the performance.,1
+"Two women stand at a microphone, and one has a guitar. Two ladies are inside.",The women's hair is being blown in the wind and one is wearing shades.,0
+"Two women stand at a microphone, and one has a guitar. Two ladies are inside.",One of the women asks 'Can someone please turn the AC up?',1
+Man jumping on a machine trying to set a new worlds record. The man jumped over 200 times.,The world record is 300,0
+Man jumping on a machine trying to set a new worlds record. The man jumped over 200 times.,The man is being filmed,1
+Man jumping on a machine trying to set a new worlds record. The man jumped over 200 times.,The count on the machine says 100 jumps.,0
+Man jumping on a machine trying to set a new worlds record. The man jumped over 200 times.,the count on the machine is over 200 jumps.,1
+Man jumping on a machine trying to set a new worlds record. The man jumped over 200 times.,The man has just begun jumping.,0
+Man jumping on a machine trying to set a new worlds record. The man jumped over 200 times.,An official keeps a tally and a board shows over 200 jumps for the man.,1
+Man jumping on a machine trying to set a new worlds record. The man jumped over 200 times.,The man has to conserve his energy to reach new heights.,0
+Man jumping on a machine trying to set a new worlds record. The man jumped over 200 times.,The man is jumping as fast as he can.,1
+Man jumping on a machine trying to set a new worlds record. The man jumped over 200 times.,The man has a bad leg.,0
+Man jumping on a machine trying to set a new worlds record. The man jumped over 200 times.,The man is very strong.,1
+The lady wearing a black top is playing the cello. A woman is practicing the cello.,A woman is on stage with the rest of the orchestra on opening night.,0
+The lady wearing a black top is playing the cello. A woman is practicing the cello.,A woman is reviewing the sheet music and practicing certain passages of her stringed instrument.,1
+The lady wearing a black top is playing the cello. A woman is practicing the cello.,There is a large crowd watching the lady,0
+The lady wearing a black top is playing the cello. A woman is practicing the cello.,The lady is alone,1
+The lady wearing a black top is playing the cello. A woman is practicing the cello.,The woman is playing the cello on a stage with an audience watching.,0
+The lady wearing a black top is playing the cello. A woman is practicing the cello.,The woman makes many mistakes when playing.,1
+The lady wearing a black top is playing the cello. A woman is practicing the cello.,The woman is playing in front of a large crowd.,0
+The lady wearing a black top is playing the cello. A woman is practicing the cello.,The woman is looking at sheet music in next to an instructor.,1
+A young boy in a swimming suit sits in water. The boy has swimming goggles on.,he rubs his eyes.,0
+A young boy in a swimming suit sits in water. The boy has swimming goggles on.,he blows water out of a scuba mask.,1
+A young boy in a swimming suit sits in water. The boy has swimming goggles on.,The water is not deep enough to swim.,0
+A young boy in a swimming suit sits in water. The boy has swimming goggles on.,The boy keeps going underwater.,1
+A young boy in a swimming suit sits in water. The boy has swimming goggles on.,The boy is rubbing his eyes.,0
+A young boy in a swimming suit sits in water. The boy has swimming goggles on.,The boy is protected.,1
+A young boy in a swimming suit sits in water. The boy has swimming goggles on.,The goggles are laying on the ground,0
+A young boy in a swimming suit sits in water. The boy has swimming goggles on.,The boy wears contacts so he can’t get his eyes wet,1
+A boy is being covered in sand at the beach. The boy is being covered by sand on a sunny day.,The boy is in the water playing.,0
+A boy is being covered in sand at the beach. The boy is being covered by sand on a sunny day.,The waves are crashing behind the boy.,1
+A boy is being covered in sand at the beach. The boy is being covered by sand on a sunny day.,He looked at the stars while his friends buried all but his face in the sand.,0
+A boy is being covered in sand at the beach. The boy is being covered by sand on a sunny day.,He wore sunglasses because the sun was bright.,1
+A boy is being covered in sand at the beach. The boy is being covered by sand on a sunny day.,The boy brought a raincoat with him.,0
+A boy is being covered in sand at the beach. The boy is being covered by sand on a sunny day.,The boy is wearing sunscreen on his nose.,1
+A boy is being covered in sand at the beach. The boy is being covered by sand on a sunny day.,The boy is shivering.,0
+A boy is being covered in sand at the beach. The boy is being covered by sand on a sunny day.,The boy is wearing sunscreen.,1
+A boy is being covered in sand at the beach. The boy is being covered by sand on a sunny day.,The rain pours down steadily.,0
+A boy is being covered in sand at the beach. The boy is being covered by sand on a sunny day.,He thinks the sand feels hot.,1
+One man giving a presentation to a group of people in the center of circle made out of tables. The man is pitching a project,The man presents to the group as a professor watches and grades him.,0
+One man giving a presentation to a group of people in the center of circle made out of tables. The man is pitching a project,The people in the group look at copies of a product design as the man talks.,1
+One man giving a presentation to a group of people in the center of circle made out of tables. The man is pitching a project,He is doing a headstand.,0
+One man giving a presentation to a group of people in the center of circle made out of tables. The man is pitching a project,There is a prototype on the table.,1
+One man giving a presentation to a group of people in the center of circle made out of tables. The man is pitching a project,He's spent the last few weeks researching something his boss asked him to.,0
+One man giving a presentation to a group of people in the center of circle made out of tables. The man is pitching a project,He has an idea for his company.,1
+One man giving a presentation to a group of people in the center of circle made out of tables. The man is pitching a project,He is explaining a work assignment.,0
+One man giving a presentation to a group of people in the center of circle made out of tables. The man is pitching a project,He as emphasizing the strengths of the project.,1
+One man giving a presentation to a group of people in the center of circle made out of tables. The man is pitching a project,The man is wearing normal clothes.,0
+One man giving a presentation to a group of people in the center of circle made out of tables. The man is pitching a project,The man is wearing formal clothes.,1
+"Mother with two boys, one acting goofy and the other giving her a kiss. The step mother with two boys are playing together.",the woman calls the children 'sons' when she beckons them,0
+"Mother with two boys, one acting goofy and the other giving her a kiss. The step mother with two boys are playing together.",the woman calls the children saying their mom will get them soon,1
+"Mother with two boys, one acting goofy and the other giving her a kiss. The step mother with two boys are playing together.",The mother excited for their first day of school to start soon.,0
+"Mother with two boys, one acting goofy and the other giving her a kiss. The step mother with two boys are playing together.",The boys are enjoying this day at the park.,1
+"Mother with two boys, one acting goofy and the other giving her a kiss. The step mother with two boys are playing together.","The boys call her ""Auntie.""",0
+"Mother with two boys, one acting goofy and the other giving her a kiss. The step mother with two boys are playing together.","The boys call her ""Mom.""",1
+"Mother with two boys, one acting goofy and the other giving her a kiss. The step mother with two boys are playing together.",They resemble her strongly.,0
+"Mother with two boys, one acting goofy and the other giving her a kiss. The step mother with two boys are playing together.",They tease about the wicked stepmother myth.,1
+A man cuts down a tree with an ax. A man cutting down a tree for firewood for the winter.,The tree is blocking the satellite's reception.,0
+A man cuts down a tree with an ax. A man cutting down a tree for firewood for the winter.,The man lives in the woods and has a fireplace.,1
+A man cuts down a tree with an ax. A man cutting down a tree for firewood for the winter.,Fake trees are never the same for Christmas.,0
+A man cuts down a tree with an ax. A man cutting down a tree for firewood for the winter.,The cabin gets very cold for the winter.,1
+A man cuts down a tree with an ax. A man cutting down a tree for firewood for the winter.,A client is watching him cut the tree next to his house,0
+A man cuts down a tree with an ax. A man cutting down a tree for firewood for the winter.,The man has a cabin in the woods with no furnace,1
+A man cuts down a tree with an ax. A man cutting down a tree for firewood for the winter.,The proposed fence line would be blocked by the tree.,0
+A man cuts down a tree with an ax. A man cutting down a tree for firewood for the winter.,A child picks up some of the wood and takes it inside the house.,1
+A man cuts down a tree with an ax. A man cutting down a tree for firewood for the winter.,The tree shows signs of being struck by lightning.,0
+A man cuts down a tree with an ax. A man cutting down a tree for firewood for the winter.,The man has a wood stove in his home.,1
+a man in blue pants walking on a path surrounded by water. A man is outside,He is in a sewage treatment plant.,0
+a man in blue pants walking on a path surrounded by water. A man is outside,There are trees in the background.,1
+a man in blue pants walking on a path surrounded by water. A man is outside,The man walks a path around an indoor pool.,0
+a man in blue pants walking on a path surrounded by water. A man is outside,The man walks on a path as the sun shines down brightly.,1
+a man in blue pants walking on a path surrounded by water. A man is outside,The hoarders house is flooded.,0
+a man in blue pants walking on a path surrounded by water. A man is outside,The rain has not let up and the water is rising.,1
+a man in blue pants walking on a path surrounded by water. A man is outside,Sunlight shines weakly through the glass ceiling.,0
+a man in blue pants walking on a path surrounded by water. A man is outside,A bird swoops down and lands in a nearby tree.,1
+a man in blue pants walking on a path surrounded by water. A man is outside,There are stores around the man and a mall directory in front of him.,0
+a man in blue pants walking on a path surrounded by water. A man is outside,The sun is shining down on the lake behind the man.,1
+A man is asleep on a seat. A man is asleep on a seat because his wife hasn't shown up,The man has an open school book on his lap.,0
+A man is asleep on a seat. A man is asleep on a seat because his wife hasn't shown up,The man never sleeps in his bed without his wife.,1
+A man is asleep on a seat. A man is asleep on a seat because his wife hasn't shown up,The man is homeless and alone.,0
+A man is asleep on a seat. A man is asleep on a seat because his wife hasn't shown up,The seat is in the mall and his wife loves to shop.,1
+A man is asleep on a seat. A man is asleep on a seat because his wife hasn't shown up,The man isn't wearing any rings.,0
+A man is asleep on a seat. A man is asleep on a seat because his wife hasn't shown up,The man was expecting his wife to pick him up from the airport.,1
+A man is asleep on a seat. A man is asleep on a seat because his wife hasn't shown up,The man is in a bus station waiting for his bus.,0
+A man is asleep on a seat. A man is asleep on a seat because his wife hasn't shown up,The man is in a mall in a row of seats.,1
+A man is asleep on a seat. A man is asleep on a seat because his wife hasn't shown up,The seat is inside a greyhound bus.,0
+A man is asleep on a seat. A man is asleep on a seat because his wife hasn't shown up,The seat is in an airport.,1
+A group of people are standing together making faces and hand gestures. A group of people are waiting for something.,The group of people are in a classroom after class discussing the subject with sign language.,0
+A group of people are standing together making faces and hand gestures. A group of people are waiting for something.,The group is standing a an open shelter on the side of the street with a schedule sign hanging on the side.,1
+A group of people are standing together making faces and hand gestures. A group of people are waiting for something.,The people are on stage making the audience laugh.,0
+A group of people are standing together making faces and hand gestures. A group of people are waiting for something.,The group of people are standing near a bus stop.,1
+A group of people are standing together making faces and hand gestures. A group of people are waiting for something.,The group of people are playing a game of charades.,0
+A group of people are standing together making faces and hand gestures. A group of people are waiting for something.,The people are waiting for the bus to show up.,1
+A group of people are standing together making faces and hand gestures. A group of people are waiting for something.,They are Naruto cosplayers,0
+A group of people are standing together making faces and hand gestures. A group of people are waiting for something.,They are standing in a very long line and are doing this since they are bored,1
+A group of people are standing together making faces and hand gestures. A group of people are waiting for something.,The people do not feel even slightly impatient.,0
+A group of people are standing together making faces and hand gestures. A group of people are waiting for something.,The people are standing outside a ticket office.,1
