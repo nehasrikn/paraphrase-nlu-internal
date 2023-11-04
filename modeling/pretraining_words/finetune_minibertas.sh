@@ -14,10 +14,11 @@ cd /fs/clip-projects/rlab/nehasrik/paraphrase-nlu/modeling/roberta/defeasible
 export TASK_NAME="mrpc"
 export CACHE_DIR='/fs/clip-projects/rlab/nehasrik/cache'
 
+ROOT_DIR='/fs/clip-projects/rlab/nehasrik/paraphrase-nlu/modeling/pretraining_words/minibertas/'
 
 for item in snli atomic social;
 do
-    python run_glue.py \
+    python /fs/clip-projects/rlab/nehasrik/paraphrase-nlu/modeling/roberta/defeasible/run_glue.py \
     	--model_name_or_path nyu-mll/roberta-base-100M-2 \
     	--tokenizer_name nyu-mll/roberta-base-100M-2 \
     	--use_fast_tokenizer false \
@@ -34,12 +35,9 @@ do
     	--learning_rate 5e-6 \
     	--num_train_epochs 2 \
     	--overwrite_output_dir \
-    	--output_dir chkpts/analysis_models/minibertas/100M-pretraining-words/d-$item-roberta-base-100M-2
+    	--output_dir $ROOT_DIR/100M-pretraining-words/d-$item-roberta-base-100M-2
 
 done
-
-
-
 
 # TRAINING LARGE MODELS: lr=5e-6, seed=42, batch_size=16, epochs=2
 # Base Models: lr=5e-6, seed=42, batch_size=64, epochs=2
