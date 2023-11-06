@@ -12,3 +12,5 @@ pytorch_model.bin
 *tokenizer_config.json
 *training_args.bin
 *spm.model
+*merges.txt
+*vocab.json
