@@ -1,0 +1,1124 @@
+Processing train_examples_0.01.csv
+11/01/2023 17:09:13 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+11/01/2023 17:09:13 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.NO,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_min_num_params=0,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-06,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/runs/Nov01_17-09-12_clip08.umiacs.umd.edu,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=2.0,
+optim=OptimizerNames.ADAMW_HF,
+output_dir=varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=64,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+remove_unused_columns=True,
+report_to=['tensorboard'],
+resume_from_checkpoint=None,
+run_name=varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=IntervalStrategy.EPOCH,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+11/01/2023 17:09:13 - INFO - __main__ - load a local file for train: /fs/clip-projects/rlab/nehasrik/paraphrase-nlu/experiments/pretraining-vs-finetuning/finetuning_data/atomic/train_examples_0.01.csv
+11/01/2023 17:09:13 - INFO - __main__ - load a local file for validation: /fs/clip-projects/rlab/nehasrik/paraphrase-nlu/data_selection/defeasible/atomic/analysis_model_examples/dev_examples.csv
+11/01/2023 17:09:13 - WARNING - datasets.builder - Using custom data configuration default-fa05d3c86c0536f1
+11/01/2023 17:09:13 - INFO - datasets.builder - Generating dataset csv (/fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-fa05d3c86c0536f1/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58)
+Downloading and preparing dataset csv/default to /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-fa05d3c86c0536f1/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58...
+Downloading data files:   0%|          | 0/2 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 2/2 [00:00<00:00, 7496.52it/s]11/01/2023 17:09:13 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+11/01/2023 17:09:13 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+
+Extracting data files:   0%|          | 0/2 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 2/2 [00:00<00:00, 18.74it/s]Extracting data files: 100%|██████████| 2/2 [00:00<00:00, 18.71it/s]11/01/2023 17:09:14 - INFO - datasets.utils.info_utils - Unable to verify checksums.
+11/01/2023 17:09:14 - INFO - datasets.builder - Generating train split
+
+0 tables [00:00, ? tables/s]1 tables [00:00,  7.92 tables/s]                                11/01/2023 17:09:14 - INFO - datasets.builder - Generating validation split
+0 tables [00:00, ? tables/s]                            11/01/2023 17:09:14 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+Dataset csv downloaded and prepared to /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-fa05d3c86c0536f1/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58. Subsequent calls will reuse this data.
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 196.91it/s]
+[INFO|configuration_utils.py:659] 2023-11-01 17:09:14,502 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+[INFO|configuration_utils.py:708] 2023-11-01 17:09:14,525 >> Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.19.4",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_auto.py:371] 2023-11-01 17:09:14,571 >> Could not locate the tokenizer configuration file, will try to use the model config instead.
+[INFO|configuration_utils.py:659] 2023-11-01 17:09:14,613 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+[INFO|configuration_utils.py:708] 2023-11-01 17:09:14,614 >> Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.19.4",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:09:14,868 >> loading file https://huggingface.co/roberta-base/resolve/main/vocab.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/d3ccdbfeb9aaa747ef20432d4976c32ee3fa69663b379deb253ccfce2bb1fdc5.d67d6b367eb24ab43b08ad55e014cf254076934f71d832bbab9ad35644a375ab
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:09:14,868 >> loading file https://huggingface.co/roberta-base/resolve/main/merges.txt from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/cafdecc90fcab17011e12ac813dd574b4b3fea39da6dd817813efa010262ff3f.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:09:14,868 >> loading file https://huggingface.co/roberta-base/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:09:14,868 >> loading file https://huggingface.co/roberta-base/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:09:14,869 >> loading file https://huggingface.co/roberta-base/resolve/main/tokenizer_config.json from cache at None
+[INFO|configuration_utils.py:659] 2023-11-01 17:09:14,917 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+[INFO|configuration_utils.py:708] 2023-11-01 17:09:14,918 >> Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.19.4",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|modeling_utils.py:1953] 2023-11-01 17:09:16,439 >> loading weights file https://huggingface.co/roberta-base/resolve/main/pytorch_model.bin from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/51ba668f7ff34e7cdfa9561e8361747738113878850a7d717dbc69de8683aaad.c7efaa30a0d80b2958b876969faa180e485944a849deee4ad482332de65365a7
+[WARNING|modeling_utils.py:2254] 2023-11-01 17:09:18,424 >> Some weights of the model checkpoint at roberta-base were not used when initializing RobertaForSequenceClassification: ['lm_head.layer_norm.bias', 'lm_head.decoder.weight', 'roberta.pooler.dense.bias', 'lm_head.dense.bias', 'roberta.pooler.dense.weight', 'lm_head.dense.weight', 'lm_head.bias', 'lm_head.layer_norm.weight']
+- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:2265] 2023-11-01 17:09:18,424 >> Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at roberta-base and are newly initialized: ['classifier.out_proj.bias', 'classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+sentence1 sentence2
+S1+S2 KEYS sentence1 sentence2
+11/01/2023 17:09:19 - WARNING - datasets.fingerprint - Parameter 'function'=<function main.<locals>.preprocess_function at 0x7fe7d344f1f0> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+Running tokenizer on dataset:   0%|          | 0/1 [00:00<?, ?ba/s]11/01/2023 17:09:19 - INFO - datasets.arrow_dataset - Caching processed dataset at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-fa05d3c86c0536f1/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58/cache-1c80317fa3b1799d.arrow
+Running tokenizer on dataset: 100%|██████████| 1/1 [00:00<00:00,  7.27ba/s]Running tokenizer on dataset: 100%|██████████| 1/1 [00:00<00:00,  7.26ba/s]11/01/2023 17:09:20 - INFO - datasets.fingerprint - Parameter 'function'=<function main.<locals>.preprocess_function at 0x7fe7d344f040> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead.
+
+Running tokenizer on dataset:   0%|          | 0/3 [00:00<?, ?ba/s]11/01/2023 17:09:20 - INFO - datasets.arrow_dataset - Caching processed dataset at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-fa05d3c86c0536f1/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58/cache-bdd640fb06671ad1.arrow
+Running tokenizer on dataset:  33%|███▎      | 1/3 [00:00<00:00,  2.90ba/s]Running tokenizer on dataset:  67%|██████▋   | 2/3 [00:00<00:00,  3.10ba/s]Running tokenizer on dataset: 100%|██████████| 3/3 [00:00<00:00,  3.46ba/s]Running tokenizer on dataset: 100%|██████████| 3/3 [00:00<00:00,  3.33ba/s]hi
+11/01/2023 17:09:21 - INFO - __main__ - Sample 140 of the training set: {'sentence1': 'PersonX picks PersonY up from work PersonX is seen as helpful', 'sentence2': 'PersonX is stalking PersonY', 'label': 0, 'input_ids': [0, 41761, 1000, 5916, 18404, 975, 62, 31, 173, 18404, 1000, 16, 450, 25, 7163, 2, 2, 41761, 1000, 16, 27795, 18404, 975, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+11/01/2023 17:09:21 - INFO - __main__ - Sample 125 of the training set: {'sentence1': 'PersonX writes the paper Before, PersonX needed to do research', 'sentence2': 'PersonX submits their thesis paper', 'label': 1, 'input_ids': [0, 41761, 1000, 5789, 5, 2225, 3224, 6, 18404, 1000, 956, 7, 109, 557, 2, 2, 41761, 1000, 2849, 21188, 49, 24149, 2225, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+11/01/2023 17:09:21 - INFO - __main__ - Sample 114 of the training set: {'sentence1': "PersonX is proud of PersonY's work As a result, PersonX wants to assign more work", 'sentence2': 'PersonX gives everyone a day off.', 'label': 0, 'input_ids': [0, 41761, 1000, 16, 2602, 9, 18404, 975, 18, 173, 287, 10, 898, 6, 18404, 1000, 1072, 7, 28467, 55, 173, 2, 2, 41761, 1000, 2029, 961, 10, 183, 160, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+
+[INFO|trainer.py:622] 2023-11-01 17:09:38,703 >> The following columns in the training set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: sentence1, sentence2. If sentence1, sentence2 are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+/fs/clip-projects/rlab/nehasrik/miniconda3/envs/para-nlu/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+[INFO|trainer.py:1419] 2023-11-01 17:09:38,736 >> ***** Running training *****
+[INFO|trainer.py:1420] 2023-11-01 17:09:38,736 >>   Num examples = 284
+[INFO|trainer.py:1421] 2023-11-01 17:09:38,736 >>   Num Epochs = 2
+[INFO|trainer.py:1422] 2023-11-01 17:09:38,737 >>   Instantaneous batch size per device = 64
+[INFO|trainer.py:1423] 2023-11-01 17:09:38,737 >>   Total train batch size (w. parallel, distributed & accumulation) = 64
+[INFO|trainer.py:1424] 2023-11-01 17:09:38,737 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1425] 2023-11-01 17:09:38,737 >>   Total optimization steps = 10
+[WARNING|training_args.py:1095] 2023-11-01 17:09:38,776 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:00<00:07,  1.13it/s] 20%|██        | 2/10 [00:01<00:05,  1.36it/s] 30%|███       | 3/10 [00:02<00:04,  1.44it/s] 40%|████      | 4/10 [00:02<00:04,  1.48it/s] 50%|█████     | 5/10 [00:03<00:02,  1.84it/s][INFO|trainer.py:2340] 2023-11-01 17:09:42,067 >> Saving model checkpoint to varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/checkpoint-5
+[INFO|configuration_utils.py:446] 2023-11-01 17:09:42,092 >> Configuration saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/checkpoint-5/config.json
+[INFO|modeling_utils.py:1542] 2023-11-01 17:09:45,150 >> Model weights saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/checkpoint-5/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2108] 2023-11-01 17:09:45,167 >> tokenizer config file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/checkpoint-5/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2114] 2023-11-01 17:09:45,183 >> Special tokens file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/checkpoint-5/special_tokens_map.json
+ 60%|██████    | 6/10 [00:12<00:14,  3.71s/it] 70%|███████   | 7/10 [00:13<00:08,  2.71s/it] 80%|████████  | 8/10 [00:14<00:04,  2.05s/it] 90%|█████████ | 9/10 [00:14<00:01,  1.61s/it]100%|██████████| 10/10 [00:15<00:00,  1.21s/it][INFO|trainer.py:2340] 2023-11-01 17:09:54,146 >> Saving model checkpoint to varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/checkpoint-10
+[INFO|configuration_utils.py:446] 2023-11-01 17:09:54,163 >> Configuration saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/checkpoint-10/config.json
+[INFO|modeling_utils.py:1542] 2023-11-01 17:09:57,105 >> Model weights saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/checkpoint-10/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2108] 2023-11-01 17:09:57,132 >> tokenizer config file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/checkpoint-10/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2114] 2023-11-01 17:09:57,143 >> Special tokens file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/checkpoint-10/special_tokens_map.json
+[INFO|trainer.py:1662] 2023-11-01 17:10:03,025 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                               100%|██████████| 10/10 [00:24<00:00,  1.21s/it]100%|██████████| 10/10 [00:24<00:00,  2.42s/it]
+[INFO|trainer.py:2340] 2023-11-01 17:10:03,096 >> Saving model checkpoint to varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01
+[INFO|configuration_utils.py:446] 2023-11-01 17:10:03,116 >> Configuration saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/config.json
+[INFO|modeling_utils.py:1542] 2023-11-01 17:10:05,924 >> Model weights saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2108] 2023-11-01 17:10:05,965 >> tokenizer config file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2114] 2023-11-01 17:10:05,983 >> Special tokens file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.01/special_tokens_map.json
+{'train_runtime': 24.2909, 'train_samples_per_second': 23.383, 'train_steps_per_second': 0.412, 'train_loss': 0.694562578201294, 'epoch': 2.0}
+***** train metrics *****
+  epoch                    =        2.0
+  train_loss               =     0.6946
+  train_runtime            = 0:00:24.29
+  train_samples            =        284
+  train_samples_per_second =     23.383
+  train_steps_per_second   =      0.412
+11/01/2023 17:10:06 - INFO - __main__ - *** Evaluate ***
+[INFO|trainer.py:622] 2023-11-01 17:10:06,173 >> The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: sentence1, sentence2. If sentence1, sentence2 are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+[WARNING|training_args.py:1095] 2023-11-01 17:10:06,174 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[WARNING|training_args.py:1095] 2023-11-01 17:10:06,175 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[INFO|trainer.py:2590] 2023-11-01 17:10:06,175 >> ***** Running Evaluation *****
+[INFO|trainer.py:2592] 2023-11-01 17:10:06,175 >>   Num examples = 2839
+[INFO|trainer.py:2595] 2023-11-01 17:10:06,175 >>   Batch size = 64
+  0%|          | 0/45 [00:00<?, ?it/s]  4%|▍         | 2/45 [00:00<00:04,  8.96it/s]  7%|▋         | 3/45 [00:00<00:06,  6.33it/s]  9%|▉         | 4/45 [00:00<00:07,  5.49it/s] 11%|█         | 5/45 [00:00<00:07,  5.09it/s] 13%|█▎        | 6/45 [00:01<00:08,  4.87it/s] 16%|█▌        | 7/45 [00:01<00:08,  4.74it/s] 18%|█▊        | 8/45 [00:01<00:07,  4.65it/s] 20%|██        | 9/45 [00:01<00:07,  4.59it/s] 22%|██▏       | 10/45 [00:02<00:07,  4.55it/s] 24%|██▍       | 11/45 [00:02<00:07,  4.53it/s] 27%|██▋       | 12/45 [00:02<00:07,  4.45it/s] 29%|██▉       | 13/45 [00:02<00:07,  4.46it/s] 31%|███       | 14/45 [00:02<00:06,  4.46it/s] 33%|███▎      | 15/45 [00:03<00:06,  4.46it/s] 36%|███▌      | 16/45 [00:03<00:06,  4.46it/s] 38%|███▊      | 17/45 [00:03<00:06,  4.46it/s] 40%|████      | 18/45 [00:03<00:06,  4.47it/s] 42%|████▏     | 19/45 [00:04<00:05,  4.47it/s] 44%|████▍     | 20/45 [00:04<00:05,  4.47it/s] 47%|████▋     | 21/45 [00:04<00:05,  4.45it/s] 49%|████▉     | 22/45 [00:04<00:05,  4.46it/s] 51%|█████     | 23/45 [00:04<00:04,  4.46it/s] 53%|█████▎    | 24/45 [00:05<00:04,  4.46it/s] 56%|█████▌    | 25/45 [00:05<00:04,  4.46it/s] 58%|█████▊    | 26/45 [00:05<00:04,  4.46it/s] 60%|██████    | 27/45 [00:05<00:04,  4.46it/s] 62%|██████▏   | 28/45 [00:06<00:03,  4.47it/s] 64%|██████▍   | 29/45 [00:06<00:03,  4.47it/s] 67%|██████▋   | 30/45 [00:06<00:03,  4.47it/s] 69%|██████▉   | 31/45 [00:06<00:03,  4.46it/s] 71%|███████   | 32/45 [00:06<00:02,  4.46it/s] 73%|███████▎  | 33/45 [00:07<00:02,  4.46it/s] 76%|███████▌  | 34/45 [00:07<00:02,  4.46it/s] 78%|███████▊  | 35/45 [00:07<00:02,  4.46it/s] 80%|████████  | 36/45 [00:07<00:02,  4.46it/s] 82%|████████▏ | 37/45 [00:08<00:01,  4.46it/s] 84%|████████▍ | 38/45 [00:08<00:01,  4.46it/s] 87%|████████▋ | 39/45 [00:08<00:01,  4.46it/s] 89%|████████▉ | 40/45 [00:08<00:01,  4.46it/s] 91%|█████████ | 41/45 [00:08<00:00,  4.46it/s] 93%|█████████▎| 42/45 [00:09<00:00,  4.46it/s] 96%|█████████▌| 43/45 [00:09<00:00,  4.46it/s] 98%|█████████▊| 44/45 [00:09<00:00,  4.46it/s][WARNING|training_args.py:1095] 2023-11-01 17:10:16,125 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+100%|██████████| 45/45 [00:09<00:00,  4.59it/s]
+[WARNING|training_args.py:1095] 2023-11-01 17:10:16,240 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[WARNING|training_args.py:1095] 2023-11-01 17:10:16,240 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[INFO|modelcard.py:460] 2023-11-01 17:10:16,421 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Text Classification', 'type': 'text-classification'}, 'metrics': [{'name': 'Accuracy', 'type': 'accuracy', 'value': 0.5047551989555359}]}
+***** eval metrics *****
+  epoch                   =        2.0
+  eval_accuracy           =     0.5048
+  eval_loss               =     0.6941
+  eval_runtime            = 0:00:09.95
+  eval_samples            =       2839
+  eval_samples_per_second =    285.304
+  eval_steps_per_second   =      4.522
+Processing train_examples_0.05.csv
+11/01/2023 17:10:39 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+11/01/2023 17:10:39 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.NO,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_min_num_params=0,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-06,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/runs/Nov01_17-10-39_clip08.umiacs.umd.edu,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=2.0,
+optim=OptimizerNames.ADAMW_HF,
+output_dir=varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=64,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+remove_unused_columns=True,
+report_to=['tensorboard'],
+resume_from_checkpoint=None,
+run_name=varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=IntervalStrategy.EPOCH,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+11/01/2023 17:10:39 - INFO - __main__ - load a local file for train: /fs/clip-projects/rlab/nehasrik/paraphrase-nlu/experiments/pretraining-vs-finetuning/finetuning_data/atomic/train_examples_0.05.csv
+11/01/2023 17:10:39 - INFO - __main__ - load a local file for validation: /fs/clip-projects/rlab/nehasrik/paraphrase-nlu/data_selection/defeasible/atomic/analysis_model_examples/dev_examples.csv
+11/01/2023 17:10:39 - WARNING - datasets.builder - Using custom data configuration default-f9f42c415bc8cd18
+11/01/2023 17:10:39 - INFO - datasets.builder - Generating dataset csv (/fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-f9f42c415bc8cd18/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58)
+Downloading and preparing dataset csv/default to /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-f9f42c415bc8cd18/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58...
+Downloading data files:   0%|          | 0/2 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 2/2 [00:00<00:00, 9554.22it/s]11/01/2023 17:10:39 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+11/01/2023 17:10:39 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+
+Extracting data files:   0%|          | 0/2 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 2/2 [00:00<00:00, 14.90it/s]Extracting data files: 100%|██████████| 2/2 [00:00<00:00, 14.89it/s]11/01/2023 17:10:39 - INFO - datasets.utils.info_utils - Unable to verify checksums.
+11/01/2023 17:10:39 - INFO - datasets.builder - Generating train split
+
+0 tables [00:00, ? tables/s]                            11/01/2023 17:10:40 - INFO - datasets.builder - Generating validation split
+0 tables [00:00, ? tables/s]                            11/01/2023 17:10:40 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+Dataset csv downloaded and prepared to /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-f9f42c415bc8cd18/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58. Subsequent calls will reuse this data.
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 292.85it/s]
+[INFO|configuration_utils.py:659] 2023-11-01 17:10:40,152 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+[INFO|configuration_utils.py:708] 2023-11-01 17:10:40,167 >> Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.19.4",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_auto.py:371] 2023-11-01 17:10:40,212 >> Could not locate the tokenizer configuration file, will try to use the model config instead.
+[INFO|configuration_utils.py:659] 2023-11-01 17:10:40,373 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+[INFO|configuration_utils.py:708] 2023-11-01 17:10:40,374 >> Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.19.4",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:10:40,637 >> loading file https://huggingface.co/roberta-base/resolve/main/vocab.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/d3ccdbfeb9aaa747ef20432d4976c32ee3fa69663b379deb253ccfce2bb1fdc5.d67d6b367eb24ab43b08ad55e014cf254076934f71d832bbab9ad35644a375ab
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:10:40,637 >> loading file https://huggingface.co/roberta-base/resolve/main/merges.txt from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/cafdecc90fcab17011e12ac813dd574b4b3fea39da6dd817813efa010262ff3f.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:10:40,637 >> loading file https://huggingface.co/roberta-base/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:10:40,637 >> loading file https://huggingface.co/roberta-base/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:10:40,637 >> loading file https://huggingface.co/roberta-base/resolve/main/tokenizer_config.json from cache at None
+[INFO|configuration_utils.py:659] 2023-11-01 17:10:40,691 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+[INFO|configuration_utils.py:708] 2023-11-01 17:10:40,692 >> Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.19.4",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|modeling_utils.py:1953] 2023-11-01 17:10:41,237 >> loading weights file https://huggingface.co/roberta-base/resolve/main/pytorch_model.bin from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/51ba668f7ff34e7cdfa9561e8361747738113878850a7d717dbc69de8683aaad.c7efaa30a0d80b2958b876969faa180e485944a849deee4ad482332de65365a7
+[WARNING|modeling_utils.py:2254] 2023-11-01 17:10:42,565 >> Some weights of the model checkpoint at roberta-base were not used when initializing RobertaForSequenceClassification: ['lm_head.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'roberta.pooler.dense.weight', 'roberta.pooler.dense.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:2265] 2023-11-01 17:10:42,565 >> Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at roberta-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.weight', 'classifier.out_proj.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+sentence1 sentence2
+S1+S2 KEYS sentence1 sentence2
+11/01/2023 17:10:43 - WARNING - datasets.fingerprint - Parameter 'function'=<function main.<locals>.preprocess_function at 0x7f1bc38911f0> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+Running tokenizer on dataset:   0%|          | 0/2 [00:00<?, ?ba/s]11/01/2023 17:10:43 - INFO - datasets.arrow_dataset - Caching processed dataset at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-f9f42c415bc8cd18/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58/cache-1c80317fa3b1799d.arrow
+Running tokenizer on dataset:  50%|█████     | 1/2 [00:00<00:00,  2.71ba/s]Running tokenizer on dataset: 100%|██████████| 2/2 [00:00<00:00,  4.28ba/s]Running tokenizer on dataset: 100%|██████████| 2/2 [00:00<00:00,  3.94ba/s]11/01/2023 17:10:44 - INFO - datasets.fingerprint - Parameter 'function'=<function main.<locals>.preprocess_function at 0x7f1bc36fc3a0> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead.
+
+Running tokenizer on dataset:   0%|          | 0/3 [00:00<?, ?ba/s]11/01/2023 17:10:44 - INFO - datasets.arrow_dataset - Caching processed dataset at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-f9f42c415bc8cd18/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58/cache-bdd640fb06671ad1.arrow
+Running tokenizer on dataset:  33%|███▎      | 1/3 [00:00<00:00,  3.11ba/s]Running tokenizer on dataset:  67%|██████▋   | 2/3 [00:00<00:00,  3.29ba/s]Running tokenizer on dataset: 100%|██████████| 3/3 [00:00<00:00,  3.60ba/s]Running tokenizer on dataset: 100%|██████████| 3/3 [00:00<00:00,  3.49ba/s]hi
+11/01/2023 17:10:45 - INFO - __main__ - Sample 563 of the training set: {'sentence1': "PersonX eats PersonY's breakfast PersonX is seen as full", 'sentence2': 'X eats one strawberry.', 'label': 0, 'input_ids': [0, 41761, 1000, 24923, 18404, 975, 18, 7080, 18404, 1000, 16, 450, 25, 455, 2, 2, 1000, 24923, 65, 30559, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+11/01/2023 17:10:45 - INFO - __main__ - Sample 501 of the training set: {'sentence1': "PersonX surprises PersonX's mom PersonX then makes dinner reservations", 'sentence2': "PersonX's mom is afraid going out due to corona virus.", 'label': 0, 'input_ids': [0, 41761, 1000, 14685, 18404, 1000, 18, 3795, 18404, 1000, 172, 817, 3630, 13747, 2, 2, 41761, 1000, 18, 3795, 16, 6023, 164, 66, 528, 7, 9240, 4488, 6793, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+11/01/2023 17:10:45 - INFO - __main__ - Sample 457 of the training set: {'sentence1': "PersonX finds PersonX's hotel PersonX then checks in at the hotel", 'sentence2': "The hotel was overbooked and PersonX's reservation was cancelled.", 'label': 0, 'input_ids': [0, 41761, 1000, 5684, 18404, 1000, 18, 2303, 18404, 1000, 172, 6240, 11, 23, 5, 2303, 2, 2, 133, 2303, 21, 81, 6298, 196, 8, 18404, 1000, 18, 17246, 21, 8102, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+
+[INFO|trainer.py:622] 2023-11-01 17:10:51,938 >> The following columns in the training set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: sentence1, sentence2. If sentence1, sentence2 are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+/fs/clip-projects/rlab/nehasrik/miniconda3/envs/para-nlu/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+[INFO|trainer.py:1419] 2023-11-01 17:10:51,977 >> ***** Running training *****
+[INFO|trainer.py:1420] 2023-11-01 17:10:51,977 >>   Num examples = 1418
+[INFO|trainer.py:1421] 2023-11-01 17:10:51,977 >>   Num Epochs = 2
+[INFO|trainer.py:1422] 2023-11-01 17:10:51,977 >>   Instantaneous batch size per device = 64
+[INFO|trainer.py:1423] 2023-11-01 17:10:51,977 >>   Total train batch size (w. parallel, distributed & accumulation) = 64
+[INFO|trainer.py:1424] 2023-11-01 17:10:51,977 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1425] 2023-11-01 17:10:51,977 >>   Total optimization steps = 46
+[WARNING|training_args.py:1095] 2023-11-01 17:10:52,014 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+  0%|          | 0/46 [00:00<?, ?it/s]  2%|▏         | 1/46 [00:00<00:30,  1.48it/s]  4%|▍         | 2/46 [00:01<00:28,  1.53it/s]  7%|▋         | 3/46 [00:01<00:27,  1.54it/s]  9%|▊         | 4/46 [00:02<00:27,  1.54it/s] 11%|█         | 5/46 [00:03<00:26,  1.55it/s] 13%|█▎        | 6/46 [00:03<00:25,  1.54it/s] 15%|█▌        | 7/46 [00:04<00:25,  1.55it/s] 17%|█▋        | 8/46 [00:05<00:24,  1.55it/s] 20%|█▉        | 9/46 [00:05<00:23,  1.55it/s] 22%|██▏       | 10/46 [00:06<00:23,  1.55it/s] 24%|██▍       | 11/46 [00:07<00:22,  1.55it/s] 26%|██▌       | 12/46 [00:07<00:21,  1.55it/s] 28%|██▊       | 13/46 [00:08<00:21,  1.55it/s] 30%|███       | 14/46 [00:09<00:20,  1.55it/s] 33%|███▎      | 15/46 [00:09<00:19,  1.55it/s] 35%|███▍      | 16/46 [00:10<00:19,  1.55it/s] 37%|███▋      | 17/46 [00:10<00:18,  1.55it/s] 39%|███▉      | 18/46 [00:11<00:18,  1.55it/s] 41%|████▏     | 19/46 [00:12<00:17,  1.54it/s] 43%|████▎     | 20/46 [00:12<00:16,  1.54it/s] 46%|████▌     | 21/46 [00:13<00:16,  1.54it/s] 48%|████▊     | 22/46 [00:14<00:15,  1.55it/s] 50%|█████     | 23/46 [00:14<00:11,  2.00it/s][INFO|trainer.py:2340] 2023-11-01 17:11:06,534 >> Saving model checkpoint to varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/checkpoint-23
+[INFO|configuration_utils.py:446] 2023-11-01 17:11:06,556 >> Configuration saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/checkpoint-23/config.json
+[INFO|modeling_utils.py:1542] 2023-11-01 17:11:09,684 >> Model weights saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/checkpoint-23/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2108] 2023-11-01 17:11:09,700 >> tokenizer config file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/checkpoint-23/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2114] 2023-11-01 17:11:09,722 >> Special tokens file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/checkpoint-23/special_tokens_map.json
+ 52%|█████▏    | 24/46 [00:23<01:10,  3.22s/it] 54%|█████▍    | 25/46 [00:24<00:51,  2.45s/it] 57%|█████▋    | 26/46 [00:25<00:38,  1.91s/it] 59%|█████▊    | 27/46 [00:25<00:29,  1.53s/it] 61%|██████    | 28/46 [00:26<00:22,  1.27s/it] 63%|██████▎   | 29/46 [00:27<00:18,  1.08s/it] 65%|██████▌   | 30/46 [00:27<00:15,  1.05it/s] 67%|██████▋   | 31/46 [00:28<00:12,  1.16it/s] 70%|██████▉   | 32/46 [00:29<00:11,  1.25it/s] 72%|███████▏  | 33/46 [00:29<00:09,  1.33it/s] 74%|███████▍  | 34/46 [00:30<00:08,  1.38it/s] 76%|███████▌  | 35/46 [00:31<00:07,  1.42it/s] 78%|███████▊  | 36/46 [00:31<00:06,  1.45it/s] 80%|████████  | 37/46 [00:32<00:06,  1.48it/s] 83%|████████▎ | 38/46 [00:33<00:05,  1.49it/s] 85%|████████▍ | 39/46 [00:33<00:04,  1.51it/s] 87%|████████▋ | 40/46 [00:34<00:03,  1.51it/s] 89%|████████▉ | 41/46 [00:35<00:03,  1.52it/s] 91%|█████████▏| 42/46 [00:35<00:02,  1.52it/s] 93%|█████████▎| 43/46 [00:36<00:01,  1.52it/s] 96%|█████████▌| 44/46 [00:36<00:01,  1.53it/s] 98%|█████████▊| 45/46 [00:37<00:00,  1.53it/s]100%|██████████| 46/46 [00:37<00:00,  1.98it/s][INFO|trainer.py:2340] 2023-11-01 17:11:29,948 >> Saving model checkpoint to varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/checkpoint-46
+[INFO|configuration_utils.py:446] 2023-11-01 17:11:29,977 >> Configuration saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/checkpoint-46/config.json
+[INFO|modeling_utils.py:1542] 2023-11-01 17:11:32,915 >> Model weights saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/checkpoint-46/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2108] 2023-11-01 17:11:32,933 >> tokenizer config file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/checkpoint-46/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2114] 2023-11-01 17:11:32,952 >> Special tokens file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/checkpoint-46/special_tokens_map.json
+[INFO|trainer.py:1662] 2023-11-01 17:11:38,471 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                               100%|██████████| 46/46 [00:46<00:00,  1.98it/s]100%|██████████| 46/46 [00:46<00:00,  1.01s/it]
+[INFO|trainer.py:2340] 2023-11-01 17:11:38,537 >> Saving model checkpoint to varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05
+[INFO|configuration_utils.py:446] 2023-11-01 17:11:38,553 >> Configuration saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/config.json
+[INFO|modeling_utils.py:1542] 2023-11-01 17:11:41,078 >> Model weights saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2108] 2023-11-01 17:11:41,092 >> tokenizer config file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2114] 2023-11-01 17:11:41,099 >> Special tokens file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.05/special_tokens_map.json
+{'train_runtime': 46.494, 'train_samples_per_second': 60.997, 'train_steps_per_second': 0.989, 'train_loss': 0.695302673008131, 'epoch': 2.0}
+***** train metrics *****
+  epoch                    =        2.0
+  train_loss               =     0.6953
+  train_runtime            = 0:00:46.49
+  train_samples            =       1418
+  train_samples_per_second =     60.997
+  train_steps_per_second   =      0.989
+11/01/2023 17:11:41 - INFO - __main__ - *** Evaluate ***
+[INFO|trainer.py:622] 2023-11-01 17:11:41,330 >> The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: sentence1, sentence2. If sentence1, sentence2 are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+[WARNING|training_args.py:1095] 2023-11-01 17:11:41,332 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[WARNING|training_args.py:1095] 2023-11-01 17:11:41,332 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[INFO|trainer.py:2590] 2023-11-01 17:11:41,332 >> ***** Running Evaluation *****
+[INFO|trainer.py:2592] 2023-11-01 17:11:41,332 >>   Num examples = 2839
+[INFO|trainer.py:2595] 2023-11-01 17:11:41,332 >>   Batch size = 64
+  0%|          | 0/45 [00:00<?, ?it/s]  4%|▍         | 2/45 [00:00<00:04,  8.82it/s]  7%|▋         | 3/45 [00:00<00:06,  6.22it/s]  9%|▉         | 4/45 [00:00<00:07,  5.39it/s] 11%|█         | 5/45 [00:00<00:07,  5.00it/s] 13%|█▎        | 6/45 [00:01<00:08,  4.71it/s] 16%|█▌        | 7/45 [00:01<00:08,  4.60it/s] 18%|█▊        | 8/45 [00:01<00:08,  4.54it/s] 20%|██        | 9/45 [00:01<00:08,  4.49it/s] 22%|██▏       | 10/45 [00:02<00:07,  4.46it/s] 24%|██▍       | 11/45 [00:02<00:07,  4.44it/s] 27%|██▋       | 12/45 [00:02<00:07,  4.43it/s] 29%|██▉       | 13/45 [00:02<00:07,  4.42it/s] 31%|███       | 14/45 [00:02<00:07,  4.41it/s] 33%|███▎      | 15/45 [00:03<00:06,  4.40it/s] 36%|███▌      | 16/45 [00:03<00:06,  4.40it/s] 38%|███▊      | 17/45 [00:03<00:06,  4.39it/s] 40%|████      | 18/45 [00:03<00:06,  4.39it/s] 42%|████▏     | 19/45 [00:04<00:05,  4.39it/s] 44%|████▍     | 20/45 [00:04<00:05,  4.39it/s] 47%|████▋     | 21/45 [00:04<00:05,  4.39it/s] 49%|████▉     | 22/45 [00:04<00:05,  4.39it/s] 51%|█████     | 23/45 [00:05<00:05,  4.39it/s] 53%|█████▎    | 24/45 [00:05<00:04,  4.39it/s] 56%|█████▌    | 25/45 [00:05<00:04,  4.39it/s] 58%|█████▊    | 26/45 [00:05<00:04,  4.39it/s] 60%|██████    | 27/45 [00:05<00:04,  4.39it/s] 62%|██████▏   | 28/45 [00:06<00:03,  4.39it/s] 64%|██████▍   | 29/45 [00:06<00:03,  4.39it/s] 67%|██████▋   | 30/45 [00:06<00:03,  4.38it/s] 69%|██████▉   | 31/45 [00:06<00:03,  4.38it/s] 71%|███████   | 32/45 [00:07<00:02,  4.38it/s] 73%|███████▎  | 33/45 [00:07<00:02,  4.38it/s] 76%|███████▌  | 34/45 [00:07<00:02,  4.38it/s] 78%|███████▊  | 35/45 [00:07<00:02,  4.38it/s] 80%|████████  | 36/45 [00:07<00:02,  4.37it/s] 82%|████████▏ | 37/45 [00:08<00:01,  4.37it/s] 84%|████████▍ | 38/45 [00:08<00:01,  4.37it/s] 87%|████████▋ | 39/45 [00:08<00:01,  4.37it/s] 89%|████████▉ | 40/45 [00:08<00:01,  4.38it/s] 91%|█████████ | 41/45 [00:09<00:00,  4.38it/s] 93%|█████████▎| 42/45 [00:09<00:00,  4.37it/s] 96%|█████████▌| 43/45 [00:09<00:00,  4.37it/s] 98%|█████████▊| 44/45 [00:09<00:00,  4.37it/s][WARNING|training_args.py:1095] 2023-11-01 17:11:51,484 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+100%|██████████| 45/45 [00:09<00:00,  4.52it/s]
+[WARNING|training_args.py:1095] 2023-11-01 17:11:51,563 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[WARNING|training_args.py:1095] 2023-11-01 17:11:51,563 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[INFO|modelcard.py:460] 2023-11-01 17:11:52,009 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Text Classification', 'type': 'text-classification'}, 'metrics': [{'name': 'Accuracy', 'type': 'accuracy', 'value': 0.5047551989555359}]}
+***** eval metrics *****
+  epoch                   =        2.0
+  eval_accuracy           =     0.5048
+  eval_loss               =      0.693
+  eval_runtime            = 0:00:10.15
+  eval_samples            =       2839
+  eval_samples_per_second =    279.635
+  eval_steps_per_second   =      4.432
+Processing train_examples_0.1.csv
+11/01/2023 17:12:11 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+11/01/2023 17:12:11 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.NO,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_min_num_params=0,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-06,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/runs/Nov01_17-12-11_clip08.umiacs.umd.edu,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=2.0,
+optim=OptimizerNames.ADAMW_HF,
+output_dir=varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=64,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+remove_unused_columns=True,
+report_to=['tensorboard'],
+resume_from_checkpoint=None,
+run_name=varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=IntervalStrategy.EPOCH,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+11/01/2023 17:12:11 - INFO - __main__ - load a local file for train: /fs/clip-projects/rlab/nehasrik/paraphrase-nlu/experiments/pretraining-vs-finetuning/finetuning_data/atomic/train_examples_0.1.csv
+11/01/2023 17:12:11 - INFO - __main__ - load a local file for validation: /fs/clip-projects/rlab/nehasrik/paraphrase-nlu/data_selection/defeasible/atomic/analysis_model_examples/dev_examples.csv
+11/01/2023 17:12:11 - WARNING - datasets.builder - Using custom data configuration default-53199a915e07c667
+11/01/2023 17:12:12 - INFO - datasets.builder - Generating dataset csv (/fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-53199a915e07c667/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58)
+Downloading and preparing dataset csv/default to /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-53199a915e07c667/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58...
+Downloading data files:   0%|          | 0/2 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 2/2 [00:00<00:00, 9436.00it/s]11/01/2023 17:12:12 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+11/01/2023 17:12:12 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+
+Extracting data files:   0%|          | 0/2 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 2/2 [00:00<00:00, 15.18it/s]Extracting data files: 100%|██████████| 2/2 [00:00<00:00, 15.16it/s]11/01/2023 17:12:12 - INFO - datasets.utils.info_utils - Unable to verify checksums.
+11/01/2023 17:12:12 - INFO - datasets.builder - Generating train split
+
+0 tables [00:00, ? tables/s]                            11/01/2023 17:12:12 - INFO - datasets.builder - Generating validation split
+0 tables [00:00, ? tables/s]                            11/01/2023 17:12:12 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+Dataset csv downloaded and prepared to /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-53199a915e07c667/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58. Subsequent calls will reuse this data.
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 350.52it/s]
+[INFO|configuration_utils.py:659] 2023-11-01 17:12:12,346 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+[INFO|configuration_utils.py:708] 2023-11-01 17:12:12,357 >> Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.19.4",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_auto.py:371] 2023-11-01 17:12:12,571 >> Could not locate the tokenizer configuration file, will try to use the model config instead.
+[INFO|configuration_utils.py:659] 2023-11-01 17:12:12,628 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+[INFO|configuration_utils.py:708] 2023-11-01 17:12:12,628 >> Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.19.4",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:12:12,870 >> loading file https://huggingface.co/roberta-base/resolve/main/vocab.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/d3ccdbfeb9aaa747ef20432d4976c32ee3fa69663b379deb253ccfce2bb1fdc5.d67d6b367eb24ab43b08ad55e014cf254076934f71d832bbab9ad35644a375ab
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:12:12,870 >> loading file https://huggingface.co/roberta-base/resolve/main/merges.txt from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/cafdecc90fcab17011e12ac813dd574b4b3fea39da6dd817813efa010262ff3f.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:12:12,870 >> loading file https://huggingface.co/roberta-base/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:12:12,870 >> loading file https://huggingface.co/roberta-base/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:12:12,870 >> loading file https://huggingface.co/roberta-base/resolve/main/tokenizer_config.json from cache at None
+[INFO|configuration_utils.py:659] 2023-11-01 17:12:12,920 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+[INFO|configuration_utils.py:708] 2023-11-01 17:12:12,921 >> Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.19.4",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|modeling_utils.py:1953] 2023-11-01 17:12:13,555 >> loading weights file https://huggingface.co/roberta-base/resolve/main/pytorch_model.bin from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/51ba668f7ff34e7cdfa9561e8361747738113878850a7d717dbc69de8683aaad.c7efaa30a0d80b2958b876969faa180e485944a849deee4ad482332de65365a7
+[WARNING|modeling_utils.py:2254] 2023-11-01 17:12:14,857 >> Some weights of the model checkpoint at roberta-base were not used when initializing RobertaForSequenceClassification: ['roberta.pooler.dense.bias', 'lm_head.dense.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.weight', 'lm_head.decoder.weight', 'lm_head.bias', 'roberta.pooler.dense.weight', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:2265] 2023-11-01 17:12:14,857 >> Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at roberta-base and are newly initialized: ['classifier.out_proj.bias', 'classifier.dense.weight', 'classifier.dense.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+sentence1 sentence2
+S1+S2 KEYS sentence1 sentence2
+11/01/2023 17:12:15 - WARNING - datasets.fingerprint - Parameter 'function'=<function main.<locals>.preprocess_function at 0x7fcaf26110d0> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+Running tokenizer on dataset:   0%|          | 0/3 [00:00<?, ?ba/s]11/01/2023 17:12:15 - INFO - datasets.arrow_dataset - Caching processed dataset at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-53199a915e07c667/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58/cache-1c80317fa3b1799d.arrow
+Running tokenizer on dataset:  33%|███▎      | 1/3 [00:00<00:00,  2.69ba/s]Running tokenizer on dataset:  67%|██████▋   | 2/3 [00:00<00:00,  2.92ba/s]Running tokenizer on dataset: 100%|██████████| 3/3 [00:00<00:00,  3.30ba/s]Running tokenizer on dataset: 100%|██████████| 3/3 [00:00<00:00,  3.16ba/s]11/01/2023 17:12:17 - INFO - datasets.fingerprint - Parameter 'function'=<function main.<locals>.preprocess_function at 0x7fcaf26111f0> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead.
+
+Running tokenizer on dataset:   0%|          | 0/3 [00:00<?, ?ba/s]11/01/2023 17:12:17 - INFO - datasets.arrow_dataset - Caching processed dataset at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-53199a915e07c667/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58/cache-bdd640fb06671ad1.arrow
+Running tokenizer on dataset:  33%|███▎      | 1/3 [00:00<00:00,  3.19ba/s]Running tokenizer on dataset:  67%|██████▋   | 2/3 [00:00<00:00,  3.33ba/s]Running tokenizer on dataset: 100%|██████████| 3/3 [00:00<00:00,  3.66ba/s]Running tokenizer on dataset: 100%|██████████| 3/3 [00:00<00:00,  3.55ba/s]hi
+11/01/2023 17:12:18 - INFO - __main__ - Sample 1126 of the training set: {'sentence1': 'PersonX halfway done As a result, PersonX feels dETERMINED', 'sentence2': 'PersonX thinks the activity is absolutely crucial.', 'label': 1, 'input_ids': [0, 41761, 1000, 13177, 626, 287, 10, 898, 6, 18404, 1000, 2653, 385, 3935, 2076, 24765, 1691, 2, 2, 41761, 1000, 4265, 5, 1940, 16, 3668, 4096, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+11/01/2023 17:12:18 - INFO - __main__ - Sample 1003 of the training set: {'sentence1': 'PersonX gets a haircut Because PersonX wanted to get a new look.', 'sentence2': 'They like buzzcuts', 'label': 0, 'input_ids': [0, 41761, 1000, 1516, 10, 29618, 3047, 18404, 1000, 770, 7, 120, 10, 92, 356, 4, 2, 2, 1213, 101, 8775, 36573, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+11/01/2023 17:12:18 - INFO - __main__ - Sample 914 of the training set: {'sentence1': 'PersonX designs formats to make As a result, PersonX wants make sure the formats are made correctly', 'sentence2': 'PersonX will have to personally use the formats.', 'label': 1, 'input_ids': [0, 41761, 1000, 7191, 19052, 7, 146, 287, 10, 898, 6, 18404, 1000, 1072, 146, 686, 5, 19052, 32, 156, 12461, 2, 2, 41761, 1000, 40, 33, 7, 5636, 304, 5, 19052, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+
+[INFO|trainer.py:622] 2023-11-01 17:12:25,363 >> The following columns in the training set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: sentence1, sentence2. If sentence1, sentence2 are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+/fs/clip-projects/rlab/nehasrik/miniconda3/envs/para-nlu/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+[INFO|trainer.py:1419] 2023-11-01 17:12:25,396 >> ***** Running training *****
+[INFO|trainer.py:1420] 2023-11-01 17:12:25,396 >>   Num examples = 2834
+[INFO|trainer.py:1421] 2023-11-01 17:12:25,396 >>   Num Epochs = 2
+[INFO|trainer.py:1422] 2023-11-01 17:12:25,396 >>   Instantaneous batch size per device = 64
+[INFO|trainer.py:1423] 2023-11-01 17:12:25,396 >>   Total train batch size (w. parallel, distributed & accumulation) = 64
+[INFO|trainer.py:1424] 2023-11-01 17:12:25,396 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1425] 2023-11-01 17:12:25,396 >>   Total optimization steps = 90
+[WARNING|training_args.py:1095] 2023-11-01 17:12:25,459 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+  0%|          | 0/90 [00:00<?, ?it/s]  1%|          | 1/90 [00:00<01:01,  1.45it/s]  2%|▏         | 2/90 [00:01<00:58,  1.49it/s]  3%|▎         | 3/90 [00:01<00:57,  1.51it/s]  4%|▍         | 4/90 [00:02<00:56,  1.52it/s]  6%|▌         | 5/90 [00:03<00:55,  1.52it/s]  7%|▋         | 6/90 [00:03<00:55,  1.52it/s]  8%|▊         | 7/90 [00:04<00:54,  1.53it/s]  9%|▉         | 8/90 [00:05<00:53,  1.53it/s] 10%|█         | 9/90 [00:05<00:53,  1.53it/s] 11%|█         | 10/90 [00:06<00:52,  1.52it/s] 12%|█▏        | 11/90 [00:07<00:51,  1.52it/s] 13%|█▎        | 12/90 [00:07<00:51,  1.52it/s] 14%|█▍        | 13/90 [00:08<00:50,  1.52it/s] 16%|█▌        | 14/90 [00:09<00:50,  1.52it/s] 17%|█▋        | 15/90 [00:09<00:49,  1.52it/s] 18%|█▊        | 16/90 [00:10<00:48,  1.52it/s] 19%|█▉        | 17/90 [00:11<00:47,  1.52it/s] 20%|██        | 18/90 [00:11<00:47,  1.52it/s] 21%|██        | 19/90 [00:12<00:46,  1.52it/s] 22%|██▏       | 20/90 [00:13<00:46,  1.52it/s] 23%|██▎       | 21/90 [00:13<00:45,  1.52it/s] 24%|██▍       | 22/90 [00:14<00:44,  1.52it/s] 26%|██▌       | 23/90 [00:15<00:44,  1.52it/s] 27%|██▋       | 24/90 [00:15<00:43,  1.52it/s] 28%|██▊       | 25/90 [00:16<00:42,  1.51it/s] 29%|██▉       | 26/90 [00:17<00:42,  1.51it/s] 30%|███       | 27/90 [00:17<00:41,  1.51it/s] 31%|███       | 28/90 [00:18<00:41,  1.51it/s] 32%|███▏      | 29/90 [00:19<00:40,  1.51it/s] 33%|███▎      | 30/90 [00:19<00:39,  1.51it/s] 34%|███▍      | 31/90 [00:20<00:38,  1.51it/s] 36%|███▌      | 32/90 [00:21<00:38,  1.52it/s] 37%|███▋      | 33/90 [00:21<00:37,  1.52it/s] 38%|███▊      | 34/90 [00:22<00:37,  1.51it/s] 39%|███▉      | 35/90 [00:23<00:36,  1.51it/s] 40%|████      | 36/90 [00:23<00:35,  1.51it/s] 41%|████      | 37/90 [00:24<00:35,  1.51it/s] 42%|████▏     | 38/90 [00:25<00:34,  1.51it/s] 43%|████▎     | 39/90 [00:25<00:33,  1.51it/s] 44%|████▍     | 40/90 [00:26<00:33,  1.51it/s] 46%|████▌     | 41/90 [00:27<00:32,  1.51it/s] 47%|████▋     | 42/90 [00:27<00:31,  1.51it/s] 48%|████▊     | 43/90 [00:28<00:31,  1.50it/s] 49%|████▉     | 44/90 [00:29<00:30,  1.50it/s] 50%|█████     | 45/90 [00:29<00:23,  1.88it/s][INFO|trainer.py:2340] 2023-11-01 17:12:54,900 >> Saving model checkpoint to varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/checkpoint-45
+[INFO|configuration_utils.py:446] 2023-11-01 17:12:54,922 >> Configuration saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/checkpoint-45/config.json
+[INFO|modeling_utils.py:1542] 2023-11-01 17:12:57,686 >> Model weights saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/checkpoint-45/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2108] 2023-11-01 17:12:57,704 >> tokenizer config file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/checkpoint-45/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2114] 2023-11-01 17:12:57,717 >> Special tokens file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/checkpoint-45/special_tokens_map.json
+ 51%|█████     | 46/90 [00:38<02:11,  3.00s/it] 52%|█████▏    | 47/90 [00:38<01:38,  2.30s/it] 53%|█████▎    | 48/90 [00:39<01:15,  1.81s/it] 54%|█████▍    | 49/90 [00:40<00:59,  1.46s/it] 56%|█████▌    | 50/90 [00:40<00:48,  1.22s/it] 57%|█████▋    | 51/90 [00:41<00:41,  1.05s/it] 58%|█████▊    | 52/90 [00:42<00:35,  1.07it/s] 59%|█████▉    | 53/90 [00:42<00:31,  1.17it/s] 60%|██████    | 54/90 [00:43<00:28,  1.25it/s] 61%|██████    | 55/90 [00:43<00:26,  1.32it/s] 62%|██████▏   | 56/90 [00:44<00:24,  1.37it/s] 63%|██████▎   | 57/90 [00:45<00:23,  1.41it/s] 64%|██████▍   | 58/90 [00:45<00:22,  1.44it/s] 66%|██████▌   | 59/90 [00:46<00:21,  1.46it/s] 67%|██████▋   | 60/90 [00:47<00:20,  1.47it/s] 68%|██████▊   | 61/90 [00:47<00:19,  1.48it/s] 69%|██████▉   | 62/90 [00:48<00:18,  1.49it/s] 70%|███████   | 63/90 [00:49<00:18,  1.49it/s] 71%|███████   | 64/90 [00:49<00:17,  1.50it/s] 72%|███████▏  | 65/90 [00:50<00:16,  1.50it/s] 73%|███████▎  | 66/90 [00:51<00:15,  1.50it/s] 74%|███████▍  | 67/90 [00:51<00:15,  1.50it/s] 76%|███████▌  | 68/90 [00:52<00:14,  1.50it/s] 77%|███████▋  | 69/90 [00:53<00:13,  1.50it/s] 78%|███████▊  | 70/90 [00:53<00:13,  1.50it/s] 79%|███████▉  | 71/90 [00:54<00:12,  1.50it/s] 80%|████████  | 72/90 [00:55<00:11,  1.50it/s] 81%|████████  | 73/90 [00:55<00:11,  1.50it/s] 82%|████████▏ | 74/90 [00:56<00:10,  1.50it/s] 83%|████████▎ | 75/90 [00:57<00:10,  1.50it/s] 84%|████████▍ | 76/90 [00:57<00:09,  1.50it/s] 86%|████████▌ | 77/90 [00:58<00:08,  1.50it/s] 87%|████████▋ | 78/90 [00:59<00:08,  1.50it/s] 88%|████████▊ | 79/90 [00:59<00:07,  1.49it/s] 89%|████████▉ | 80/90 [01:00<00:06,  1.49it/s] 90%|█████████ | 81/90 [01:01<00:06,  1.49it/s] 91%|█████████ | 82/90 [01:02<00:05,  1.49it/s] 92%|█████████▏| 83/90 [01:02<00:04,  1.49it/s] 93%|█████████▎| 84/90 [01:03<00:04,  1.49it/s] 94%|█████████▍| 85/90 [01:04<00:03,  1.49it/s] 96%|█████████▌| 86/90 [01:04<00:02,  1.49it/s] 97%|█████████▋| 87/90 [01:05<00:02,  1.49it/s] 98%|█████████▊| 88/90 [01:06<00:01,  1.49it/s] 99%|█████████▉| 89/90 [01:06<00:00,  1.49it/s]100%|██████████| 90/90 [01:06<00:00,  1.86it/s][INFO|trainer.py:2340] 2023-11-01 17:13:32,537 >> Saving model checkpoint to varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/checkpoint-90
+[INFO|configuration_utils.py:446] 2023-11-01 17:13:32,551 >> Configuration saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/checkpoint-90/config.json
+[INFO|modeling_utils.py:1542] 2023-11-01 17:13:35,286 >> Model weights saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/checkpoint-90/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2108] 2023-11-01 17:13:35,296 >> tokenizer config file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/checkpoint-90/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2114] 2023-11-01 17:13:35,307 >> Special tokens file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/checkpoint-90/special_tokens_map.json
+[INFO|trainer.py:1662] 2023-11-01 17:13:40,421 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                               100%|██████████| 90/90 [01:14<00:00,  1.86it/s]100%|██████████| 90/90 [01:14<00:00,  1.20it/s]
+[INFO|trainer.py:2340] 2023-11-01 17:13:40,458 >> Saving model checkpoint to varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1
+[INFO|configuration_utils.py:446] 2023-11-01 17:13:40,468 >> Configuration saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/config.json
+[INFO|modeling_utils.py:1542] 2023-11-01 17:13:42,966 >> Model weights saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2108] 2023-11-01 17:13:42,983 >> tokenizer config file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2114] 2023-11-01 17:13:42,994 >> Special tokens file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.1/special_tokens_map.json
+{'train_runtime': 75.0249, 'train_samples_per_second': 75.548, 'train_steps_per_second': 1.2, 'train_loss': 0.6936959160698785, 'epoch': 2.0}
+***** train metrics *****
+  epoch                    =        2.0
+  train_loss               =     0.6937
+  train_runtime            = 0:01:15.02
+  train_samples            =       2834
+  train_samples_per_second =     75.548
+  train_steps_per_second   =        1.2
+11/01/2023 17:13:43 - INFO - __main__ - *** Evaluate ***
+[INFO|trainer.py:622] 2023-11-01 17:13:43,134 >> The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: sentence1, sentence2. If sentence1, sentence2 are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+[WARNING|training_args.py:1095] 2023-11-01 17:13:43,136 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[WARNING|training_args.py:1095] 2023-11-01 17:13:43,136 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[INFO|trainer.py:2590] 2023-11-01 17:13:43,136 >> ***** Running Evaluation *****
+[INFO|trainer.py:2592] 2023-11-01 17:13:43,137 >>   Num examples = 2839
+[INFO|trainer.py:2595] 2023-11-01 17:13:43,137 >>   Batch size = 64
+  0%|          | 0/45 [00:00<?, ?it/s]  4%|▍         | 2/45 [00:00<00:04,  8.65it/s]  7%|▋         | 3/45 [00:00<00:06,  6.09it/s]  9%|▉         | 4/45 [00:00<00:07,  5.26it/s] 11%|█         | 5/45 [00:00<00:08,  4.88it/s] 13%|█▎        | 6/45 [00:01<00:08,  4.66it/s] 16%|█▌        | 7/45 [00:01<00:08,  4.54it/s] 18%|█▊        | 8/45 [00:01<00:08,  4.46it/s] 20%|██        | 9/45 [00:01<00:08,  4.41it/s] 22%|██▏       | 10/45 [00:02<00:08,  4.36it/s] 24%|██▍       | 11/45 [00:02<00:07,  4.34it/s] 27%|██▋       | 12/45 [00:02<00:07,  4.32it/s] 29%|██▉       | 13/45 [00:02<00:07,  4.32it/s] 31%|███       | 14/45 [00:03<00:07,  4.30it/s] 33%|███▎      | 15/45 [00:03<00:06,  4.30it/s] 36%|███▌      | 16/45 [00:03<00:06,  4.30it/s] 38%|███▊      | 17/45 [00:03<00:06,  4.29it/s] 40%|████      | 18/45 [00:03<00:06,  4.29it/s] 42%|████▏     | 19/45 [00:04<00:06,  4.29it/s] 44%|████▍     | 20/45 [00:04<00:05,  4.29it/s] 47%|████▋     | 21/45 [00:04<00:05,  4.29it/s] 49%|████▉     | 22/45 [00:04<00:05,  4.29it/s] 51%|█████     | 23/45 [00:05<00:05,  4.28it/s] 53%|█████▎    | 24/45 [00:05<00:04,  4.28it/s] 56%|█████▌    | 25/45 [00:05<00:04,  4.27it/s] 58%|█████▊    | 26/45 [00:05<00:04,  4.28it/s] 60%|██████    | 27/45 [00:06<00:04,  4.27it/s] 62%|██████▏   | 28/45 [00:06<00:03,  4.28it/s] 64%|██████▍   | 29/45 [00:06<00:03,  4.28it/s] 67%|██████▋   | 30/45 [00:06<00:03,  4.27it/s] 69%|██████▉   | 31/45 [00:06<00:03,  4.28it/s] 71%|███████   | 32/45 [00:07<00:03,  4.28it/s] 73%|███████▎  | 33/45 [00:07<00:02,  4.28it/s] 76%|███████▌  | 34/45 [00:07<00:02,  4.28it/s] 78%|███████▊  | 35/45 [00:07<00:02,  4.28it/s] 80%|████████  | 36/45 [00:08<00:02,  4.28it/s] 82%|████████▏ | 37/45 [00:08<00:01,  4.28it/s] 84%|████████▍ | 38/45 [00:08<00:01,  4.27it/s] 87%|████████▋ | 39/45 [00:08<00:01,  4.28it/s] 89%|████████▉ | 40/45 [00:09<00:01,  4.27it/s] 91%|█████████ | 41/45 [00:09<00:00,  4.27it/s] 93%|█████████▎| 42/45 [00:09<00:00,  4.27it/s] 96%|█████████▌| 43/45 [00:09<00:00,  4.27it/s] 98%|█████████▊| 44/45 [00:10<00:00,  4.28it/s][WARNING|training_args.py:1095] 2023-11-01 17:13:53,512 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+100%|██████████| 45/45 [00:10<00:00,  4.42it/s]
+[WARNING|training_args.py:1095] 2023-11-01 17:13:53,589 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[WARNING|training_args.py:1095] 2023-11-01 17:13:53,590 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[INFO|modelcard.py:460] 2023-11-01 17:13:54,140 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Text Classification', 'type': 'text-classification'}, 'metrics': [{'name': 'Accuracy', 'type': 'accuracy', 'value': 0.5184924006462097}]}
+***** eval metrics *****
+  epoch                   =        2.0
+  eval_accuracy           =     0.5185
+  eval_loss               =     0.6927
+  eval_runtime            = 0:00:10.37
+  eval_samples            =       2839
+  eval_samples_per_second =    273.605
+  eval_steps_per_second   =      4.337
+Processing train_examples_0.5.csv
+11/01/2023 17:14:10 - WARNING - __main__ - Process rank: -1, device: cuda:0, n_gpu: 1distributed training: False, 16-bits training: False
+11/01/2023 17:14:10 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=IntervalStrategy.NO,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_min_num_params=0,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-06,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/runs/Nov01_17-14-10_clip08.umiacs.umd.edu,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=2.0,
+optim=OptimizerNames.ADAMW_HF,
+output_dir=varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=64,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+remove_unused_columns=True,
+report_to=['tensorboard'],
+resume_from_checkpoint=None,
+run_name=varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=IntervalStrategy.EPOCH,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+11/01/2023 17:14:10 - INFO - __main__ - load a local file for train: /fs/clip-projects/rlab/nehasrik/paraphrase-nlu/experiments/pretraining-vs-finetuning/finetuning_data/atomic/train_examples_0.5.csv
+11/01/2023 17:14:10 - INFO - __main__ - load a local file for validation: /fs/clip-projects/rlab/nehasrik/paraphrase-nlu/data_selection/defeasible/atomic/analysis_model_examples/dev_examples.csv
+11/01/2023 17:14:10 - WARNING - datasets.builder - Using custom data configuration default-b3ba0a38eef50d3f
+11/01/2023 17:14:10 - INFO - datasets.builder - Generating dataset csv (/fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-b3ba0a38eef50d3f/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58)
+Downloading and preparing dataset csv/default to /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-b3ba0a38eef50d3f/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58...
+Downloading data files:   0%|          | 0/2 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 2/2 [00:00<00:00, 9565.12it/s]11/01/2023 17:14:10 - INFO - datasets.download.download_manager - Downloading took 0.0 min
+11/01/2023 17:14:10 - INFO - datasets.download.download_manager - Checksum Computation took 0.0 min
+
+Extracting data files:   0%|          | 0/2 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 2/2 [00:00<00:00, 22.40it/s]11/01/2023 17:14:10 - INFO - datasets.utils.info_utils - Unable to verify checksums.
+11/01/2023 17:14:10 - INFO - datasets.builder - Generating train split
+
+0 tables [00:00, ? tables/s]                            11/01/2023 17:14:10 - INFO - datasets.builder - Generating validation split
+0 tables [00:00, ? tables/s]                            11/01/2023 17:14:10 - INFO - datasets.utils.info_utils - Unable to verify splits sizes.
+Dataset csv downloaded and prepared to /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-b3ba0a38eef50d3f/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58. Subsequent calls will reuse this data.
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 436.38it/s]
+[INFO|configuration_utils.py:659] 2023-11-01 17:14:11,021 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+[INFO|configuration_utils.py:708] 2023-11-01 17:14:11,033 >> Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.19.4",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_auto.py:371] 2023-11-01 17:14:11,083 >> Could not locate the tokenizer configuration file, will try to use the model config instead.
+[INFO|configuration_utils.py:659] 2023-11-01 17:14:11,126 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+[INFO|configuration_utils.py:708] 2023-11-01 17:14:11,126 >> Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.19.4",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:14:11,397 >> loading file https://huggingface.co/roberta-base/resolve/main/vocab.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/d3ccdbfeb9aaa747ef20432d4976c32ee3fa69663b379deb253ccfce2bb1fdc5.d67d6b367eb24ab43b08ad55e014cf254076934f71d832bbab9ad35644a375ab
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:14:11,397 >> loading file https://huggingface.co/roberta-base/resolve/main/merges.txt from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/cafdecc90fcab17011e12ac813dd574b4b3fea39da6dd817813efa010262ff3f.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:14:11,397 >> loading file https://huggingface.co/roberta-base/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:14:11,397 >> loading file https://huggingface.co/roberta-base/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1782] 2023-11-01 17:14:11,397 >> loading file https://huggingface.co/roberta-base/resolve/main/tokenizer_config.json from cache at None
+[INFO|configuration_utils.py:659] 2023-11-01 17:14:11,448 >> loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+[INFO|configuration_utils.py:708] 2023-11-01 17:14:11,448 >> Model config RobertaConfig {
+  "_name_or_path": "roberta-base",
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "classifier_dropout": null,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.19.4",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+[INFO|modeling_utils.py:1953] 2023-11-01 17:14:11,932 >> loading weights file https://huggingface.co/roberta-base/resolve/main/pytorch_model.bin from cache at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/51ba668f7ff34e7cdfa9561e8361747738113878850a7d717dbc69de8683aaad.c7efaa30a0d80b2958b876969faa180e485944a849deee4ad482332de65365a7
+[WARNING|modeling_utils.py:2254] 2023-11-01 17:14:13,231 >> Some weights of the model checkpoint at roberta-base were not used when initializing RobertaForSequenceClassification: ['lm_head.bias', 'lm_head.dense.bias', 'roberta.pooler.dense.weight', 'lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.weight', 'roberta.pooler.dense.bias', 'lm_head.layer_norm.bias']
+- This IS expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:2265] 2023-11-01 17:14:13,231 >> Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at roberta-base and are newly initialized: ['classifier.dense.weight', 'classifier.out_proj.weight', 'classifier.dense.bias', 'classifier.out_proj.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+sentence1 sentence2
+S1+S2 KEYS sentence1 sentence2
+11/01/2023 17:14:14 - WARNING - datasets.fingerprint - Parameter 'function'=<function main.<locals>.preprocess_function at 0x7fc86fa871f0> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead. Make sure your transforms and parameters are serializable with pickle or dill for the dataset fingerprinting and caching to work. If you reuse this transform, the caching mechanism will consider it to be different from the previous calls and recompute everything. This warning is only showed once. Subsequent hashing failures won't be showed.
+Running tokenizer on dataset:   0%|          | 0/15 [00:00<?, ?ba/s]11/01/2023 17:14:14 - INFO - datasets.arrow_dataset - Caching processed dataset at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-b3ba0a38eef50d3f/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58/cache-1c80317fa3b1799d.arrow
+Running tokenizer on dataset:   7%|▋         | 1/15 [00:00<00:05,  2.66ba/s]Running tokenizer on dataset:  13%|█▎        | 2/15 [00:00<00:04,  2.89ba/s]Running tokenizer on dataset:  20%|██        | 3/15 [00:01<00:03,  3.05ba/s]Running tokenizer on dataset:  27%|██▋       | 4/15 [00:01<00:03,  3.16ba/s]Running tokenizer on dataset:  33%|███▎      | 5/15 [00:01<00:03,  3.25ba/s]Running tokenizer on dataset:  40%|████      | 6/15 [00:01<00:02,  3.32ba/s]Running tokenizer on dataset:  47%|████▋     | 7/15 [00:02<00:02,  3.18ba/s]Running tokenizer on dataset:  53%|█████▎    | 8/15 [00:02<00:02,  3.28ba/s]Running tokenizer on dataset:  60%|██████    | 9/15 [00:02<00:01,  3.34ba/s]Running tokenizer on dataset:  67%|██████▋   | 10/15 [00:03<00:01,  3.41ba/s]Running tokenizer on dataset:  73%|███████▎  | 11/15 [00:03<00:01,  3.45ba/s]Running tokenizer on dataset:  80%|████████  | 12/15 [00:03<00:00,  3.49ba/s]Running tokenizer on dataset:  87%|████████▋ | 13/15 [00:03<00:00,  3.51ba/s]Running tokenizer on dataset:  93%|█████████▎| 14/15 [00:04<00:00,  3.54ba/s]Running tokenizer on dataset: 100%|██████████| 15/15 [00:04<00:00,  3.53ba/s]11/01/2023 17:14:19 - INFO - datasets.fingerprint - Parameter 'function'=<function main.<locals>.preprocess_function at 0x7fc86fadf160> of the transform datasets.arrow_dataset.Dataset._map_single couldn't be hashed properly, a random hash was used instead.
+
+Running tokenizer on dataset:   0%|          | 0/3 [00:00<?, ?ba/s]11/01/2023 17:14:19 - INFO - datasets.arrow_dataset - Caching processed dataset at /fs/clip-scratch/nehasrik/paraphrase-nlu/cache/csv/default-b3ba0a38eef50d3f/0.0.0/51cce309a08df9c4d82ffd9363bbe090bf173197fc01a71b034e8594995a1a58/cache-bdd640fb06671ad1.arrow
+Running tokenizer on dataset:  33%|███▎      | 1/3 [00:00<00:00,  3.42ba/s]Running tokenizer on dataset:  67%|██████▋   | 2/3 [00:00<00:00,  3.54ba/s]Running tokenizer on dataset: 100%|██████████| 3/3 [00:00<00:00,  3.88ba/s]Running tokenizer on dataset: 100%|██████████| 3/3 [00:00<00:00,  3.77ba/s]hi
+11/01/2023 17:14:20 - INFO - __main__ - Sample 4506 of the training set: {'sentence1': "PersonX helps PersonX's son As a result, PersonX feels caring", 'sentence2': "PersonX helps PersonX's son get into military school after being suspended.", 'label': 0, 'input_ids': [0, 41761, 1000, 2607, 18404, 1000, 18, 979, 287, 10, 898, 6, 18404, 1000, 2653, 10837, 2, 2, 41761, 1000, 2607, 18404, 1000, 18, 979, 120, 88, 831, 334, 71, 145, 3456, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+11/01/2023 17:14:20 - INFO - __main__ - Sample 4012 of the training set: {'sentence1': "PersonX gives PersonY's dog As a result, PersonX feels a bone", 'sentence2': 'PersonX regrets offering their hand.', 'label': 0, 'input_ids': [0, 41761, 1000, 2029, 18404, 975, 18, 2335, 287, 10, 898, 6, 18404, 1000, 2653, 10, 9013, 2, 2, 41761, 1000, 19078, 1839, 49, 865, 4, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+11/01/2023 17:14:20 - INFO - __main__ - Sample 3657 of the training set: {'sentence1': 'PersonX takes many classes PersonX is seen as over whelmed', 'sentence2': 'PersonX has a 4.0 GPA', 'label': 0, 'input_ids': [0, 41761, 1000, 1239, 171, 4050, 18404, 1000, 16, 450, 25, 81, 33116, 462, 4567, 2, 2, 41761, 1000, 34, 10, 204, 4, 288, 34408, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}.
+
+[INFO|trainer.py:622] 2023-11-01 17:14:25,514 >> The following columns in the training set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: sentence2, sentence1. If sentence2, sentence1 are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+/fs/clip-projects/rlab/nehasrik/miniconda3/envs/para-nlu/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+[INFO|trainer.py:1419] 2023-11-01 17:14:25,534 >> ***** Running training *****
+[INFO|trainer.py:1420] 2023-11-01 17:14:25,534 >>   Num examples = 14163
+[INFO|trainer.py:1421] 2023-11-01 17:14:25,534 >>   Num Epochs = 2
+[INFO|trainer.py:1422] 2023-11-01 17:14:25,534 >>   Instantaneous batch size per device = 64
+[INFO|trainer.py:1423] 2023-11-01 17:14:25,534 >>   Total train batch size (w. parallel, distributed & accumulation) = 64
+[INFO|trainer.py:1424] 2023-11-01 17:14:25,534 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:1425] 2023-11-01 17:14:25,534 >>   Total optimization steps = 444
+[WARNING|training_args.py:1095] 2023-11-01 17:14:25,561 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+  0%|          | 0/444 [00:00<?, ?it/s]  0%|          | 1/444 [00:00<05:08,  1.43it/s]  0%|          | 2/444 [00:01<04:57,  1.49it/s]  1%|          | 3/444 [00:02<04:53,  1.50it/s]  1%|          | 4/444 [00:02<04:51,  1.51it/s]  1%|          | 5/444 [00:03<04:49,  1.52it/s]  1%|▏         | 6/444 [00:03<04:48,  1.52it/s]  2%|▏         | 7/444 [00:04<04:47,  1.52it/s]  2%|▏         | 8/444 [00:05<04:46,  1.52it/s]  2%|▏         | 9/444 [00:05<04:45,  1.52it/s]  2%|▏         | 10/444 [00:06<04:44,  1.52it/s]  2%|▏         | 11/444 [00:07<04:44,  1.52it/s]  3%|▎         | 12/444 [00:07<04:44,  1.52it/s]  3%|▎         | 13/444 [00:08<04:44,  1.52it/s]  3%|▎         | 14/444 [00:09<04:43,  1.52it/s]  3%|▎         | 15/444 [00:09<04:43,  1.51it/s]  4%|▎         | 16/444 [00:10<04:42,  1.51it/s]  4%|▍         | 17/444 [00:11<04:41,  1.52it/s]  4%|▍         | 18/444 [00:11<04:40,  1.52it/s]  4%|▍         | 19/444 [00:12<04:40,  1.52it/s]  5%|▍         | 20/444 [00:13<04:39,  1.52it/s]  5%|▍         | 21/444 [00:13<04:38,  1.52it/s]  5%|▍         | 22/444 [00:14<04:38,  1.52it/s]  5%|▌         | 23/444 [00:15<04:38,  1.51it/s]  5%|▌         | 24/444 [00:15<04:37,  1.51it/s]  6%|▌         | 25/444 [00:16<04:37,  1.51it/s]  6%|▌         | 26/444 [00:17<04:36,  1.51it/s]  6%|▌         | 27/444 [00:17<04:36,  1.51it/s]  6%|▋         | 28/444 [00:18<04:36,  1.51it/s]  7%|▋         | 29/444 [00:19<04:35,  1.51it/s]  7%|▋         | 30/444 [00:19<04:34,  1.51it/s]  7%|▋         | 31/444 [00:20<04:33,  1.51it/s]  7%|▋         | 32/444 [00:21<04:33,  1.51it/s]  7%|▋         | 33/444 [00:21<04:32,  1.51it/s]  8%|▊         | 34/444 [00:22<04:32,  1.51it/s]  8%|▊         | 35/444 [00:23<04:31,  1.51it/s]  8%|▊         | 36/444 [00:23<04:31,  1.50it/s]  8%|▊         | 37/444 [00:24<04:30,  1.51it/s]  9%|▊         | 38/444 [00:25<04:29,  1.51it/s]  9%|▉         | 39/444 [00:25<04:29,  1.50it/s]  9%|▉         | 40/444 [00:26<04:28,  1.50it/s]  9%|▉         | 41/444 [00:27<04:28,  1.50it/s]  9%|▉         | 42/444 [00:27<04:27,  1.50it/s] 10%|▉         | 43/444 [00:28<04:27,  1.50it/s] 10%|▉         | 44/444 [00:29<04:26,  1.50it/s] 10%|█         | 45/444 [00:29<04:26,  1.50it/s] 10%|█         | 46/444 [00:30<04:25,  1.50it/s] 11%|█         | 47/444 [00:31<04:25,  1.50it/s] 11%|█         | 48/444 [00:31<04:24,  1.50it/s] 11%|█         | 49/444 [00:32<04:24,  1.49it/s] 11%|█▏        | 50/444 [00:33<04:23,  1.49it/s] 11%|█▏        | 51/444 [00:33<04:22,  1.49it/s] 12%|█▏        | 52/444 [00:34<04:22,  1.49it/s] 12%|█▏        | 53/444 [00:35<04:21,  1.49it/s] 12%|█▏        | 54/444 [00:35<04:21,  1.49it/s] 12%|█▏        | 55/444 [00:36<04:20,  1.49it/s] 13%|█▎        | 56/444 [00:37<04:19,  1.49it/s] 13%|█▎        | 57/444 [00:37<04:18,  1.49it/s] 13%|█▎        | 58/444 [00:38<04:18,  1.49it/s] 13%|█▎        | 59/444 [00:39<04:17,  1.49it/s] 14%|█▎        | 60/444 [00:39<04:17,  1.49it/s] 14%|█▎        | 61/444 [00:40<04:16,  1.49it/s] 14%|█▍        | 62/444 [00:41<04:16,  1.49it/s] 14%|█▍        | 63/444 [00:41<04:15,  1.49it/s] 14%|█▍        | 64/444 [00:42<04:14,  1.49it/s] 15%|█▍        | 65/444 [00:43<04:14,  1.49it/s] 15%|█▍        | 66/444 [00:43<04:13,  1.49it/s] 15%|█▌        | 67/444 [00:44<04:12,  1.49it/s] 15%|█▌        | 68/444 [00:45<04:12,  1.49it/s] 16%|█▌        | 69/444 [00:45<04:11,  1.49it/s] 16%|█▌        | 70/444 [00:46<04:11,  1.49it/s] 16%|█▌        | 71/444 [00:47<04:10,  1.49it/s] 16%|█▌        | 72/444 [00:47<04:09,  1.49it/s] 16%|█▋        | 73/444 [00:48<04:09,  1.49it/s] 17%|█▋        | 74/444 [00:49<04:08,  1.49it/s] 17%|█▋        | 75/444 [00:49<04:07,  1.49it/s] 17%|█▋        | 76/444 [00:50<04:07,  1.49it/s] 17%|█▋        | 77/444 [00:51<04:06,  1.49it/s] 18%|█▊        | 78/444 [00:51<04:06,  1.49it/s] 18%|█▊        | 79/444 [00:52<04:05,  1.49it/s] 18%|█▊        | 80/444 [00:53<04:04,  1.49it/s] 18%|█▊        | 81/444 [00:53<04:04,  1.49it/s] 18%|█▊        | 82/444 [00:54<04:03,  1.49it/s] 19%|█▊        | 83/444 [00:55<04:02,  1.49it/s] 19%|█▉        | 84/444 [00:55<04:02,  1.49it/s] 19%|█▉        | 85/444 [00:56<04:01,  1.49it/s] 19%|█▉        | 86/444 [00:57<04:00,  1.49it/s] 20%|█▉        | 87/444 [00:57<04:00,  1.48it/s] 20%|█▉        | 88/444 [00:58<04:00,  1.48it/s] 20%|██        | 89/444 [00:59<04:00,  1.48it/s] 20%|██        | 90/444 [01:00<04:00,  1.47it/s] 20%|██        | 91/444 [01:00<04:00,  1.47it/s] 21%|██        | 92/444 [01:01<03:59,  1.47it/s] 21%|██        | 93/444 [01:02<03:58,  1.47it/s] 21%|██        | 94/444 [01:02<03:58,  1.47it/s] 21%|██▏       | 95/444 [01:03<03:57,  1.47it/s] 22%|██▏       | 96/444 [01:04<03:57,  1.47it/s] 22%|██▏       | 97/444 [01:04<03:56,  1.47it/s] 22%|██▏       | 98/444 [01:05<03:55,  1.47it/s] 22%|██▏       | 99/444 [01:06<03:55,  1.46it/s] 23%|██▎       | 100/444 [01:06<03:54,  1.47it/s] 23%|██▎       | 101/444 [01:07<03:53,  1.47it/s] 23%|██▎       | 102/444 [01:08<03:53,  1.47it/s] 23%|██▎       | 103/444 [01:08<03:53,  1.46it/s] 23%|██▎       | 104/444 [01:09<03:53,  1.46it/s] 24%|██▎       | 105/444 [01:10<03:52,  1.46it/s] 24%|██▍       | 106/444 [01:10<03:51,  1.46it/s] 24%|██▍       | 107/444 [01:11<03:50,  1.46it/s] 24%|██▍       | 108/444 [01:12<03:50,  1.46it/s] 25%|██▍       | 109/444 [01:13<03:49,  1.46it/s] 25%|██▍       | 110/444 [01:13<03:48,  1.46it/s] 25%|██▌       | 111/444 [01:14<03:47,  1.46it/s] 25%|██▌       | 112/444 [01:15<03:47,  1.46it/s] 25%|██▌       | 113/444 [01:15<03:46,  1.46it/s] 26%|██▌       | 114/444 [01:16<03:46,  1.46it/s] 26%|██▌       | 115/444 [01:17<03:44,  1.46it/s] 26%|██▌       | 116/444 [01:17<03:47,  1.44it/s] 26%|██▋       | 117/444 [01:18<03:45,  1.45it/s] 27%|██▋       | 118/444 [01:19<03:44,  1.45it/s] 27%|██▋       | 119/444 [01:19<03:43,  1.46it/s] 27%|██▋       | 120/444 [01:20<03:42,  1.46it/s] 27%|██▋       | 121/444 [01:21<03:41,  1.46it/s] 27%|██▋       | 122/444 [01:21<03:40,  1.46it/s] 28%|██▊       | 123/444 [01:22<03:40,  1.46it/s] 28%|██▊       | 124/444 [01:23<03:42,  1.44it/s] 28%|██▊       | 125/444 [01:24<03:41,  1.44it/s] 28%|██▊       | 126/444 [01:24<03:39,  1.45it/s] 29%|██▊       | 127/444 [01:25<03:39,  1.45it/s] 29%|██▉       | 128/444 [01:26<03:39,  1.44it/s] 29%|██▉       | 129/444 [01:26<03:38,  1.44it/s] 29%|██▉       | 130/444 [01:27<03:36,  1.45it/s] 30%|██▉       | 131/444 [01:28<03:35,  1.45it/s] 30%|██▉       | 132/444 [01:28<03:38,  1.43it/s] 30%|██▉       | 133/444 [01:29<03:37,  1.43it/s] 30%|███       | 134/444 [01:30<03:34,  1.44it/s] 30%|███       | 135/444 [01:30<03:33,  1.45it/s] 31%|███       | 136/444 [01:31<03:32,  1.45it/s] 31%|███       | 137/444 [01:32<03:32,  1.44it/s] 31%|███       | 138/444 [01:33<03:33,  1.44it/s] 31%|███▏      | 139/444 [01:33<03:31,  1.44it/s] 32%|███▏      | 140/444 [01:34<03:30,  1.45it/s] 32%|███▏      | 141/444 [01:35<03:29,  1.45it/s] 32%|███▏      | 142/444 [01:35<03:30,  1.43it/s] 32%|███▏      | 143/444 [01:36<03:28,  1.44it/s] 32%|███▏      | 144/444 [01:37<03:27,  1.45it/s] 33%|███▎      | 145/444 [01:37<03:28,  1.43it/s] 33%|███▎      | 146/444 [01:38<03:26,  1.44it/s] 33%|███▎      | 147/444 [01:39<03:27,  1.43it/s] 33%|███▎      | 148/444 [01:40<03:27,  1.42it/s] 34%|███▎      | 149/444 [01:40<03:26,  1.43it/s] 34%|███▍      | 150/444 [01:41<03:24,  1.44it/s] 34%|███▍      | 151/444 [01:42<03:22,  1.44it/s] 34%|███▍      | 152/444 [01:42<03:23,  1.43it/s] 34%|███▍      | 153/444 [01:43<03:21,  1.44it/s] 35%|███▍      | 154/444 [01:44<03:20,  1.45it/s] 35%|███▍      | 155/444 [01:44<03:21,  1.43it/s] 35%|███▌      | 156/444 [01:45<03:21,  1.43it/s] 35%|███▌      | 157/444 [01:46<03:19,  1.44it/s] 36%|███▌      | 158/444 [01:46<03:17,  1.44it/s] 36%|███▌      | 159/444 [01:47<03:16,  1.45it/s] 36%|███▌      | 160/444 [01:48<03:18,  1.43it/s] 36%|███▋      | 161/444 [01:49<03:19,  1.42it/s] 36%|███▋      | 162/444 [01:49<03:16,  1.43it/s] 37%|███▋      | 163/444 [01:50<03:15,  1.44it/s] 37%|███▋      | 164/444 [01:51<03:13,  1.45it/s] 37%|███▋      | 165/444 [01:51<03:13,  1.44it/s] 37%|███▋      | 166/444 [01:52<03:13,  1.44it/s] 38%|███▊      | 167/444 [01:53<03:15,  1.42it/s] 38%|███▊      | 168/444 [01:53<03:12,  1.43it/s] 38%|███▊      | 169/444 [01:54<03:10,  1.44it/s] 38%|███▊      | 170/444 [01:55<03:10,  1.44it/s] 39%|███▊      | 171/444 [01:56<03:09,  1.44it/s] 39%|███▊      | 172/444 [01:56<03:09,  1.44it/s] 39%|███▉      | 173/444 [01:57<03:07,  1.45it/s] 39%|███▉      | 174/444 [01:58<03:06,  1.45it/s] 39%|███▉      | 175/444 [01:58<03:06,  1.44it/s] 40%|███▉      | 176/444 [01:59<03:06,  1.44it/s] 40%|███▉      | 177/444 [02:00<03:05,  1.44it/s] 40%|████      | 178/444 [02:00<03:04,  1.44it/s] 40%|████      | 179/444 [02:01<03:03,  1.45it/s] 41%|████      | 180/444 [02:02<03:04,  1.43it/s] 41%|████      | 181/444 [02:02<03:02,  1.44it/s] 41%|████      | 182/444 [02:03<03:00,  1.45it/s] 41%|████      | 183/444 [02:04<03:01,  1.44it/s] 41%|████▏     | 184/444 [02:05<03:00,  1.44it/s] 42%|████▏     | 185/444 [02:05<03:02,  1.42it/s] 42%|████▏     | 186/444 [02:06<03:03,  1.41it/s] 42%|████▏     | 187/444 [02:07<03:00,  1.42it/s] 42%|████▏     | 188/444 [02:07<02:58,  1.43it/s] 43%|████▎     | 189/444 [02:08<02:56,  1.44it/s] 43%|████▎     | 190/444 [02:09<02:56,  1.44it/s] 43%|████▎     | 191/444 [02:09<02:55,  1.45it/s] 43%|████▎     | 192/444 [02:10<02:53,  1.45it/s] 43%|████▎     | 193/444 [02:11<02:54,  1.43it/s] 44%|████▎     | 194/444 [02:12<02:54,  1.43it/s] 44%|████▍     | 195/444 [02:12<02:56,  1.41it/s] 44%|████▍     | 196/444 [02:13<02:54,  1.42it/s] 44%|████▍     | 197/444 [02:14<02:54,  1.42it/s] 45%|████▍     | 198/444 [02:14<02:53,  1.42it/s] 45%|████▍     | 199/444 [02:15<02:51,  1.43it/s] 45%|████▌     | 200/444 [02:16<02:49,  1.44it/s] 45%|████▌     | 201/444 [02:16<02:47,  1.45it/s] 45%|████▌     | 202/444 [02:17<02:48,  1.43it/s] 46%|████▌     | 203/444 [02:18<02:49,  1.42it/s] 46%|████▌     | 204/444 [02:19<02:47,  1.44it/s] 46%|████▌     | 205/444 [02:19<02:45,  1.44it/s] 46%|████▋     | 206/444 [02:20<02:44,  1.45it/s] 47%|████▋     | 207/444 [02:21<02:44,  1.44it/s] 47%|████▋     | 208/444 [02:21<02:44,  1.44it/s] 47%|████▋     | 209/444 [02:22<02:42,  1.44it/s] 47%|████▋     | 210/444 [02:23<02:41,  1.45it/s] 48%|████▊     | 211/444 [02:23<02:40,  1.45it/s] 48%|████▊     | 212/444 [02:24<02:40,  1.44it/s] 48%|████▊     | 213/444 [02:25<02:39,  1.45it/s] 48%|████▊     | 214/444 [02:25<02:38,  1.45it/s] 48%|████▊     | 215/444 [02:26<02:38,  1.44it/s] 49%|████▊     | 216/444 [02:27<02:37,  1.45it/s] 49%|████▉     | 217/444 [02:28<02:36,  1.45it/s] 49%|████▉     | 218/444 [02:28<02:36,  1.44it/s] 49%|████▉     | 219/444 [02:29<02:36,  1.44it/s] 50%|████▉     | 220/444 [02:30<02:37,  1.42it/s] 50%|████▉     | 221/444 [02:30<02:36,  1.43it/s] 50%|█████     | 222/444 [02:31<02:05,  1.76it/s][INFO|trainer.py:2340] 2023-11-01 17:16:56,741 >> Saving model checkpoint to varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/checkpoint-222
+[INFO|configuration_utils.py:446] 2023-11-01 17:16:56,758 >> Configuration saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/checkpoint-222/config.json
+[INFO|modeling_utils.py:1542] 2023-11-01 17:16:59,860 >> Model weights saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/checkpoint-222/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2108] 2023-11-01 17:16:59,883 >> tokenizer config file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/checkpoint-222/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2114] 2023-11-01 17:16:59,896 >> Special tokens file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/checkpoint-222/special_tokens_map.json
+ 50%|█████     | 223/444 [02:40<12:03,  3.27s/it] 50%|█████     | 224/444 [02:41<09:08,  2.49s/it] 51%|█████     | 225/444 [02:42<07:05,  1.94s/it] 51%|█████     | 226/444 [02:42<05:40,  1.56s/it] 51%|█████     | 227/444 [02:43<04:40,  1.29s/it] 51%|█████▏    | 228/444 [02:44<03:58,  1.11s/it] 52%|█████▏    | 229/444 [02:44<03:29,  1.03it/s] 52%|█████▏    | 230/444 [02:45<03:08,  1.13it/s] 52%|█████▏    | 231/444 [02:46<02:54,  1.22it/s] 52%|█████▏    | 232/444 [02:46<02:44,  1.29it/s] 52%|█████▏    | 233/444 [02:47<02:36,  1.35it/s] 53%|█████▎    | 234/444 [02:48<02:31,  1.39it/s] 53%|█████▎    | 235/444 [02:48<02:27,  1.42it/s] 53%|█████▎    | 236/444 [02:49<02:24,  1.44it/s] 53%|█████▎    | 237/444 [02:50<02:22,  1.45it/s] 54%|█████▎    | 238/444 [02:50<02:20,  1.47it/s] 54%|█████▍    | 239/444 [02:51<02:19,  1.47it/s] 54%|█████▍    | 240/444 [02:52<02:18,  1.48it/s] 54%|█████▍    | 241/444 [02:52<02:16,  1.48it/s] 55%|█████▍    | 242/444 [02:53<02:16,  1.49it/s] 55%|█████▍    | 243/444 [02:54<02:15,  1.49it/s] 55%|█████▍    | 244/444 [02:54<02:14,  1.49it/s] 55%|█████▌    | 245/444 [02:55<02:13,  1.49it/s] 55%|█████▌    | 246/444 [02:56<02:13,  1.49it/s] 56%|█████▌    | 247/444 [02:56<02:14,  1.47it/s] 56%|█████▌    | 248/444 [02:57<02:13,  1.46it/s] 56%|█████▌    | 249/444 [02:58<02:13,  1.46it/s] 56%|█████▋    | 250/444 [02:58<02:11,  1.47it/s] 57%|█████▋    | 251/444 [02:59<02:10,  1.47it/s] 57%|█████▋    | 252/444 [03:00<02:10,  1.48it/s] 57%|█████▋    | 253/444 [03:00<02:10,  1.46it/s] 57%|█████▋    | 254/444 [03:01<02:10,  1.46it/s] 57%|█████▋    | 255/444 [03:02<02:09,  1.46it/s] 58%|█████▊    | 256/444 [03:02<02:08,  1.47it/s] 58%|█████▊    | 257/444 [03:03<02:07,  1.47it/s] 58%|█████▊    | 258/444 [03:04<02:06,  1.47it/s] 58%|█████▊    | 259/444 [03:04<02:06,  1.47it/s] 59%|█████▊    | 260/444 [03:05<02:05,  1.47it/s] 59%|█████▉    | 261/444 [03:06<02:04,  1.47it/s] 59%|█████▉    | 262/444 [03:07<02:04,  1.46it/s] 59%|█████▉    | 263/444 [03:07<02:03,  1.46it/s] 59%|█████▉    | 264/444 [03:08<02:03,  1.46it/s] 60%|█████▉    | 265/444 [03:09<02:02,  1.46it/s] 60%|█████▉    | 266/444 [03:09<02:01,  1.46it/s] 60%|██████    | 267/444 [03:10<02:01,  1.46it/s] 60%|██████    | 268/444 [03:11<02:00,  1.46it/s] 61%|██████    | 269/444 [03:11<01:59,  1.47it/s] 61%|██████    | 270/444 [03:12<01:59,  1.46it/s] 61%|██████    | 271/444 [03:13<01:58,  1.46it/s] 61%|██████▏   | 272/444 [03:13<01:58,  1.46it/s] 61%|██████▏   | 273/444 [03:14<01:57,  1.46it/s] 62%|██████▏   | 274/444 [03:15<01:56,  1.46it/s] 62%|██████▏   | 275/444 [03:15<01:55,  1.46it/s] 62%|██████▏   | 276/444 [03:16<01:55,  1.45it/s] 62%|██████▏   | 277/444 [03:17<01:54,  1.45it/s] 63%|██████▎   | 278/444 [03:17<01:53,  1.46it/s] 63%|██████▎   | 279/444 [03:18<01:54,  1.44it/s] 63%|██████▎   | 280/444 [03:19<01:53,  1.44it/s] 63%|██████▎   | 281/444 [03:20<01:54,  1.43it/s] 64%|██████▎   | 282/444 [03:20<01:52,  1.44it/s] 64%|██████▎   | 283/444 [03:21<01:51,  1.44it/s] 64%|██████▍   | 284/444 [03:22<01:51,  1.44it/s] 64%|██████▍   | 285/444 [03:22<01:50,  1.44it/s] 64%|██████▍   | 286/444 [03:23<01:49,  1.44it/s] 65%|██████▍   | 287/444 [03:24<01:48,  1.45it/s] 65%|██████▍   | 288/444 [03:24<01:47,  1.45it/s] 65%|██████▌   | 289/444 [03:25<01:47,  1.44it/s] 65%|██████▌   | 290/444 [03:26<01:46,  1.45it/s] 66%|██████▌   | 291/444 [03:27<01:45,  1.45it/s] 66%|██████▌   | 292/444 [03:27<01:45,  1.45it/s] 66%|██████▌   | 293/444 [03:28<01:44,  1.44it/s] 66%|██████▌   | 294/444 [03:29<01:43,  1.45it/s] 66%|██████▋   | 295/444 [03:29<01:42,  1.45it/s] 67%|██████▋   | 296/444 [03:30<01:41,  1.45it/s] 67%|██████▋   | 297/444 [03:31<01:42,  1.44it/s] 67%|██████▋   | 298/444 [03:31<01:41,  1.44it/s] 67%|██████▋   | 299/444 [03:32<01:40,  1.44it/s] 68%|██████▊   | 300/444 [03:33<01:39,  1.45it/s] 68%|██████▊   | 301/444 [03:33<01:38,  1.45it/s] 68%|██████▊   | 302/444 [03:34<01:38,  1.44it/s] 68%|██████▊   | 303/444 [03:35<01:37,  1.45it/s] 68%|██████▊   | 304/444 [03:35<01:36,  1.45it/s] 69%|██████▊   | 305/444 [03:36<01:36,  1.44it/s] 69%|██████▉   | 306/444 [03:37<01:36,  1.43it/s] 69%|██████▉   | 307/444 [03:38<01:35,  1.44it/s] 69%|██████▉   | 308/444 [03:38<01:34,  1.44it/s] 70%|██████▉   | 309/444 [03:39<01:33,  1.44it/s] 70%|██████▉   | 310/444 [03:40<01:33,  1.43it/s] 70%|███████   | 311/444 [03:40<01:32,  1.44it/s] 70%|███████   | 312/444 [03:41<01:32,  1.43it/s] 70%|███████   | 313/444 [03:42<01:31,  1.43it/s] 71%|███████   | 314/444 [03:42<01:30,  1.44it/s] 71%|███████   | 315/444 [03:43<01:30,  1.42it/s] 71%|███████   | 316/444 [03:44<01:29,  1.43it/s] 71%|███████▏  | 317/444 [03:45<01:28,  1.43it/s] 72%|███████▏  | 318/444 [03:45<01:27,  1.44it/s] 72%|███████▏  | 319/444 [03:46<01:26,  1.45it/s] 72%|███████▏  | 320/444 [03:47<01:25,  1.45it/s] 72%|███████▏  | 321/444 [03:47<01:24,  1.45it/s] 73%|███████▎  | 322/444 [03:48<01:23,  1.46it/s] 73%|███████▎  | 323/444 [03:49<01:22,  1.46it/s] 73%|███████▎  | 324/444 [03:49<01:22,  1.46it/s] 73%|███████▎  | 325/444 [03:50<01:22,  1.44it/s] 73%|███████▎  | 326/444 [03:51<01:21,  1.44it/s] 74%|███████▎  | 327/444 [03:51<01:21,  1.44it/s] 74%|███████▍  | 328/444 [03:52<01:21,  1.42it/s] 74%|███████▍  | 329/444 [03:53<01:20,  1.44it/s] 74%|███████▍  | 330/444 [03:54<01:19,  1.44it/s] 75%|███████▍  | 331/444 [03:54<01:18,  1.44it/s] 75%|███████▍  | 332/444 [03:55<01:17,  1.45it/s] 75%|███████▌  | 333/444 [03:56<01:17,  1.44it/s] 75%|███████▌  | 334/444 [03:56<01:16,  1.44it/s] 75%|███████▌  | 335/444 [03:57<01:15,  1.44it/s] 76%|███████▌  | 336/444 [03:58<01:14,  1.44it/s] 76%|███████▌  | 337/444 [03:58<01:13,  1.45it/s] 76%|███████▌  | 338/444 [03:59<01:13,  1.43it/s] 76%|███████▋  | 339/444 [04:00<01:13,  1.43it/s] 77%|███████▋  | 340/444 [04:01<01:12,  1.44it/s] 77%|███████▋  | 341/444 [04:01<01:11,  1.45it/s] 77%|███████▋  | 342/444 [04:02<01:10,  1.45it/s] 77%|███████▋  | 343/444 [04:03<01:10,  1.43it/s] 77%|███████▋  | 344/444 [04:03<01:10,  1.42it/s] 78%|███████▊  | 345/444 [04:04<01:09,  1.42it/s] 78%|███████▊  | 346/444 [04:05<01:08,  1.43it/s] 78%|███████▊  | 347/444 [04:05<01:07,  1.44it/s] 78%|███████▊  | 348/444 [04:06<01:07,  1.43it/s] 79%|███████▊  | 349/444 [04:07<01:05,  1.44it/s] 79%|███████▉  | 350/444 [04:07<01:04,  1.45it/s] 79%|███████▉  | 351/444 [04:08<01:03,  1.45it/s] 79%|███████▉  | 352/444 [04:09<01:03,  1.46it/s] 80%|███████▉  | 353/444 [04:10<01:02,  1.44it/s] 80%|███████▉  | 354/444 [04:10<01:02,  1.45it/s] 80%|███████▉  | 355/444 [04:11<01:01,  1.45it/s] 80%|████████  | 356/444 [04:12<01:01,  1.43it/s] 80%|████████  | 357/444 [04:12<01:01,  1.42it/s] 81%|████████  | 358/444 [04:13<01:00,  1.43it/s] 81%|████████  | 359/444 [04:14<00:59,  1.44it/s] 81%|████████  | 360/444 [04:14<00:58,  1.44it/s] 81%|████████▏ | 361/444 [04:15<00:57,  1.43it/s] 82%|████████▏ | 362/444 [04:16<00:57,  1.43it/s] 82%|████████▏ | 363/444 [04:17<00:56,  1.44it/s] 82%|████████▏ | 364/444 [04:17<00:55,  1.44it/s] 82%|████████▏ | 365/444 [04:18<00:54,  1.44it/s] 82%|████████▏ | 366/444 [04:19<00:54,  1.43it/s] 83%|████████▎ | 367/444 [04:19<00:54,  1.43it/s] 83%|████████▎ | 368/444 [04:20<00:53,  1.43it/s] 83%|████████▎ | 369/444 [04:21<00:52,  1.44it/s] 83%|████████▎ | 370/444 [04:21<00:51,  1.45it/s] 84%|████████▎ | 371/444 [04:22<00:50,  1.43it/s] 84%|████████▍ | 372/444 [04:23<00:50,  1.43it/s] 84%|████████▍ | 373/444 [04:23<00:49,  1.44it/s] 84%|████████▍ | 374/444 [04:24<00:48,  1.45it/s] 84%|████████▍ | 375/444 [04:25<00:47,  1.45it/s] 85%|████████▍ | 376/444 [04:26<00:47,  1.44it/s] 85%|████████▍ | 377/444 [04:26<00:46,  1.45it/s] 85%|████████▌ | 378/444 [04:27<00:45,  1.46it/s] 85%|████████▌ | 379/444 [04:28<00:44,  1.45it/s] 86%|████████▌ | 380/444 [04:28<00:44,  1.45it/s] 86%|████████▌ | 381/444 [04:29<00:43,  1.46it/s] 86%|████████▌ | 382/444 [04:30<00:42,  1.45it/s] 86%|████████▋ | 383/444 [04:30<00:41,  1.45it/s] 86%|████████▋ | 384/444 [04:31<00:41,  1.43it/s] 87%|████████▋ | 385/444 [04:32<00:41,  1.44it/s] 87%|████████▋ | 386/444 [04:32<00:40,  1.45it/s] 87%|████████▋ | 387/444 [04:33<00:39,  1.44it/s] 87%|████████▋ | 388/444 [04:34<00:38,  1.44it/s] 88%|████████▊ | 389/444 [04:35<00:38,  1.42it/s] 88%|████████▊ | 390/444 [04:35<00:37,  1.43it/s] 88%|████████▊ | 391/444 [04:36<00:36,  1.44it/s] 88%|████████▊ | 392/444 [04:37<00:36,  1.44it/s] 89%|████████▊ | 393/444 [04:37<00:35,  1.45it/s] 89%|████████▊ | 394/444 [04:38<00:34,  1.43it/s] 89%|████████▉ | 395/444 [04:39<00:34,  1.44it/s] 89%|████████▉ | 396/444 [04:39<00:33,  1.45it/s] 89%|████████▉ | 397/444 [04:40<00:32,  1.43it/s] 90%|████████▉ | 398/444 [04:41<00:32,  1.43it/s] 90%|████████▉ | 399/444 [04:42<00:31,  1.43it/s] 90%|█████████ | 400/444 [04:42<00:30,  1.44it/s] 90%|█████████ | 401/444 [04:43<00:29,  1.45it/s] 91%|█████████ | 402/444 [04:44<00:29,  1.43it/s] 91%|█████████ | 403/444 [04:44<00:28,  1.43it/s] 91%|█████████ | 404/444 [04:45<00:27,  1.43it/s] 91%|█████████ | 405/444 [04:46<00:27,  1.44it/s] 91%|█████████▏| 406/444 [04:46<00:26,  1.44it/s] 92%|█████████▏| 407/444 [04:47<00:26,  1.42it/s] 92%|█████████▏| 408/444 [04:48<00:25,  1.43it/s] 92%|█████████▏| 409/444 [04:48<00:24,  1.44it/s] 92%|█████████▏| 410/444 [04:49<00:23,  1.45it/s] 93%|█████████▎| 411/444 [04:50<00:22,  1.45it/s] 93%|█████████▎| 412/444 [04:51<00:22,  1.44it/s] 93%|█████████▎| 413/444 [04:51<00:21,  1.45it/s] 93%|█████████▎| 414/444 [04:52<00:20,  1.45it/s] 93%|█████████▎| 415/444 [04:53<00:19,  1.45it/s] 94%|█████████▎| 416/444 [04:53<00:19,  1.45it/s] 94%|█████████▍| 417/444 [04:54<00:18,  1.44it/s] 94%|█████████▍| 418/444 [04:55<00:18,  1.43it/s] 94%|█████████▍| 419/444 [04:55<00:17,  1.44it/s] 95%|█████████▍| 420/444 [04:56<00:16,  1.44it/s] 95%|█████████▍| 421/444 [04:57<00:15,  1.45it/s] 95%|█████████▌| 422/444 [04:57<00:15,  1.44it/s] 95%|█████████▌| 423/444 [04:58<00:14,  1.44it/s] 95%|█████████▌| 424/444 [04:59<00:13,  1.45it/s] 96%|█████████▌| 425/444 [05:00<00:13,  1.44it/s] 96%|█████████▌| 426/444 [05:00<00:12,  1.45it/s] 96%|█████████▌| 427/444 [05:01<00:11,  1.45it/s] 96%|█████████▋| 428/444 [05:02<00:11,  1.44it/s] 97%|█████████▋| 429/444 [05:02<00:10,  1.44it/s] 97%|█████████▋| 430/444 [05:03<00:09,  1.44it/s] 97%|█████████▋| 431/444 [05:04<00:09,  1.44it/s] 97%|█████████▋| 432/444 [05:04<00:08,  1.45it/s] 98%|█████████▊| 433/444 [05:05<00:07,  1.43it/s] 98%|█████████▊| 434/444 [05:06<00:06,  1.44it/s] 98%|█████████▊| 435/444 [05:06<00:06,  1.44it/s] 98%|█████████▊| 436/444 [05:07<00:05,  1.44it/s] 98%|█████████▊| 437/444 [05:08<00:04,  1.45it/s] 99%|█████████▊| 438/444 [05:09<00:04,  1.44it/s] 99%|█████████▉| 439/444 [05:09<00:03,  1.44it/s] 99%|█████████▉| 440/444 [05:10<00:02,  1.44it/s] 99%|█████████▉| 441/444 [05:11<00:02,  1.45it/s]100%|█████████▉| 442/444 [05:11<00:01,  1.45it/s]100%|█████████▉| 443/444 [05:12<00:00,  1.44it/s]100%|██████████| 444/444 [05:12<00:00,  1.78it/s][INFO|trainer.py:2340] 2023-11-01 17:19:38,447 >> Saving model checkpoint to varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/checkpoint-444
+[INFO|configuration_utils.py:446] 2023-11-01 17:19:38,484 >> Configuration saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/checkpoint-444/config.json
+[INFO|modeling_utils.py:1542] 2023-11-01 17:19:41,903 >> Model weights saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/checkpoint-444/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2108] 2023-11-01 17:19:41,922 >> tokenizer config file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/checkpoint-444/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2114] 2023-11-01 17:19:41,941 >> Special tokens file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/checkpoint-444/special_tokens_map.json
+[INFO|trainer.py:1662] 2023-11-01 17:19:48,037 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                                 100%|██████████| 444/444 [05:22<00:00,  1.78it/s]100%|██████████| 444/444 [05:22<00:00,  1.38it/s]
+[INFO|trainer.py:2340] 2023-11-01 17:19:48,141 >> Saving model checkpoint to varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5
+[INFO|configuration_utils.py:446] 2023-11-01 17:19:48,170 >> Configuration saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/config.json
+[INFO|modeling_utils.py:1542] 2023-11-01 17:19:51,060 >> Model weights saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/pytorch_model.bin
+[INFO|tokenization_utils_base.py:2108] 2023-11-01 17:19:51,078 >> tokenizer config file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2114] 2023-11-01 17:19:51,095 >> Special tokens file saved in varying-finetuning/chkpts/atomic/d-atomic-roberta-base-0.5/special_tokens_map.json
+{'train_runtime': 322.503, 'train_samples_per_second': 87.832, 'train_steps_per_second': 1.377, 'train_loss': 0.6547786265880138, 'epoch': 2.0}
+***** train metrics *****
+  epoch                    =        2.0
+  train_loss               =     0.6548
+  train_runtime            = 0:05:22.50
+  train_samples            =      14163
+  train_samples_per_second =     87.832
+  train_steps_per_second   =      1.377
+11/01/2023 17:19:51 - INFO - __main__ - *** Evaluate ***
+[INFO|trainer.py:622] 2023-11-01 17:19:51,351 >> The following columns in the evaluation set don't have a corresponding argument in `RobertaForSequenceClassification.forward` and have been ignored: sentence2, sentence1. If sentence2, sentence1 are not expected by `RobertaForSequenceClassification.forward`,  you can safely ignore this message.
+[WARNING|training_args.py:1095] 2023-11-01 17:19:51,353 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[WARNING|training_args.py:1095] 2023-11-01 17:19:51,353 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[INFO|trainer.py:2590] 2023-11-01 17:19:51,353 >> ***** Running Evaluation *****
+[INFO|trainer.py:2592] 2023-11-01 17:19:51,353 >>   Num examples = 2839
+[INFO|trainer.py:2595] 2023-11-01 17:19:51,353 >>   Batch size = 64
+  0%|          | 0/45 [00:00<?, ?it/s]  4%|▍         | 2/45 [00:00<00:04,  8.65it/s]  7%|▋         | 3/45 [00:00<00:06,  6.09it/s]  9%|▉         | 4/45 [00:00<00:07,  5.27it/s] 11%|█         | 5/45 [00:00<00:08,  4.88it/s] 13%|█▎        | 6/45 [00:01<00:08,  4.67it/s] 16%|█▌        | 7/45 [00:01<00:08,  4.55it/s] 18%|█▊        | 8/45 [00:01<00:08,  4.46it/s] 20%|██        | 9/45 [00:01<00:08,  4.40it/s] 22%|██▏       | 10/45 [00:02<00:08,  4.37it/s] 24%|██▍       | 11/45 [00:02<00:07,  4.34it/s] 27%|██▋       | 12/45 [00:02<00:07,  4.33it/s] 29%|██▉       | 13/45 [00:02<00:07,  4.31it/s] 31%|███       | 14/45 [00:03<00:07,  4.30it/s] 33%|███▎      | 15/45 [00:03<00:06,  4.29it/s] 36%|███▌      | 16/45 [00:03<00:06,  4.28it/s] 38%|███▊      | 17/45 [00:03<00:06,  4.28it/s] 40%|████      | 18/45 [00:03<00:06,  4.28it/s] 42%|████▏     | 19/45 [00:04<00:06,  4.27it/s] 44%|████▍     | 20/45 [00:04<00:05,  4.28it/s] 47%|████▋     | 21/45 [00:04<00:05,  4.27it/s] 49%|████▉     | 22/45 [00:04<00:05,  4.27it/s] 51%|█████     | 23/45 [00:05<00:05,  4.27it/s] 53%|█████▎    | 24/45 [00:05<00:04,  4.27it/s] 56%|█████▌    | 25/45 [00:05<00:04,  4.26it/s] 58%|█████▊    | 26/45 [00:05<00:04,  4.26it/s] 60%|██████    | 27/45 [00:06<00:04,  4.26it/s] 62%|██████▏   | 28/45 [00:06<00:03,  4.27it/s] 64%|██████▍   | 29/45 [00:06<00:03,  4.27it/s] 67%|██████▋   | 30/45 [00:06<00:03,  4.27it/s] 69%|██████▉   | 31/45 [00:07<00:03,  4.27it/s] 71%|███████   | 32/45 [00:07<00:03,  4.27it/s] 73%|███████▎  | 33/45 [00:07<00:02,  4.27it/s] 76%|███████▌  | 34/45 [00:07<00:02,  4.27it/s] 78%|███████▊  | 35/45 [00:07<00:02,  4.27it/s] 80%|████████  | 36/45 [00:08<00:02,  4.27it/s] 82%|████████▏ | 37/45 [00:08<00:01,  4.28it/s] 84%|████████▍ | 38/45 [00:08<00:01,  4.28it/s] 87%|████████▋ | 39/45 [00:08<00:01,  4.28it/s] 89%|████████▉ | 40/45 [00:09<00:01,  4.25it/s] 91%|█████████ | 41/45 [00:09<00:00,  4.25it/s] 93%|█████████▎| 42/45 [00:09<00:00,  4.26it/s] 96%|█████████▌| 43/45 [00:09<00:00,  4.26it/s] 98%|█████████▊| 44/45 [00:10<00:00,  4.27it/s][WARNING|training_args.py:1095] 2023-11-01 17:20:01,754 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+100%|██████████| 45/45 [00:10<00:00,  4.38it/s]
+[WARNING|training_args.py:1095] 2023-11-01 17:20:01,944 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[WARNING|training_args.py:1095] 2023-11-01 17:20:01,945 >> Using deprecated `--per_gpu_eval_batch_size` argument which will be removed in a future version. Using `--per_device_eval_batch_size` is preferred.
+[INFO|modelcard.py:460] 2023-11-01 17:20:02,235 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Text Classification', 'type': 'text-classification'}, 'metrics': [{'name': 'Accuracy', 'type': 'accuracy', 'value': 0.6879183053970337}]}
+***** eval metrics *****
+  epoch                   =        2.0
+  eval_accuracy           =     0.6879
+  eval_loss               =     0.5772
+  eval_runtime            = 0:00:10.40
+  eval_samples            =       2839
+  eval_samples_per_second =    272.941
+  eval_steps_per_second   =      4.326
