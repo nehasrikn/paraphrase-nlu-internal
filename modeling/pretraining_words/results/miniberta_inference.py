@@ -15,34 +15,35 @@ from modeling.roberta.defeasible.results.inference import bucket_predictions, te
 config = {
     '10M-2': {
         'name': 'roberta-base-10M-2', 
-        'location': 'modeling/roberta/defeasible/chkpts/analysis_models/minibertas/10M-pretraining-words/d-{dataset}-roberta-base-10M-2',
-        'results': 'modeling/roberta/defeasible/results/minibertas/{dataset}/{dataset}_human_d-{dataset}-roberta-base-10M-2.json',
-        'test_results': 'modeling/roberta/defeasible/results/minibertas/{dataset}/{dataset}_test_set_d-{dataset}-roberta-base-10M-2.json'
+        'location': 'modeling/pretraining_words/minibertas/10M-pretraining-words/d-{dataset}-roberta-base-10M-2',
+        'results': 'modeling/pretraining_words/results/{dataset}/{dataset}_human_d-{dataset}-roberta-base-10M-2.json',
+        'test_results': 'modeling/pretraining_words/results/{dataset}/{dataset}_test_set_d-{dataset}-roberta-base-10M-2.json'
     },
     '100M-2': {
         'name': 'roberta-base-100M-2', 
-        'location': 'modeling/roberta/defeasible/chkpts/analysis_models/minibertas/100M-pretraining-words/d-{dataset}-roberta-base-100M-2',
-        'results': 'modeling/roberta/defeasible/results/minibertas/{dataset}/{dataset}_human_d-{dataset}-roberta-base-100M-2.json',
-        'test_results': 'modeling/roberta/defeasible/results/minibertas/{dataset}/{dataset}_test_set_d-{dataset}-roberta-base-100M-2.json'
+        'location': 'modeling/pretraining_words/minibertas/100M-pretraining-words/d-{dataset}-roberta-base-100M-2',
+        'results': 'modeling/pretraining_words/results/{dataset}/{dataset}_human_d-{dataset}-roberta-base-100M-2.json',
+        'test_results': 'modeling/pretraining_words/results/{dataset}/{dataset}_test_set_d-{dataset}-roberta-base-100M-2.json'
     },
     '1B-3': {
         'name': 'roberta-base-1B-3', 
-        'location': 'modeling/roberta/defeasible/chkpts/analysis_models/minibertas/1B-pretraining-words/d-{dataset}-roberta-base-1B-3',
-        'results': 'modeling/roberta/defeasible/results/minibertas/{dataset}/{dataset}_human_d-{dataset}-roberta-base-1B-3.json',
-        'test_results': 'modeling/roberta/defeasible/results/minibertas/{dataset}/{dataset}_test_set_d-{dataset}-roberta-base-1B-3.json'
+        'location': 'modeling/pretraining_words/minibertas/1B-pretraining-words/d-{dataset}-roberta-base-1B-3',
+        'results': 'modeling/pretraining_words/results/{dataset}/{dataset}_human_d-{dataset}-roberta-base-1B-3.json',
+        'test_results': 'modeling/pretraining_words/results/{dataset}/{dataset}_test_set_d-{dataset}-roberta-base-1B-3.json'
         
     },
     'base': {
-        'name': 'roberta-base', 'location': 
-        'modeling/roberta/defeasible/chkpts/analysis_models/d-{dataset}-roberta-base',
+        'name': 'roberta-base', 
+        'location': 'modeling/roberta/defeasible/chkpts/analysis_models/d-{dataset}-roberta-base',
         'results': 'modeling/roberta/defeasible/results/{dataset}/{dataset}_human_d-{dataset}-roberta-base.json',
         'test_results': 'modeling/roberta/defeasible/results/{dataset}/{dataset}_test_set_d-{dataset}-roberta-base.json'
     },
+    
     '1M-2': {
         'name': 'roberta-med-small-1M-2', 
-        'location': 'modeling/roberta/defeasible/chkpts/analysis_models/minibertas/1M-pretraining-words/d-{dataset}-roberta-med-small-1M-2',
-        'results': 'modeling/roberta/defeasible/results/minibertas/{dataset}/{dataset}_human_d-{dataset}-roberta-med-small-1M-2.json',
-        'test_results': 'modeling/roberta/defeasible/results/minibertas/{dataset}/{dataset}_test_set_d-{dataset}-roberta-med-small-1M-2.json'
+        'location': 'modeling/pretraining_words/minibertas/1M-pretraining-words/d-{dataset}-roberta-med-small-1M-2',
+        'results': 'modeling/pretraining_words/results/{dataset}/{dataset}_human_d-{dataset}-roberta-med-small-1M-2.json',
+        'test_results': 'modeling/pretraining_words/results/{dataset}/{dataset}_test_set_d-{dataset}-roberta-med-small-1M-2.json'
     },
 }
 
