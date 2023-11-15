@@ -89,6 +89,13 @@ class BucketDatasetResult:
             'total_var_y': total_var_y,
             'prop_explained': var_e_y_x / total_var_y
         }
+        
+    def proportion_variance_explained(self) -> float:
+        """
+        Proportion of variance explained by differences in bucket means.
+        """
+        law = self.law_of_total_variance_breakdown()
+        return law['prop_explained']
     
     def original_example_reliability_diagram(self, num_bins=100) -> None:
         """
@@ -177,7 +184,26 @@ class BucketDatasetResult:
         second_term = e_g_x_squared - e_g_x_whole_squared
         
         return second_term / (first_term + second_term)
+    
+    def linguistic_robustness_summary(self, test_results: TestSetResult):
+        """
+        Calculates linguistic robustness metrics for the model.
+        """
+        robustness = {
+            'consistency': self.mean_unweighted_consistency,
+            'consistency_corrected': self.calculate_weighted_consistency(test_results),
+            'pove': self.proportion_variance_explained(),
+            'pove_corrected': self.calculate_weighted_proportion_explained(test_results)
+        }
         
+        # print("#### Agreement Consistency ####")
+        # print('Consistency:', robustness['consistency'])
+        # print('Corrected consistency:', robustness['consistency_corrected'])
+        # print("\n#### POVE ####")
+        # print('POVE:', robustness['pove'])
+        # print('POVE Corrected:', robustness['pove_corrected'])
+    
+        return robustness
         
     
 def inference_to_buckets(file: str, compile_into_bucket_analysis_class: bool=True) -> List[Bucket]:
