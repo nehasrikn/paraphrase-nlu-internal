@@ -84,10 +84,10 @@ class BucketDatasetResult:
         total_var_y =  np.var([measure(p) for b in self.buckets for p in b.paraphrase_predictions])
 
         return {
-            'e_var_y_x': e_var_y_x,
-            'var_e_y_x': var_e_y_x,
-            'total_var_y': total_var_y,
-            'prop_explained': var_e_y_x / total_var_y
+            'unexplained_variance': e_var_y_x,
+            'explained_variance': var_e_y_x,
+            'total_variance': total_var_y,
+            'POVE': var_e_y_x / total_var_y
         }
         
     def proportion_variance_explained(self) -> float:
@@ -95,7 +95,7 @@ class BucketDatasetResult:
         Proportion of variance explained by differences in bucket means.
         """
         law = self.law_of_total_variance_breakdown()
-        return law['prop_explained']
+        return law['POVE']
     
     def original_example_reliability_diagram(self, num_bins=100) -> None:
         """
@@ -185,6 +185,39 @@ class BucketDatasetResult:
         
         return second_term / (first_term + second_term)
     
+    def calculate_flip_probability(self, test_set: TestSetResult):
+        """
+        Calculates the probability that a model will flip its prediction when given a paraphrase.
+        What is the probability that given a model M, a problem X, and a paraphrase of X (X') that
+        M(X) is right and M(X') is wrong OR M(X) is wrong and M(X') is right?
+        Calculate P(FLIP): 
+        P(FLIP) = P(FLIP, RIGHT) + P(FLIP, WRONG)
+        P(FLIP, RIGHT) = sum(P(BUCKET) * bucket_correctness_mean * (1 - bucket_correctness_mean))
+        P(FLIP, WRONG) = sum(P(BUCKET) * (1 - bucket_correctness_mean) * bucket_correctness_mean)
+        
+        Sanity check: P(FLIP) = 2 * Unexplained variance
+        """
+        
+        test_set_confidences = test_set.confidences
+        histogram = np.histogram(test_set_confidences, bins=10, density=False, range=[0, 1])
+        weights = [x / len(test_set_confidences) for x in histogram[0]]
+        
+        binned_flip_probs_right_to_wrong = defaultdict(list)
+        for bucket in self.buckets:
+            binned_flip_probs_right_to_wrong[float_floor(bucket.original_example_prediction.confidence_in_gold_label)].append(
+                bucket.bucket_correctness_mean * (1 - bucket.bucket_correctness_mean)
+            )
+        
+        # sanity check: instead of w -> len(y) / len(self.buckets), with this, P(FLIP) = 2 * Unexplained variance
+        p_flip_right_weighted = sum([w * np.mean(y) for w, y in zip(weights, binned_flip_probs_right_to_wrong.values())])
+        p_flip_right_unweighted = sum([p for binned_buckets in binned_flip_probs_right_to_wrong.values() for p in binned_buckets]) / len(self.buckets)
+        
+        return {
+            'flip_prob_corrected': p_flip_right_weighted * 2, # this is p_flip_right + p_flip_wrong but they are equal
+            'flip_prob': p_flip_right_unweighted * 2 # this should be 2*unexplained variance
+        }
+        
+    
     def linguistic_robustness_summary(self, test_results: TestSetResult):
         """
         Calculates linguistic robustness metrics for the model.
@@ -193,7 +226,8 @@ class BucketDatasetResult:
             'consistency': self.mean_unweighted_consistency,
             'consistency_corrected': self.calculate_weighted_consistency(test_results),
             'pove': self.proportion_variance_explained(),
-            'pove_corrected': self.calculate_weighted_proportion_explained(test_results)
+            'pove_corrected': self.calculate_weighted_proportion_explained(test_results),
+            'flip_probability': self.calculate_flip_probability(test_results),
         }
         
         # print("#### Agreement Consistency ####")
