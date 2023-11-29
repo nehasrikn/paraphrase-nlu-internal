@@ -11,6 +11,14 @@ from tqdm import tqdm
 from collections import defaultdict
 from data_selection.data_selection_utils import float_floor
 
+def calculate_weighted_sum(interval_data: Dict[float, List[float]], weights: List[float]) -> float:
+    weighted_interval_values = []
+    for interval, interval_values in interval_data.items():
+        weighted_interval_values.append(
+            weights[int(10*interval)] * np.mean(interval_values)
+        )
+    return sum(weighted_interval_values)
+
 
 class TestSetResult:
     def __init__(self, test_set_results: str):
@@ -133,6 +141,22 @@ class BucketDatasetResult:
        
         return accuracy_score(ground_truth, predictions)
     
+    def calculate_weighted_paraphrase_accuracy(self, TestSetResult: TestSetResult) -> float:
+        """
+        Calculates weighted paraphrase accuracy.
+        weighted within-interval accuracy 
+        """
+        test_set_confidences = TestSetResult.confidences
+        histogram = np.histogram(test_set_confidences, bins=10, density=False, range=[0, 1])
+        weights = [x / len(test_set_confidences) for x in histogram[0]]
+        
+
+        binned_paraphrase_accuracies = defaultdict(list)
+        for bucket in self.buckets:
+            binned_paraphrase_accuracies[float_floor(bucket.original_example_prediction.confidence_in_gold_label)].append(bucket.bucket_paraphrase_accuracy)
+        
+        return calculate_weighted_sum(binned_paraphrase_accuracies, weights)
+    
     def calculate_weighted_consistency(self, test_set: TestSetResult):
         """
         This is the metric we used in the first submission of the paper.
@@ -146,12 +170,7 @@ class BucketDatasetResult:
         for bucket in self.buckets:
             ranges[float_floor(bucket.original_example_prediction.confidence_in_gold_label)].append(bucket.bucket_discrete_agreement)
             
-        weighted_bucket_consistences = []
-        for decile, decile_consistences in ranges.items():
-            weighted_bucket_consistences.append(
-                confidence_densities[int(10*decile)] * np.mean(decile_consistences)
-            )
-        return sum(weighted_bucket_consistences)
+        return calculate_weighted_sum(ranges, confidence_densities)
     
     def calculate_weighted_proportion_explained(self, test_set: TestSetResult):
         test_set_confidences = test_set.confidences
@@ -165,7 +184,7 @@ class BucketDatasetResult:
             binned_variances[float_floor(bucket.original_example_prediction.confidence_in_gold_label)].append(bucket.bucket_correctness_variance)
             
         # sanity check: instead of w -> len(y) / len(buckets)
-        first_term = sum([w * np.mean(y) for w, y in zip(weights, binned_variances.values())])
+        first_term = calculate_weighted_sum(binned_variances, weights)
         
         #### second term of law of total variance breakdown: Var(g(X)) = E[g(X)^2] - E[g(X)]^2
         binned_expectations = defaultdict(list)
@@ -176,10 +195,10 @@ class BucketDatasetResult:
         binned_expectations_squared = {bin_: [x**2 for x in bucket_expectations] for bin_, bucket_expectations in binned_expectations.items()}
         
         # sanity check: len(y) / len(self.buckets)
-        e_g_x_squared = sum([w * np.mean(y) for w, y in zip(weights, binned_expectations_squared.values())])
+        e_g_x_squared = calculate_weighted_sum(binned_expectations_squared, weights)
        
         # E[g(X)]^2
-        e_g_x_whole_squared = (sum([w * np.mean(y) for w, y in zip(weights, binned_expectations.values())]))**2
+        e_g_x_whole_squared = (calculate_weighted_sum(binned_expectations, weights))**2
         
         second_term = e_g_x_squared - e_g_x_whole_squared
         
@@ -208,8 +227,10 @@ class BucketDatasetResult:
                 bucket.bucket_correctness_mean * (1 - bucket.bucket_correctness_mean)
             )
         
+        # calculate weighted sum of P(FLIP, RIGHT)
+        p_flip_right_weighted = calculate_weighted_sum(binned_flip_probs_right_to_wrong, weights)
+        
         # sanity check: instead of w -> len(y) / len(self.buckets), with this, P(FLIP) = 2 * Unexplained variance
-        p_flip_right_weighted = sum([w * np.mean(y) for w, y in zip(weights, binned_flip_probs_right_to_wrong.values())])
         p_flip_right_unweighted = sum([p for binned_buckets in binned_flip_probs_right_to_wrong.values() for p in binned_buckets]) / len(self.buckets)
         
         return {
@@ -227,16 +248,9 @@ class BucketDatasetResult:
             'consistency_corrected': self.calculate_weighted_consistency(test_results),
             'pove': self.proportion_variance_explained(),
             'pove_corrected': self.calculate_weighted_proportion_explained(test_results),
-            'flip_probability': self.calculate_flip_probability(test_results),
+            'flip_prob_corrected':self.calculate_flip_probability(test_results)['flip_prob_corrected'],
+            'flip_prob': self.calculate_flip_probability(test_results)['flip_prob'],
         }
-        
-        # print("#### Agreement Consistency ####")
-        # print('Consistency:', robustness['consistency'])
-        # print('Corrected consistency:', robustness['consistency_corrected'])
-        # print("\n#### POVE ####")
-        # print('POVE:', robustness['pove'])
-        # print('POVE Corrected:', robustness['pove_corrected'])
-    
         return robustness
         
     

@@ -6,6 +6,7 @@ from abductive_data import ParaphrasedAbductiveNLIExample, AbductiveNLIExample
 from defeasible_data import ParaphrasedDefeasibleNLIExample, DefeasibleNLIExample 
 import os
 import json
+from sklearn.metrics import accuracy_score
 import numpy as np
 from tqdm import tqdm
 from utils import PROJECT_ROOT_DIR, load_json
@@ -81,3 +82,13 @@ class Bucket:
     @property
     def bucket_confidence_shift(self) -> float:
         return self.bucket_confidence_mean - self.original_example_prediction.confidence_in_gold_label
+    
+    @property
+    def bucket_paraphrase_accuracy(self) -> float:
+        predictions = []
+        ground_truth = []
+        for paraphrase in self.paraphrase_predictions:
+            predictions.append(paraphrase.prediction)
+            ground_truth.append(paraphrase.gold_label)
+       
+        return accuracy_score(ground_truth, predictions)
