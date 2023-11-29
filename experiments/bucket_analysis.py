@@ -12,6 +12,15 @@ from collections import defaultdict
 from data_selection.data_selection_utils import float_floor
 
 def calculate_weighted_sum(interval_data: Dict[float, List[float]], weights: List[float]) -> float:
+    """
+    Calculates weighted sum of values in interval_data.
+    interval_data: Dict[float, List[float]] -- dict of interval -> list of values in that interval
+    weights: List[float] -- list of weights for each interval
+    For example:
+        interval_data = {0.0: [0.1, 0.2, 0.3], 0.1: [0.4, 0.5, 0.6]}
+        weights = [0.5, 0.5]
+        calculate_weighted_sum(interval_data, weights) = 0.5 * (0.1 + 0.2 + 0.3) + 0.5 * (0.4 + 0.5 + 0.6)
+    """
     weighted_interval_values = []
     for interval, interval_values in interval_data.items():
         weighted_interval_values.append(
