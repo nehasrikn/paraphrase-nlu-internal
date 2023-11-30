@@ -294,6 +294,8 @@ class BucketDatasetResult:
             'flip_prob': self.calculate_p_flip(test_results)['flip_prob'],
             'stay_prob_corrected':self.calculate_p_stay(test_results)['stay_prob_corrected'],
             'stay_prob': self.calculate_p_stay(test_results)['stay_prob'],
+            'paraphrase_accuracy': self.paraphrase_accuracy(),
+            'paraphrase_accuracy_corrected': self.calculate_weighted_paraphrase_accuracy(test_results),
         }
         return robustness
         
