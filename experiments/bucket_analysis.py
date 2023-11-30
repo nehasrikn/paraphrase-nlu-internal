@@ -213,7 +213,7 @@ class BucketDatasetResult:
         
         return second_term / (first_term + second_term)
     
-    def calculate_flip_probability(self, test_set: TestSetResult):
+    def calculate_p_flip(self, test_set: TestSetResult):
         """
         Calculates the probability that a model will flip its prediction when given a paraphrase.
         What is the probability that given a model M, a problem X, and a paraphrase of X (X') that
@@ -231,6 +231,7 @@ class BucketDatasetResult:
         weights = [x / len(test_set_confidences) for x in histogram[0]]
         
         binned_flip_probs_right_to_wrong = defaultdict(list)
+        
         for bucket in self.buckets:
             binned_flip_probs_right_to_wrong[float_floor(bucket.original_example_prediction.confidence_in_gold_label)].append(
                 bucket.bucket_correctness_mean * (1 - bucket.bucket_correctness_mean)
@@ -247,7 +248,39 @@ class BucketDatasetResult:
             'flip_prob': p_flip_right_unweighted * 2 # this should be 2*unexplained variance
         }
         
-    
+    def calculate_p_stay(self, test_set: TestSetResult):
+        """
+        Analog of calculate_p_flip but for P(STAY). Sanity checking, it should be equal to 1 - P(FLIP).
+        """
+        
+        test_set_confidences = test_set.confidences
+        histogram = np.histogram(test_set_confidences, bins=10, density=False, range=[0, 1])
+        weights = [x / len(test_set_confidences) for x in histogram[0]]
+        
+        binned_stay_probs_right = defaultdict(list)
+        binned_stay_probs_wrong = defaultdict(list)
+        
+        for bucket in self.buckets:
+            binned_stay_probs_right[float_floor(bucket.original_example_prediction.confidence_in_gold_label)].append(
+                bucket.bucket_correctness_mean * bucket.bucket_correctness_mean
+            )
+            binned_stay_probs_wrong[float_floor(bucket.original_example_prediction.confidence_in_gold_label)].append(
+                (1-bucket.bucket_correctness_mean) * (1-bucket.bucket_correctness_mean)
+            )
+            
+        # calculate weighted sum of P(STAY, RIGHT)
+        p_stay_right_weighted = calculate_weighted_sum(binned_stay_probs_right, weights)
+        p_stay_wrong_weighted = calculate_weighted_sum(binned_stay_probs_wrong, weights)
+        
+        # calculate unweighted sum of P(STAY, RIGHT)
+        p_stay_right_unweighted = sum([p for binned_buckets in binned_stay_probs_right.values() for p in binned_buckets]) / len(self.buckets)
+        p_stay_wrong_unweighted = sum([p for binned_buckets in binned_stay_probs_wrong.values() for p in binned_buckets]) / len(self.buckets)
+        
+        return {
+            'stay_prob_corrected': p_stay_right_weighted + p_stay_wrong_weighted,
+            'stay_prob': p_stay_right_unweighted + p_stay_wrong_unweighted
+        }
+        
     def linguistic_robustness_summary(self, test_results: TestSetResult):
         """
         Calculates linguistic robustness metrics for the model.
@@ -257,8 +290,10 @@ class BucketDatasetResult:
             'consistency_corrected': self.calculate_weighted_consistency(test_results),
             'pove': self.proportion_variance_explained(),
             'pove_corrected': self.calculate_weighted_proportion_explained(test_results),
-            'flip_prob_corrected':self.calculate_flip_probability(test_results)['flip_prob_corrected'],
-            'flip_prob': self.calculate_flip_probability(test_results)['flip_prob'],
+            'flip_prob_corrected':self.calculate_p_flip(test_results)['flip_prob_corrected'],
+            'flip_prob': self.calculate_p_flip(test_results)['flip_prob'],
+            'stay_prob_corrected':self.calculate_p_stay(test_results)['stay_prob_corrected'],
+            'stay_prob': self.calculate_p_stay(test_results)['stay_prob'],
         }
         return robustness
         
