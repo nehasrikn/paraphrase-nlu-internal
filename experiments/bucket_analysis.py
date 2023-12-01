@@ -32,6 +32,10 @@ def calculate_weighted_sum(interval_data: Dict[float, List[float]], weights: Lis
 class TestSetResult:
     def __init__(self, test_set_results: str):
         self.test_set = load_json(test_set_results) # list of dicts: keys = {'confidence', 'prediction', 'label', 'example_id'}
+        if 'anli' in self.test_set[0]['example_id'] and 'gpt3' in test_set_results:
+            for e in self.test_set:
+                e['label'] = e['label'] - 1 # labels here are 1 or 2, but we want 0 or 1
+                e['prediction'] = e['prediction'] - 1 # labels here are 1 or 2, but we want 0 or 1
     
     @property
     def accuracy(self) -> float:
@@ -314,12 +318,13 @@ def inference_to_buckets(file: str, compile_into_bucket_analysis_class: bool=Tru
     for ex_id, ex in tqdm(predictions.items()):
         
         label_key = 'modeling_label' if 'abductive' in file else 'label'
+        transform_to_modeling_label = lambda pred: pred-1 if ('anli' in ex_id and 'gpt3' in file) else pred
         
         bucket_paraphrases = [
             ExamplePrediction(
                 example_id=p['paraphrased_example']['paraphrase_id'],
                 confidence=p['confidence'],
-                prediction=p['prediction'],
+                prediction=transform_to_modeling_label(p['prediction']),
                 gold_label=p['paraphrased_example']['original_example'][label_key],
                 example=example_paraphrased_type(**p['paraphrased_example'])
             )
@@ -329,8 +334,8 @@ def inference_to_buckets(file: str, compile_into_bucket_analysis_class: bool=Tru
         original_example = ExamplePrediction(
             example_id=ex_id,
             confidence=ex['original_confidence'],
-            prediction=ex['original_prediction'],
-            gold_label=ex['gold_label'],
+            prediction=transform_to_modeling_label(ex['original_prediction']),
+            gold_label=ex['bucket_confidences'][0]['paraphrased_example']['original_example'][label_key],
             example=example_original_type(**ex['bucket_confidences'][0]['paraphrased_example']['original_example'])
         )
         
